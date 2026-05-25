@@ -1,0 +1,600 @@
+/* =============================================================================
+   COMPONENTES COMPARTILHADOS
+   Componentes de UI reutilizáveis entre múltiplas páginas
+   ============================================================================= */
+
+
+/* -----------------------------------------------------------------------------
+   Layout de página padrão
+   Wrapper principal para páginas com navbar, conteúdo e footer
+   ----------------------------------------------------------------------------- */
+
+.default-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  max-width: var(--bp-2xl);
+  margin: auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Navbar
+   Barra de navegação principal, presente em todas as páginas com layout padrão
+   ----------------------------------------------------------------------------- */
+
+/* Contêiner externo — fundo cinza com bordas arredondadas embaixo */
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-gray-200);
+  border-radius: 0 0 var(--radius-32) var(--radius-32);
+}
+
+/* Seção principal da navbar — logo, links e ações */
+
+.navbar-main {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-16) var(--space-96) var(--space-32) var(--space-96);
+  background-color: var(--color-gray-400);
+  border-radius: 0 0 var(--radius-32) var(--radius-32);
+}
+
+/* Banner de anúncio acima do header */
+
+.navbar-announcement {
+  padding: var(--space-12);
+  text-align: center;
+  background-color: var(--color-alert);
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.navbar-announcement:hover{
+  text-decoration: underline;
+}
+
+/* Linha com logo, links e ações */
+
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-32);
+  padding: var(--space-32) 0;
+}
+
+/* Grupo de ações à direita (links + botão entrar + tema) */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-32);
+}
+
+/* Grupo de links de navegação */
+
+.navbar-links {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.navbar-links ul {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Botão de navegação padrão */
+
+.button-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  gap: var(--space-8);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: var(--space-16);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-400);
+  cursor: pointer;
+}
+
+/* Estado ativo do botão de navegação */
+
+.button-nav.active {
+  color: var(--color-white);
+  fill: var(--color-white);
+  background-color: var(--color-black);
+  padding: var(--space-16);
+}
+
+
+/* -----------------------------------------------------------------------------
+   Barra de busca
+   Área com tabs de contexto, campo de busca e carrinho
+   ----------------------------------------------------------------------------- */
+
+/* Contêiner geral da barra de busca */
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-32);
+  padding: var(--space-16);
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-100);
+}
+
+/* Grupo de abas (tabs) */
+
+.tab-group {
+  display: flex;
+  padding: var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-gray-300);
+  background-color: var(--color-gray-300);
+}
+
+/* Botão de aba individual */
+
+.button-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-16);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-300);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Aba selecionada */
+
+.button-tab.active {
+  background-color: var(--color-gray-100);
+}
+
+/* Campo de busca com input e botão */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  flex: 1;
+  gap: var(--space-16);
+  padding: var(--space-4);
+  padding-left: var(--space-16);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-500);
+  border-radius: var(--radius-full);
+}
+
+/* Variante com largura mínima — usada no pre-footer */
+
+.search-bar.min-width {
+  min-width: 37.5rem;
+}
+
+.search-bar input {
+  flex: 1;
+  font: inherit;
+  padding-block: var(--space-12);
+  border: none;
+  background-color: transparent;
+  overflow: visible;
+  line-height: var(--line-height-normal);
+}
+
+.search-bar input::placeholder {
+  color: var(--color-gray-500);
+  overflow: visible;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+/* Botão de busca (lupa) */
+
+.button-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-black);
+  fill: var(--color-white);
+  cursor: pointer;
+}
+
+/* Botão do carrinho */
+
+.button-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-18);
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-32);
+  background-color: var(--color-black);
+  fill: var(--color-white);
+  cursor: pointer;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Barra de categorias
+   Dropdown de categorias de produtos abaixo da navbar
+   ----------------------------------------------------------------------------- */
+
+.categories-bar {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-16) var(--space-96);
+}
+
+.categories-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  cursor: pointer;
+}
+
+/* Label centralizado — empurra o ícone de seta para a direita */
+
+.categories-label {
+  margin-right: auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Seção de produtos
+   Grid de cards de produto com header e navegação
+   ----------------------------------------------------------------------------- */
+
+/* Contêiner do main — empilha seções com padding e gap corretos */
+
+.page-sections {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-96);
+  gap: var(--space-64);
+}
+
+/* Contêiner da seção inteira */
+
+.product-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+/* Linha de topo com título e navegação */
+
+.product-section-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-32);
+}
+
+/* Grupo com título e botão de "ver todos" */
+
+.product-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+/* Botão de seta (ver todos) */
+
+.button-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-200);
+  cursor: pointer;
+  fill: var(--color-black);
+}
+
+/* Grupo de botões de paginação */
+
+.product-section-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+/* Botão de paginação individual */
+
+.button-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-14);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-200);
+  cursor: pointer;
+  fill: var(--color-black);
+}
+
+/* Grid de cards */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(min-content, max-content);
+  gap: var(--space-16);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.products-grid li {
+  display: contents;
+}
+
+/* Link wrapper para cards de produto clicáveis */
+
+.products-grid li > a {
+  display: contents;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card individual de produto */
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.product-card-review {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.product-card-supplier-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-card-stock {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Imagem do produto no card */
+
+.product-image {
+  min-height: 12.5rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-8);
+}
+
+
+/* -----------------------------------------------------------------------------
+   Rodapé
+   Footer completo com navegação, redes sociais e notas de rodapé
+   ----------------------------------------------------------------------------- */
+
+/* Bloco externo com fundo cinza claro e bordas arredondadas no topo */
+
+.page-bottom {
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-32) var(--radius-32) 0 0;
+}
+
+/* Seção pré-footer com buscador centralizado */
+
+.pre-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-64);
+  padding: var(--space-128) var(--space-96);
+}
+
+/* Rodapé principal */
+
+.footer {
+  display: flex;
+  gap: var(--space-32);
+  padding: var(--space-96);
+  background-color: var(--color-gray-400);
+  border-radius: var(--radius-32) var(--radius-32) 0 0;
+}
+
+/* Coluna esquerda — nav e social */
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-64);
+  width: 50%;
+}
+
+/* Coluna direita — logo e ações */
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 50%;
+}
+
+/* Links de navegação do rodapé */
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-24);
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Redes sociais do rodapé */
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-24);
+}
+
+/* Grupo de botões de rede social */
+
+.social-buttons {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Botão de rede social individual */
+
+.button-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-100);
+  cursor: pointer;
+}
+
+/* Notas de rodapé (copyright, privacidade, termos) */
+
+.footnotes {
+  display: flex;
+  gap: var(--space-16);
+}
+
+.button-footnote {
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Botão de link de navegação no rodapé */
+
+.button-footer-link {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Grupo de ações à direita (subir ao topo + tema) */
+
+.footer-right-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--space-64);
+}
+
+/* Botão de voltar ao topo */
+
+.button-scroll-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-16);
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-100);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Logo no rodapé */
+
+.footer-logo {
+  width: 100%;
+  height: auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Theme Toggle
+   Alternador de tema (claro / escuro / sistema) presente em todas as páginas
+   ----------------------------------------------------------------------------- */
+
+/* Contêiner do grupo de botões */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-100);
+}
+
+/* Cada opção de tema individual */
+
+.button-theme-option {
+  display: flex;
+  padding: var(--space-12);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-gray-100);
+  cursor: pointer;
+}
+
+/* Estado ativo — opção de tema selecionada */
+
+.button-theme-option.active {
+  fill: var(--color-white);
+  color: var(--color-white);
+  background-color: var(--color-black);
+}

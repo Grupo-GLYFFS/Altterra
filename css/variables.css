@@ -1,0 +1,94 @@
+:root {
+
+    /* Colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-100: #ededed;
+    --color-gray-200: #e0e0e0;
+    --color-gray-300: #dcdcdc;
+    --color-gray-400: #c8c8c8;
+    --color-gray-500: #808080;
+    --color-gray-600: ;
+    --color-gray-700: #5b5b5b;
+    --color-brand-green: #33952f;
+    --color-alert: #d22605;
+
+    /* Spacing */
+    --space-2: .125rem;
+    --space-4: .25rem;
+    --space-8: .5rem;
+    --space-12: .75rem;
+    --space-14: .875rem;
+    --space-16: 1rem;
+    --space-18: 1.125rem;
+    --space-20: 1.25rem;
+    --space-24: 1.5rem;
+    --space-32: 2rem;
+    --space-48: 3rem;
+    --space-64: 4rem;
+    --space-72: 4.5rem;
+    --space-96: 6rem;
+    --space-128: 8rem;
+
+    /* Border radius */
+    --radius-4: .25rem;
+    --radius-8: .5rem;
+    --radius-16: 1rem;
+    --radius-32: 2rem;
+    --radius-48: 3rem;
+    --radius-full: 9999px;
+
+    /* Typography */
+    --font-size-12: .75rem;
+    --font-size-14: .875rem;
+    --font-size-16: 1rem;
+    --font-size-20: 1.25rem;
+    --font-size-24: 1.5rem;
+    --font-size-32: 2rem;
+    --font-size-36: 2.25rem;
+    --font-size-40: 2.5rem;
+    --font-size-48: 3rem;
+    --font-size-64: 4rem;
+
+    /* Font families */
+    --font-body: 'Cal Sans UI', system-ui, sans-serif;
+    --font-display: 'Cal Sans UI Text', system-ui, sans-serif;
+
+    /* Font weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Line heights */
+    --line-height-tight: 1;
+    --line-height-normal: 1.5;
+
+    /* Letter spacing */
+    --letter-spacing-tight: -.06em;
+
+    /* Breakpoints */
+    --bp-sm: 640px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+    --bp-xl: 1280px;
+    --bp-2xl: 1536px;
+
+    /* Icon sizes */
+    --icon-8: .5rem;
+    --icon-10: .625rem;
+    --icon-12: .75rem;
+    --icon-16: 1rem;
+    --icon-20: 1.25rem;
+    --icon-24: 1.5rem;
+    --icon-40: 2.5rem;
+
+    /* Z-index */
+    --z-0-base: 0;
+    --z-10-raised: 10;
+    --z-100-dropdown: 100;
+    --z-200-sticky: 200;
+    --z-300-modal: 300;
+
+}

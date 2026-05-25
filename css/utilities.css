@@ -1,0 +1,162 @@
+/* =============================================================================
+   UTILITÁRIOS DE ÍCONE
+   Classes para dimensionar ícones SVG via bounding box
+   O tamanho é aplicado no SVG dentro do span.icon
+   O número no nome da classe corresponde ao tamanho em px
+   ============================================================================= */
+
+/* Bounding box — centraliza o SVG dentro do span */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Tamanhos disponíveis */
+
+.icon-8 svg {
+  width: var(--icon-8);
+  height: var(--icon-8);
+}
+
+.icon-10 svg {
+  width: var(--icon-10);
+  height: var(--icon-10);
+}
+
+.icon-12 svg {
+  width: var(--icon-12);
+  height: var(--icon-12);
+}
+
+.icon-16 svg {
+  width: var(--icon-16);
+  height: var(--icon-16);
+}
+
+.icon-20 svg {
+  width: var(--icon-20);
+  height: var(--icon-20);
+}
+
+.icon-24 svg {
+  width: var(--icon-24);
+  height: var(--icon-24);
+}
+
+.icon-40 svg {
+  width: var(--icon-40);
+  height: var(--icon-40);
+}
+
+
+/* =============================================================================
+   UTILITÁRIOS DE TIPOGRAFIA
+   Classes para tamanho, peso e estilo de texto
+   O número no nome da classe de título corresponde ao tamanho em px
+   ============================================================================= */
+
+/* Tamanhos de corpo de texto */
+
+.text-xs {
+  font-size: var(--font-size-12);
+}
+
+.text-sm {
+  font-size: var(--font-size-14);
+}
+
+.text-xl {
+  font-size: var(--font-size-24);
+}
+
+/* Pesos de texto */
+
+.text-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Altura de linha para parágrafos de texto corrido */
+
+.text-paragraph {
+  line-height: var(--line-height-normal);
+}
+
+/* Títulos — usam a fonte display (Cal Sans UI Text) com letter-spacing apertado */
+
+.title-sm {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-16);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.title-lg {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-20);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.title-xl {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-24);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.title-2xl {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-32);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.title-3xl {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-36);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+
+/* =============================================================================
+   UTILITÁRIOS DE COR
+   Classes para cor de texto e ícone (fill)
+   ============================================================================= */
+
+/* Texto secundário — cinza médio */
+
+.text-muted {
+  color: var(--color-gray-500);
+  fill: var(--color-gray-500);
+}
+
+/* Texto terciário — cinza escuro */
+
+.text-muted-dark {
+  color: var(--color-gray-700);
+  fill: var(--color-gray-700);
+}
+
+
+/* =============================================================================
+   UTILITÁRIOS DE ACESSIBILIDADE
+   Classes para melhorar a experiência com tecnologias assistivas
+   ============================================================================= */
+
+/* Visualmente oculto mas lido por leitores de tela */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

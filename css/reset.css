@@ -1,0 +1,155 @@
+/* =============================================================================
+   FONTES
+   Declarações @font-face para a família Cal Sans UI
+   ============================================================================= */
+
+/* Cal Sans UI — corpo de texto */
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('../fonts/CalSansUI-UILight.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('../fonts/CalSansUI-UIRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('../fonts/CalSansUI-UIMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('../fonts/CalSansUI-UISemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('../fonts/CalSansUI-UIBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cal Sans UI Text — títulos e destaques */
+
+@font-face {
+  font-family: 'Cal Sans UI Text';
+  src: url('../fonts/CalSansUI-TextSemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI Text';
+  src: url('../fonts/CalSansUI-TextBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =============================================================================
+   RESET
+   Remove estilos padrão dos browsers para garantir consistência entre eles
+   ============================================================================= */
+
+/* Box-sizing global — padding e border incluídos no tamanho do elemento */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove margem e padding padrão de todos os elementos */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Garante que o html ocupe a altura total da viewport */
+
+html {
+  font-size: var(--font-size-16);
+  height: 100%;
+}
+
+/* Define a fonte, peso e altura de linha padrão do projeto */
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Elementos de mídia não ultrapassam o contêiner pai */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Formulários herdam a fonte do documento */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Textos longos quebram linha corretamente */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove estilos padrão de botões */
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Remove sublinhado e herda cor de links */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove marcadores de listas */
+
+ul,
+ol {
+  list-style: none;
+}
