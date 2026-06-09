@@ -26,9 +26,9 @@ O carregamento dos produtos usa `fetch` no `data/produtos.json`, então **precis
 - **AGTECH-17/18/19/20** — Como funciona: design, tabs e validação do formulário.
 - **AGTECH-22** — responsividade (`css/fase4.css`).
 
-- **AGTECH-26 — fotos dos produtos:** coloque os arquivos em `images/produtos/` com os nomes que estão no JSON (campo `imagem`). Enquanto não tiver, os cards caem na imagem do tomate (fallback automático).
-- **AGTECH-32 — deploy:** no GitHub → *Settings → Pages → Branch: `main` / root → Save*. O site já usa caminhos relativos, então funciona no subcaminho do Pages.
-- **AGTECH-33 — pitch vídeo:** já existe um vídeo do Vimeo linkado na navbar; só confirmar se é a versão final.
+## O que falta fazer 
+- **AGTECH-26 — fotos dos produtos:** 
+- **AGTECH-33 — pitch vídeo:**
 
 ## Arquivos novos / alterados / removidos
 - **Novos:** `js/home.js`, `js/produto.js`, `js/tema.js`, `js/validacao.js`, `js/cadastro.js`, `js/como-funciona.js`, `css/fase4.css`, `pages/cadastro-page.html`, `pages/como-funciona-page.html`.
