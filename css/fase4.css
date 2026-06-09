@@ -1,0 +1,122 @@
+/* css/fase4.css — estilos adicionados na Fase 4 (categorias, tabs, validação, responsividade). */
+
+/* Garante que o atributo hidden esconde o elemento mesmo quando display é sobrescrito por regras específicas */
+[hidden] { display: none !important; }
+
+/* ---------- Lista de categorias (dropdown da Home) ---------- */
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  list-style: none;
+  margin: var(--space-16) 0 0;
+  padding: 0;
+}
+.button-category {
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-gray-300);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.button-category:hover { background-color: var(--color-gray-100); }
+.button-category.active { background-color: var(--color-brand-green); color: #ffffff; border-color: var(--color-brand-green); }
+
+/* ---------- Botões de paginação desativados (carrossel) ---------- */
+.button-pagination.is-disabled,
+.button-pagination:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ---------- Tabs (Cadastro e Como Funciona) ---------- */
+.tab-panels { margin-top: var(--space-24); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ---------- Como Funciona ---------- */
+.como-funciona {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  width: 100%;
+  max-width: 56rem;
+  margin-inline: auto;
+}
+.como-funciona-intro { display: flex; flex-direction: column; gap: var(--space-8); }
+.como-funciona-tabs { width: fit-content; }
+.passos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-16); }
+.passos li { display: flex; gap: var(--space-16); align-items: flex-start; }
+.passo-num {
+  flex: none;
+  width: var(--space-32); height: var(--space-32);
+  display: grid; place-items: center;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+  font-weight: var(--font-weight-bold);
+}
+.tab-panel .button-contact-action { margin-top: var(--space-24); display: inline-flex; width: fit-content; text-decoration: none; }
+
+/* ---------- Cadastro de Produto ---------- */
+.cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.cadastro-tabs { width: fit-content; }
+.cadastro .form-field { display: flex; flex-direction: column; gap: var(--space-8); }
+.cadastro select.form-input { appearance: auto; }
+.cadastro-checkbox { display: flex; align-items: center; gap: var(--space-8); }
+.cadastro-acoes { display: flex; justify-content: space-between; gap: var(--space-16); margin-top: var(--space-24); }
+.button-step {
+  font: inherit; font-weight: var(--font-weight-medium);
+  padding: var(--space-12) var(--space-24);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-gray-300);
+  background-color: var(--color-white); color: var(--color-black);
+  cursor: pointer;
+}
+.button-step:hover { background-color: var(--color-gray-100); }
+
+/* ---------- Validação ---------- */
+.form-error { display: block; color: var(--color-alert); font-size: var(--font-size-12); margin-top: var(--space-4); }
+.form-input.invalid { border-color: var(--color-alert) !important; outline-color: var(--color-alert); }
+.form-success {
+  border: 1px solid var(--color-brand-green);
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-16);
+  padding: var(--space-24);
+  display: flex; flex-direction: column; gap: var(--space-8);
+}
+
+/* ---------- Dark mode: correções pontuais de elevação ---------- */
+
+/* Aba ativa deve ser mais clara que o grupo no tema escuro */
+[data-theme="dark"] .button-tab.active {
+  background-color: var(--color-gray-400);
+}
+
+/* ---------- Responsividade (AGTECH-22) ---------- */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+  .categories-bar { padding-inline: var(--space-32); }
+}
+@media (max-width: 768px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .navbar-search { flex-wrap: wrap; }
+  .search-bar.min-width { min-width: 0; width: 100%; }
+  .product-section-top { flex-wrap: wrap; }
+  .cadastro-acoes { flex-direction: column-reverse; }
+  .cadastro-acoes .button-step,
+  .cadastro-acoes .button-contact-action { width: 100%; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .categories-bar { padding-inline: var(--space-16); }
+  .form-row { flex-direction: column; }
+}

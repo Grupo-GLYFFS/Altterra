@@ -51,7 +51,7 @@
   text-align: center;
   background-color: var(--color-alert);
   border-radius: var(--radius-full);
-  color: var(--color-white);
+  color: #ffffff;
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
 }
@@ -163,6 +163,7 @@
   border: none;
   border-radius: var(--radius-32);
   background-color: var(--color-gray-300);
+  color: var(--color-black);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -205,7 +206,7 @@
 }
 
 .search-bar input::placeholder {
-  color: var(--color-gray-500);
+  color: var(--color-gray-600);
   overflow: visible;
 }
 
@@ -560,6 +561,15 @@
 .footer-logo {
   width: 100%;
   height: auto;
+}
+
+/* Dark mode: logo wordmark usa fill="black" hardcoded no SVG; CSS sobrescreve atributos de apresentação */
+[data-theme="dark"] .footer-logo path[fill="black"] {
+  fill: var(--color-black);
+}
+
+[data-theme="dark"] .footer-logo path[fill="#33952F"] {
+  fill: var(--color-brand-green);
 }
 
 

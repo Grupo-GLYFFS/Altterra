@@ -8,7 +8,7 @@
     --color-gray-300: #dcdcdc;
     --color-gray-400: #c8c8c8;
     --color-gray-500: #808080;
-    --color-gray-600: ;
+    --color-gray-600: #6e6e6e;
     --color-gray-700: #5b5b5b;
     --color-brand-green: #33952f;
     --color-alert: #d22605;
@@ -92,3 +92,20 @@
     --z-300-modal: 300;
 
 }
+
+/* ===== Tema escuro (Fase 4) — inverte os tokens de cor ===== */
+[data-theme="dark"] {
+  --color-white: #131313;
+  --color-black: #eeeeee;
+  --color-gray-100: #1b1b1b;
+  --color-gray-200: #232323;
+  --color-gray-300: #2d2d2d;
+  --color-gray-400: #383838;
+  --color-gray-500: #929292;
+  --color-gray-600: #a8a8a8;
+  --color-gray-700: #cacaca;
+  --color-brand-green: #5cb85c;
+  --color-alert: #ff6e61;
+}
+
+html { color-scheme: light dark; }

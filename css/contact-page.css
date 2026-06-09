@@ -157,7 +157,7 @@
 }
 
 .form-input::placeholder {
-  color: var(--color-gray-500);
+  color: var(--color-gray-600);
 }
 
 .form-input:focus {

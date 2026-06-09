@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/reset.css" />
   <link rel="stylesheet" href="./css/utilities.css" />
   <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/fase4.css">
   <link rel="icon" href="./images/altterra-icon.svg" type="image/svg+xml" />
 </head>
 
@@ -28,7 +29,7 @@
           <nav class="navbar-links">
             <ul>
               <li>
-                <a class="button-nav" href="./pages/contact-page.html">Ajuda</a>
+                <a class="button-nav" href="./pages/como-funciona-page.html">Ajuda</a>
               </li>
             </ul>
           </nav>
@@ -140,6 +141,13 @@
           </svg>
         </span>
       </summary>
+      <ul class="categories-list">
+        <li><button type="button" class="button-category active" data-categoria="todos">Todos</button></li>
+        <li><button type="button" class="button-category" data-categoria="hortalicas">Hortaliças</button></li>
+        <li><button type="button" class="button-category" data-categoria="frutas">Frutas</button></li>
+        <li><button type="button" class="button-category" data-categoria="graos">Grãos</button></li>
+        <li><button type="button" class="button-category" data-categoria="sementes">Sementes</button></li>
+      </ul>
     </details>
   </header>
 
@@ -1183,7 +1191,7 @@
               <a class="button-footer-link" href="./pages/login-page.html">Entrar</a>
             </li>
             <li>
-              <a class="button-footer-link" href="./pages/contact-page.html">Ajuda</a>
+              <a class="button-footer-link" href="./pages/como-funciona-page.html">Ajuda</a>
             </li>
           </ul>
         </nav>
@@ -1298,6 +1306,9 @@
       </div>
     </footer>
   </div>
+  <script src="./js/produtos.js" defer></script>
+  <script src="./js/home.js" defer></script>
+  <script src="./js/tema.js" defer></script>
 </body>
 
 </html>

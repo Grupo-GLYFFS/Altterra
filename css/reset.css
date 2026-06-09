@@ -89,6 +89,7 @@
 html {
   font-size: var(--font-size-16);
   height: 100%;
+  background-color: var(--color-white);
 }
 
 /* Define a fonte, peso e altura de linha padrão do projeto */
@@ -98,6 +99,8 @@ body {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   -webkit-font-smoothing: antialiased;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 /* Elementos de mídia não ultrapassam o contêiner pai */
