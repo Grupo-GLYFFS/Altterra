@@ -314,6 +314,7 @@
   padding: var(--space-16);
   border-radius: var(--radius-full);
   background-color: var(--color-gray-100);
+  color: var(--color-black);
 }
 
 .button-description-toggle.active {
@@ -419,6 +420,10 @@ meter.progress-bar::-webkit-meter-bar {
   background: var(--color-gray-400);
   border-radius: var(--radius-full);
   border: none;
+}
+
+[data-theme="dark"] meter.progress-bar::-webkit-meter-bar {
+  background: var(--color-gray-500);
 }
 
 meter.progress-bar::-webkit-meter-optimum-value,

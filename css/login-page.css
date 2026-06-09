@@ -90,6 +90,7 @@
   border: 1px solid var(--color-gray-500);
   border-radius: var(--radius-32);
   background-color: var(--color-white);
+  color: var(--color-black);
   cursor: pointer;
 }
 
@@ -125,11 +126,14 @@
   border-radius: var(--radius-8);
   text-align: center;
   line-height: var(--line-height-normal);
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 .text-input::placeholder {
   font: inherit;
   overflow: visible;
+  color: var(--color-gray-600);
 }
 
 .button-primary {
@@ -162,8 +166,13 @@
   gap: var(--space-64);
   padding: var(--space-64);
   border-radius: var(--radius-32);
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(10px);
+}
+
+.video-ad .title-3xl {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 iframe {
