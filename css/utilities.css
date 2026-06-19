@@ -46,6 +46,11 @@
   height: var(--icon-24);
 }
 
+.icon-28 svg {
+  width: var(--icon-28);
+  height: var(--icon-28);
+}
+
 .icon-40 svg {
   width: var(--icon-40);
   height: var(--icon-40);

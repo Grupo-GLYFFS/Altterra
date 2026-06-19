@@ -3,7 +3,7 @@ function renderNavbar() {
   if (!navbarRoot) return;
 
   const currentPath = window.location.pathname;
-  const isContactPage = currentPath.includes('/pages/contact-page.html');
+  const isHowItWorksPage = currentPath.includes('/pages/how-it-works-page.html');
 
   navbarRoot.innerHTML = `
   <header class="navbar">
@@ -16,7 +16,7 @@ function renderNavbar() {
           <nav class="navbar-links">
             <ul>
               <li>
-                <a class="button-nav" href="/pages/contact-page.html" ${isContactPage ? 'aria-current="page"' : ''}>Ajuda</a>
+                <a class="button-nav" href="/pages/how-it-works-page.html" ${isHowItWorksPage ? 'aria-current="page"' : ''}>Como funciona</a>
               </li>
             </ul>
           </nav>
@@ -304,7 +304,7 @@ function renderFooter() {
               <a class="button-footer-link" href="/pages/login-page.html">Entrar</a>
             </li>
             <li>
-              <a class="button-footer-link" href="/pages/contact-page.html">Ajuda</a>
+              <a class="button-footer-link" href="/pages/how-it-works-page.html">Como funciona</a>
             </li>
           </ul>
         </nav>
