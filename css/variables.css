@@ -12,6 +12,9 @@
     --color-gray-700: #5b5b5b;
     --color-brand-green: #33952f;
     --color-alert: #d22605;
+    --color-gray-800: #373737;
+    --color-gray-300-alpha: rgba(219, 219, 219, 0.87);
+    --color-white-alpha-10: rgba(255, 255, 255, 0.1);
 
     /* Spacing */
     --space-2: .125rem;
