@@ -670,39 +670,3 @@ details[open] .categories-toggle .icon:last-child svg {
   height: auto;
 }
 
-
-/* -----------------------------------------------------------------------------
-   Theme Toggle
-   Alternador de tema (claro / escuro / sistema) presente em todas as páginas
-   ----------------------------------------------------------------------------- */
-
-/* Contêiner do grupo de botões */
-
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-4);
-  border: none;
-  border-radius: var(--radius-32);
-  background-color: var(--color-gray-100);
-}
-
-/* Cada opção de tema individual */
-
-.button-theme-option {
-  display: flex;
-  padding: var(--space-12);
-  border: none;
-  border-radius: var(--radius-32);
-  background-color: var(--color-gray-100);
-  cursor: pointer;
-}
-
-/* Estado ativo — opção de tema selecionada */
-
-.button-theme-option.active {
-  fill: var(--color-white);
-  color: var(--color-white);
-  background-color: var(--color-black);
-}
