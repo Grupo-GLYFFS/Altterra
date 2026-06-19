@@ -250,20 +250,144 @@
 .categories-bar {
   display: flex;
   flex-direction: column;
-  padding: var(--space-16) var(--space-96);
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-32) var(--radius-32);
 }
 
 .categories-toggle {
   display: flex;
   align-items: center;
+  padding: var(--space-16) var(--space-96);
   gap: var(--space-8);
   cursor: pointer;
 }
 
 /* Label centralizado — empurra o ícone de seta para a direita */
-
 .categories-label {
   margin-right: auto;
+}
+
+/* Painel que aparece quando <details> está aberto */
+.categories-panel {
+  display: flex;
+  gap: var(--space-32);
+  padding: 0 var(--space-96) var(--space-32);
+  background-color: var(--color-gray-300);
+  max-height: calc(100vh - 280px);
+  overflow: hidden;
+}
+
+/* Sidebar esquerda com lista de categorias */
+.categories-sidebar {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categories-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.categories-nav-item {
+  display: block;
+  width: 100%;
+  padding: var(--space-16);
+  border-radius: var(--radius-8);
+  border: none;
+  background-color: transparent;
+  font-family: var(--font-body);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--color-black);
+}
+
+.categories-nav-item.active,
+.categories-nav-item:hover {
+  background-color: var(--color-gray-100);
+}
+
+/* Conteúdo à direita com os grupos de categoria */
+.categories-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categories-content::-webkit-scrollbar {
+  display: none;
+}
+
+.category-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+/* Grid de itens — 9 colunas como no design */
+.category-items {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: var(--space-8);
+}
+
+.category-item {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.category-item figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-16);
+  padding: var(--space-16);
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-8);
+  width: 100%;
+}
+
+.category-item-img {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-gray-500);
+  border-radius: var(--radius-4);
+  flex-shrink: 0;
+}
+
+.category-item figcaption {
+  font-size: var(--font-size-16);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--space-24);
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-item-more figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+/* Rotacionar seta quando o details está aberto */
+details[open] .categories-toggle .icon:last-child svg {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
 }
 
 
