@@ -31,6 +31,11 @@
   gap: var(--space-48);
 }
 
+.login-logo {
+  height: 56px;
+  width: auto;
+}
+
 .login-methods {
   display: flex;
   flex-direction: column;

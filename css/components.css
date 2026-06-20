@@ -56,6 +56,15 @@
   padding: var(--space-32) 0;
 }
 
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-img {
+  height: 48px;
+}
+
 /* Grupo de ações à direita (links + botão entrar + tema) */
 
 .navbar-actions {
@@ -745,7 +754,8 @@ details[open] .categories-toggle .icon:last-child svg {
   height: auto;
 }
 
-.footer-logo svg {
-  filter: brightness(0) invert(1);
+.footer-logo img {
+  width: 100%;
+  height: auto;
 }
 
