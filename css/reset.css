@@ -98,6 +98,8 @@ body {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   -webkit-font-smoothing: antialiased;
+  color: var(--color-black);
+  background-color: var(--color-white);
 }
 
 /* Elementos de mídia não ultrapassam o contêiner pai */
@@ -138,6 +140,7 @@ button {
   cursor: pointer;
   background: none;
   border: none;
+  color: inherit;
 }
 
 /* Remove sublinhado e herda cor de links */

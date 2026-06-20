@@ -1,57 +1,34 @@
 .login-page {
   display: flex;
-  flex-direction: row;
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-}
-
-.login-cover {
-  display: flex;
   align-items: center;
   justify-content: center;
-  width: 45%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
   background-image: url('../images/login-page-cover-1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-right: 1px solid var(--color-gray-500);
 }
 
 .login-panel {
-  width: 55%;
+  background-color: var(--color-green-800);
+  border-radius: var(--radius-32);
+  color: var(--color-white);
+  padding: var(--space-64);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-96);
+  width: fit-content;
 }
 
 .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-64);
-}
-
-.login-nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.button-back {
-  display: flex;
-  align-items: center;
-  align-self: flex-start;
-  justify-content: center;
-  padding: var(--space-16);
-  border: none;
-  border-radius: var(--radius-32);
-  background-color: var(--color-gray-100);
-  cursor: pointer;
+  text-align: center;
+  gap: var(--space-48);
 }
 
 .login-methods {
@@ -64,6 +41,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
+  text-align: left;
 }
 
 .social-login-buttons {
@@ -87,10 +65,20 @@
   font-size: inherit;
   font-weight: var(--font-weight-semibold);
   padding: var(--space-16);
-  border: 1px solid var(--color-gray-500);
+  border: none;
   border-radius: var(--radius-32);
-  background-color: var(--color-white);
+  background-color: #ffffff;
+  color: var(--color-black);
   cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.button-social-login:hover {
+  background-color: var(--color-green-200);
+}
+
+.button-social-login:active {
+  background-color: var(--color-green-300);
 }
 
 .divider {
@@ -105,7 +93,7 @@
   width: 100%;
   height: 1px;
   border: none;
-  background-color: var(--color-gray-500);
+  background-color: var(--color-green-600);
 }
 
 .login-email {
@@ -120,16 +108,19 @@
   /* height: 58px; */
   font: inherit;
   width: 100%;
-  padding: var(--space-16) var(--space-32);
-  border: 1px solid var(--color-gray-500);
+  padding: var(--space-16);
   border-radius: var(--radius-8);
   text-align: center;
   line-height: var(--line-height-normal);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-gray-500);
 }
 
 .text-input::placeholder {
   font: inherit;
   overflow: visible;
+  color: var(--color-gray-500);
 }
 
 .button-primary {
@@ -138,11 +129,22 @@
   font-weight: var(--font-weight-bold);
   font-size: inherit;
   padding: var(--space-20) var(--space-32);
-  border: 1px solid var(--color-black);
+  border: 1px solid var(--color-white);
   border-radius: var(--radius-32);
-  color: var(--color-white);
-  background-color: var(--color-black);
+  color: var(--color-black);
+  background-color: var(--color-white);
   cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.button-primary:hover {
+  background-color: var(--color-green-200);
+  border-color: var(--color-green-200);
+}
+
+.button-primary:active {
+  background-color: var(--color-green-300);
+  border-color: var(--color-green-300);
 }
 
 .button-link {
@@ -152,5 +154,22 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: opacity 150ms ease;
 }
-
+
+.button-link:hover {
+  opacity: 0.6;
+}
+
+.button-link:active {
+  opacity: 0.4;
+}
+
+.login-panel .text-muted {
+  color: var(--color-text-muted-dark);
+  fill: var(--color-text-muted-dark);
+}
+
+.login-panel .button-link {
+  color: var(--color-white);
+}

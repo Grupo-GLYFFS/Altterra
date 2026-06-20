@@ -23,7 +23,7 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
+  gap: var(--space-32);
 }
 
 .right-side {
@@ -65,7 +65,16 @@
   justify-content: center;
   padding: var(--space-16);
   border-radius: var(--radius-full);
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
+  transition: background-color 150ms ease;
+}
+
+.button-product-action:hover {
+  background-color: var(--color-green-300);
+}
+
+.button-product-action:active {
+  background-color: var(--color-green-400);
 }
 
 .product-actions {
@@ -155,7 +164,7 @@
   justify-content: center;
   padding: var(--space-4);
   border-radius: var(--radius-full);
-  background-color: var(--color-white);
+  background-color: var(--color-green-200);
   border: 1px solid var(--color-gray-500);
   white-space: nowrap;
 }
@@ -179,6 +188,15 @@
   border-radius: var(--radius-full);
   padding: var(--space-20);
   white-space: nowrap;
+  transition: background-color 150ms ease;
+}
+
+.button-add-to-cart:hover {
+  background-color: var(--color-gray-800);
+}
+
+.button-add-to-cart:active {
+  background-color: var(--color-gray-700);
 }
 
 .button-request-sample {
@@ -187,12 +205,21 @@
   align-items: center;
   justify-content: center;
   font-weight: var(--font-weight-semibold);
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
   color: var(--color-black);
   border-radius: var(--radius-full);
   padding: var(--space-20);
   white-space: nowrap;
   gap: var(--space-4);
+  transition: background-color 150ms ease;
+}
+
+.button-request-sample:hover {
+  background-color: var(--color-green-300);
+}
+
+.button-request-sample:active {
+  background-color: var(--color-green-400);
 }
 
 .button-send-message {
@@ -201,12 +228,21 @@
   align-items: center;
   justify-content: center;
   font-weight: var(--font-weight-semibold);
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
   color: var(--color-black);
   border-radius: var(--radius-full);
   padding: var(--space-12) var(--space-20);
   white-space: nowrap;
   gap: var(--space-4);
+  transition: background-color 150ms ease;
+}
+
+.button-send-message:hover {
+  background-color: var(--color-green-300);
+}
+
+.button-send-message:active {
+  background-color: var(--color-green-400);
 }
 
 .response-time {
@@ -297,11 +333,17 @@
   right: var(--space-4);
 }
 
+.description-toggle-wrapper {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-white);
+  padding: var(--space-16) 0;
+  z-index: var(--z-10-raised);
+}
+
 .description-toggle {
   display: flex;
-  position: sticky;
-  top: var(--space-16);
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
   border-radius: var(--radius-full);
   padding: var(--space-8);
 }
@@ -313,16 +355,27 @@
   justify-content: center;
   padding: var(--space-16);
   border-radius: var(--radius-full);
-  background-color: var(--color-gray-100);
+  background-color: transparent;
+  transition: background-color 150ms ease;
+}
+
+.button-description-toggle:hover {
+  background-color: var(--color-green-300);
+}
+
+.button-description-toggle:active {
+  background-color: var(--color-green-400);
 }
 
 .button-description-toggle.active {
-  background-color: var(--color-gray-300);
+  background-color: var(--color-black);
   font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  fill: var(--color-white);
 }
 
 .cultivation-table {
-  background-color: var(--color-white);
+  background-color: var(--color-green-200);
   border-radius: var(--space-8);
   overflow: hidden;
   border: 1px solid var(--color-gray-400);
@@ -341,7 +394,7 @@
 }
 
 .cultivation-table tr:nth-child(even) {
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-300);
 }
 
 .location-container {
@@ -379,6 +432,15 @@
   justify-content: center;
   padding: var(--space-16);
   background-color: var(--color-white);
+  transition: background-color 150ms ease;
+}
+
+.button-location-action:hover {
+  background-color: var(--color-green-200);
+}
+
+.button-location-action:active {
+  background-color: var(--color-green-300);
 }
 
 .reviews-summary {
@@ -386,7 +448,7 @@
   gap: var(--space-32);
   padding: var(--space-32);
   border-radius: var(--radius-8);
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
   align-items: center;
   justify-content: center;
 }
@@ -500,9 +562,18 @@ meter.progress-bar::-moz-meter-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
   border-radius: var(--radius-full);
   padding: var(--space-16);
+  transition: background-color 150ms ease;
+}
+
+.button-expand-reviews:hover {
+  background-color: var(--color-green-300);
+}
+
+.button-expand-reviews:active {
+  background-color: var(--color-green-400);
 }
 
 .supplier-header {
@@ -517,7 +588,16 @@ meter.progress-bar::-moz-meter-bar {
   justify-content: center;
   border-radius: var(--radius-full);
   padding: var(--space-12);
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
+  transition: background-color 150ms ease;
+}
+
+.button-see-supplier-profile:hover {
+  background-color: var(--color-green-300);
+}
+
+.button-see-supplier-profile:active {
+  background-color: var(--color-green-400);
 }
 
 .supplier-full-profile-image {
@@ -544,6 +624,15 @@ meter.progress-bar::-moz-meter-bar {
   text-decoration: underline 0.085em;
   background-color: transparent;
   border: none;
+  transition: background-color 150ms ease;
+}
+
+.button-see-supplier-reviews:hover {
+  background-color: var(--color-green-300);
+}
+
+.button-see-supplier-reviews:active {
+  background-color: var(--color-green-400);
 }
 
 .supplier-stats {
@@ -576,7 +665,7 @@ meter.progress-bar::-moz-meter-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-white);
+  background-color: var(--color-green-200);
   border: 1px solid var(--color-gray-500);
   border-radius: var(--radius-full);
 }
@@ -592,7 +681,7 @@ meter.progress-bar::-moz-meter-bar {
   border-radius: var(--radius-8);
   border-spacing: 0;
   overflow: hidden;
-  background-color: var(--color-white);
+  background-color: var(--color-green-200);
   flex-grow: 1;
 }
 
@@ -600,7 +689,7 @@ meter.progress-bar::-moz-meter-bar {
   text-align: start;
   font-weight: var(--font-weight-semibold);
   padding: var(--space-16);
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-300);
 }
 
 .features-table-data {

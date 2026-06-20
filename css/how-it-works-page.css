@@ -43,13 +43,13 @@
 }
 
 .faq-item {
-  background-color: var(--color-gray-400);
+  background-color: var(--color-gray-300-alpha);
   border-radius: var(--radius-16);
   overflow: hidden;
 }
 
 details.faq-item[open] {
-  background-color: var(--color-gray-300-alpha);
+  background-color: var(--color-gray-400);
 }
 
 .faq-summary {
@@ -121,7 +121,7 @@ details[open] .faq-summary .icon svg {
    ----------------------------------------------------------------------------- */
 
 .contact-card {
-  background-color: var(--color-gray-100);
+  background-color: var(--color-green-200);
   border-radius: var(--radius-32);
   padding: var(--space-32);
   display: flex;
@@ -224,6 +224,7 @@ details[open] .faq-summary .icon svg {
   border-radius: var(--radius-8);
   line-height: var(--line-height-normal);
   color: var(--color-black);
+  text-align: left;
 }
 
 .form-input::placeholder {
@@ -265,6 +266,15 @@ details[open] .faq-summary .icon svg {
   cursor: pointer;
   text-decoration: none;
   align-self: flex-start;
+  transition: background-color 150ms ease;
+}
+
+.button-contact-action:hover {
+  background-color: var(--color-gray-800);
+}
+
+.button-contact-action:active {
+  background-color: var(--color-gray-700);
 }
 
 
@@ -300,7 +310,7 @@ details[open] .faq-summary .icon svg {
   display: flex;
   align-items: center;
   gap: var(--space-8);
-  padding: var(--space-16);
+  padding: var(--space-20);
   border: none;
   border-radius: var(--radius-full);
   background-color: transparent;
@@ -309,12 +319,26 @@ details[open] .faq-summary .icon svg {
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
   white-space: nowrap;
+  transition: background-color 150ms ease;
+}
+
+.cf-tab-btn:hover {
+  background-color: var(--color-green-300);
+}
+
+.cf-tab-btn:active {
+  background-color: var(--color-green-400);
 }
 
 .cf-tab-btn-active {
   background-color: var(--color-black);
   color: var(--color-white);
-  padding: var(--space-20);
+  transition: background-color 150ms ease;
+}
+
+.cf-tab-btn.cf-tab-btn-active:hover,
+.cf-tab-btn.cf-tab-btn-active:active {
+  background-color: var(--color-black);
 }
 
 .cf-tab-btn .icon svg {
@@ -399,7 +423,7 @@ details[open] .faq-summary .icon svg {
 .cf-card-desc {
   font-size: var(--font-size-16);
   line-height: var(--space-24);
-  color: var(--color-gray-500);
+  color: var(--color-gold-400);
 }
 
 .cf-card-stat {
@@ -436,7 +460,7 @@ details[open] .faq-summary .icon svg {
   height: 40px;
   border-radius: var(--radius-full);
   border: 2px solid var(--color-black);
-  background-color: var(--color-white);
+  background-color: var(--color-green-50);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -473,7 +497,7 @@ details[open] .faq-summary .icon svg {
 
 .cf-tech-label {
   font-size: var(--font-size-16);
-  color: var(--color-gray-500);
+  color: var(--color-green-300);
 }
 
 .cf-tech-value {
@@ -536,5 +560,3 @@ details[open] .faq-summary .icon svg {
   color: var(--color-white);
   font-size: var(--font-size-12);
 }
-
-

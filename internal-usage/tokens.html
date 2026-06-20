@@ -15,24 +15,27 @@
   <style>
     body {
       font-family: var(--font-body);
-      padding: var(--space-64);
+      padding: 0;
       background: var(--color-white);
     }
     .ds-page-title {
       font-size: var(--font-size-48);
       font-weight: var(--font-weight-bold);
-      margin-bottom: var(--space-96);
+      margin: 0;
+      padding: var(--space-64) var(--space-64) 0 var(--space-64);
       letter-spacing: var(--letter-spacing-tight);
       font-family: var(--font-display);
     }
     .ds-section {
-      padding-bottom: var(--space-96);
+      padding: var(--space-48) var(--space-64);
       max-width: 1400px;
       margin-left: auto;
       margin-right: auto;
     }
     .ds-section-full {
       padding-bottom: var(--space-96);
+      padding-left: var(--space-64);
+      padding-right: var(--space-64);
     }
     .ds-subsection {
       margin-bottom: var(--space-48);
@@ -56,6 +59,14 @@
       border-bottom: 1px solid var(--color-gray-400);
       margin-bottom: var(--space-32);
       margin-top: var(--space-96);
+    }
+    .ds-subsection-title {
+      font-family: var(--font-display);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-18);
+      border-bottom: 1px solid var(--color-gray-300);
+      padding-bottom: var(--space-8);
+      margin-bottom: var(--space-24);
     }
     .ds-gallery-preview {
       position: relative;
@@ -82,15 +93,48 @@
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: var(--space-16);
     }
+    .ds-page-title + section .ds-section-title:first-child {
+      margin-top: 0;
+    }
+    .ds-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-gray-400);
+      padding: var(--space-16) var(--space-64);
+      display: flex;
+      align-items: center;
+      gap: var(--space-32);
+    }
+    .ds-nav-title {
+      font-family: var(--font-display);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-16);
+    }
+    .ds-nav-link {
+      font-size: var(--font-size-14);
+      color: var(--color-gray-500);
+      text-decoration: none;
+    }
+    .ds-nav-link-active {
+      color: var(--color-black);
+      font-weight: var(--font-weight-semibold);
+    }
   </style>
 </head>
 <body>
+  <nav class="ds-nav">
+    <span class="ds-nav-title">Altterra DS</span>
+    <a href="tokens.html" class="ds-nav-link ds-nav-link-active">Tokens</a>
+    <a href="components.html" class="ds-nav-link">Componentes</a>
+  </nav>
   <h1 class="ds-page-title">Altterra Design System - Tokens</h1>
   
   <section class="ds-section">
     <h2 class="ds-section-title">Tokens</h2>
     <div class="ds-subsection">
-      <h3 class="title-xl">Cores</h3>
+      <h3 class="ds-subsection-title">Cores</h3>
       <div class="ds-grid">
         <div><div style="width: 80px; height: 80px; border-radius: var(--radius-8); background-color: var(--color-white); border: 1px solid var(--color-gray-400);"></div><p class="ds-label">--color-white</p></div>
         <div><div style="width: 80px; height: 80px; border-radius: var(--radius-8); background-color: var(--color-black);"></div><p class="ds-label">--color-black</p></div>
@@ -109,7 +153,7 @@
       </div>
     </div>
     <div class="ds-subsection">
-      <h3 class="title-xl">Espaçamento</h3>
+      <h3 class="ds-subsection-title">Espaçamento</h3>
       <div class="ds-row">
         <div><div style="width: var(--space-2); height: var(--space-8); background-color: var(--color-brand-green);"></div><p class="ds-label">--space-2</p></div>
         <div><div style="width: var(--space-4); height: var(--space-8); background-color: var(--color-brand-green);"></div><p class="ds-label">--space-4</p></div>
@@ -129,7 +173,7 @@
       </div>
     </div>
     <div class="ds-subsection">
-      <h3 class="title-xl">Tipografia</h3>
+      <h3 class="ds-subsection-title">Tipografia</h3>
       <p class="text-muted">Font sizes</p>
       <div style="font-size: var(--font-size-12)">--font-size-12</div>
       <div style="font-size: var(--font-size-14)">--font-size-14</div>
@@ -157,7 +201,7 @@
       <div style="letter-spacing: var(--letter-spacing-tight)">--letter-spacing-tight</div>
     </div>
     <div class="ds-subsection">
-      <h3 class="title-xl">Border Radius</h3>
+      <h3 class="ds-subsection-title">Border Radius</h3>
       <div class="ds-row">
         <div><div style="width: 48px; height: 48px; border-radius: var(--radius-4); background-color: var(--color-black);"></div><p class="ds-label">--radius-4</p></div>
         <div><div style="width: 48px; height: 48px; border-radius: var(--radius-8); background-color: var(--color-black);"></div><p class="ds-label">--radius-8</p></div>
@@ -168,7 +212,7 @@
       </div>
     </div>
     <div class="ds-subsection">
-      <h3 class="title-xl">Breakpoints</h3>
+      <h3 class="ds-subsection-title">Breakpoints</h3>
       <p class="ds-label">--bp-sm: 640px</p>
       <p class="ds-label">--bp-md: 768px</p>
       <p class="ds-label">--bp-lg: 1024px</p>
@@ -176,7 +220,7 @@
       <p class="ds-label">--bp-2xl: 1536px</p>
     </div>
     <div class="ds-subsection">
-      <h3 class="title-xl">Z-index</h3>
+      <h3 class="ds-subsection-title">Z-index</h3>
       <p class="ds-label">--z-0-base: 0</p>
       <p class="ds-label">--z-10-raised: 10</p>
       <p class="ds-label">--z-100-dropdown: 100</p>
@@ -184,7 +228,7 @@
       <p class="ds-label">--z-300-modal: 300</p>
     </div>
     <div class="ds-subsection">
-      <h3 class="title-xl">Ícones</h3>
+      <h3 class="ds-subsection-title">Ícones</h3>
       <div class="ds-row">
         <div><span class="icon icon-8"><svg viewBox="0 0 16 16">
                 <path d="M14.7857 16L9.09524 10.3095C8.61905 10.6587 8.0969 10.9325 7.52881 11.131C6.96071 11.3294 6.35611 11.4286 5.715 11.4286C4.12722 11.4286 2.77778 10.873 1.66667 9.7619C0.555556 8.65079 0 7.30159 0 5.71429C0 4.12698 0.555556 2.77778 1.66667 1.66667C2.77778 0.555556 4.12698 0 5.71429 0C7.30159 0 8.65079 0.555556 9.7619 1.66667C10.873 2.77778 11.4286 4.12722 11.4286 5.715C11.4286 6.35611 11.3294 6.96071 11.131 7.52881C10.9325 8.0969 10.6587 8.61905 10.3095 9.09524L16 14.7857L14.7857 16ZM5.71429 9.71429C6.8254 9.71429 7.76984 9.3254 8.54762 8.54762C9.3254 7.76984 9.71429 6.8254 9.71429 5.71429C9.71429 4.60317 9.3254 3.65873 8.54762 2.88095C7.76984 2.10317 6.8254 1.71429 5.71429 1.71429C4.60317 1.71429 3.65873 2.10317 2.88095 2.88095C2.10317 3.65873 1.71429 4.60317 1.71429 5.71429C1.71429 6.8254 2.10317 7.76984 2.88095 8.54762C3.65873 9.3254 4.60317 9.71429 5.71429 9.71429Z" />
@@ -214,7 +258,7 @@
     </div>
   
     <div class="ds-subsection">
-      <h3 class="title-xl">Grupo Títulos</h3>
+      <h3 class="ds-subsection-title">Grupo Títulos</h3>
       <div class="title-sm">title-sm</div>
       <div class="title-lg">title-lg</div>
       <div class="title-xl">title-xl</div>
@@ -222,7 +266,7 @@
       <div class="title-3xl">title-3xl</div>
     </div>
     <div class="ds-subsection">
-      <h3 class="title-xl">Grupo Texto</h3>
+      <h3 class="ds-subsection-title">Grupo Texto</h3>
       <div class="text-xs">text-xs</div>
       <div class="text-sm">text-sm</div>
       <div class="text-xl">text-xl</div>
