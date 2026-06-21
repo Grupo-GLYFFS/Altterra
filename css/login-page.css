@@ -178,3 +178,28 @@
 .login-panel .button-link {
   color: var(--color-white);
 }
+
+@media (max-width: 1280px) {
+  .login-page {
+    overflow-x: hidden;
+    min-height: 100%;
+    height: auto;
+    padding: var(--space-32) 0;
+    background-attachment: fixed;
+  }
+
+  .login-panel {
+    width: calc(100% - var(--space-32));
+    max-width: 100%;
+    padding: var(--space-32);
+    box-sizing: border-box;
+  }
+
+  .social-login-buttons {
+    flex-wrap: wrap;
+  }
+
+  .social-login-buttons .button-social-login {
+    flex: 1 1 calc(50% - var(--space-4));
+  }
+}
