@@ -926,6 +926,29 @@ details[open] .categories-toggle .icon:last-child svg {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
 
+  .page-sections {
+    padding-inline: var(--space-16);
+  }
+
+  .products-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .products-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-card {
+    flex: 0 0 clamp(180px, 40vw, 220px);
+  }
+
+  .product-section-nav {
+    display: none;
+  }
+
   .navbar-search {
     gap: var(--space-16);
   }
