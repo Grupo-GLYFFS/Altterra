@@ -1,11 +1,4 @@
-/* =============================================================================
-   UTILITÁRIOS DE ÍCONE
-   Classes para dimensionar ícones SVG via bounding box
-   O tamanho é aplicado no SVG dentro do span.icon
-   O número no nome da classe corresponde ao tamanho em px
-   ============================================================================= */
-
-/* Bounding box — centraliza o SVG dentro do span */
+/* Ícones — dimensionados por var(--icon-N); herdam a cor do texto via currentColor */
 
 .icon {
   display: inline-flex;
@@ -14,8 +7,6 @@
   flex-shrink: 0;
   fill: currentColor;
 }
-
-/* Tamanhos disponíveis */
 
 .icon-8 svg {
   width: var(--icon-8);
@@ -57,14 +48,7 @@
   height: var(--icon-40);
 }
 
-
-/* =============================================================================
-   UTILITÁRIOS DE TIPOGRAFIA
-   Classes para tamanho, peso e estilo de texto
-   O número no nome da classe de título corresponde ao tamanho em px
-   ============================================================================= */
-
-/* Tamanhos de corpo de texto */
+/* Texto — tamanho, peso e altura de linha */
 
 .text-xs {
   font-size: var(--font-size-12);
@@ -78,19 +62,15 @@
   font-size: var(--font-size-24);
 }
 
-/* Pesos de texto */
-
 .text-semibold {
   font-weight: var(--font-weight-semibold);
 }
-
-/* Altura de linha para parágrafos de texto corrido */
 
 .text-paragraph {
   line-height: var(--line-height-normal);
 }
 
-/* Títulos — usam a fonte display (Cal Sans UI Text) com letter-spacing apertado */
+/* Títulos — fonte display com letter-spacing apertado */
 
 .title-sm {
   font-family: var(--font-display);
@@ -127,33 +107,19 @@
   letter-spacing: var(--letter-spacing-tight);
 }
 
-
-/* =============================================================================
-   UTILITÁRIOS DE COR
-   Classes para cor de texto e ícone (fill)
-   ============================================================================= */
-
-/* Texto secundário — cinza médio */
+/* Cor de texto secundário */
 
 .text-muted {
   color: var(--color-gray-500);
   fill: var(--color-gray-500);
 }
 
-/* Texto terciário — cinza escuro */
-
 .text-muted-dark {
   color: var(--color-gray-700);
   fill: var(--color-gray-700);
 }
 
-
-/* =============================================================================
-   UTILITÁRIOS DE ACESSIBILIDADE
-   Classes para melhorar a experiência com tecnologias assistivas
-   ============================================================================= */
-
-/* Visualmente oculto mas lido por leitores de tela */
+/* Acessibilidade — visualmente oculto, mas lido por leitores de tela */
 
 .sr-only {
   position: absolute;

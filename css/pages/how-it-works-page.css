@@ -1,14 +1,8 @@
-/* =============================================================================
-   PÁGINA DE COMO FUNCIONA
-   Layout, seções FAQ e Contato
-   ============================================================================= */
 
 
-/* -----------------------------------------------------------------------------
-   Contêiner principal
-   ----------------------------------------------------------------------------- */
+/* Container */
 
-.como-funciona-container {
+.how-it-works-container {
   display: flex;
   flex-direction: column;
   gap: calc(var(--space-96) * 2);
@@ -16,17 +10,14 @@
   padding-bottom: calc(var(--space-96) * 2);
 }
 
-/* -----------------------------------------------------------------------------
-   Seção FAQ
-   ----------------------------------------------------------------------------- */
-
-.cf-section-faq {
+/* Seção FAQ */
+.section-faq {
   display: flex;
   gap: var(--space-32);
   align-items: flex-start;
 }
 
-.cf-faq-title {
+.faq-title {
   font-family: var(--font-display);
   font-size: var(--font-size-48);
   font-weight: var(--font-weight-bold);
@@ -35,7 +26,7 @@
   flex-shrink: 0;
 }
 
-.cf-faq-list {
+.faq-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
@@ -82,17 +73,14 @@ details[open] .faq-summary .icon svg {
   transition: transform 0.2s ease;
 }
 
-/* -----------------------------------------------------------------------------
-   Seção de Contato
-   ----------------------------------------------------------------------------- */
-
-.cf-section-contato {
+/* Seção Contato */
+.section-contact {
   display: flex;
   flex-direction: column;
   gap: var(--space-64);
 }
 
-.cf-contato-title {
+.contact-title {
   font-family: var(--font-display);
   font-size: var(--font-size-48);
   font-weight: var(--font-weight-bold);
@@ -100,25 +88,12 @@ details[open] .faq-summary .icon svg {
   text-align: center;
 }
 
-
-/* -----------------------------------------------------------------------------
-   Grid de contato
-   Coluna esquerda 3fr (cards empilhados) + coluna direita 4fr (formulário)
-   Equivalente ao repeat(7, 1fr) do Figma com col-span-3 e col-span-4
-   ----------------------------------------------------------------------------- */
-
 .contact-grid {
   display: grid;
   grid-template-columns: 3fr 4fr;
   gap: var(--space-16);
   width: 100%;
 }
-
-
-/* -----------------------------------------------------------------------------
-   Card base
-   Compartilhado pelos três cards (WhatsApp, E-mail, Formulário)
-   ----------------------------------------------------------------------------- */
 
 .contact-card {
   background-color: var(--color-green-200);
@@ -129,28 +104,17 @@ details[open] .faq-summary .icon svg {
   gap: var(--space-32);
 }
 
-/* Cabeçalho de cada card — ícone 40px + título */
-
 .contact-card-header {
   display: flex;
   align-items: center;
   gap: var(--space-8);
 }
 
-
-/* -----------------------------------------------------------------------------
-   Cards informativos (WhatsApp e E-mail)
-   ----------------------------------------------------------------------------- */
-
-/* Bloco de horário de atendimento */
-
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
 }
-
-/* Número de telefone / endereço de e-mail — 24px bold */
 
 .contact-value {
   font-family: var(--font-display);
@@ -159,21 +123,11 @@ details[open] .faq-summary .icon svg {
   letter-spacing: var(--letter-spacing-tight);
 }
 
-
-/* -----------------------------------------------------------------------------
-   Card de formulário
-   Ocupa as duas linhas da coluna direita e empurra o botão para o rodapé
-   ----------------------------------------------------------------------------- */
-
 .contact-form-card {
   grid-column: 2;
   grid-row: 1 / span 2;
-  /* sobrescreve o gap do card base — o espaçamento interno é gerenciado
-     pelo gap do .contact-card entre o header e o form, e pelo
-     justify-content: space-between dentro do form */
+  
 }
-
-/* O form preenche o restante da altura do card e empurra o botão para baixo */
 
 .contact-form {
   display: flex;
@@ -183,28 +137,16 @@ details[open] .faq-summary .icon svg {
   gap: var(--space-32);
 }
 
-/* Grupo de campos (sem o botão de envio) */
-
 .contact-form-fields {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
 }
 
-
-/* -----------------------------------------------------------------------------
-   Linha de dois campos lado a lado (Nome + Email)
-   ----------------------------------------------------------------------------- */
-
 .form-row {
   display: flex;
   gap: var(--space-16);
 }
-
-
-/* -----------------------------------------------------------------------------
-   Campo individual — label + input/textarea
-   ----------------------------------------------------------------------------- */
 
 .form-field {
   display: flex;
@@ -212,8 +154,6 @@ details[open] .faq-summary .icon svg {
   gap: var(--space-16);
   flex: 1;
 }
-
-/* Input e textarea compartilham o mesmo estilo base */
 
 .form-input {
   font: inherit;
@@ -236,18 +176,10 @@ details[open] .faq-summary .icon svg {
   outline-offset: -2px;
 }
 
-/* Textarea — altura mínima de 120px (conforme Figma), redimensionável na vertical */
-
 .form-textarea {
   resize: vertical;
   min-height: 7.5rem;
 }
-
-
-/* -----------------------------------------------------------------------------
-   Botão de ação dos cards
-   Usado como <a> (WhatsApp, E-mail) e como <button type="submit"> (Formulário)
-   ----------------------------------------------------------------------------- */
 
 .button-contact-action {
   display: inline-flex;
@@ -277,12 +209,8 @@ details[open] .faq-summary .icon svg {
   background-color: var(--color-gray-700);
 }
 
-
-/* -----------------------------------------------------------------------------
-   Seção Por Quê
-   ----------------------------------------------------------------------------- */
-
-.cf-section-porque {
+/* Seção Por Quê (Bento Grid) */
+.section-why {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -290,7 +218,7 @@ details[open] .faq-summary .icon svg {
   width: 100%;
 }
 
-.cf-porque-title {
+.why-title {
   font-family: var(--font-display);
   font-size: var(--font-size-48);
   font-weight: var(--font-weight-bold);
@@ -298,7 +226,7 @@ details[open] .faq-summary .icon svg {
   text-align: center;
 }
 
-.cf-tab-switcher {
+.tab-switcher {
   display: flex;
   align-items: center;
   padding: var(--space-8);
@@ -306,7 +234,7 @@ details[open] .faq-summary .icon svg {
   background-color: var(--color-gray-300-alpha);
 }
 
-.cf-tab-btn {
+.tab-button {
   display: flex;
   align-items: center;
   gap: var(--space-8);
@@ -322,42 +250,42 @@ details[open] .faq-summary .icon svg {
   transition: background-color 150ms ease;
 }
 
-.cf-tab-btn:hover {
+.tab-button:hover {
   background-color: var(--color-green-300);
 }
 
-.cf-tab-btn:active {
+.tab-button:active {
   background-color: var(--color-green-400);
 }
 
-.cf-tab-btn-active {
+.tab-button-active {
   background-color: var(--color-black);
   color: var(--color-white);
   transition: background-color 150ms ease;
 }
 
-.cf-tab-btn.cf-tab-btn-active:hover,
-.cf-tab-btn.cf-tab-btn-active:active {
+.tab-button.tab-button-active:hover,
+.tab-button.tab-button-active:active {
   background-color: var(--color-black);
 }
 
-.cf-tab-btn .icon svg {
+.tab-button .icon svg {
   fill: var(--color-black);
 }
 
-.cf-tab-btn-active .icon svg {
+.tab-button-active .icon svg {
   fill: var(--color-white);
 }
 
-.cf-badge .icon svg {
+.bento-badge .icon svg {
   fill: var(--color-white);
 }
 
-.cf-tag .icon svg {
+.bento-tag .icon svg {
   fill: var(--color-white);
 }
 
-.cf-bento {
+.bento {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(10, auto);
@@ -365,7 +293,7 @@ details[open] .faq-summary .icon svg {
   width: 100%;
 }
 
-.cf-card {
+.bento-card {
   background-color: var(--color-black);
   border-radius: var(--radius-32);
   padding: var(--space-32);
@@ -375,44 +303,44 @@ details[open] .faq-summary .icon svg {
   gap: var(--space-32);
 }
 
-.cf-card-01 {
+.bento-card-01 {
   grid-column: 1 / span 5;
   grid-row: 1 / span 8;
 }
 
-.cf-card-02 {
+.bento-card-02 {
   grid-column: 6 / span 3;
   grid-row: 1 / span 4;
 }
 
-.cf-card-03 {
+.bento-card-03 {
   grid-column: 6 / span 3;
   grid-row: 5 / span 4;
 }
 
-.cf-card-04 {
+.bento-card-04 {
   grid-column: 1 / span 4;
   grid-row: 9 / span 2;
 }
 
-.cf-card-05 {
+.bento-card-05 {
   grid-column: 5 / span 4;
   grid-row: 9 / span 2;
 }
 
-.cf-card-body {
+.bento-card-body {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
 }
 
-.cf-card-num {
+.bento-card-num {
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-bold);
   color: var(--color-white);
 }
 
-.cf-card-title {
+.bento-card-title {
   font-family: var(--font-display);
   font-size: var(--font-size-32);
   font-weight: var(--font-weight-bold);
@@ -420,18 +348,18 @@ details[open] .faq-summary .icon svg {
   color: var(--color-white);
 }
 
-.cf-card-desc {
+.bento-card-desc {
   font-size: var(--font-size-16);
   line-height: var(--space-24);
   color: var(--color-gold-400);
 }
 
-.cf-card-stat {
+.bento-card-stat {
   display: flex;
   flex-direction: column;
 }
 
-.cf-card-stat-num {
+.bento-card-stat-num {
   font-family: var(--font-display);
   font-size: var(--font-size-48);
   font-weight: var(--font-weight-bold);
@@ -439,23 +367,23 @@ details[open] .faq-summary .icon svg {
   color: var(--color-white);
 }
 
-.cf-card-stat-label {
+.bento-card-stat-label {
   font-size: var(--font-size-16);
   color: var(--color-white);
 }
 
-.cf-card-producers {
+.bento-card-producers {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.cf-avatars {
+.bento-avatars {
   display: flex;
   align-items: center;
 }
 
-.cf-avatar {
+.bento-avatar {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
@@ -469,18 +397,18 @@ details[open] .faq-summary .icon svg {
   color: var(--color-black);
 }
 
-.cf-avatar:not(:last-child) {
+.bento-avatar:not(:last-child) {
   margin-right: -10px;
 }
 
-.cf-producers-count {
+.bento-producers-count {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
 }
 
-.cf-tech-table {
+.bento-tech-table {
   background-color: var(--color-white-alpha-10);
   border-radius: var(--radius-16);
   padding: var(--space-16);
@@ -489,36 +417,36 @@ details[open] .faq-summary .icon svg {
   gap: var(--space-16);
 }
 
-.cf-tech-row {
+.bento-tech-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.cf-tech-label {
+.bento-tech-label {
   font-size: var(--font-size-16);
   color: var(--color-green-300);
 }
 
-.cf-tech-value {
+.bento-tech-value {
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-semibold);
   color: var(--color-white);
 }
 
-.cf-tech-divider {
+.bento-tech-divider {
   border: none;
   border-top: 1px solid var(--color-gray-500);
   margin: 0;
 }
 
-.cf-card-04-inner {
+.bento-card-04-inner {
   display: flex;
   gap: var(--space-32);
   height: 100%;
 }
 
-.cf-card-04-text {
+.bento-card-04-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -526,14 +454,14 @@ details[open] .faq-summary .icon svg {
   flex: 1;
 }
 
-.cf-card-04-img {
+.bento-card-04-img {
   width: 252px;
   height: 252px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-.cf-badge {
+.bento-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-4);
@@ -544,13 +472,13 @@ details[open] .faq-summary .icon svg {
   font-size: var(--font-size-12);
 }
 
-.cf-tags {
+.bento-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-8);
 }
 
-.cf-tag {
+.bento-tag {
   display: inline-flex;
   align-items: center;
   gap: var(--space-4);
@@ -575,48 +503,42 @@ details[open] .faq-summary .icon svg {
   height: 100%;
 }
 
-/* =============================================================================
-   Responsividade (Mobile / Tablet)
-   ============================================================================= */
-
 @media (max-width: 1280px) {
-  /* Container principal */
-  .como-funciona-container {
+  
+  .how-it-works-container {
     padding-inline: var(--space-16);
     padding-block: var(--space-64);
     gap: var(--space-96);
   }
 
-  /* Seção "Por quê" — tab switcher */
-  .cf-tab-btn {
+  .tab-button {
     font-size: var(--font-size-16);
     padding: var(--space-12);
   }
 
-  .cf-tab-btn .icon {
+  .tab-button .icon {
     width: 20px;
     height: 20px;
   }
 
-  /* Seção "Por quê" — bento grid */
-  .cf-bento {
+  .bento {
     grid-template-columns: 1fr !important;
   }
 
-  .cf-bento > .cf-card {
+  .bento > .bento-card {
     grid-column: 1 / -1 !important;
     grid-row: auto !important;
   }
 
-  .cf-card-04-inner {
+  .bento-card-04-inner {
     flex-direction: column;
   }
 
-  .cf-card-04-text {
+  .bento-card-04-text {
     gap: var(--space-32);
   }
 
-  .cf-card-04-img {
+  .bento-card-04-img {
     align-self: flex-start;
     width: auto;
     height: auto;
@@ -625,21 +547,19 @@ details[open] .faq-summary .icon svg {
     object-fit: cover;
   }
 
-  /* Seção FAQ */
-  .cf-section-faq {
+  .section-faq {
     flex-direction: column;
   }
 
-  .cf-faq-title {
+  .faq-title {
     white-space: normal;
     text-align: center;
   }
 
-  .cf-faq-list {
+  .faq-list {
     width: 100%;
   }
 
-  /* Seção Contato — contact grid */
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -649,8 +569,21 @@ details[open] .faq-summary .icon svg {
     grid-row: auto;
   }
 
-  /* Seção Contato — form row */
   .form-row {
     flex-direction: column;
   }
 }
+
+/* Fornecedores Bento Grid */
+.bento-supplier-01 { grid-column: 1 / span 3; grid-row: 1 / span 4; }
+.bento-supplier-02 { grid-column: 4 / span 5; grid-row: 1 / span 4; }
+.bento-supplier-02-text { justify-content: center; gap: var(--space-16); }
+.bento-supplier-02-img-wrapper { flex-shrink: 0; width: 300px; }
+.bento-supplier-03 { grid-column: 1 / span 4; grid-row: 5 / span 4; }
+.bento-supplier-03-img { min-height: 120px; }
+.bento-supplier-04 { grid-column: 5 / span 4; grid-row: 5 / span 4; }
+
+/* ONGs Bento Grid */
+.bento-ngo { grid-template-columns: repeat(3, 1fr); }
+.bento-ngo-img { margin-top: var(--space-16); }
+.bento-badge-large { font-size: var(--font-size-16); padding: var(--space-16) var(--space-24); }

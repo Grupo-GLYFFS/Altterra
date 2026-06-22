@@ -1,7 +1,7 @@
 :root {
-
     /* Colors */
     --color-white: hsl(116, 20%, 88%);
+    --color-pure-white: #ffffff; /* O --color-white nativo é levemente esverdeado; este é o branco puro real */
     --color-black: hsl(116, 23%, 8%);
 
     /* Escala verde */
@@ -33,7 +33,7 @@
     --color-text-muted-dark:  hsla(116, 20%, 88%, 0.30);
     --color-text-muted-light: hsla(116, 23%,  8%, 0.30);
 
-    /* Aliases legado — mantêm compatibilidade com CSS existente */
+    /* Aliases */
     --color-gray-100: var(--color-green-50);
     --color-gray-200: var(--color-green-100);
     --color-gray-300: var(--color-green-200);
@@ -63,6 +63,7 @@
     /* Border radius */
     --radius-4: .25rem;
     --radius-8: .5rem;
+    --radius-12: .75rem;
     --radius-16: 1rem;
     --radius-32: 2rem;
     --radius-48: 3rem;
@@ -97,6 +98,7 @@
 
     /* Letter spacing */
     --letter-spacing-tight: -.06em;
+    --letter-spacing-wide: .05em;
 
     /* Breakpoints */
     --bp-sm: 640px;
@@ -121,5 +123,4 @@
     --z-100-dropdown: 100;
     --z-200-sticky: 200;
     --z-300-modal: 300;
-
 }

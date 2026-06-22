@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/utilities.css">
   <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/how-it-works-page.css">
+  <link rel="stylesheet" href="../css/pages/how-it-works-page.css">
   <link rel="icon" href=".././images/altterra-icon.svg" type="image/svg+xml">
 </head>
 
@@ -17,13 +17,13 @@
 
   <div id="navbar-root"></div>
 
-  <main class="como-funciona-container">
+  <main class="how-it-works-container">
 
-    <section class="cf-section cf-section-porque">
-      <h1 class="cf-porque-title">Por quê o Altterra ?</h1>
+    <section class="section-why">
+      <h1 class="why-title">Por quê o Altterra ?</h1>
 
-      <div class="cf-tab-switcher">
-        <button type="button" class="cf-tab-btn cf-tab-btn-active" data-tab="compradores">
+      <div class="tab-switcher">
+        <button type="button" class="tab-button tab-button-active" data-tab="compradores">
           <span class="icon icon-28" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M4 6v-2h16v2H4Zm0 14v-6h-1v-2l1 -5h16l1 5v2h-1v6h-2v-6H14v6H4Zm2 -2h6v-4H6v4Zm-0.95 -6h13.9 -13.9Zm0 0h13.9l-0.6 -3H5.65l-0.6 3Z" />
@@ -31,7 +31,7 @@
           </span>
           Compradores
         </button>
-        <button type="button" class="cf-tab-btn" data-tab="fornecedores">
+        <button type="button" class="tab-button" data-tab="fornecedores">
           <span class="icon icon-28" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M11 19.425v-6.85L5 9.1v6.85l6 3.475Zm2 0 6 -3.475v-6.85L13 12.575v6.85Zm-2 2.3L4 17.7q-0.475 -0.275 -0.7375 -0.725T3 15.975v-7.95q0 -0.55 0.2625 -1t0.7375 -0.725l7 -4.025q0.475 -0.275 1 -0.275t1 0.275l7 4.025q0.475 0.275 0.7375 0.725t0.2625 1v7.95q0 0.55 -0.2625 1T20 17.7L13 21.725q-0.475 0.275 -1 0.275t-1 -0.275Zm5 -13.2 1.925 -1.1 -5.925 -3.425 -1.95 1.125 5.95 3.4Zm-4 2.325 1.95 -1.125 -5.925 -3.425 -1.95 1.125 5.925 3.425Z" />
@@ -39,7 +39,7 @@
           </span>
           Fornecedores
         </button>
-        <button type="button" class="cf-tab-btn" data-tab="ongs">
+        <button type="button" class="tab-button" data-tab="ongs">
           <span class="icon icon-28" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M16 13 11.85 8.95q-0.775 -0.75 -1.3125 -1.6625T10 5.3q0 -1.375 0.9625 -2.3375T13.3 2q0.8 0 1.5 0.3375t1.2 0.9125q0.5 -0.575 1.2 -0.9125t1.5 -0.3375q1.375 0 2.3375 0.9625T22 5.3q0 1.075 -0.525 1.9875T20.175 8.95L16 13Zm0 -2.8 2.725 -2.675q0.475 -0.475 0.875 -1.0125t0.4 -1.2125q0 -0.55 -0.375 -0.925t-0.925 -0.375q-0.35 0 -0.6625 0.1375T17.5 4.55l-1.5 1.8 -1.5 -1.8q-0.225 -0.275 -0.5375 -0.4125T13.3 4q-0.55 0 -0.925 0.375t-0.375 0.925q0 0.675 0.4 1.2125t0.875 1.0125l2.725 2.675ZM7 18.5l6.95 1.9 5.95 -1.85q-0.125 -0.225 -0.3625 -0.3875T19 18H13.95q-0.675 0 -1.075 -0.05t-0.825 -0.2l-2.325 -0.775 0.55 -1.95 2.025 0.675q0.425 0.125 1 0.2t1.7 0.1q0 -0.275 -0.1625 -0.525T14.45 15.15l-5.85 -2.15h-1.6v5.5ZM1 22v-11h7.6q0.175 0 0.35 0.0375t0.325 0.0875l5.875 2.175q0.825 0.3 1.3375 1.05t0.5125 1.65h2q1.25 0 2.125 0.825t0.875 2.175v1L14 22.5l-7 -1.95v1.45H1Zm2 -2h2v-7h-2v7Zm13 -13.65Z" />
@@ -49,66 +49,66 @@
         </button>
       </div>
 
-      <div class="cf-bento" data-panel="compradores">
-        <article class="cf-card cf-card-01">
-          <div class="cf-card-body">
-            <span class="cf-card-num">01</span>
-            <h2 class="cf-card-title">Preço direto do produtor</h2>
-            <p class="cf-card-desc">Sem intermediários. Negocie diretamente com quem cultiva e reduza seus custos operacionais em até 32%.</p>
+      <div class="bento" data-panel="compradores">
+        <article class="bento-card bento-card-01">
+          <div class="bento-card-body">
+            <span class="bento-card-num">01</span>
+            <h2 class="bento-card-title">Preço direto do produtor</h2>
+            <p class="bento-card-desc">Sem intermediários. Negocie diretamente com quem cultiva e reduza seus custos operacionais em até 32%.</p>
           </div>
-          <div class="cf-card-stat">
-            <p class="cf-card-stat-num">32%↓</p>
-            <p class="cf-card-stat-label">Margem média recuperada</p>
+          <div class="bento-card-stat">
+            <p class="bento-card-stat-num">32%↓</p>
+            <p class="bento-card-stat-label">Margem média recuperada</p>
           </div>
         </article>
 
-        <article class="cf-card cf-card-02">
-          <div class="cf-card-body">
-            <span class="cf-card-num">02</span>
-            <h2 class="cf-card-title">Variedade de opções</h2>
-            <p class="cf-card-desc">Centenas de produtores cadastrados, com diferentes espécies, variedades e volumes prontos pra cotar.</p>
+        <article class="bento-card bento-card-02">
+          <div class="bento-card-body">
+            <span class="bento-card-num">02</span>
+            <h2 class="bento-card-title">Variedade de opções</h2>
+            <p class="bento-card-desc">Centenas de produtores cadastrados, com diferentes espécies, variedades e volumes prontos pra cotar.</p>
           </div>
-          <div class="cf-card-producers">
-            <div class="cf-avatars">
-              <div class="cf-avatar">FA</div>
-              <div class="cf-avatar">JM</div>
-              <div class="cf-avatar">SC</div>
-              <div class="cf-avatar">CR</div>
-              <div class="cf-avatar">+847</div>
+          <div class="bento-card-producers">
+            <div class="bento-avatars">
+              <div class="bento-avatar">FA</div>
+              <div class="bento-avatar">JM</div>
+              <div class="bento-avatar">SC</div>
+              <div class="bento-avatar">CR</div>
+              <div class="bento-avatar">+847</div>
             </div>
-            <div class="cf-producers-count">
-              <p class="cf-card-stat-num">850+</p>
-              <p class="cf-card-stat-label">Produtores ativos</p>
+            <div class="bento-producers-count">
+              <p class="bento-card-stat-num">850+</p>
+              <p class="bento-card-stat-label">Produtores ativos</p>
             </div>
           </div>
         </article>
 
-        <article class="cf-card cf-card-03">
-          <div class="cf-card-body">
-            <span class="cf-card-num">03</span>
-            <h2 class="cf-card-title">Qualidade verificada</h2>
-            <p class="cf-card-desc">Cada lote vem com ficha técnica completa: umidade, pH, altitude de cultivo, percentual de avarias e mais.</p>
+        <article class="bento-card bento-card-03">
+          <div class="bento-card-body">
+            <span class="bento-card-num">03</span>
+            <h2 class="bento-card-title">Qualidade verificada</h2>
+            <p class="bento-card-desc">Cada lote vem com ficha técnica completa: umidade, pH, altitude de cultivo, percentual de avarias e mais.</p>
           </div>
-          <div class="cf-tech-table">
-            <div class="cf-tech-row"><span class="cf-tech-label">Umidade</span><span class="cf-tech-value">12,4 %</span></div>
-            <hr class="cf-tech-divider">
-            <div class="cf-tech-row"><span class="cf-tech-label">pH do solo</span><span class="cf-tech-value">6,2</span></div>
-            <hr class="cf-tech-divider">
-            <div class="cf-tech-row"><span class="cf-tech-label">Altitude</span><span class="cf-tech-value">920 m</span></div>
-            <hr class="cf-tech-divider">
-            <div class="cf-tech-row"><span class="cf-tech-label">Avarias</span><span class="cf-tech-value">0,8 %</span></div>
+          <div class="bento-tech-table">
+            <div class="bento-tech-row"><span class="bento-tech-label">Umidade</span><span class="bento-tech-value">12,4 %</span></div>
+            <hr class="bento-tech-divider">
+            <div class="bento-tech-row"><span class="bento-tech-label">pH do solo</span><span class="bento-tech-value">6,2</span></div>
+            <hr class="bento-tech-divider">
+            <div class="bento-tech-row"><span class="bento-tech-label">Altitude</span><span class="bento-tech-value">920 m</span></div>
+            <hr class="bento-tech-divider">
+            <div class="bento-tech-row"><span class="bento-tech-label">Avarias</span><span class="bento-tech-value">0,8 %</span></div>
           </div>
         </article>
 
-        <article class="cf-card cf-card-04">
-          <div class="cf-card-04-inner">
-            <div class="cf-card-04-text">
-              <div class="cf-card-body">
-                <span class="cf-card-num">04</span>
-                <h2 class="cf-card-title">Rastreabilidade completa</h2>
-                <p class="cf-card-desc">Saiba exatamente de onde vem cada lote. Localização, método de cultivo e histórico do produtor.</p>
+        <article class="bento-card bento-card-04">
+          <div class="bento-card-04-inner">
+            <div class="bento-card-04-text">
+              <div class="bento-card-body">
+                <span class="bento-card-num">04</span>
+                <h2 class="bento-card-title">Rastreabilidade completa</h2>
+                <p class="bento-card-desc">Saiba exatamente de onde vem cada lote. Localização, método de cultivo e histórico do produtor.</p>
               </div>
-              <div class="cf-badge">
+              <div class="bento-badge">
                 <span class="icon icon-12" aria-hidden="true">
                   <svg viewBox="0 -960 960 960">
                     <path d="M440-42v-80q-125-14-214.5-103.5T122-440H42v-80h80q14-125 103.5-214.5T440-838v-80h80v80q125 14 214.5 103.5T838-520h80v80h-80q-14 125-103.5 214.5T520-122v80h-80Zm40-158q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400Zm0-80Z" />
@@ -117,18 +117,18 @@
                 Lote · MG-CRX-0418
               </div>
             </div>
-            <img src="../images/altterra_rastreio_map_transparent.svg" alt="" class="cf-card-04-img">
+            <img src="../images/altterra_rastreio_map_transparent.svg" alt="" class="bento-card-04-img">
           </div>
         </article>
 
-        <article class="cf-card cf-card-05">
-          <div class="cf-card-body">
-            <span class="cf-card-num">05</span>
-            <h2 class="cf-card-title">Compromisso ESG</h2>
-            <p class="cf-card-desc">Filtre por certificações sustentáveis e mostre ao seu cliente final que sua cadeia é responsável.</p>
+        <article class="bento-card bento-card-05">
+          <div class="bento-card-body">
+            <span class="bento-card-num">05</span>
+            <h2 class="bento-card-title">Compromisso ESG</h2>
+            <p class="bento-card-desc">Filtre por certificações sustentáveis e mostre ao seu cliente final que sua cadeia é responsável.</p>
           </div>
-          <div class="cf-tags">
-            <div class="cf-tag">
+          <div class="bento-tags">
+            <div class="bento-tag">
               <span class="icon icon-12" aria-hidden="true">
                 <svg viewBox="0 -960 960 960">
                   <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
@@ -136,7 +136,7 @@
               </span>
               Rainforest Alliance
             </div>
-            <div class="cf-tag">
+            <div class="bento-tag">
               <span class="icon icon-12" aria-hidden="true">
                 <svg viewBox="0 -960 960 960">
                   <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
@@ -144,7 +144,7 @@
               </span>
               Orgânico IBD
             </div>
-            <div class="cf-tag">
+            <div class="bento-tag">
               <span class="icon icon-12" aria-hidden="true">
                 <svg viewBox="0 -960 960 960">
                   <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
@@ -152,7 +152,7 @@
               </span>
               Fairtrade
             </div>
-            <div class="cf-tag">
+            <div class="bento-tag">
               <span class="icon icon-12" aria-hidden="true">
                 <svg viewBox="0 -960 960 960">
                   <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
@@ -160,7 +160,7 @@
               </span>
               Carbono Neutro
             </div>
-            <div class="cf-tag">
+            <div class="bento-tag">
               <span class="icon icon-12" aria-hidden="true">
                 <svg viewBox="0 -960 960 960">
                   <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
@@ -168,102 +168,102 @@
               </span>
               FSC
             </div>
-            <div class="cf-tag">E muito mais...</div>
+            <div class="bento-tag">E muito mais...</div>
           </div>
         </article>
       </div>
 
-      <div class="cf-bento" data-panel="fornecedores">
-        <article class="cf-card" style="grid-column: 1 / span 3; grid-row: 1 / span 4;">
-          <div class="cf-card-body">
-            <span class="cf-card-num">01</span>
-            <h2 class="cf-card-title">Preço Justo</h2>
-            <p class="cf-card-desc">Negocie sem intermediários, ficando com 100% da sua margem.</p>
+      <div class="bento" data-panel="fornecedores">
+        <article class="bento-card bento-supplier-01">
+          <div class="bento-card-body">
+            <span class="bento-card-num">01</span>
+            <h2 class="bento-card-title">Preço Justo</h2>
+            <p class="bento-card-desc">Negocie sem intermediários, ficando com 100% da sua margem.</p>
           </div>
-          <div class="cf-card-stat">
-            <p class="cf-card-stat-num">100%</p>
-            <p class="cf-card-stat-label">Margem sua</p>
+          <div class="bento-card-stat">
+            <p class="bento-card-stat-num">100%</p>
+            <p class="bento-card-stat-label">Margem sua</p>
           </div>
         </article>
         
-        <article class="cf-card" style="grid-column: 4 / span 5; grid-row: 1 / span 4;">
-          <div class="cf-card-04-inner" style="gap: var(--space-32); display: flex;">
-            <div class="cf-card-04-text" style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: var(--space-16);">
-              <div class="cf-card-body">
-                <span class="cf-card-num">02</span>
-                <h2 class="cf-card-title">Outlet Sustentável</h2>
-                <p class="cf-card-desc">Possibilidade de vender excedentes de safra e produtos com pequenas imperfeições estéticas. O que seria descarte vira receita para a sua propriedade.</p>
+        <article class="bento-card bento-supplier-02">
+          <div class="bento-card-04-inner">
+            <div class="bento-card-04-text bento-supplier-02-text">
+              <div class="bento-card-body">
+                <span class="bento-card-num">02</span>
+                <h2 class="bento-card-title">Outlet Sustentável</h2>
+                <p class="bento-card-desc">Possibilidade de vender excedentes de safra e produtos com pequenas imperfeições estéticas. O que seria descarte vira receita para a sua propriedade.</p>
               </div>
-              <div class="cf-tags">
-                <div class="cf-tag">Excedentes</div>
-                <div class="cf-tag">Fora do Padrão</div>
-                <div class="cf-tag">Nova Receita</div>
+              <div class="bento-tags">
+                <div class="bento-tag">Excedentes</div>
+                <div class="bento-tag">Fora do Padrão</div>
+                <div class="bento-tag">Nova Receita</div>
               </div>
             </div>
-            <div style="flex-shrink: 0; width: 300px;">
+            <div class="bento-supplier-02-img-wrapper">
               <div class="placeholder-img">[Gráfico de redução de desperdício]</div>
             </div>
           </div>
         </article>
 
-        <article class="cf-card" style="grid-column: 1 / span 4; grid-row: 5 / span 4;">
-          <div class="cf-card-body">
-            <span class="cf-card-num">03</span>
-            <h2 class="cf-card-title">Compradores Qualificados</h2>
-            <p class="cf-card-desc">Conexão direta a grandes redes B2B, sem intermediários. Alcance visibilidade nacional e garanta o preço justo que você merece.</p>
+        <article class="bento-card bento-supplier-03">
+          <div class="bento-card-body">
+            <span class="bento-card-num">03</span>
+            <h2 class="bento-card-title">Compradores Qualificados</h2>
+            <p class="bento-card-desc">Conexão direta a grandes redes B2B, sem intermediários. Alcance visibilidade nacional e garanta o preço justo que você merece.</p>
           </div>
-          <div class="placeholder-img" style="min-height: 120px;">[Mapa de distribuição nacional]</div>
+          <div class="placeholder-img bento-supplier-03-img">[Mapa de distribuição nacional]</div>
         </article>
 
-        <article class="cf-card" style="grid-column: 5 / span 4; grid-row: 5 / span 4;">
-          <div class="cf-card-body">
-            <span class="cf-card-num">04</span>
-            <h2 class="cf-card-title">Rastreabilidade</h2>
-            <p class="cf-card-desc">Sua história gera credibilidade e atrai mais vendas corporativas.</p>
+        <article class="bento-card bento-supplier-04">
+          <div class="bento-card-body">
+            <span class="bento-card-num">04</span>
+            <h2 class="bento-card-title">Rastreabilidade</h2>
+            <p class="bento-card-desc">Sua história gera credibilidade e atrai mais vendas corporativas.</p>
           </div>
-          <div class="cf-badge">
+          <div class="bento-badge">
             Lote 100% rastreado
           </div>
         </article>
       </div>
 
-      <div class="cf-bento" data-panel="ongs" style="grid-template-columns: repeat(3, 1fr);">
-        <article class="cf-card">
-          <div class="cf-card-body">
-            <span class="cf-card-num">01</span>
-            <h2 class="cf-card-title">AgroLink: Hub de Doações</h2>
-            <p class="cf-card-desc">Conectamos sua ONG a produtos fora do padrão estético que seriam descartados, fortalecendo a segurança alimentar e diminuindo o desperdício no campo. Acesso a alimentos de qualidade garantida.</p>
+      <div class="bento bento-ngo" data-panel="ongs">
+        <article class="bento-card">
+          <div class="bento-card-body">
+            <span class="bento-card-num">01</span>
+            <h2 class="bento-card-title">AgroLink: Hub de Doações</h2>
+            <p class="bento-card-desc">Conectamos sua ONG a produtos fora do padrão estético que seriam descartados, fortalecendo a segurança alimentar e diminuindo o desperdício no campo. Acesso a alimentos de qualidade garantida.</p>
           </div>
-          <div class="placeholder-img" style="margin-top: var(--space-16);">[Diagrama de Conexão Produtor ➔ ONG]</div>
+          <div class="placeholder-img bento-ngo-img">[Diagrama de Conexão Produtor ➔ ONG]</div>
         </article>
 
-        <article class="cf-card">
-          <div class="cf-card-body">
-            <span class="cf-card-num">02</span>
-            <h2 class="cf-card-title">Impacto Social</h2>
-            <p class="cf-card-desc">Resultados mensuráveis a cada lote recebido, ajudando na prestação de contas.</p>
+        <article class="bento-card">
+          <div class="bento-card-body">
+            <span class="bento-card-num">02</span>
+            <h2 class="bento-card-title">Impacto Social</h2>
+            <p class="bento-card-desc">Resultados mensuráveis a cada lote recebido, ajudando na prestação de contas.</p>
           </div>
-          <div class="cf-tech-table">
-            <div class="cf-tech-row"><span class="cf-tech-label">Refeições salvas</span><span class="cf-tech-value">5.000+</span></div>
-            <hr class="cf-tech-divider">
-            <div class="cf-tech-row"><span class="cf-tech-label">Alimentos resgatados</span><span class="cf-tech-value">2 Ton</span></div>
+          <div class="bento-tech-table">
+            <div class="bento-tech-row"><span class="bento-tech-label">Refeições salvas</span><span class="bento-tech-value">5.000+</span></div>
+            <hr class="bento-tech-divider">
+            <div class="bento-tech-row"><span class="bento-tech-label">Alimentos resgatados</span><span class="bento-tech-value">2 Ton</span></div>
           </div>
         </article>
 
-        <article class="cf-card">
-          <div class="cf-card-body">
-            <span class="cf-card-num">03</span>
-            <h2 class="cf-card-title">Credibilidade para Parceiros</h2>
-            <p class="cf-card-desc">Fornecedores parceiros ganham o badge "Doador Ativo", reforçando o compromisso com a ODS 2 (Fome Zero) de forma transparente e direta.</p>
+        <article class="bento-card">
+          <div class="bento-card-body">
+            <span class="bento-card-num">03</span>
+            <h2 class="bento-card-title">Credibilidade para Parceiros</h2>
+            <p class="bento-card-desc">Fornecedores parceiros ganham o badge "Doador Ativo", reforçando o compromisso com a ODS 2 (Fome Zero) de forma transparente e direta.</p>
           </div>
-          <div class="cf-badge" style="font-size: var(--font-size-16); padding: var(--space-16) var(--space-24);">Doador Ativo</div>
+          <div class="bento-badge bento-badge-large">Doador Ativo</div>
         </article>
       </div>
     </section>
 
-    <section class="cf-section cf-section-faq">
-      <h2 class="cf-faq-title">Perguntas frequentes</h2>
-      <div class="cf-faq-list" data-panel="compradores">
+    <section class="section-faq">
+      <h2 class="faq-title">Perguntas frequentes</h2>
+      <div class="faq-list" data-panel="compradores">
         
         <details class="faq-item">
           <summary class="faq-summary">
@@ -339,7 +339,7 @@
 
       </div>
 
-      <div class="cf-faq-list" data-panel="fornecedores">
+      <div class="faq-list" data-panel="fornecedores">
         
         <details class="faq-item">
           <summary class="faq-summary">
@@ -415,7 +415,7 @@
 
       </div>
 
-      <div class="cf-faq-list" data-panel="ongs">
+      <div class="faq-list" data-panel="ongs">
         
         <details class="faq-item">
           <summary class="faq-summary">
@@ -492,12 +492,11 @@
       </div>
     </section>
 
-    <section class="cf-section cf-section-contato">
-      <h2 class="cf-contato-title">Ainda tem dúvidas?</h2>
+    <section class="section-contact">
+      <h2 class="contact-title">Ainda tem dúvidas?</h2>
       
       <div class="contact-grid">
 
-        <!-- Card: WhatsApp -->
         <article class="contact-card">
 
           <div class="contact-card-header">
@@ -527,7 +526,6 @@
 
         </article>
 
-        <!-- Card: E-mail -->
         <article class="contact-card">
 
           <div class="contact-card-header">
@@ -552,7 +550,6 @@
 
         </article>
 
-        <!-- Card: Formulário -->
         <article class="contact-card contact-form-card">
 
           <div class="contact-card-header">
@@ -616,7 +613,7 @@
   <div id="footer-root"></div>
 
   <script defer src="../js/components.js"></script>
-  <script defer src="../js/how-it-works-page.js"></script>
+  <script defer src="../js/pages/how-it-works-page.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       renderNavbar();

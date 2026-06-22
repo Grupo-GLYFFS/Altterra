@@ -1,3 +1,5 @@
+/* Layout */
+
 .login-page {
   display: flex;
   align-items: center;
@@ -5,7 +7,7 @@
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  background-image: url('../images/login-page-cover-1.jpg');
+  background-image: url('../../images/login-page-cover-1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,6 +38,8 @@
   width: auto;
 }
 
+/* Login social */
+
 .login-methods {
   display: flex;
   flex-direction: column;
@@ -49,7 +53,7 @@
   text-align: left;
 }
 
-.social-login-buttons {
+.login-social-buttons {
   display: flex;
   gap: var(--space-8);
   list-style: none;
@@ -57,7 +61,7 @@
   margin: 0;
 }
 
-.social-login-buttons li {
+.login-social-buttons li {
   display: contents;
 }
 
@@ -72,7 +76,7 @@
   padding: var(--space-16);
   border: none;
   border-radius: var(--radius-32);
-  background-color: #ffffff;
+  background-color: var(--color-pure-white);
   color: var(--color-black);
   cursor: pointer;
   transition: background-color 150ms ease;
@@ -85,6 +89,8 @@
 .button-social-login:active {
   background-color: var(--color-green-300);
 }
+
+/* Divisor */
 
 .divider {
   width: 100%;
@@ -101,6 +107,8 @@
   background-color: var(--color-green-600);
 }
 
+/* Formulário de email */
+
 .login-email {
   display: flex;
   flex-direction: column;
@@ -110,7 +118,7 @@
 }
 
 .text-input {
-  /* height: 58px; */
+  
   font: inherit;
   width: 100%;
   padding: var(--space-16);
@@ -127,6 +135,8 @@
   overflow: visible;
   color: var(--color-gray-500);
 }
+
+/* Botões */
 
 .button-primary {
   width: 100%;
@@ -179,13 +189,15 @@
   color: var(--color-white);
 }
 
+/* Responsividade */
+
 @media (max-width: 1280px) {
   .login-page {
     overflow-x: hidden;
     min-height: 100%;
     height: auto;
     padding: var(--space-32) 0;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Corrige o corte do background no mobile ao rolar a página */
   }
 
   .login-panel {
@@ -195,11 +207,11 @@
     box-sizing: border-box;
   }
 
-  .social-login-buttons {
+  .login-social-buttons {
     flex-wrap: wrap;
   }
 
-  .social-login-buttons .button-social-login {
+  .login-social-buttons .button-social-login {
     flex: 1 1 calc(50% - var(--space-4));
   }
 }

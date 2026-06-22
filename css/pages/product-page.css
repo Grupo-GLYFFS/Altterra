@@ -1,13 +1,10 @@
+/* Layout Principal */
 .product-page-container {
   display: flex;
   flex-direction: column;
   padding: var(--space-96);
   padding-bottom: 0;
 }
-
-/* Override do componente compartilhado: product-section na página de produto
-   tem padding próprio de 96px (top e bottom), diferente da home onde o gap
-   vem do page-sections no <main> */
 
 .product-section {
   padding: var(--space-96);
@@ -109,6 +106,7 @@
   background-color: var(--color-gray-400);
 }
 
+/* Detalhes */
 .details {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -124,6 +122,7 @@
   border: 1px solid var(--color-gray-500);
 }
 
+/* Perfil Rápido do Fornecedor */
 .supplier-mini-profile {
   display: flex;
   align-items: center;
@@ -174,6 +173,7 @@
   gap: var(--space-4);
 }
 
+/* CTA (Ações de Compra) */
 .product-cta {
   display: flex;
   align-items: center;
@@ -251,11 +251,13 @@
   color: var(--color-gray-500);
 }
 
+/* Cabeçalho do Produto e Preços */
 .product-header-container {
   display: flex;
   flex-direction: column;
 }
 
+/* Breadcrumb */
 .breadcrumb {
   display: flex;
   align-items: center;
@@ -277,6 +279,7 @@
   gap: var(--space-8);
 }
 
+/* Galeria de Imagens */
 .image-gallery-container {
   height: 100vh;
   display: flex;
@@ -325,14 +328,15 @@
   z-index: var(--z-100-dropdown);
 }
 
-.left {
+.image-gallery-button-prev {
   left: var(--space-4);
 }
 
-.right {
+.image-gallery-button-next {
   right: var(--space-4);
 }
 
+/* Descrição e Abas */
 .description-toggle-wrapper {
   position: sticky;
   top: 0;
@@ -397,6 +401,7 @@
   background-color: var(--color-green-300);
 }
 
+/* Localização */
 .location-container {
   display: flex;
   flex-direction: column;
@@ -708,6 +713,7 @@ meter.progress-bar::-moz-meter-bar {
   gap: var(--space-16);
 }
 
+/* Perfil Completo do Fornecedor */
 .supplier-full-profile {
   display: flex;
   flex-direction: column;
@@ -723,6 +729,7 @@ meter.progress-bar::-moz-meter-bar {
   margin: 0;
 }
 
+/* Avaliações */
 .reviews-container {
   display: flex;
   flex-direction: column;
@@ -747,8 +754,6 @@ meter.progress-bar::-moz-meter-bar {
   gap: var(--space-64);
 }
 
-/* Reset de elementos semânticos */
-
 dd {
   margin: 0;
 }
@@ -757,6 +762,7 @@ address {
   font-style: normal;
 }
 
+/* Responsividade */
 @media (max-width: 1280px) {
   .product-page-container,
   .product-section {

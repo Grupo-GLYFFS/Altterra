@@ -1,7 +1,11 @@
+// Componentes compartilhados: injeta navbar e footer nos placeholders
+// #navbar-root e #footer-root presentes em todas as páginas.
+
 function renderNavbar() {
   const navbarRoot = document.getElementById('navbar-root');
   if (!navbarRoot) return;
 
+  // Marca o link "Como funciona" como ativo (aria-current) quando é a página atual
   const currentPath = window.location.pathname;
   const isHowItWorksPage = currentPath.includes('/pages/how-it-works-page.html');
 
@@ -344,6 +348,7 @@ function renderNavbar() {
 
 `;
 
+  // Menu mobile: abre no hambúrguer, fecha no X ou clicando fora do card
   const hamburgerBtn = navbarRoot.querySelector('.button-hamburger');
   const closeBtn = navbarRoot.querySelector('#button-close-menu');
   const overlay = navbarRoot.querySelector('#navbar-mobile-overlay');
@@ -362,6 +367,7 @@ function renderNavbar() {
 
     closeBtn.addEventListener('click', closeMenu);
 
+    // Clique no fundo escurecido (fora do .navbar-mobile-menu) também fecha
     overlay.addEventListener('click', (e) => {
       if (!menu.contains(e.target)) {
         closeMenu();
@@ -370,6 +376,7 @@ function renderNavbar() {
   }
 }
 
+// Footer — pre-footer (CTA de busca) + footer principal (navegação, social, logo)
 function renderFooter() {
   const footerRoot = document.getElementById('footer-root');
   if (!footerRoot) return;
