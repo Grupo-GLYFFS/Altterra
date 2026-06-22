@@ -23,7 +23,7 @@
       <h1 class="cf-porque-title">Por quê o Altterra ?</h1>
 
       <div class="cf-tab-switcher">
-        <button type="button" class="cf-tab-btn cf-tab-btn-active">
+        <button type="button" class="cf-tab-btn cf-tab-btn-active" data-tab="compradores">
           <span class="icon icon-28" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M4 6v-2h16v2H4Zm0 14v-6h-1v-2l1 -5h16l1 5v2h-1v6h-2v-6H14v6H4Zm2 -2h6v-4H6v4Zm-0.95 -6h13.9 -13.9Zm0 0h13.9l-0.6 -3H5.65l-0.6 3Z" />
@@ -31,7 +31,7 @@
           </span>
           Compradores
         </button>
-        <button type="button" class="cf-tab-btn">
+        <button type="button" class="cf-tab-btn" data-tab="fornecedores">
           <span class="icon icon-28" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M11 19.425v-6.85L5 9.1v6.85l6 3.475Zm2 0 6 -3.475v-6.85L13 12.575v6.85Zm-2 2.3L4 17.7q-0.475 -0.275 -0.7375 -0.725T3 15.975v-7.95q0 -0.55 0.2625 -1t0.7375 -0.725l7 -4.025q0.475 -0.275 1 -0.275t1 0.275l7 4.025q0.475 0.275 0.7375 0.725t0.2625 1v7.95q0 0.55 -0.2625 1T20 17.7L13 21.725q-0.475 0.275 -1 0.275t-1 -0.275Zm5 -13.2 1.925 -1.1 -5.925 -3.425 -1.95 1.125 5.95 3.4Zm-4 2.325 1.95 -1.125 -5.925 -3.425 -1.95 1.125 5.925 3.425Z" />
@@ -39,7 +39,7 @@
           </span>
           Fornecedores
         </button>
-        <button type="button" class="cf-tab-btn">
+        <button type="button" class="cf-tab-btn" data-tab="ongs">
           <span class="icon icon-28" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M16 13 11.85 8.95q-0.775 -0.75 -1.3125 -1.6625T10 5.3q0 -1.375 0.9625 -2.3375T13.3 2q0.8 0 1.5 0.3375t1.2 0.9125q0.5 -0.575 1.2 -0.9125t1.5 -0.3375q1.375 0 2.3375 0.9625T22 5.3q0 1.075 -0.525 1.9875T20.175 8.95L16 13Zm0 -2.8 2.725 -2.675q0.475 -0.475 0.875 -1.0125t0.4 -1.2125q0 -0.55 -0.375 -0.925t-0.925 -0.375q-0.35 0 -0.6625 0.1375T17.5 4.55l-1.5 1.8 -1.5 -1.8q-0.225 -0.275 -0.5375 -0.4125T13.3 4q-0.55 0 -0.925 0.375t-0.375 0.925q0 0.675 0.4 1.2125t0.875 1.0125l2.725 2.675ZM7 18.5l6.95 1.9 5.95 -1.85q-0.125 -0.225 -0.3625 -0.3875T19 18H13.95q-0.675 0 -1.075 -0.05t-0.825 -0.2l-2.325 -0.775 0.55 -1.95 2.025 0.675q0.425 0.125 1 0.2t1.7 0.1q0 -0.275 -0.1625 -0.525T14.45 15.15l-5.85 -2.15h-1.6v5.5ZM1 22v-11h7.6q0.175 0 0.35 0.0375t0.325 0.0875l5.875 2.175q0.825 0.3 1.3375 1.05t0.5125 1.65h2q1.25 0 2.125 0.825t0.875 2.175v1L14 22.5l-7 -1.95v1.45H1Zm2 -2h2v-7h-2v7Zm13 -13.65Z" />
@@ -49,7 +49,7 @@
         </button>
       </div>
 
-      <div class="cf-bento">
+      <div class="cf-bento" data-panel="compradores">
         <article class="cf-card cf-card-01">
           <div class="cf-card-body">
             <span class="cf-card-num">01</span>
@@ -172,11 +172,98 @@
           </div>
         </article>
       </div>
+
+      <div class="cf-bento" data-panel="fornecedores">
+        <article class="cf-card" style="grid-column: 1 / span 3; grid-row: 1 / span 4;">
+          <div class="cf-card-body">
+            <span class="cf-card-num">01</span>
+            <h2 class="cf-card-title">Preço Justo</h2>
+            <p class="cf-card-desc">Negocie sem intermediários, ficando com 100% da sua margem.</p>
+          </div>
+          <div class="cf-card-stat">
+            <p class="cf-card-stat-num">100%</p>
+            <p class="cf-card-stat-label">Margem sua</p>
+          </div>
+        </article>
+        
+        <article class="cf-card" style="grid-column: 4 / span 5; grid-row: 1 / span 4;">
+          <div class="cf-card-04-inner" style="gap: var(--space-32); display: flex;">
+            <div class="cf-card-04-text" style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: var(--space-16);">
+              <div class="cf-card-body">
+                <span class="cf-card-num">02</span>
+                <h2 class="cf-card-title">Outlet Sustentável</h2>
+                <p class="cf-card-desc">Possibilidade de vender excedentes de safra e produtos com pequenas imperfeições estéticas. O que seria descarte vira receita para a sua propriedade.</p>
+              </div>
+              <div class="cf-tags">
+                <div class="cf-tag">Excedentes</div>
+                <div class="cf-tag">Fora do Padrão</div>
+                <div class="cf-tag">Nova Receita</div>
+              </div>
+            </div>
+            <div style="flex-shrink: 0; width: 300px;">
+              <div class="placeholder-img">[Gráfico de redução de desperdício]</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cf-card" style="grid-column: 1 / span 4; grid-row: 5 / span 4;">
+          <div class="cf-card-body">
+            <span class="cf-card-num">03</span>
+            <h2 class="cf-card-title">Compradores Qualificados</h2>
+            <p class="cf-card-desc">Conexão direta a grandes redes B2B, sem intermediários. Alcance visibilidade nacional e garanta o preço justo que você merece.</p>
+          </div>
+          <div class="placeholder-img" style="min-height: 120px;">[Mapa de distribuição nacional]</div>
+        </article>
+
+        <article class="cf-card" style="grid-column: 5 / span 4; grid-row: 5 / span 4;">
+          <div class="cf-card-body">
+            <span class="cf-card-num">04</span>
+            <h2 class="cf-card-title">Rastreabilidade</h2>
+            <p class="cf-card-desc">Sua história gera credibilidade e atrai mais vendas corporativas.</p>
+          </div>
+          <div class="cf-badge">
+            Lote 100% rastreado
+          </div>
+        </article>
+      </div>
+
+      <div class="cf-bento" data-panel="ongs" style="grid-template-columns: repeat(3, 1fr);">
+        <article class="cf-card">
+          <div class="cf-card-body">
+            <span class="cf-card-num">01</span>
+            <h2 class="cf-card-title">AgroLink: Hub de Doações</h2>
+            <p class="cf-card-desc">Conectamos sua ONG a produtos fora do padrão estético que seriam descartados, fortalecendo a segurança alimentar e diminuindo o desperdício no campo. Acesso a alimentos de qualidade garantida.</p>
+          </div>
+          <div class="placeholder-img" style="margin-top: var(--space-16);">[Diagrama de Conexão Produtor ➔ ONG]</div>
+        </article>
+
+        <article class="cf-card">
+          <div class="cf-card-body">
+            <span class="cf-card-num">02</span>
+            <h2 class="cf-card-title">Impacto Social</h2>
+            <p class="cf-card-desc">Resultados mensuráveis a cada lote recebido, ajudando na prestação de contas.</p>
+          </div>
+          <div class="cf-tech-table">
+            <div class="cf-tech-row"><span class="cf-tech-label">Refeições salvas</span><span class="cf-tech-value">5.000+</span></div>
+            <hr class="cf-tech-divider">
+            <div class="cf-tech-row"><span class="cf-tech-label">Alimentos resgatados</span><span class="cf-tech-value">2 Ton</span></div>
+          </div>
+        </article>
+
+        <article class="cf-card">
+          <div class="cf-card-body">
+            <span class="cf-card-num">03</span>
+            <h2 class="cf-card-title">Credibilidade para Parceiros</h2>
+            <p class="cf-card-desc">Fornecedores parceiros ganham o badge "Doador Ativo", reforçando o compromisso com a ODS 2 (Fome Zero) de forma transparente e direta.</p>
+          </div>
+          <div class="cf-badge" style="font-size: var(--font-size-16); padding: var(--space-16) var(--space-24);">Doador Ativo</div>
+        </article>
+      </div>
     </section>
 
     <section class="cf-section cf-section-faq">
       <h2 class="cf-faq-title">Perguntas frequentes</h2>
-      <div class="cf-faq-list">
+      <div class="cf-faq-list" data-panel="compradores">
         
         <details class="faq-item">
           <summary class="faq-summary">
@@ -248,6 +335,158 @@
             </span>
           </summary>
           <p class="faq-answer">A logística é negociada diretamente entre comprador e produtor dentro da plataforma. Você combina retirada na origem, frete por conta do produtor ou indica sua própria transportadora. O Altterra registra as condições acordadas e envia notificações de confirmação de despacho e entrega.</p>
+        </details>
+
+      </div>
+
+      <div class="cf-faq-list" data-panel="fornecedores">
+        
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Como faço meu cadastro como fornecedor?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">O cadastro de fornecedor é gratuito. Você informa os dados da sua propriedade ou cooperativa (CNPJ ou CPF rural, localização, tipo de produção) e envia documentação de comprovação. Após a aprovação, libera o painel de gestão e pode publicar seus primeiros lotes no marketplace.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Como anuncio meus produtos no Altterra?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">Pelo painel do fornecedor, você cadastra cada lote com foto, ficha técnica (umidade, pH, altitude, percentual de avarias), volume disponível e faixas de preço por quantidade. Quanto mais completa a ficha, maior a confiança do comprador e a velocidade da negociação.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Como recebo os pagamentos das vendas?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">O Altterra registra todas as condições acordadas na cotação. O pagamento é combinado diretamente com o comprador dentro das regras da plataforma, e o histórico de cada transação fica documentado na sua conta para garantir segurança e previsibilidade financeira.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Posso vender produtos fora do padrão estético?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">Sim. Produtos com pequenas imperfeições estéticas ou excedentes de safra podem ser anunciados no Outlet Sustentável. É uma forma de transformar o que seria descarte em receita, reduzindo perdas no campo.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Como funciona a logística e o frete?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">A logística é negociada diretamente com o comprador. Você pode oferecer retirada na origem, frete por sua conta ou indicar uma transportadora parceira. As condições ficam registradas na plataforma com notificações de despacho e entrega.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>O que é a rastreabilidade e como ela me ajuda a vender?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">A rastreabilidade comprova a origem e o histórico de cada lote. Para o comprador B2B isso é um diferencial decisivo: lotes rastreados vendem mais rápido, alcançam melhores preços e habilitam filtros por certificações sustentáveis.</p>
+        </details>
+
+      </div>
+
+      <div class="cf-faq-list" data-panel="ongs">
+        
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Como minha ONG se cadastra no AgroLink?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">O cadastro no AgroLink é gratuito. Sua ONG informa os dados institucionais (CNPJ, área de atuação, capacidade de armazenamento) e envia documentação que comprove a atividade social. Após a validação, você passa a visualizar as doações disponíveis na sua região.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Que tipo de produtos minha ONG pode receber?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">Sua ONG pode receber alimentos fora do padrão estético — tamanho irregular, coloração atípica ou excedentes de safra — que mantêm qualidade nutricional plena. São produtos que seriam descartados no mercado convencional, mas estão perfeitos para consumo.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>As doações têm algum custo?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">As doações pelo AgroLink não têm custo de aquisição. Eventuais custos logísticos de retirada ou transporte são combinados caso a caso entre a ONG e o produtor doador, sempre de forma transparente na plataforma.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Como funciona a logística de retirada das doações?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">Cada doação traz a localização do produtor e o volume disponível. A retirada é combinada diretamente entre a ONG e o doador — você organiza o transporte ou negocia o apoio do produtor. O Altterra registra o agendamento e confirma a entrega.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>Como acompanho o impacto social das doações recebidas?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">A cada lote recebido, a plataforma registra dados como volume resgatado e estimativa de refeições viabilizadas. Esses indicadores ajudam sua ONG na prestação de contas e na comunicação de impacto com parceiros e financiadores.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">
+            <span>O que é o badge "Doador Ativo"?</span>
+            <span class="icon icon-24" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer">É o selo de credibilidade que os fornecedores parceiros recebem ao doar pelo AgroLink. Ele reforça publicamente o compromisso do produtor com a ODS 2 (Fome Zero) e incentiva mais doações na cadeia.</p>
         </details>
 
       </div>
@@ -377,6 +616,7 @@
   <div id="footer-root"></div>
 
   <script defer src="../js/components.js"></script>
+  <script defer src="../js/how-it-works-page.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       renderNavbar();

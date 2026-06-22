@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bento Grid Test • Altterra</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/how-it-works-page.css">
+  <style>
+    /* Inline styles for prototype container padding and placeholders */
+    .test-container {
+      padding: var(--space-64) var(--space-32);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-64);
+      background-color: var(--color-white);
+    }
+    .test-heading {
+      font-family: var(--font-display);
+      font-size: var(--font-size-32);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-black);
+      border-bottom: 2px solid var(--color-gray-300);
+      padding-bottom: var(--space-16);
+      margin-bottom: calc(var(--space-16) * -1);
+    }
+    .placeholder-img {
+      background-color: var(--color-gray-800);
+      border-radius: var(--radius-16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gray-500);
+      text-align: center;
+      padding: var(--space-32);
+      min-height: 200px;
+      font-weight: var(--font-weight-semibold);
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="default-page">
+  <main class="test-container">
+
+    <!-- FORNECEDORES — VERSÃO A -->
+    <h1 class="test-heading">Fornecedores — Versão A</h1>
+    <div class="cf-bento">
+      <article class="cf-card" style="grid-column: 1 / span 5; grid-row: 1 / span 6;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">01</span>
+          <h2 class="cf-card-title">Acesso a compradores B2B</h2>
+          <p class="cf-card-desc">Visibilidade nacional para seus produtos com conexão direta a empresas qualificadas e interessadas em comprar de você.</p>
+        </div>
+        <div class="cf-card-producers">
+          <div class="cf-avatars">
+            <div class="cf-avatar">BR</div>
+            <div class="cf-avatar">SP</div>
+            <div class="cf-avatar">RJ</div>
+            <div class="cf-avatar">MG</div>
+            <div class="cf-avatar">+500</div>
+          </div>
+          <div class="cf-producers-count">
+            <p class="cf-card-stat-num">500+</p>
+            <p class="cf-card-stat-label">Compradores ativos</p>
+          </div>
+        </div>
+      </article>
+      
+      <article class="cf-card" style="grid-column: 6 / span 3; grid-row: 1 / span 3;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">02</span>
+          <h2 class="cf-card-title">Preço Justo</h2>
+          <p class="cf-card-desc">Negocie sem intermediários, ficando com 100% da sua margem.</p>
+        </div>
+        <div class="cf-card-stat">
+          <p class="cf-card-stat-num">100%</p>
+          <p class="cf-card-stat-label">Margem sua</p>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 6 / span 3; grid-row: 4 / span 3;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">03</span>
+          <h2 class="cf-card-title">Rastreabilidade</h2>
+          <p class="cf-card-desc">Sua história gera credibilidade e atrai mais vendas corporativas.</p>
+        </div>
+        <div class="cf-badge">
+          Lote 100% rastreado
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 1 / span 8; grid-row: 7 / span 3;">
+        <div class="cf-card-04-inner" style="gap: var(--space-32); display: flex;">
+          <div class="cf-card-04-text" style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: var(--space-16);">
+            <div class="cf-card-body">
+              <span class="cf-card-num">04</span>
+              <h2 class="cf-card-title">Outlet Sustentável</h2>
+              <p class="cf-card-desc">Possibilidade de vender excedentes de safra e produtos com pequenas imperfeições estéticas. O que seria descarte vira receita para a sua propriedade.</p>
+            </div>
+            <div class="cf-tags">
+              <div class="cf-tag">Excedentes</div>
+              <div class="cf-tag">Fora do Padrão</div>
+              <div class="cf-tag">Nova Receita</div>
+            </div>
+          </div>
+          <div style="flex-shrink: 0; width: 300px;">
+            <div class="placeholder-img">[Gráfico de redução de desperdício]</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- FORNECEDORES — VERSÃO B -->
+    <h1 class="test-heading">Fornecedores — Versão B</h1>
+    <div class="cf-bento">
+      <article class="cf-card" style="grid-column: 1 / span 4; grid-row: 1 / span 5;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">01</span>
+          <h2 class="cf-card-title">Gestão de Pedidos Integrada</h2>
+          <p class="cf-card-desc">Painel completo com ferramentas de gestão para acompanhar cotações, pedidos e faturamento em um só lugar.</p>
+        </div>
+        <div class="cf-tech-table">
+          <div class="cf-tech-row"><span class="cf-tech-label">Pedidos Hoje</span><span class="cf-tech-value">12</span></div>
+          <hr class="cf-tech-divider">
+          <div class="cf-tech-row"><span class="cf-tech-label">Cotações Abertas</span><span class="cf-tech-value">5</span></div>
+          <hr class="cf-tech-divider">
+          <div class="cf-tech-row"><span class="cf-tech-label">Em Transporte</span><span class="cf-tech-value">3</span></div>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 5 / span 4; grid-row: 1 / span 5;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">02</span>
+          <h2 class="cf-card-title">Compradores Qualificados</h2>
+          <p class="cf-card-desc">Conexão direta a grandes redes B2B, sem intermediários. Alcance visibilidade nacional e garanta o preço justo que você merece.</p>
+        </div>
+        <div class="placeholder-img" style="min-height: 120px;">[Mapa de distribuição nacional]</div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 1 / span 8; grid-row: 6 / span 4;">
+        <div class="cf-card-04-inner" style="gap: var(--space-32); display: flex;">
+          <div style="flex-shrink: 0; width: 250px;">
+            <div class="placeholder-img">[Selo Rastreabilidade e Credibilidade]</div>
+          </div>
+          <div class="cf-card-04-text" style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: var(--space-16);">
+            <div class="cf-card-body">
+              <span class="cf-card-num">03</span>
+              <h2 class="cf-card-title">Sua credibilidade em alta</h2>
+              <p class="cf-card-desc">Com nossa rastreabilidade, você comprova a origem do seu produto. Venda mais rápido com as informações que os compradores buscam. E se sobrar, anuncie no Outlet Sustentável para garantir rentabilidade em toda a safra.</p>
+            </div>
+            <div class="cf-tags">
+              <div class="cf-tag">Transparência</div>
+              <div class="cf-tag">Zero Desperdício</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- FORNECEDORES — VERSÃO C -->
+    <h1 class="test-heading">Fornecedores — Versão C</h1>
+    <div class="cf-bento">
+      <article class="cf-card" style="grid-column: 1 / span 3; grid-row: 1 / span 4;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">01</span>
+          <h2 class="cf-card-title">Preço Justo</h2>
+          <p class="cf-card-desc">Sem atravessadores, negociação direta e lucro real para quem planta.</p>
+        </div>
+        <div class="cf-card-stat">
+          <p class="cf-card-stat-num">Direto</p>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 4 / span 5; grid-row: 1 / span 4;">
+        <div class="cf-card-04-inner" style="gap: var(--space-16); display: flex;">
+          <div class="cf-card-body" style="flex: 1;">
+            <span class="cf-card-num">02</span>
+            <h2 class="cf-card-title">Visibilidade B2B</h2>
+            <p class="cf-card-desc">Seu catálogo visto por centenas de compradores qualificados em todo o Brasil. Crescimento garantido com ferramentas de gestão inteligentes.</p>
+          </div>
+          <div style="flex-shrink: 0; width: 180px;">
+            <div class="placeholder-img" style="min-height: 100px; padding: var(--space-16);">[Dashboard]</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 1 / span 4; grid-row: 5 / span 4;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">03</span>
+          <h2 class="cf-card-title">Outlet Sustentável</h2>
+          <p class="cf-card-desc">Venda excedentes que seriam perdidos na roça. Novo mercado para produtos fora do padrão.</p>
+        </div>
+        <div class="cf-tags">
+          <div class="cf-tag">Evite Perdas</div>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 5 / span 4; grid-row: 5 / span 4;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">04</span>
+          <h2 class="cf-card-title">Credibilidade</h2>
+          <p class="cf-card-desc">A rastreabilidade da sua produção valoriza o seu lote e garante mais vendas.</p>
+        </div>
+        <div class="cf-badge">
+          Histórico Verificado
+        </div>
+      </article>
+    </div>
+
+    <!-- ONGs — VERSÃO A -->
+    <h1 class="test-heading">ONGs — Versão A</h1>
+    <div class="cf-bento">
+      <article class="cf-card" style="grid-column: 1 / span 5; grid-row: 1 / span 6;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">01</span>
+          <h2 class="cf-card-title">AgroLink: Hub de Doações</h2>
+          <p class="cf-card-desc">Conectamos sua ONG a produtos fora do padrão estético que seriam descartados, fortalecendo a segurança alimentar e diminuindo o desperdício no campo. Acesso a alimentos de qualidade garantida.</p>
+        </div>
+        <div class="placeholder-img" style="margin-top: var(--space-16);">[Diagrama de Conexão Produtor ➔ ONG]</div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 6 / span 3; grid-row: 1 / span 6;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">02</span>
+          <h2 class="cf-card-title">Impacto Social</h2>
+          <p class="cf-card-desc">Resultados mensuráveis a cada lote recebido, ajudando na prestação de contas.</p>
+        </div>
+        <div class="cf-tech-table">
+          <div class="cf-tech-row"><span class="cf-tech-label">Refeições salvas</span><span class="cf-tech-value">5.000+</span></div>
+          <hr class="cf-tech-divider">
+          <div class="cf-tech-row"><span class="cf-tech-label">Alimentos resgatados</span><span class="cf-tech-value">2 Ton</span></div>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 1 / span 8; grid-row: 7 / span 3;">
+        <div class="cf-card-04-inner" style="gap: var(--space-32); display: flex; align-items: center;">
+          <div style="flex-shrink: 0;">
+            <div class="cf-badge" style="font-size: var(--font-size-16); padding: var(--space-16) var(--space-24);">Doador Ativo</div>
+          </div>
+          <div class="cf-card-04-text" style="flex: 1;">
+            <div class="cf-card-body">
+              <span class="cf-card-num">03</span>
+              <h2 class="cf-card-title">Credibilidade para Parceiros</h2>
+              <p class="cf-card-desc">Fornecedores parceiros ganham o badge "Doador Ativo", reforçando o compromisso com a ODS 2 (Fome Zero) de forma transparente e direta.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- ONGs — VERSÃO B -->
+    <h1 class="test-heading">ONGs — Versão B</h1>
+    <div class="cf-bento">
+      <article class="cf-card" style="grid-column: 1 / span 4; grid-row: 1 / span 4;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">01</span>
+          <h2 class="cf-card-title">Hub AgroLink</h2>
+          <p class="cf-card-desc">Receba alimentos frescos diretamente dos produtores locais, otimizando o fluxo logístico das doações e focando no que importa.</p>
+        </div>
+        <div class="cf-tags">
+          <div class="cf-tag">Segurança Alimentar</div>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 5 / span 4; grid-row: 1 / span 4;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">02</span>
+          <h2 class="cf-card-title">Produtos Fora do Padrão</h2>
+          <p class="cf-card-desc">Alimentos em perfeito estado nutricional, mas rejeitados esteticamente pelo mercado convencional. Resgate o valor real do alimento.</p>
+        </div>
+        <div class="cf-badge">Desperdício Evitado</div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 1 / span 4; grid-row: 5 / span 5;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">03</span>
+          <h2 class="cf-card-title">Fome Zero (ODS 2)</h2>
+          <p class="cf-card-desc">Ação direta com os Objetivos de Desenvolvimento Sustentável. Conexão real com a sociedade.</p>
+        </div>
+        <div class="placeholder-img" style="flex: 1; margin-top: var(--space-16);">[Ícone ODS 2]</div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 5 / span 4; grid-row: 5 / span 5;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">04</span>
+          <h2 class="cf-card-title">Relatórios de Impacto</h2>
+          <p class="cf-card-desc">Dados detalhados para prestação de contas com fornecedores que ganham o badge de credibilidade "Doador Ativo".</p>
+        </div>
+        <div class="cf-card-stat" style="margin-top: auto;">
+          <p class="cf-card-stat-num">Transparente</p>
+          <p class="cf-card-stat-label">Rastreabilidade social</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ONGs — VERSÃO C -->
+    <h1 class="test-heading">ONGs — Versão C</h1>
+    <div class="cf-bento">
+      <article class="cf-card" style="grid-column: 1 / span 8; grid-row: 1 / span 3;">
+        <div class="cf-card-04-inner" style="gap: var(--space-32); display: flex;">
+          <div class="cf-card-04-text" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+            <div class="cf-card-body">
+              <span class="cf-card-num">01</span>
+              <h2 class="cf-card-title">Conexão com a ODS 2 (Fome Zero)</h2>
+              <p class="cf-card-desc">Integração do hub de doações AgroLink com as metas globais de desenvolvimento sustentável, alinhando produtores e ONGs em uma só causa.</p>
+            </div>
+          </div>
+          <div class="cf-card-stat" style="justify-content: center; padding-right: var(--space-32);">
+            <p class="cf-card-stat-num" style="color: var(--color-gold-400);">ODS 2</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 1 / span 3; grid-row: 4 / span 5;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">02</span>
+          <h2 class="cf-card-title">Badge "Doador Ativo"</h2>
+          <p class="cf-card-desc">Reconhecimento de credibilidade para fornecedores.</p>
+        </div>
+        <div class="placeholder-img" style="margin-top: auto; min-height: 100px;">[Selo Doador]</div>
+      </article>
+
+      <article class="cf-card" style="grid-column: 4 / span 5; grid-row: 4 / span 5;">
+        <div class="cf-card-body">
+          <span class="cf-card-num">03</span>
+          <h2 class="cf-card-title">Impacto e Resgate</h2>
+          <p class="cf-card-desc">Acesso contínuo a produtos fora do padrão estético, transformando o que seria desperdício no campo em impacto social mensurável a cada lote recebido.</p>
+        </div>
+        <div class="cf-tech-table" style="margin-top: auto;">
+          <div class="cf-tech-row"><span class="cf-tech-label">Volume Resgatado</span><span class="cf-tech-value">Mensurável</span></div>
+          <hr class="cf-tech-divider">
+          <div class="cf-tech-row"><span class="cf-tech-label">Redução de Descarte</span><span class="cf-tech-value">Acompanhamento Real</span></div>
+        </div>
+      </article>
+    </div>
+
+  </main>
+</body>
+</html>

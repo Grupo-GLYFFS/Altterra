@@ -156,3 +156,9 @@ ul,
 ol {
   list-style: none;
 }
+
+/* Garante que o atributo hidden funcione mesmo com display: flex ou grid */
+
+[hidden] {
+  display: none !important;
+}

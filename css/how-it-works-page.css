@@ -561,6 +561,20 @@ details[open] .faq-summary .icon svg {
   font-size: var(--font-size-12);
 }
 
+.placeholder-img {
+  background-color: var(--color-gray-800);
+  border-radius: var(--radius-16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-500);
+  text-align: center;
+  padding: var(--space-32);
+  min-height: 200px;
+  font-weight: var(--font-weight-semibold);
+  height: 100%;
+}
+
 /* =============================================================================
    Responsividade (Mobile / Tablet)
    ============================================================================= */
@@ -586,16 +600,12 @@ details[open] .faq-summary .icon svg {
 
   /* Seção "Por quê" — bento grid */
   .cf-bento {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
-  .cf-card-01, 
-  .cf-card-02, 
-  .cf-card-03, 
-  .cf-card-04, 
-  .cf-card-05 {
-    grid-column: 1;
-    grid-row: auto;
+  .cf-bento > .cf-card {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
   }
 
   .cf-card-04-inner {
