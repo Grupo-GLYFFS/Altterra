@@ -90,4 +90,58 @@ document.addEventListener('DOMContentLoaded', () => {
       window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank', 'noopener');
     });
   }
+
+  // Toggle de descrição sincronizado com as seções (scroll-spy).
+  // Clicar num botão rola suavemente até a seção; rolar a página destaca
+  // o botão da seção visível. A barra é sticky (top:0) via CSS.
+  const toggleWrapper = document.querySelector('.description-toggle-wrapper');
+  const toggleButtons = Array.from(document.querySelectorAll('.button-description-toggle'));
+  const sections = [
+    document.querySelector('.product-content-block'),
+    document.querySelector('.location-section'),
+    document.querySelector('.reviews-container'),
+    document.querySelector('.supplier-full-profile'),
+  ];
+
+  if (toggleWrapper && toggleButtons.length === sections.length && sections.every(Boolean)) {
+
+    function setActiveButton(index) {
+      toggleButtons.forEach((btn, position) => {
+        btn.classList.toggle('active', position === index);
+      });
+    }
+
+    // Clique: rola até a seção, descontando a altura da barra fixada.
+    toggleButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const offset = toggleWrapper.getBoundingClientRect().height + 8;
+        const top = sections[index].getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        setActiveButton(index);
+      });
+    });
+
+    // Scroll-spy: a última seção cujo topo passou da base da barra fica ativa.
+    let ticking = false;
+    function syncActiveOnScroll() {
+      // A tolerância cobre o respiro de 8px usado no scroll do clique, senão a
+      // seção-alvo para logo abaixo da linha e o botão anterior fica marcado.
+      const line = toggleWrapper.getBoundingClientRect().bottom + 12;
+      let activeIndex = 0;
+      sections.forEach((section, index) => {
+        if (section.getBoundingClientRect().top <= line) activeIndex = index;
+      });
+      setActiveButton(activeIndex);
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(syncActiveOnScroll);
+      }
+    }, { passive: true });
+
+    syncActiveOnScroll();
+  }
 });

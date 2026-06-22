@@ -10,11 +10,31 @@
   padding-bottom: calc(var(--space-96) * 2);
 }
 
+/* Explorador de personas — agrupa tabs (sticky), bento e FAQ.
+   A barra fica fixada enquanto se rola por este bloco e solta no fim do FAQ. */
+.explorer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-64);
+  width: 100%;
+}
+
+.tab-switcher-band {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-10-raised);
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-16);
+  background-color: var(--color-white);
+}
+
 /* Seção FAQ */
 .section-faq {
   display: flex;
   gap: var(--space-32);
   align-items: flex-start;
+  margin-top: var(--space-96);
 }
 
 .faq-title {
@@ -472,6 +492,24 @@ details[open] .faq-summary .icon svg {
   height: 100%;
 }
 
+/* Imagens dos cards do bento (substituem os placeholders) */
+.bento-img {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-16);
+}
+
+/* Imagem-herói de cards sem placeholder: ocupa o meio do card */
+.bento-card-hero-img {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: var(--radius-16);
+}
+
 @media (max-width: 1280px) {
   
   .how-it-works-container {
@@ -501,6 +539,10 @@ details[open] .faq-summary .icon svg {
 
   .bento-card-04-inner {
     flex-direction: column;
+  }
+
+  .bento-supplier-02-img-wrapper {
+    width: 100%;
   }
 
   .bento-card-04-text {

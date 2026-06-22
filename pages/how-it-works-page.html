@@ -19,10 +19,12 @@
 
   <main class="how-it-works-container">
 
-    <section class="section-why">
+    <div class="explorer">
+
       <h1 class="why-title">Por quê o Altterra ?</h1>
 
-      <div class="tab-switcher">
+      <div class="tab-switcher-band">
+        <div class="tab-switcher">
         <button type="button" class="tab-button tab-button-active" data-tab="compradores">
           <span class="icon icon-28" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -47,7 +49,10 @@
           </span>
           ONGs
         </button>
+        </div>
       </div>
+
+      <section class="section-why">
 
       <div class="bento" data-panel="compradores">
         <article class="bento-card bento-card-01">
@@ -56,6 +61,7 @@
             <h2 class="bento-card-title">Preço direto do produtor</h2>
             <p class="bento-card-desc">Sem intermediários. Negocie diretamente com quem cultiva e reduza seus custos operacionais em até 32%.</p>
           </div>
+          <img class="bento-card-hero-img" src="../images/card-01-compradores.png" alt="Comprador e produtor negociando diretamente">
           <div class="bento-card-stat">
             <p class="bento-card-stat-num">32%↓</p>
             <p class="bento-card-stat-label">Margem média recuperada</p>
@@ -201,7 +207,7 @@
               </div>
             </div>
             <div class="bento-supplier-02-img-wrapper">
-              <div class="placeholder-img">[Gráfico de redução de desperdício]</div>
+              <img class="bento-img" src="../images/card-02-fornecedores.png" alt="Gráfico de redução de desperdício de safra">
             </div>
           </div>
         </article>
@@ -212,7 +218,7 @@
             <h2 class="bento-card-title">Compradores Qualificados</h2>
             <p class="bento-card-desc">Conexão direta a grandes redes B2B, sem intermediários. Alcance visibilidade nacional e garanta o preço justo que você merece.</p>
           </div>
-          <div class="placeholder-img bento-supplier-03-img">[Mapa de distribuição nacional]</div>
+          <img class="bento-img bento-supplier-03-img" src="../images/card-03-fornecedores.png" alt="Mapa de distribuição nacional dos compradores">
         </article>
 
         <article class="bento-card bento-supplier-04">
@@ -221,6 +227,7 @@
             <h2 class="bento-card-title">Rastreabilidade</h2>
             <p class="bento-card-desc">Sua história gera credibilidade e atrai mais vendas corporativas.</p>
           </div>
+          <img class="bento-card-hero-img" src="../images/card-04-fornecedores.png" alt="Histórico de rastreabilidade do lote">
           <div class="bento-badge">
             Lote 100% rastreado
           </div>
@@ -234,7 +241,7 @@
             <h2 class="bento-card-title">AgroLink: Hub de Doações</h2>
             <p class="bento-card-desc">Conectamos sua ONG a produtos fora do padrão estético que seriam descartados, fortalecendo a segurança alimentar e diminuindo o desperdício no campo. Acesso a alimentos de qualidade garantida.</p>
           </div>
-          <div class="placeholder-img bento-ngo-img">[Diagrama de Conexão Produtor ➔ ONG]</div>
+          <img class="bento-img bento-ngo-img" src="../images/card-01-ongs.png" alt="Diagrama de conexão entre produtor e ONG">
         </article>
 
         <article class="bento-card">
@@ -491,6 +498,8 @@
 
       </div>
     </section>
+
+    </div>
 
     <section class="section-contact">
       <h2 class="contact-title">Ainda tem dúvidas?</h2>
