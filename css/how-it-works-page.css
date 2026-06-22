@@ -522,6 +522,7 @@ details[open] .faq-summary .icon svg {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: var(--space-32);
   flex: 1;
 }
 
@@ -529,7 +530,6 @@ details[open] .faq-summary .icon svg {
   width: 252px;
   height: 252px;
   object-fit: cover;
-  border-radius: var(--radius-8);
   flex-shrink: 0;
 }
 
@@ -559,4 +559,88 @@ details[open] .faq-summary .icon svg {
   border-radius: var(--radius-32);
   color: var(--color-white);
   font-size: var(--font-size-12);
+}
+
+/* =============================================================================
+   Responsividade (Mobile / Tablet)
+   ============================================================================= */
+
+@media (max-width: 1280px) {
+  /* Container principal */
+  .como-funciona-container {
+    padding-inline: var(--space-16);
+    padding-block: var(--space-64);
+    gap: var(--space-96);
+  }
+
+  /* Seção "Por quê" — tab switcher */
+  .cf-tab-btn {
+    font-size: var(--font-size-16);
+    padding: var(--space-12);
+  }
+
+  .cf-tab-btn .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Seção "Por quê" — bento grid */
+  .cf-bento {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-card-01, 
+  .cf-card-02, 
+  .cf-card-03, 
+  .cf-card-04, 
+  .cf-card-05 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .cf-card-04-inner {
+    flex-direction: column;
+  }
+
+  .cf-card-04-text {
+    gap: var(--space-32);
+  }
+
+  .cf-card-04-img {
+    align-self: flex-start;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  /* Seção FAQ */
+  .cf-section-faq {
+    flex-direction: column;
+  }
+
+  .cf-faq-title {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .cf-faq-list {
+    width: 100%;
+  }
+
+  /* Seção Contato — contact grid */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  /* Seção Contato — form row */
+  .form-row {
+    flex-direction: column;
+  }
 }
