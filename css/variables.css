@@ -26,6 +26,7 @@
 
     /* Semântico */
     --color-alert: #d22605;
+    --color-success: hsl(116, 40%, 32%); /* verde da marca, mais saturado p/ ler como "ok" */
 
     /* Alphas */
     --color-green-200-alpha: hsl(116 21% 74% / 0.87);

@@ -5,9 +5,10 @@ function renderNavbar() {
   const navbarRoot = document.getElementById('navbar-root');
   if (!navbarRoot) return;
 
-  // Marca o link "Como funciona" como ativo (aria-current) quando é a página atual
+  // Marca o link da página atual como ativo (aria-current)
   const currentPath = window.location.pathname;
   const isHowItWorksPage = currentPath.includes('/pages/how-it-works-page.html');
+  const isRegisterPage = currentPath.includes('/pages/register-page.html');
 
   navbarRoot.innerHTML = `
   <header class="navbar">
@@ -32,6 +33,9 @@ function renderNavbar() {
               <li>
                 <a class="button-nav" href="/pages/how-it-works-page.html" ${isHowItWorksPage ? 'aria-current="page"' : ''}>Como funciona</a>
               </li>
+              <li>
+                <a class="button-nav" href="/pages/register-page.html" ${isRegisterPage ? 'aria-current="page"' : ''}>Anunciar produto</a>
+              </li>
             </ul>
           </nav>
 
@@ -48,14 +52,14 @@ function renderNavbar() {
       </div>
 
       <div class="navbar-search">
-        <div class="tab-group">
+        <div class="tab-group" data-location>
           <button class="button-tab active">
             <span class="icon icon-20">
               <svg viewBox="0 0 16 16">
                 <path d="M7.33333 16V14.1852C5.83951 14.0123 4.58951 13.4198 3.58333 12.4074C2.57716 11.3951 1.98765 10.1481 1.81481 8.66667H0V7.33333H1.81481C1.98765 5.85185 2.57716 4.60494 3.58333 3.59259C4.58951 2.58025 5.83951 1.98765 7.33333 1.81481V0H8.66667V1.81481C10.1605 1.98765 11.4105 2.58025 12.4167 3.59259C13.4228 4.60494 14.0123 5.85185 14.1852 7.33333H16V8.66667H14.1852C14.0123 10.1481 13.4228 11.3951 12.4167 12.4074C11.4105 13.4198 10.1605 14.0123 8.66667 14.1852V16H7.33333ZM11.463 11.463C12.4136 10.5123 12.8889 9.35802 12.8889 8C12.8889 6.64198 12.4136 5.48765 11.463 4.53704C10.5123 3.58642 9.35802 3.11111 8 3.11111C6.64198 3.11111 5.48765 3.58642 4.53704 4.53704C3.58642 5.48765 3.11111 6.64198 3.11111 8C3.11111 9.35802 3.58642 10.5123 4.53704 11.463C5.48765 12.4136 6.64198 12.8889 8 12.8889C9.35802 12.8889 10.5123 12.4136 11.463 11.463ZM6.11111 9.88889C5.59259 9.37037 5.33333 8.74074 5.33333 8C5.33333 7.25926 5.59259 6.62963 6.11111 6.11111C6.62963 5.59259 7.25926 5.33333 8 5.33333C8.74074 5.33333 9.37037 5.59259 9.88889 6.11111C10.4074 6.62963 10.6667 7.25926 10.6667 8C10.6667 8.74074 10.4074 9.37037 9.88889 9.88889C9.37037 10.4074 8.74074 10.6667 8 10.6667C7.25926 10.6667 6.62963 10.4074 6.11111 9.88889ZM9.03704 9.03704C9.32099 8.75309 9.46296 8.40741 9.46296 8C9.46296 7.59259 9.32099 7.24691 9.03704 6.96296C8.75309 6.67901 8.40741 6.53704 8 6.53704C7.59259 6.53704 7.24691 6.67901 6.96296 6.96296C6.67901 7.24691 6.53704 7.59259 6.53704 8C6.53704 8.40741 6.67901 8.75309 6.96296 9.03704C7.24691 9.32099 7.59259 9.46296 8 9.46296C8.40741 9.46296 8.75309 9.32099 9.03704 9.03704Z" />
               </svg>
             </span>
-            São Paulo - SP
+            <span class="location-label">São Paulo - SP</span>
           </button>
         </div>
 
@@ -304,18 +308,19 @@ function renderNavbar() {
       <div class="navbar-mobile-section">
         <p class="navbar-mobile-section-label">Páginas</p>
         <a class="button-nav" href="/pages/how-it-works-page.html" ${isHowItWorksPage ? 'aria-current="page"' : ''}>Como funciona</a>
+        <a class="button-nav" href="/pages/register-page.html" ${isRegisterPage ? 'aria-current="page"' : ''}>Anunciar produto</a>
       </div>
 
       <div class="navbar-mobile-section">
         <p class="navbar-mobile-section-label">Localização</p>
-        <div class="tab-group">
+        <div class="tab-group" data-location>
           <button class="button-tab active">
             <span class="icon icon-20">
               <svg viewBox="0 0 16 16">
                 <path d="M7.33333 16V14.1852C5.83951 14.0123 4.58951 13.4198 3.58333 12.4074C2.57716 11.3951 1.98765 10.1481 1.81481 8.66667H0V7.33333H1.81481C1.98765 5.85185 2.57716 4.60494 3.58333 3.59259C4.58951 2.58025 5.83951 1.98765 7.33333 1.81481V0H8.66667V1.81481C10.1605 1.98765 11.4105 2.58025 12.4167 3.59259C13.4228 4.60494 14.0123 5.85185 14.1852 7.33333H16V8.66667H14.1852C14.0123 10.1481 13.4228 11.3951 12.4167 12.4074C11.4105 13.4198 10.1605 14.0123 8.66667 14.1852V16H7.33333ZM11.463 11.463C12.4136 10.5123 12.8889 9.35802 12.8889 8C12.8889 6.64198 12.4136 5.48765 11.463 4.53704C10.5123 3.58642 9.35802 3.11111 8 3.11111C6.64198 3.11111 5.48765 3.58642 4.53704 4.53704C3.58642 5.48765 3.11111 6.64198 3.11111 8C3.11111 9.35802 3.58642 10.5123 4.53704 11.463C5.48765 12.4136 6.64198 12.8889 8 12.8889C9.35802 12.8889 10.5123 12.4136 11.463 11.463ZM6.11111 9.88889C5.59259 9.37037 5.33333 8.74074 5.33333 8C5.33333 7.25926 5.59259 6.62963 6.11111 6.11111C6.62963 5.59259 7.25926 5.33333 8 5.33333C8.74074 5.33333 9.37037 5.59259 9.88889 6.11111C10.4074 6.62963 10.6667 7.25926 10.6667 8C10.6667 8.74074 10.4074 9.37037 9.88889 9.88889C9.37037 10.4074 8.74074 10.6667 8 10.6667C7.25926 10.6667 6.62963 10.4074 6.11111 9.88889ZM9.03704 9.03704C9.32099 8.75309 9.46296 8.40741 9.46296 8C9.46296 7.59259 9.32099 7.24691 9.03704 6.96296C8.75309 6.67901 8.40741 6.53704 8 6.53704C7.59259 6.53704 7.24691 6.67901 6.96296 6.96296C6.67901 7.24691 6.53704 7.59259 6.53704 8C6.53704 8.40741 6.67901 8.75309 6.96296 9.03704C7.24691 9.32099 7.59259 9.46296 8 9.46296C8.40741 9.46296 8.75309 9.32099 9.03704 9.03704Z" />
               </svg>
             </span>
-            São Paulo - SP
+            <span class="location-label">São Paulo - SP</span>
           </button>
         </div>
       </div>
@@ -346,6 +351,36 @@ function renderNavbar() {
     </div>
   </div>
 
+  <div class="location-popup-overlay" id="location-popup">
+    <div class="location-popup">
+      <div class="location-popup-header">
+        <button class="button-close" id="button-close-location" aria-label="Fechar">
+          <span class="icon icon-24">
+            <svg viewBox="0 0 24 24">
+              <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <h2 class="title-xl location-popup-title">Escolha sua localização</h2>
+
+      <ul class="location-list">
+        <li><button class="location-option active" data-city="São Paulo - SP">São Paulo - SP</button></li>
+        <li><button class="location-option" data-city="Rio de Janeiro - RJ">Rio de Janeiro - RJ</button></li>
+        <li><button class="location-option" data-city="Belo Horizonte - MG">Belo Horizonte - MG</button></li>
+        <li><button class="location-option" data-city="Curitiba - PR">Curitiba - PR</button></li>
+        <li><button class="location-option" data-city="Porto Alegre - RS">Porto Alegre - RS</button></li>
+        <li><button class="location-option" data-city="Florianópolis - SC">Florianópolis - SC</button></li>
+        <li><button class="location-option" data-city="Salvador - BA">Salvador - BA</button></li>
+        <li><button class="location-option" data-city="Recife - PE">Recife - PE</button></li>
+        <li><button class="location-option" data-city="Fortaleza - CE">Fortaleza - CE</button></li>
+        <li><button class="location-option" data-city="Goiânia - GO">Goiânia - GO</button></li>
+        <li><button class="location-option" data-city="Brasília - DF">Brasília - DF</button></li>
+      </ul>
+    </div>
+  </div>
+
 `;
 
   // Menu mobile: abre no hambúrguer, fecha no X ou clicando fora do card
@@ -372,6 +407,57 @@ function renderNavbar() {
       if (!menu.contains(e.target)) {
         closeMenu();
       }
+    });
+  }
+
+  // Toggle de mercado: em cada grupo com 2+ opções, a clicada vira a ativa.
+  // Grupos de 1 botão (localização) são ignorados — eles abrem o popup.
+  navbarRoot.querySelectorAll('.tab-group').forEach(group => {
+    const tabs = group.querySelectorAll('.button-tab');
+    if (tabs.length < 2) return;
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  });
+
+  // Popup de localização: escolher uma cidade atualiza o texto de todos os
+  // botões de localização (desktop + mobile) ao mesmo tempo.
+  const locationPopup = navbarRoot.querySelector('#location-popup');
+  if (locationPopup) {
+    const triggers = navbarRoot.querySelectorAll('[data-location] .button-tab');
+    const labels = navbarRoot.querySelectorAll('.location-label');
+    const options = navbarRoot.querySelectorAll('.location-option');
+    const closeLocationBtn = navbarRoot.querySelector('#button-close-location');
+
+    // Trava o scroll do body enquanto o popup está aberto
+    const openPopup = () => {
+      locationPopup.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closePopup = () => {
+      locationPopup.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    triggers.forEach(btn => btn.addEventListener('click', openPopup));
+    if (closeLocationBtn) closeLocationBtn.addEventListener('click', closePopup);
+
+    // Clique no fundo escurecido (fora do card) fecha
+    locationPopup.addEventListener('click', (e) => {
+      if (e.target === locationPopup) closePopup();
+    });
+
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        const city = option.getAttribute('data-city');
+        labels.forEach(label => { label.textContent = city; });
+        options.forEach(o => o.classList.remove('active'));
+        option.classList.add('active');
+        closePopup();
+      });
     });
   }
 }
@@ -413,6 +499,9 @@ function renderFooter() {
             </li>
             <li>
               <a class="button-footer-link" href="/pages/how-it-works-page.html">Como funciona</a>
+            </li>
+            <li>
+              <a class="button-footer-link" href="/pages/register-page.html">Anunciar produto</a>
             </li>
           </ul>
         </nav>
@@ -488,4 +577,12 @@ function renderFooter() {
   </div>
 
 `;
+
+  // Scroll suave até o topo da página
+  const scrollTopBtn = footerRoot.querySelector('.button-scroll-top');
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }

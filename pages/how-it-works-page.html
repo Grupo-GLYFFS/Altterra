@@ -561,7 +561,7 @@
             <h2 class="title-2xl">Formulário</h2>
           </div>
 
-          <form class="contact-form" method="post" action="">
+          <form class="contact-form" method="post" action="" novalidate>
 
             <div class="contact-form-fields">
 
@@ -569,24 +569,31 @@
 
                 <div class="form-field">
                   <label for="contact-name" class="text-semibold">Nome</label>
-                  <input id="contact-name" type="text" class="form-input" placeholder="Nome" required minlength="2" maxlength="100" autocomplete="name">
+                  <input id="contact-name" type="text" class="form-input" placeholder="Nome e sobrenome" required maxlength="100" autocomplete="name" aria-describedby="error-name">
+                  <span class="form-error" id="error-name" role="alert" hidden></span>
                 </div>
 
                 <div class="form-field">
                   <label for="contact-email" class="text-semibold">Email</label>
-                  <input id="contact-email" type="email" class="form-input" placeholder="email@empresa.com" required autocomplete="email">
+                  <input id="contact-email" type="email" class="form-input" placeholder="email@empresa.com" required autocomplete="email" aria-describedby="error-email">
+                  <span class="form-error" id="error-email" role="alert" hidden></span>
                 </div>
 
               </div>
 
               <div class="form-field">
                 <label for="contact-subject" class="text-semibold">Assunto</label>
-                <input id="contact-subject" type="text" class="form-input" placeholder="Assunto" required minlength="3" maxlength="200">
+                <input id="contact-subject" type="text" class="form-input" placeholder="Assunto" required maxlength="200" aria-describedby="error-subject">
+                <span class="form-error" id="error-subject" role="alert" hidden></span>
               </div>
 
               <div class="form-field">
                 <label for="contact-message" class="text-semibold">Mensagem</label>
-                <textarea id="contact-message" class="form-input form-textarea" placeholder="Mensagem..." required minlength="10" maxlength="2000"></textarea>
+                <textarea id="contact-message" class="form-input form-textarea" placeholder="Mensagem..." required maxlength="500" aria-describedby="error-message"></textarea>
+                <div class="form-field-footer">
+                  <span class="form-error" id="error-message" role="alert" hidden></span>
+                  <span class="form-counter" id="counter-message" aria-hidden="true">0 / 500</span>
+                </div>
               </div>
 
             </div>
