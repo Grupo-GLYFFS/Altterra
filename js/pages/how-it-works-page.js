@@ -60,9 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (name === '') return 'Informe seu nome.';
     const parts = name.split(/\s+/);
     if (parts.length < 2) return 'Informe nome e sobrenome.';
-    // Cada parte precisa ter ao menos 2 letras (aceita acentos, hífen e apóstrofo)
-    const wordPattern = /^[A-Za-zÀ-ÿ'’.-]{2,}$/;
-    if (!parts.every(part => wordPattern.test(part))) {
+    // Cada parte só pode ter letras (com acento), hífen ou apóstrofo, e precisa
+    // conter ao menos 2 letras de fato — assim "A." ou "J-" não passam.
+    const allowed = /^[A-Za-zÀ-ÿ'’.-]+$/;
+    const countLetters = (part) => (part.match(/[A-Za-zÀ-ÿ]/g) || []).length;
+    if (!parts.every(part => allowed.test(part) && countLetters(part) >= 2)) {
       return 'Cada nome deve ter ao menos 2 letras.';
     }
     return '';
