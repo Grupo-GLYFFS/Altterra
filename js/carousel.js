@@ -39,30 +39,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Arrastar com o mouse. Toque continua usando o scroll nativo.
     let isDown = false;
+    let dragging = false;
     let startX = 0;
     let startScroll = 0;
     let moved = false;
+    let pointerId = null;
 
     track.addEventListener('pointerdown', (event) => {
       if (event.pointerType !== 'mouse') return;
       isDown = true;
+      dragging = false;
       moved = false;
       startX = event.pageX;
       startScroll = track.scrollLeft;
-      track.classList.add('is-dragging');
-      track.setPointerCapture(event.pointerId);
+      pointerId = event.pointerId;
     });
 
     track.addEventListener('pointermove', (event) => {
       if (!isDown) return;
       const delta = event.pageX - startX;
-      if (Math.abs(delta) > 3) moved = true;
+      if (!dragging) {
+        // Só captura o ponteiro quando o arrasto começa de fato. Capturar no
+        // pointerdown faria o click ir para a grid em vez do <a>, quebrando a
+        // navegação no clique simples.
+        if (Math.abs(delta) <= 3) return;
+        dragging = true;
+        moved = true;
+        track.classList.add('is-dragging');
+        track.setPointerCapture(pointerId);
+      }
       track.scrollLeft = startScroll - delta;
     });
 
     function endDrag(event) {
       if (!isDown) return;
       isDown = false;
+      if (!dragging) return; // clique simples: deixa o link navegar
+      dragging = false;
       track.classList.remove('is-dragging');
       if (track.hasPointerCapture(event.pointerId)) {
         track.releasePointerCapture(event.pointerId);
