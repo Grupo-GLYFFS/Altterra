@@ -25,10 +25,29 @@
 .navbar-main {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--space-96) var(--space-32);
+  padding: var(--space-16) var(--space-96) var(--space-32);
   background-color: var(--color-green-800);
   color: var(--color-white);
   border-radius: 0 0 var(--radius-32) var(--radius-32);
+}
+
+/* Barra de aviso (vídeo pitch) — topo da navbar */
+.navbar-announcement {
+  padding: var(--space-12);
+  text-align: center;
+  background-color: var(--color-alert);
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  font-weight: var(--font-weight-semibold);
+}
+
+.navbar-announcement a {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.navbar-announcement a:hover {
+  text-decoration: underline;
 }
 
 .navbar-header {

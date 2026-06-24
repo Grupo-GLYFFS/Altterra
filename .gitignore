@@ -1,7 +1,7 @@
 # Arquivos de orientação e prompts (Claude Code / Gemini)
 CLAUDE.md
-project-guide.md
 .agents/
+.claude/
 
 # Logs
 logs

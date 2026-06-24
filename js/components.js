@@ -10,13 +10,22 @@ function renderNavbar() {
   const isHowItWorksPage = currentPath.includes('/pages/how-it-works-page.html');
   const isRegisterPage = currentPath.includes('/pages/register-page.html');
 
+  // Prefixo relativo até a raiz do site: páginas em /pages/ sobem um nível.
+  // Funciona em file://, GitHub Pages (/repo/) e Live Server — diferente de
+  // caminhos absolutos (/...), que quebram fora da raiz do domínio.
+  const base = currentPath.includes('/pages/') ? '../' : './';
+
   navbarRoot.innerHTML = `
   <header class="navbar">
     
     <div class="navbar-main">
+      <div class="navbar-announcement">
+        <a href="https://vimeo.com/1204010162" target="_blank" rel="noopener">Clique aqui para assistir ao vídeo do Altterra!</a>
+      </div>
+
       <div class="navbar-header">
-        <a href="/index.html" class="navbar-logo">
-          <img src="/images/alterra-logo.svg" alt="Altterra" class="navbar-logo-img" />
+        <a href="${base}index.html" class="navbar-logo">
+          <img src="${base}images/alterra-logo.svg" alt="Altterra" class="navbar-logo-img" />
         </a>
 
         <button class="button-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar-mobile-overlay">
@@ -31,15 +40,15 @@ function renderNavbar() {
           <nav class="navbar-links">
             <ul>
               <li>
-                <a class="button-nav" href="/pages/how-it-works-page.html" ${isHowItWorksPage ? 'aria-current="page"' : ''}>Como funciona</a>
+                <a class="button-nav" href="${base}pages/how-it-works-page.html" ${isHowItWorksPage ? 'aria-current="page"' : ''}>Como funciona</a>
               </li>
               <li>
-                <a class="button-nav" href="/pages/register-page.html" ${isRegisterPage ? 'aria-current="page"' : ''}>Anunciar produto</a>
+                <a class="button-nav" href="${base}pages/register-page.html" ${isRegisterPage ? 'aria-current="page"' : ''}>Anunciar produto</a>
               </li>
             </ul>
           </nav>
 
-          <a class="button-nav active" href="/pages/login-page.html">
+          <a class="button-nav active" href="${base}pages/login-page.html">
             Entre
             <span class="icon icon-16">
               <svg viewBox="0 0 16 16">
@@ -296,7 +305,7 @@ function renderNavbar() {
         </button>
       </div>
 
-      <a class="button-nav active" href="/pages/login-page.html">
+      <a class="button-nav active" href="${base}pages/login-page.html">
         Entre
         <span class="icon icon-16">
           <svg viewBox="0 0 16 16">
@@ -307,8 +316,8 @@ function renderNavbar() {
 
       <div class="navbar-mobile-section">
         <p class="navbar-mobile-section-label">Páginas</p>
-        <a class="button-nav" href="/pages/how-it-works-page.html" ${isHowItWorksPage ? 'aria-current="page"' : ''}>Como funciona</a>
-        <a class="button-nav" href="/pages/register-page.html" ${isRegisterPage ? 'aria-current="page"' : ''}>Anunciar produto</a>
+        <a class="button-nav" href="${base}pages/how-it-works-page.html" ${isHowItWorksPage ? 'aria-current="page"' : ''}>Como funciona</a>
+        <a class="button-nav" href="${base}pages/register-page.html" ${isRegisterPage ? 'aria-current="page"' : ''}>Anunciar produto</a>
       </div>
 
       <div class="navbar-mobile-section">
@@ -467,6 +476,9 @@ function renderFooter() {
   const footerRoot = document.getElementById('footer-root');
   if (!footerRoot) return;
 
+  // Mesmo prefixo relativo usado no navbar (ver renderNavbar).
+  const base = window.location.pathname.includes('/pages/') ? '../' : './';
+
   footerRoot.innerHTML = `
   <div class="page-bottom">
     <div class="pre-footer">
@@ -492,16 +504,16 @@ function renderFooter() {
 
           <ul>
             <li>
-              <a class="button-footer-link" href="/index.html">Início</a>
+              <a class="button-footer-link" href="${base}index.html">Início</a>
             </li>
             <li>
-              <a class="button-footer-link" href="/pages/login-page.html">Entrar</a>
+              <a class="button-footer-link" href="${base}pages/login-page.html">Entrar</a>
             </li>
             <li>
-              <a class="button-footer-link" href="/pages/how-it-works-page.html">Como funciona</a>
+              <a class="button-footer-link" href="${base}pages/how-it-works-page.html">Como funciona</a>
             </li>
             <li>
-              <a class="button-footer-link" href="/pages/register-page.html">Anunciar produto</a>
+              <a class="button-footer-link" href="${base}pages/register-page.html">Anunciar produto</a>
             </li>
           </ul>
         </nav>
@@ -568,8 +580,8 @@ function renderFooter() {
         </button>
 
         <span class="footer-logo">
-          <a href="/index.html">
-            <img src="/images/alterra-logo-footer.svg" alt="Altterra" />
+          <a href="${base}index.html">
+            <img src="${base}images/alterra-logo-footer.svg" alt="Altterra" />
           </a>
         </span>
       </div>
