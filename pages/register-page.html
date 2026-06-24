@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar produto • Altterra</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/register-page.css">
+  <link rel="icon" href=".././images/altterra-icon.svg" type="image/svg+xml">
+</head>
+
+<body class="default-page">
+
+  <div id="navbar-root"></div>
+
+  <main class="register">
+
+    <header class="register-header">
+      <a href="../index.html" class="button-back" aria-label="Voltar para a página inicial">
+        <span class="icon icon-24">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+          </svg>
+        </span>
+      </a>
+      <h1 class="register-title">Cadastrar produto</h1>
+    </header>
+
+    <ol class="wizard-steps">
+      <li class="wizard-step is-active" data-step="1">
+        <span class="wizard-step-number">1</span>
+        <span class="wizard-step-info">
+          <span class="wizard-step-title">Básico</span>
+          <span class="wizard-step-subtitle">Informações gerais</span>
+        </span>
+      </li>
+      <li class="wizard-step" data-step="2">
+        <span class="wizard-step-number">2</span>
+        <span class="wizard-step-info">
+          <span class="wizard-step-title">Localização</span>
+          <span class="wizard-step-subtitle">Onde está o lote</span>
+        </span>
+      </li>
+      <li class="wizard-step" data-step="3">
+        <span class="wizard-step-number">3</span>
+        <span class="wizard-step-info">
+          <span class="wizard-step-title">Preço</span>
+          <span class="wizard-step-subtitle">Defina seus preços</span>
+        </span>
+      </li>
+      <li class="wizard-step" data-step="4">
+        <span class="wizard-step-number">4</span>
+        <span class="wizard-step-info">
+          <span class="wizard-step-title">Cultivo</span>
+          <span class="wizard-step-subtitle">Dados técnicos</span>
+        </span>
+      </li>
+      <li class="wizard-step" data-step="5">
+        <span class="wizard-step-number">5</span>
+        <span class="wizard-step-info">
+          <span class="wizard-step-title">Revisão</span>
+          <span class="wizard-step-subtitle">Antes de publicar</span>
+        </span>
+      </li>
+    </ol>
+
+    <form class="register-form" novalidate>
+
+      <!-- Etapa 1: Básico -->
+      <section class="wizard-panel" data-panel="1">
+        <header class="wizard-panel-head">
+          <h2 class="title-2xl">Informações básicas</h2>
+          <p class="text-muted">Etapa 1 de 5</p>
+        </header>
+
+        <div class="register-fieldset">
+          <h3 class="text-semibold">Tipo de produto</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="categoria" class="text-semibold">Categoria</label>
+              <select id="categoria" class="form-input form-select" required aria-describedby="error-categoria">
+                <option value="" disabled selected>Selecione</option>
+                <option>Frutas</option>
+                <option>Verduras e folhas</option>
+                <option>Legumes</option>
+                <option>Ervas</option>
+                <option>Tubérculos e raízes</option>
+                <option>Bulbos</option>
+                <option>Grãos e cereais</option>
+                <option>Leguminosas</option>
+                <option>Sementes e mudas</option>
+              </select>
+              <span class="form-error" id="error-categoria" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="tipo" class="text-semibold">Tipo</label>
+              <input id="tipo" type="text" class="form-input" placeholder="Ex.: Tomate" required maxlength="60" aria-describedby="error-tipo">
+              <span class="form-error" id="error-tipo" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="especie" class="text-semibold">Espécie</label>
+              <input id="especie" type="text" class="form-input" placeholder="Ex.: Tomate Carmem" required maxlength="60" aria-describedby="error-especie">
+              <span class="form-error" id="error-especie" role="alert" hidden></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="register-fieldset">
+          <h3 class="text-semibold">Informações do anúncio</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="titulo" class="text-semibold">Título do anúncio</label>
+              <input id="titulo" type="text" class="form-input" placeholder="Ex.: Excelente Tomate Carmem Orgânico" required maxlength="80" aria-describedby="error-titulo">
+              <span class="form-error" id="error-titulo" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="descricao" class="text-semibold">Descrição do anúncio</label>
+              <textarea id="descricao" class="form-input form-textarea" placeholder="Descreva o produto, o cultivo e os diferenciais..." required maxlength="600" aria-describedby="error-descricao"></textarea>
+              <div class="form-field-footer">
+                <span class="form-error" id="error-descricao" role="alert" hidden></span>
+                <span class="form-counter" id="counter-descricao" aria-hidden="true">0 / 600</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Etapa 2: Localização -->
+      <section class="wizard-panel" data-panel="2" hidden>
+        <header class="wizard-panel-head">
+          <h2 class="title-2xl">Localização do lote</h2>
+          <p class="text-muted">Etapa 2 de 5</p>
+        </header>
+
+        <div class="register-fieldset">
+          <h3 class="text-semibold">Endereço</h3>
+          <div class="form-field">
+            <label for="endereco" class="text-semibold">Endereço (rua / rodovia e número)</label>
+            <input id="endereco" type="text" class="form-input" placeholder="Ex.: Rodovia Dom Pedro I, km 74 - Pinhal" required maxlength="120" aria-describedby="error-endereco">
+            <span class="form-error" id="error-endereco" role="alert" hidden></span>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cidade" class="text-semibold">Cidade</label>
+              <input id="cidade" type="text" class="form-input" placeholder="Ex.: Atibaia" required maxlength="60" aria-describedby="error-cidade">
+              <span class="form-error" id="error-cidade" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="estado" class="text-semibold">Estado</label>
+              <select id="estado" class="form-input form-select" required aria-describedby="error-estado">
+                <option value="" disabled selected>UF</option>
+                <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                <option>SP</option><option>SE</option><option>TO</option>
+              </select>
+              <span class="form-error" id="error-estado" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="cep" class="text-semibold">CEP</label>
+              <input id="cep" type="text" class="form-input" placeholder="00000-000" inputmode="numeric" maxlength="9" required aria-describedby="error-cep">
+              <span class="form-error" id="error-cep" role="alert" hidden></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Etapa 3: Preço -->
+      <section class="wizard-panel" data-panel="3" hidden>
+        <header class="wizard-panel-head">
+          <h2 class="title-2xl">Preço e disponibilidade</h2>
+          <p class="text-muted">Etapa 3 de 5</p>
+        </header>
+
+        <div class="register-fieldset">
+          <h3 class="text-semibold">Faixa de preço</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="preco-min" class="text-semibold">Preço mínimo (R$)</label>
+              <input id="preco-min" type="number" class="form-input" placeholder="2,80" min="0" step="0.01" required aria-describedby="error-preco-min">
+              <span class="form-error" id="error-preco-min" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="preco-max" class="text-semibold">Preço máximo (R$)</label>
+              <input id="preco-max" type="number" class="form-input" placeholder="3,20" min="0" step="0.01" required aria-describedby="error-preco-max">
+              <span class="form-error" id="error-preco-max" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="unidade" class="text-semibold">Unidade de venda</label>
+              <select id="unidade" class="form-input form-select" required aria-describedby="error-unidade">
+                <option value="" disabled selected>Selecione</option>
+                <option value="kg">por kg</option>
+                <option value="t">por tonelada</option>
+                <option value="saca">por saca (60kg)</option>
+                <option value="caixa">por caixa</option>
+                <option value="duzia">por dúzia</option>
+              </select>
+              <span class="form-error" id="error-unidade" role="alert" hidden></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="register-fieldset">
+          <h3 class="text-semibold">Estoque</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="disponivel" class="text-semibold">Quantidade disponível</label>
+              <input id="disponivel" type="number" class="form-input" placeholder="Ex.: 500" min="0" step="1" required aria-describedby="error-disponivel">
+              <span class="form-error" id="error-disponivel" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="minimo" class="text-semibold">Pedido mínimo</label>
+              <input id="minimo" type="number" class="form-input" placeholder="Ex.: 50" min="0" step="1" required aria-describedby="error-minimo">
+              <span class="form-error" id="error-minimo" role="alert" hidden></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Etapa 4: Cultivo -->
+      <section class="wizard-panel" data-panel="4" hidden>
+        <header class="wizard-panel-head">
+          <h2 class="title-2xl">Dados do cultivo</h2>
+          <p class="text-muted">Etapa 4 de 5</p>
+        </header>
+
+        <div class="register-fieldset">
+          <h3 class="text-semibold">Características técnicas</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="modo-cultivo" class="text-semibold">Modo de cultivo</label>
+              <select id="modo-cultivo" class="form-input form-select" required aria-describedby="error-modo-cultivo">
+                <option value="" disabled selected>Selecione</option>
+                <option>Orgânico certificado</option>
+                <option>Agroecológico</option>
+                <option>Convencional</option>
+                <option>Hidropônico</option>
+                <option>Em transição</option>
+              </select>
+              <span class="form-error" id="error-modo-cultivo" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="tipo-solo" class="text-semibold">Tipo de solo</label>
+              <select id="tipo-solo" class="form-input form-select" required aria-describedby="error-tipo-solo">
+                <option value="" disabled selected>Selecione</option>
+                <option>Argilo-arenoso</option>
+                <option>Argiloso</option>
+                <option>Arenoso</option>
+                <option>Humífero</option>
+                <option>Calcário</option>
+                <option>Siltoso</option>
+              </select>
+              <span class="form-error" id="error-tipo-solo" role="alert" hidden></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="ph" class="text-semibold">pH do solo</label>
+              <input id="ph" type="number" class="form-input" placeholder="Ex.: 6,4" min="0" max="14" step="0.1" required aria-describedby="error-ph">
+              <span class="form-error" id="error-ph" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="umidade" class="text-semibold">Umidade na colheita (%)</label>
+              <input id="umidade" type="number" class="form-input" placeholder="Ex.: 92" min="0" max="100" step="1" required aria-describedby="error-umidade">
+              <span class="form-error" id="error-umidade" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="avarias" class="text-semibold">Avarias (%)</label>
+              <input id="avarias" type="number" class="form-input" placeholder="Ex.: 2" min="0" max="100" step="1" required aria-describedby="error-avarias">
+              <span class="form-error" id="error-avarias" role="alert" hidden></span>
+            </div>
+            <div class="form-field">
+              <label for="altitude" class="text-semibold">Altitude (m)</label>
+              <input id="altitude" type="number" class="form-input" placeholder="Ex.: 800" min="0" step="1" required aria-describedby="error-altitude">
+              <span class="form-error" id="error-altitude" role="alert" hidden></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Etapa 5: Revisão -->
+      <section class="wizard-panel" data-panel="5" hidden>
+        <header class="wizard-panel-head">
+          <h2 class="title-2xl">Revisão</h2>
+          <p class="text-muted">Etapa 5 de 5</p>
+        </header>
+
+        <p class="text-muted">Confira os dados antes de publicar. Você pode voltar e ajustar qualquer etapa.</p>
+
+        <div class="review" id="review-content"></div>
+      </section>
+
+      <footer class="register-footer">
+        <button type="button" class="button-wizard-back" data-action="back" hidden>
+          <span class="icon icon-16" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+            </svg>
+          </span>
+          Voltar
+        </button>
+
+        <div class="register-footer-actions">
+          <button type="button" class="button-wizard-ghost" data-action="save-exit">Salvar e sair</button>
+
+          <button type="button" class="button-wizard-next" data-action="next">
+            Avançar
+            <span class="icon icon-16" aria-hidden="true">
+              <svg viewBox="0 0 16 16">
+                <path d="M12.1667 7H0V9H12.1667L6.58333 14.5833L8 16L16 8L8 0L6.58333 1.41667L12.1667 7Z" />
+              </svg>
+            </span>
+          </button>
+
+          <button type="submit" class="button-wizard-next" data-action="publish" hidden>
+            Publicar
+            <span class="icon icon-16" aria-hidden="true">
+              <svg viewBox="0 0 16 16">
+                <path d="M12.1667 7H0V9H12.1667L6.58333 14.5833L8 16L16 8L8 0L6.58333 1.41667L12.1667 7Z" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </footer>
+
+    </form>
+
+    <section class="register-success" id="register-success" hidden>
+      <span class="icon icon-40 register-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z" />
+        </svg>
+      </span>
+      <h2 class="title-2xl">Produto publicado!</h2>
+      <p class="text-muted">Seu anúncio foi enviado para revisão e logo estará disponível no marketplace.</p>
+      <div class="register-success-actions">
+        <a href="../index.html" class="button-wizard-ghost">Voltar ao início</a>
+        <a href="./product-page.html" class="button-wizard-next">Ver exemplo de anúncio</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script defer src="../js/components.js"></script>
+  <script defer src="../js/pages/register-page.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderNavbar();
+      renderFooter();
+    });
+  </script>
+
+</body>
+
+</html>

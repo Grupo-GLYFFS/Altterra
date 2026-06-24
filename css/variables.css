@@ -1,17 +1,48 @@
 :root {
-
     /* Colors */
-    --color-white: #ffffff;
-    --color-black: #000000;
-    --color-gray-100: #ededed;
-    --color-gray-200: #e0e0e0;
-    --color-gray-300: #dcdcdc;
-    --color-gray-400: #c8c8c8;
-    --color-gray-500: #808080;
-    --color-gray-600: #6e6e6e;
-    --color-gray-700: #5b5b5b;
-    --color-brand-green: #33952f;
+    --color-white: hsl(116, 20%, 88%);
+    --color-pure-white: #ffffff; /* O --color-white nativo é levemente esverdeado; este é o branco puro real */
+    --color-black: hsl(116, 23%, 8%);
+
+    /* Escala verde */
+    --color-green-50:  hsl(116, 18%, 96%);
+    --color-green-100: hsl(116, 20%, 88%);
+    --color-green-200: hsl(116, 21%, 74%);
+    --color-green-300: hsl(116, 22%, 57%);
+    --color-green-400: hsl(116, 23%, 40%);
+    --color-green-600: hsl(116, 23%, 25%);
+    --color-green-800: hsl(116, 23%, 14%);
+    --color-green-900: hsl(116, 23%,  8%);
+
+    /* Escala dourada */
+    --color-gold-50:  hsl(41, 55%, 95%);
+    --color-gold-200: hsl(41, 62%, 70%);
+    --color-gold-400: hsl(41, 65%, 47%);
+    --color-gold-600: hsl(41, 65%, 28%);
+
+    /* Brand */
+    --color-brand-green: var(--color-green-800);
+    --color-brand-gold:  var(--color-gold-400);
+
+    /* Semântico */
     --color-alert: #d22605;
+    --color-success: hsl(116, 40%, 32%); /* verde da marca, mais saturado p/ ler como "ok" */
+
+    /* Alphas */
+    --color-green-200-alpha: hsl(116 21% 74% / 0.87);
+    --color-white-alpha-10:   hsla(116, 20%, 88%, 0.10);
+    --color-text-muted-dark:  hsla(116, 20%, 88%, 0.30);
+    --color-text-muted-light: hsla(116, 23%,  8%, 0.30);
+
+    /* Aliases */
+    --color-gray-100: var(--color-green-50);
+    --color-gray-200: var(--color-green-100);
+    --color-gray-300: var(--color-green-200);
+    --color-gray-300-alpha: var(--color-green-200-alpha);
+    --color-gray-400: var(--color-green-300);
+    --color-gray-500: var(--color-green-400);
+    --color-gray-700: var(--color-green-600);
+    --color-gray-800: var(--color-green-800);
 
     /* Spacing */
     --space-2: .125rem;
@@ -33,6 +64,7 @@
     /* Border radius */
     --radius-4: .25rem;
     --radius-8: .5rem;
+    --radius-12: .75rem;
     --radius-16: 1rem;
     --radius-32: 2rem;
     --radius-48: 3rem;
@@ -67,6 +99,7 @@
 
     /* Letter spacing */
     --letter-spacing-tight: -.06em;
+    --letter-spacing-wide: .05em;
 
     /* Breakpoints */
     --bp-sm: 640px;
@@ -82,6 +115,7 @@
     --icon-16: 1rem;
     --icon-20: 1.25rem;
     --icon-24: 1.5rem;
+    --icon-28: 1.75rem;
     --icon-40: 2.5rem;
 
     /* Z-index */
@@ -90,22 +124,4 @@
     --z-100-dropdown: 100;
     --z-200-sticky: 200;
     --z-300-modal: 300;
-
 }
-
-/* ===== Tema escuro (Fase 4) — inverte os tokens de cor ===== */
-[data-theme="dark"] {
-  --color-white: #131313;
-  --color-black: #eeeeee;
-  --color-gray-100: #1b1b1b;
-  --color-gray-200: #232323;
-  --color-gray-300: #2d2d2d;
-  --color-gray-400: #383838;
-  --color-gray-500: #929292;
-  --color-gray-600: #a8a8a8;
-  --color-gray-700: #cacaca;
-  --color-brand-green: #5cb85c;
-  --color-alert: #ff6e61;
-}
-
-html { color-scheme: light dark; }
