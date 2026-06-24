@@ -4,8 +4,6 @@
 
 > **Altterra** é uma plataforma B2B que atua como um *marketplace* de commodities agrícolas. Seu objetivo é conectar produtores e cooperativas diretamente a distribuidores, varejistas e ONGs, sem intermediários. Os usuários podem explorar produtos por região, comprar safras e excedentes, anunciar seus próprios produtos e acessar o *Outlet Sustentável* (itens fora do padrão estético, com desconto).
 
-Este projeto foi desenvolvido como entrega acadêmica do **PBL da FIAP** (Engenharia de Software), alinhado à **ODS 2 da ONU** (Fome Zero e Agricultura Sustentável).
-
 ---
 
 ## Como o Projeto Funciona
@@ -72,8 +70,3 @@ Em vez de depender de bibliotecas pesadas para carrosséis, menus e galerias, es
 *   **Ícones SVG** (inline, sem bibliotecas de ícones)
 *   **GitHub Pages** (hospedagem do site em produção)
 
----
-
-## Squad — The Future is Now
-
-Projeto desenvolvido pela squad **The Future is Now** para o curso de Engenharia de Software da FIAP.
