@@ -19,6 +19,10 @@ function renderNavbar() {
   <header class="navbar">
     
     <div class="navbar-main">
+      <div class="navbar-announcement">
+        <a href="https://vimeo.com/1204010162" target="_blank" rel="noopener">Clique aqui para assistir ao vídeo do Altterra!</a>
+      </div>
+
       <div class="navbar-header">
         <a href="${base}index.html" class="navbar-logo">
           <img src="${base}images/alterra-logo.svg" alt="Altterra" class="navbar-logo-img" />
