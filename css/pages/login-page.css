@@ -1,0 +1,217 @@
+/* Layout */
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-image: url('../../images/login-page-cover-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-panel {
+  background-color: var(--color-green-800);
+  border-radius: var(--radius-32);
+  color: var(--color-white);
+  padding: var(--space-64);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-48);
+}
+
+.login-logo {
+  height: 56px;
+  width: auto;
+}
+
+/* Login social */
+
+.login-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+.login-social {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  text-align: left;
+}
+
+.login-social-buttons {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-social-buttons li {
+  display: contents;
+}
+
+.button-social-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-semibold);
+  padding: var(--space-16);
+  border: none;
+  border-radius: var(--radius-32);
+  background-color: var(--color-pure-white);
+  color: var(--color-black);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.button-social-login:hover {
+  background-color: var(--color-green-200);
+}
+
+.button-social-login:active {
+  background-color: var(--color-green-300);
+}
+
+/* Divisor */
+
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.divider-line {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: var(--color-green-600);
+}
+
+/* Formulário de email */
+
+.login-email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+  width: 100%;
+}
+
+.text-input {
+  
+  font: inherit;
+  width: 100%;
+  padding: var(--space-16);
+  border-radius: var(--radius-8);
+  text-align: center;
+  line-height: var(--line-height-normal);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-gray-500);
+}
+
+.text-input::placeholder {
+  font: inherit;
+  overflow: visible;
+  color: var(--color-gray-500);
+}
+
+/* Botões */
+
+.button-primary {
+  width: 100%;
+  font-family: inherit;
+  font-weight: var(--font-weight-bold);
+  font-size: inherit;
+  padding: var(--space-20) var(--space-32);
+  border: 1px solid var(--color-white);
+  border-radius: var(--radius-32);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.button-primary:hover {
+  background-color: var(--color-green-200);
+  border-color: var(--color-green-200);
+}
+
+.button-primary:active {
+  background-color: var(--color-green-300);
+  border-color: var(--color-green-300);
+}
+
+.button-link {
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+
+.button-link:hover {
+  opacity: 0.6;
+}
+
+.button-link:active {
+  opacity: 0.4;
+}
+
+.login-panel .text-muted {
+  color: var(--color-text-muted-dark);
+  fill: var(--color-text-muted-dark);
+}
+
+.login-panel .button-link {
+  color: var(--color-white);
+}
+
+/* Responsividade */
+
+@media (max-width: 1280px) {
+  .login-page {
+    overflow-x: hidden;
+    min-height: 100%;
+    height: auto;
+    padding: var(--space-32) 0;
+    background-attachment: fixed; /* Corrige o corte do background no mobile ao rolar a página */
+  }
+
+  .login-panel {
+    width: calc(100% - var(--space-32));
+    max-width: 100%;
+    padding: var(--space-32);
+    box-sizing: border-box;
+  }
+
+  .login-social-buttons {
+    flex-wrap: wrap;
+  }
+
+  .login-social-buttons .button-social-login {
+    flex: 1 1 calc(50% - var(--space-4));
+  }
+}

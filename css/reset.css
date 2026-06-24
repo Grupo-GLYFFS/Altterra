@@ -1,9 +1,4 @@
-/* =============================================================================
-   FONTES
-   Declarações @font-face para a família Cal Sans UI
-   ============================================================================= */
-
-/* Cal Sans UI — corpo de texto */
+/* Fontes — Cal Sans UI (sufixo UI = corpo de texto, Text = títulos/display) */
 
 @font-face {
   font-family: 'Cal Sans UI';
@@ -45,8 +40,6 @@
   font-display: swap;
 }
 
-/* Cal Sans UI Text — títulos e destaques */
-
 @font-face {
   font-family: 'Cal Sans UI Text';
   src: url('../fonts/CalSansUI-TextSemiBold.woff2') format('woff2');
@@ -63,13 +56,7 @@
   font-display: swap;
 }
 
-
-/* =============================================================================
-   RESET
-   Remove estilos padrão dos browsers para garantir consistência entre eles
-   ============================================================================= */
-
-/* Box-sizing global — padding e border incluídos no tamanho do elemento */
+/* Reset — normaliza os estilos padrão dos browsers */
 
 *,
 *::before,
@@ -77,33 +64,24 @@
   box-sizing: border-box;
 }
 
-/* Remove margem e padding padrão de todos os elementos */
-
 * {
   margin: 0;
   padding: 0;
 }
 
-/* Garante que o html ocupe a altura total da viewport */
-
 html {
   font-size: var(--font-size-16);
   height: 100%;
-  background-color: var(--color-white);
 }
-
-/* Define a fonte, peso e altura de linha padrão do projeto */
 
 body {
   font-family: var(--font-body);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   -webkit-font-smoothing: antialiased;
-  background-color: var(--color-white);
   color: var(--color-black);
+  background-color: var(--color-white);
 }
-
-/* Elementos de mídia não ultrapassam o contêiner pai */
 
 img,
 picture,
@@ -114,16 +92,12 @@ svg {
   max-width: 100%;
 }
 
-/* Formulários herdam a fonte do documento */
-
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
-
-/* Textos longos quebram linha corretamente */
 
 p,
 h1,
@@ -135,24 +109,24 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* Remove estilos padrão de botões */
-
 button {
   cursor: pointer;
   background: none;
   border: none;
+  color: inherit;
 }
-
-/* Remove sublinhado e herda cor de links */
 
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Remove marcadores de listas */
-
 ul,
 ol {
   list-style: none;
+}
+
+[hidden] {
+  display: none !important;
+  /* Vence display: grid/flex caso o elemento hidden receba essas classes */
 }
