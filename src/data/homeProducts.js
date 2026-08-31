@@ -10,7 +10,7 @@ const baseProduct = {
   available: '500t',
   minimum: '50t',
   priceRange: 'R$2,80 - R$3,20/kg',
-  image: '/images/tomate-carmem.png',
+  image: `${import.meta.env.BASE_URL}images/tomate-carmem.png`,
 }
 
 export const homeProducts = Array.from({ length: 12 }, (_, index) => ({

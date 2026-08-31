@@ -25,7 +25,7 @@ function BuyerBenefits({ activeTab }) {
 
         <img
           className="bento-card-hero-img"
-          src="/images/card-01-compradores.png"
+          src={`${import.meta.env.BASE_URL}images/card-01-compradores.png`}
           alt="Comprador e produtor negociando diretamente"
         />
 
@@ -127,7 +127,7 @@ function BuyerBenefits({ activeTab }) {
 
           <img
             className="bento-card-04-img"
-            src="/images/altterra_rastreio_map_transparent.svg"
+            src={`${import.meta.env.BASE_URL}images/altterra_rastreio_map_transparent.svg`}
             alt=""
           />
         </div>

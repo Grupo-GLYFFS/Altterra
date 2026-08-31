@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Cal Sans UI';
-  src: url('../fonts/CalSansUI-UILight.woff2') format('woff2');
+  src: url('/Altterra/fonts/CalSansUI-UILight.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'Cal Sans UI';
-  src: url('../fonts/CalSansUI-UIRegular.woff2') format('woff2');
+  src: url('/Altterra/fonts/CalSansUI-UIRegular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: 'Cal Sans UI';
-  src: url('../fonts/CalSansUI-UIMedium.woff2') format('woff2');
+  src: url('/Altterra/fonts/CalSansUI-UIMedium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
   font-family: 'Cal Sans UI';
-  src: url('../fonts/CalSansUI-UISemiBold.woff2') format('woff2');
+  src: url('/Altterra/fonts/CalSansUI-UISemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: 'Cal Sans UI';
-  src: url('../fonts/CalSansUI-UIBold.woff2') format('woff2');
+  src: url('/Altterra/fonts/CalSansUI-UIBold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: 'Cal Sans UI Text';
-  src: url('../fonts/CalSansUI-TextSemiBold.woff2') format('woff2');
+  src: url('/Altterra/fonts/CalSansUI-TextSemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -50,7 +50,7 @@
 
 @font-face {
   font-family: 'Cal Sans UI Text';
-  src: url('../fonts/CalSansUI-TextBold.woff2') format('woff2');
+  src: url('/Altterra/fonts/CalSansUI-TextBold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
