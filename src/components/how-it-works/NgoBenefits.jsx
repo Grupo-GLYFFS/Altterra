@@ -27,7 +27,7 @@ function NgoBenefits({ activeTab }) {
 
         <img
           className="bento-img bento-ngo-img"
-          src="/images/card-01-ongs.png"
+          src={`${import.meta.env.BASE_URL}images/card-01-ongs.png`}
           alt="Diagrama de conexão entre produtor e ONG"
         />
       </article>

@@ -8,7 +8,7 @@ function LoginPage() {
         <div className="login-container">
           <a href="/">
             <img
-              src="/images/alterra-logo.svg"
+              src={`${import.meta.env.BASE_URL}images/alterra-logo.svg`}
               alt="Altterra"
               className="login-logo"
             />

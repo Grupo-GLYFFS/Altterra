@@ -7,7 +7,7 @@
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  background-image: url('../../images/login-page-cover-1.jpg');
+  background-image: url('/Altterra/images/login-page-cover-1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -214,4 +214,4 @@
   .login-social-buttons .button-social-login {
     flex: 1 1 calc(50% - var(--space-4));
   }
-}
+}

@@ -73,7 +73,7 @@ function SupplierBenefits({ activeTab }) {
 
             <img
               className="bento-img"
-              src="/images/card-02-fornecedores.png"
+              src={`${import.meta.env.BASE_URL}images/card-02-fornecedores.png`}
               alt="Gráfico de redução de desperdício de safra"
             />
 
@@ -104,7 +104,7 @@ function SupplierBenefits({ activeTab }) {
 
         <img
           className="bento-img bento-supplier-03-img"
-          src="/images/card-03-fornecedores.png"
+          src={`${import.meta.env.BASE_URL}images/card-03-fornecedores.png`}
           alt="Mapa de distribuição nacional dos compradores"
         />
 
@@ -129,7 +129,7 @@ function SupplierBenefits({ activeTab }) {
 
         <img
           className="bento-card-hero-img"
-          src="/images/card-04-fornecedores.png"
+          src={`${import.meta.env.BASE_URL}images/card-04-fornecedores.png`}
           alt="Histórico de rastreabilidade do lote"
         />
 
