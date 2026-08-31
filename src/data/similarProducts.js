@@ -12,7 +12,7 @@ const baseProduct = {
   minimum: '50t',
   priceRange: 'R$2,80 - R$3,20/kg',
   image: tomateCarmem,
-  href: './product-page.html',
+  href: '/',
 };
 
 export const similarProducts = Array.from({ length: 12 }, (_, index) => ({
