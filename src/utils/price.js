@@ -13,3 +13,22 @@ export function formatPriceBRL(value) {
     currency: 'BRL',
   })
 }
+
+// Formata a data de criação do pedido (ISO) no padrão brasileiro,
+// ex.: "26/08/2026 às 14:32".
+export function formatDateBRL(isoString) {
+  const date = new Date(isoString)
+  if (Number.isNaN(date.getTime())) return ''
+
+  const dia = date.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })
+  const hora = date.toLocaleTimeString('pt-BR', {
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+
+  return `${dia} às ${hora}`
+}

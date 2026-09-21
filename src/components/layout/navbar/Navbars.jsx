@@ -84,6 +84,12 @@ function Navbar() {
                       Anunciar produto
                     </Link>
                   </li>
+
+                  <li>
+                    <Link className="button-nav" to="/pedidos">
+                      Meus pedidos
+                    </Link>
+                  </li>
                 </ul>
               </nav>
 
@@ -184,6 +190,7 @@ function Navbar() {
             <p className="navbar-mobile-section-label">Páginas</p>
             <Link className="button-nav" to="/how-it-works">Como funciona</Link>
             <Link className="button-nav" to="/register">Anunciar produto</Link>
+            <Link className="button-nav" to="/pedidos">Meus pedidos</Link>
           </div>
 
           <div className="navbar-mobile-section">

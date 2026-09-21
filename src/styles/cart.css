@@ -139,6 +139,27 @@
   justify-content: space-between;
 }
 
+
+/* Ação principal do carrinho. Espelha .button-add-to-cart (definido em
+   product-page.css) para que as duas ações de maior peso do fluxo de
+   compra tenham o mesmo tratamento visual. */
+.cart-checkout-button {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-semibold);
+  padding: var(--space-20);
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  background-color: var(--color-black);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.cart-checkout-button:hover { background-color: var(--color-gray-800); }
+.cart-checkout-button:active { background-color: var(--color-gray-700); }
+
 /* position: relative no próprio .button-cart (definido em components.css)
    é necessário pro badge se posicionar em cima do ícone — adicionado aqui
    em vez de mexer em components.css, já que é específico do carrinho. */
