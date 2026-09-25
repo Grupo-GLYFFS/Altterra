@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useReducer } from 'react'
-import { DEFAULT_ORDER_STATUS } from '../data/orderStatus'
+import { DEFAULT_ORDER_STATUS, ORDER_STATUS, isCancellable } from '../data/orderStatus'
 import { currentUser } from '../data/currentUser'
 import { loadFromStorage, saveToStorage } from '../utils/storage'
 
@@ -57,6 +57,22 @@ function orderReducer(state, action) {
     case 'CLEAR_ORDERS':
       return { ...state, orders: [] }
 
+    // Cancela um pedido específico (por id), sem removê-lo do histórico —
+    // só muda seu status. A verificação de isCancellable é repetida aqui
+    // (além de na interface) para o reducer nunca aceitar uma transição
+    // inválida, mesmo se algo chamar a ação fora do fluxo esperado.
+    case 'CANCEL_ORDER': {
+      const { id } = action.payload
+      return {
+        ...state,
+        orders: state.orders.map((order) =>
+          order.id === id && isCancellable(order.status)
+            ? { ...order, status: ORDER_STATUS.CANCELADO }
+            : order
+        ),
+      }
+    }
+
     default:
       return state
   }
@@ -80,6 +96,8 @@ export function OrderProvider({ children }) {
       },
 
       clearOrders: () => dispatch({ type: 'CLEAR_ORDERS' }),
+
+      cancelOrder: (id) => dispatch({ type: 'CANCEL_ORDER', payload: { id } }),
     }
   }, [state])
 

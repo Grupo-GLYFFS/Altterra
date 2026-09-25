@@ -83,6 +83,11 @@
   color: var(--color-white);
 }
 
+.order-status-cancelado {
+  background-color: var(--color-alert);
+  color: var(--color-white);
+}
+
 .order-items {
   display: flex;
   flex-direction: column;
@@ -110,4 +115,26 @@
   justify-content: space-between;
   padding-top: var(--space-16);
   border-top: 1px solid var(--color-green-100);
+}
+
+
+/* Ação secundária e discreta — de propósito não usa o mesmo peso visual
+   do .cart-checkout-button. Cancelar não deveria competir com nenhuma
+   ação primária, e é algo que o usuário busca, não algo que se quer
+   induzir. */
+.order-cancel-button {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-alert);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.order-cancel-button:hover {
+  opacity: 0.8;
 }
