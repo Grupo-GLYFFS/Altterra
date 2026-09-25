@@ -1,3 +1,5 @@
+import { useParams, Link } from 'react-router-dom'
+
 import ProductBreadcrumb from '../components/product/ProductBreadcrumb'
 import ProductGallery from '../components/product/ProductGallery'
 import ProductDescriptionToggle from '../components/product/ProductDescriptionToggle'
@@ -16,10 +18,16 @@ import { useScrollSpyTabs } from '../components/product/useScrollSpyTabs'
 import { useCart } from '../context/useCart'
 import { parsePriceBRL } from '../utils/price'
 
-import { product } from '../data/productData'
+import { getProductById } from '../data/products'
 import { similarProducts } from '../data/similarProducts'
 
 function ProductPage() {
+  const { productId } = useParams()
+  const product = getProductById(productId)
+
+  // useScrollSpyTabs precisa ser chamado incondicionalmente (regra dos
+  // hooks do React), então roda antes do guard clause abaixo — mesmo que
+  // o produto não exista, isso não tem efeito colateral nenhum.
   const {
     toggleWrapperRef,
     sectionRefs,
@@ -29,10 +37,11 @@ function ProductPage() {
 
   const { addItem } = useCart()
 
-  // product.prices[0] é a faixa de menor volume ("De 50 a 100t"), a mais
-  // próxima de um "preço unitário" para fins de carrinho — o produto em si
-  // não tem um preço único (é vendido por faixa de volume).
+  // product.prices[0] é a faixa de menor volume, a mais próxima de um
+  // "preço unitário" para fins de carrinho — o produto em si não tem um
+  // preço único (é vendido por faixa de volume).
   function handleAddToCart() {
+    if (!product) return
     addItem({
       id: product.id,
       name: product.name,
@@ -40,6 +49,24 @@ function ProductPage() {
       unitPrice: parsePriceBRL(product.prices[0].price),
       unitLabel: product.prices[0].price,
     })
+  }
+
+  // Produto não encontrado (id inválido na URL, ou link antigo apontando
+  // pra um produto removido do catálogo). Reaproveita o mesmo padrão
+  // visual do estado vazio de "Meus pedidos" (.orders-empty, definida em
+  // orders.css), em vez de criar uma tela nova só pra isso.
+  if (!product) {
+    return (
+      <main className="orders-page">
+        <h1 className="title-2xl">Produto não encontrado</h1>
+        <div className="orders-empty">
+          <p className="text-muted">Esse produto não existe ou não está mais disponível.</p>
+          <Link className="button-primary" to="/">
+            Ver produtos
+          </Link>
+        </div>
+      </main>
+    )
   }
 
   return (

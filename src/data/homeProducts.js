@@ -1,19 +1,23 @@
-// Extraído dos 4 blocos <ul class="products-grid"> de index.html — cada um
-// tinha os mesmos 12 cards de "Tomate Carmem" colados manualmente. Aqui
-// viram 1 array reaproveitado pelas 4 seções, mantendo a MESMA quantidade
-// de cards (12) e o mesmo conteúdo do HTML original.
-const baseProduct = {
-  name: 'Tomate Carmem',
-  supplier: 'Cooperativa Vale Verde',
-  rating: '4.89',
-  distance: '12km',
-  available: '500t',
-  minimum: '50t',
-  priceRange: 'R$2,80 - R$3,20/kg',
-  image: `${import.meta.env.BASE_URL}images/tomate-carmem.png`,
-}
+import { products } from './products'
 
-export const homeProducts = Array.from({ length: 12 }, (_, index) => ({
-  id: `home-product-${index + 1}`,
-  ...baseProduct,
-}))
+// Antes: repetia 1 produto fake 12 vezes. Agora: distribui os produtos
+// reais do catálogo pelos 12 slots do carrossel (ciclando entre eles
+// enquanto o catálogo for pequeno). `id` continua único por posição (é a
+// key do React); `productId` é o produto de verdade, usado pro link e
+// para manter a identidade de favorito consistente entre a Home e a
+// página do produto.
+export const homeProducts = Array.from({ length: 12 }, (_, index) => {
+  const product = products[index % products.length]
+  return {
+    id: `home-product-${index + 1}`,
+    productId: product.id,
+    name: product.name,
+    supplier: product.cardSummary.supplierName,
+    rating: product.cardSummary.rating,
+    distance: product.cardSummary.distance,
+    available: product.cardSummary.available,
+    minimum: product.cardSummary.minimum,
+    priceRange: product.cardSummary.priceRangeLabel,
+    image: product.cardSummary.image,
+  }
+})

@@ -1,21 +1,20 @@
-import tomateCarmem from '../assets/images/tomate-carmem.png';
+import { products } from './products'
 
-// No HTML original, cada <article class="product-card"> dentro de
-// #product-similar era colado manualmente 12 vezes com o mesmo conteúdo.
-// Aqui viram 1 objeto repetido 12x, mantendo a MESMA quantidade de cards.
-const baseProduct = {
-  name: 'Tomate Carmem',
-  supplier: 'Cooperativa Vale Verde',
-  rating: '4.89',
-  distance: '12km',
-  available: '500t',
-  minimum: '50t',
-  priceRange: 'R$2,80 - R$3,20/kg',
-  image: tomateCarmem,
-  href: '/',
-};
-
-export const similarProducts = Array.from({ length: 12 }, (_, index) => ({
-  id: `similar-${index + 1}`,
-  ...baseProduct,
-}));
+// Mesmo raciocínio de homeProducts.js: distribui os produtos reais do
+// catálogo pelos 12 slots da seção "Produtos similares", em vez de repetir
+// 1 produto fake. `productId` é o id real usado pro link.
+export const similarProducts = Array.from({ length: 12 }, (_, index) => {
+  const product = products[index % products.length]
+  return {
+    id: `similar-${index + 1}`,
+    productId: product.id,
+    name: product.name,
+    supplier: product.cardSummary.supplierName,
+    rating: product.cardSummary.rating,
+    distance: product.cardSummary.distance,
+    available: product.cardSummary.available,
+    minimum: product.cardSummary.minimum,
+    priceRange: product.cardSummary.priceRangeLabel,
+    image: product.cardSummary.image,
+  }
+})

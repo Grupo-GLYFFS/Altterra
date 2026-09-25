@@ -1,4 +1,4 @@
-// Converte "R$ 3,20/kg" (formato já usado em data/productData.js) para o
+// Converte "R$ 3,20/kg" (formato já usado em data/products.js) para o
 // número 3.2, para permitir soma/multiplicação no carrinho.
 export function parsePriceBRL(priceLabel) {
   const match = priceLabel.match(/[\d.,]+/)

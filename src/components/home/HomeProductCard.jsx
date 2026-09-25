@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'
 // Mesma marcação que já existia (repetida manualmente) em cada
 // <li><Link to="/product"><article class="product-card">...</article></Link></li>
 // do HomePage.jsx — só parametrizada por `product`, sem mudar nenhuma classe.
+// O link usa product.productId (o id real do catálogo), não product.id
+// (que é só a chave única do card na lista, pode se repetir entre cards
+// diferentes enquanto o catálogo for pequeno).
 function HomeProductCard({ product }) {
   return (
     <li>
-      <Link to="/product">
+      <Link to={`/product/${product.productId}`}>
         <article className="product-card">
           <img className="product-image" src={product.image} alt={product.name} />
 
