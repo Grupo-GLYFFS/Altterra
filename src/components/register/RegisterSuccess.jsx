@@ -1,7 +1,13 @@
+import { Link } from 'react-router-dom'
+
 // Antes tinha `hidden` fixo no JSX — nunca aparecia, porque nada
 // controlava esse atributo. Agora quem decide se isso renderiza é o
 // RegisterPage (só monta este componente quando submitted === true).
-function RegisterSuccess() {
+//
+// `productId` é o produto que acabou de ser criado de verdade no catálogo
+// (ver RegisterPage.handlePublish) — o link "Ver meu produto" leva direto
+// pra página dele, em vez de um link fixo genérico como antes.
+function RegisterSuccess({ productId }) {
   return (
     <section
       className="register-success"
@@ -21,24 +27,24 @@ function RegisterSuccess() {
       </h2>
 
       <p className="text-muted">
-        Seu anúncio foi enviado para revisão e logo estará disponível no marketplace.
+        Seu produto já está disponível no marketplace.
       </p>
 
       <div className="register-success-actions">
 
-        <a
-          href="/"
+        <Link
+          to="/"
           className="button-wizard-ghost"
         >
           Voltar ao início
-        </a>
+        </Link>
 
-        <a
-          href="/product"
+        <Link
+          to={`/product/${productId}`}
           className="button-wizard-next"
         >
-          Ver exemplo de anúncio
-        </a>
+          Ver meu produto
+        </Link>
 
       </div>
     </section>

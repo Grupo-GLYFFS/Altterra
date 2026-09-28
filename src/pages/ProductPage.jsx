@@ -18,12 +18,14 @@ import { useScrollSpyTabs } from '../components/product/useScrollSpyTabs'
 import { useCart } from '../context/useCart'
 import { parsePriceBRL } from '../utils/price'
 
-import { getProductById } from '../data/products'
-import { similarProducts } from '../data/similarProducts'
+import { buildSimilarProducts } from '../data/similarProducts'
+import { useProducts } from '../context/useProducts'
 
 function ProductPage() {
   const { productId } = useParams()
+  const { products, getProductById } = useProducts()
   const product = getProductById(productId)
+  const similarProducts = buildSimilarProducts(products)
 
   // useScrollSpyTabs precisa ser chamado incondicionalmente (regra dos
   // hooks do React), então roda antes do guard clause abaixo — mesmo que

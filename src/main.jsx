@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { CartProvider } from './context/CartContext.jsx'
 import { OrderProvider } from './context/OrderContext.jsx'
+import { ProductsProvider } from './context/ProductsContext.jsx'
 
 import './styles/variables.css'
 import './styles/reset.css'
@@ -22,11 +23,13 @@ import App from './App.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter basename="/Altterra">
-      <CartProvider>
-        <OrderProvider>
-          <App />
-        </OrderProvider>
-      </CartProvider>
+      <ProductsProvider>
+        <CartProvider>
+          <OrderProvider>
+            <App />
+          </OrderProvider>
+        </CartProvider>
+      </ProductsProvider>
     </BrowserRouter>
   </StrictMode>,
 )
