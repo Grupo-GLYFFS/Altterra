@@ -1,6 +1,12 @@
+import { Link } from 'react-router-dom'
+
 // Corresponde a cada <li><a><article class="product-card">...</article></a></li>
 // do HTML original. Os 12 blocos eram idênticos byte-a-byte — aqui viram
 // 1 componente + dado, sem mudar nada visualmente.
+//
+// O link usa product.productId (o id real do catálogo) em vez do antigo
+// product.href fixo ('./product-page.html', resquício da versão HTML) —
+// agora navega de verdade para a página do produto certo via react-router.
 //
 // Nota: a estrela aqui usa a classe "icon icon-12 text-muted-dark" (uma
 // combinação que só aparece neste card), por isso o SVG fica inline em vez
@@ -9,7 +15,7 @@
 function ProductCard({ product }) {
   return (
     <li>
-      <a href={product.href}>
+      <Link to={`/product/${product.productId}`}>
         <article className="product-card">
           <img className="product-image" src={product.image} alt={product.name} />
 
@@ -38,7 +44,7 @@ function ProductCard({ product }) {
 
           <p className="title-lg">{product.priceRange}</p>
         </article>
-      </a>
+      </Link>
     </li>
   );
 }

@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router-dom'
 import { useCart } from '../../context/useCart'
+import { useOrders } from '../../context/useOrders'
 import { formatPriceBRL } from '../../utils/price'
 import CartItem from './CartItem'
 
@@ -10,7 +12,19 @@ import CartItem from './CartItem'
 // classes próprias em cart.css para o conteúdo (lista de itens, stepper de
 // quantidade, total) — que não tinha equivalente no HTML original.
 function CartPanel() {
-  const { items, isOpen, totalItems, totalPrice, closeCart } = useCart()
+  const { items, isOpen, totalItems, totalPrice, closeCart, clearCart } = useCart()
+  const { createOrder } = useOrders()
+  const navigate = useNavigate()
+
+  // Converte o carrinho em pedido, esvazia o carrinho (que já fecha o
+  // painel) e leva o usuário para a lista de pedidos, onde ele vê a
+  // confirmação do que acabou de fazer.
+  function handleCheckout() {
+    if (items.length === 0) return
+    createOrder(items)
+    clearCart()
+    navigate('/pedidos')
+  }
 
   return (
     <div
@@ -47,6 +61,10 @@ function CartPanel() {
                 <span className="text-semibold">Total</span>
                 <span className="title-xl">{formatPriceBRL(totalPrice)}</span>
               </div>
+
+              <button className="cart-checkout-button" type="button" onClick={handleCheckout}>
+                Finalizar pedido
+              </button>
 
               <button className="button-primary" type="button" onClick={closeCart}>
                 Continuar comprando

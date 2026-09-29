@@ -5,6 +5,9 @@ import RegisterSteps from '../components/register/RegisterSteps'
 import RegisterForm from '../components/register/RegisterForm'
 import RegisterSuccess from '../components/register/RegisterSuccess'
 
+import { useProducts } from '../context/useProducts'
+import { buildProductFromRegisterValues } from '../utils/registerToProduct'
+
 function RegisterPage() {
   const [currentStep, setCurrentStep] = useState(1)
   // Faltava por completo: no HTML original, publicar troca form+stepper
@@ -12,6 +15,12 @@ function RegisterPage() {
   // Sem esse estado, RegisterSuccess ficava com `hidden` fixo pra sempre —
   // clicar em "Publicar" simplesmente não tinha efeito visível nenhum.
   const [submitted, setSubmitted] = useState(false)
+
+    // Guarda o id do produto recém-publicado, pra RegisterSuccess conseguir
+  // linkar direto pra ele ("Ver meu produto").
+  const [publishedProductId, setPublishedProductId] = useState(null)
+
+  const { addProduct } = useProducts()
 
   function handleNext() {
     if (currentStep < 5) {
@@ -29,7 +38,14 @@ function RegisterPage() {
     setCurrentStep(step)
   }
 
-  function handlePublish() {
+  // Antes ignorava por completo os dados coletados pelo formulário — só
+  // trocava a tela pra "sucesso", sem o produto ir a lugar nenhum. Agora
+  // constrói um Product de verdade a partir dos valores e adiciona ao
+  // catálogo global (ProductsContext), persistido em localStorage.
+  function handlePublish(values) {
+    const newProduct = buildProductFromRegisterValues(values)
+    addProduct(newProduct)
+    setPublishedProductId(newProduct.id)
     setSubmitted(true)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -56,7 +72,7 @@ function RegisterPage() {
         </>
       )}
 
-      {submitted && <RegisterSuccess />}
+      {submitted && <RegisterSuccess productId={publishedProductId} />}
 
     </main>
   )

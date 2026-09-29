@@ -1,19 +1,21 @@
-// Extraído dos 4 blocos <ul class="products-grid"> de index.html — cada um
-// tinha os mesmos 12 cards de "Tomate Carmem" colados manualmente. Aqui
-// viram 1 array reaproveitado pelas 4 seções, mantendo a MESMA quantidade
-// de cards (12) e o mesmo conteúdo do HTML original.
-const baseProduct = {
-  name: 'Tomate Carmem',
-  supplier: 'Cooperativa Vale Verde',
-  rating: '4.89',
-  distance: '12km',
-  available: '500t',
-  minimum: '50t',
-  priceRange: 'R$2,80 - R$3,20/kg',
-  image: `${import.meta.env.BASE_URL}images/tomate-carmem.png`,
+// Antes era um array fixo (sempre os mesmos 12 cards, calculado 1 vez).
+// Virou uma função porque agora o catálogo pode crescer em tempo de
+// execução (produtos publicados pelo formulário) — precisa recalcular a
+// cada chamada, usando a lista de produtos atual vinda do ProductsContext.
+export function buildHomeProducts(products) {
+  return Array.from({ length: 12 }, (_, index) => {
+    const product = products[index % products.length]
+    return {
+      id: `home-product-${index + 1}`,
+      productId: product.id,
+      name: product.name,
+      supplier: product.cardSummary.supplierName,
+      rating: product.cardSummary.rating,
+      distance: product.cardSummary.distance,
+      available: product.cardSummary.available,
+      minimum: product.cardSummary.minimum,
+      priceRange: product.cardSummary.priceRangeLabel,
+      image: product.cardSummary.image,
+    }
+  })
 }
-
-export const homeProducts = Array.from({ length: 12 }, (_, index) => ({
-  id: `home-product-${index + 1}`,
-  ...baseProduct,
-}))

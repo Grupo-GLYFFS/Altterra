@@ -75,6 +75,11 @@ function cartReducer(state, action) {
     case 'OPEN_CART':
       return { ...state, isOpen: true }
 
+    // Esvazia o carrinho de uma vez. Usado ao finalizar um pedido —
+    // antes disso só existia remoção item a item.
+    case 'CLEAR_CART':
+      return { ...state, items: [], isOpen: false }
+
     case 'CLOSE_CART':
       return { ...state, isOpen: false }
 
@@ -108,6 +113,7 @@ export function CartProvider({ children }) {
       incrementItem: (id) => dispatch({ type: 'INCREMENT', payload: { id } }),
       decrementItem: (id) => dispatch({ type: 'DECREMENT', payload: { id } }),
       removeItem: (id) => dispatch({ type: 'REMOVE_ITEM', payload: { id } }),
+      clearCart: () => dispatch({ type: 'CLEAR_CART' }),
       openCart: () => dispatch({ type: 'OPEN_CART' }),
       closeCart: () => dispatch({ type: 'CLOSE_CART' }),
       toggleCart: () => dispatch({ type: 'TOGGLE_CART' }),
