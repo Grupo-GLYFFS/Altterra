@@ -304,6 +304,9 @@
   border-radius: var(--radius-8);
   cursor: pointer;
   transition: opacity 150ms ease;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .thumbnail-image:hover {

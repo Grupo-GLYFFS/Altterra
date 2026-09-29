@@ -523,8 +523,8 @@ details[open] .categories-toggle .icon:last-child svg {
 }
 
 .product-image {
-  min-height: 12.5rem;
   width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--radius-8);
 }
