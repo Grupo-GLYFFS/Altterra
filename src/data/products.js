@@ -144,11 +144,11 @@ export const products = [
       { label: 'Verduras e folhas', href: '' },
     ],
     gallery: [
+      { src: alfaceCrespa, alt: 'Vista 1 da Alface Crespa' },
       { src: placeholderProduto, alt: 'Foto do produto em breve' },
-      { src: alfaceCrespa, alt: 'Vista 1 da Alface Crespa' },
-      { src: alfaceCrespa, alt: 'Vista 1 da Alface Crespa' },
-      { src: alfaceCrespa, alt: 'Vista 1 da Alface Crespa' },
-      { src: alfaceCrespa, alt: 'Vista 1 da Alface Crespa' },
+      { src: placeholderProduto, alt: 'Foto do produto em breve' },
+      { src: placeholderProduto, alt: 'Foto do produto em breve' },
+      { src: placeholderProduto, alt: 'Foto do produto em breve' },
     ],
     description:
       'Alface crespa fresca, colhida sob encomenda para garantir folhas crocantes e coloração viva. Cultivo em sistema hidropônico com controle rigoroso de temperatura, ideal para redes de varejo e food service que exigem padrão constante durante o ano todo.',
@@ -231,7 +231,7 @@ export const products = [
       available: '6.000 un.',
       minimum: '500 un.',
       priceRangeLabel: 'R$1,50 - R$1,90/un',
-      image: placeholderProduto,
+      image: alfaceCrespa,
     },
   },
 ];
