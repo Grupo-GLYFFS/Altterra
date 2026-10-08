@@ -35,7 +35,7 @@ function Navbar() {
         <div className="navbar-main">
           <div className="navbar-announcement">
             <a
-              href=" https://vimeo.com/1223136427"
+              href="https://vimeo.com/1234143591"
               target="_blank"
               rel="noopener noreferrer"
             >
