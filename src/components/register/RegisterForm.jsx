@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import RegisterPhotos from './RegisterPhotos'
 
 // Campos de cada etapa — idêntico a STEP_FIELDS em js/pages/register-page.js.
 const STEP_FIELDS = {
@@ -119,7 +120,9 @@ function RegisterForm({
   onBack,
   onStepChange,
   onPublish,
+  publishError,
 }) {
+  
   // formRef substitui os `document.getElementById` do JS original: os
   // campos continuam não-controlados (sem value/onChange individual), e a
   // leitura acontece via formRef.current.elements[id], igual ao byId(id).value.
@@ -131,6 +134,10 @@ function RegisterForm({
   // corpo do componente como erro, já que quebra otimizações do compilador)
   // e guardado em estado, que é o que a JSX abaixo efetivamente renderiza.
   const [reviewGroups, setReviewGroups] = useState([])
+
+  // Fotos já comprimidas (ver RegisterPhotos). Ficam em estado React, e não
+  // em formRef.elements, porque um arquivo não tem `.value` útil.
+  const [photos, setPhotos] = useState({ cover: null, extras: [] })
 
   useEffect(() => {
     if (currentStep !== 5 || !formRef.current) return
@@ -223,7 +230,7 @@ function RegisterForm({
       return
     }
 
-    onPublish(getValues())
+    onPublish(getValues(), photos)
   }
 
   return (
@@ -436,6 +443,8 @@ function RegisterForm({
           </div>
 
         </div>
+
+        <RegisterPhotos photos={photos} onChange={setPhotos} />
 
       </section>
 
@@ -1125,10 +1134,27 @@ function RegisterForm({
               </div>
             </div>
           ))}
+
+          <div className="review-group">
+            <h3 className="review-group-title">Fotos</h3>
+
+            {photos.cover || photos.extras.length > 0 ? (
+              <div className="review-photos">
+                {[photos.cover, ...photos.extras].filter(Boolean).map((photo) => (
+                  <img key={photo.id} src={photo.thumb} alt="" />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted text-sm">Nenhuma foto: o produto usará uma imagem provisória.</p>
+            )}
+          </div>
         </div>
 
-      </section>
+        {publishError && (
+          <p className="form-error" role="alert">{publishError}</p>
+        )}
 
+      </section>
 
       {/* Footer */}
 

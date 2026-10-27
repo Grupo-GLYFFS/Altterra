@@ -1,6 +1,7 @@
 import { createContext, useEffect, useMemo, useReducer } from 'react'
 import { products as seedProducts } from '../data/products'
 import { loadFromStorage, saveToStorage } from '../utils/storage'
+import { hydrateProduct } from '../utils/productAssets'
 
 // Estado global do catálogo de produtos. Segue a mesma arquitetura já
 // validada em CartContext/OrderContext (Context API + useReducer +
@@ -41,12 +42,23 @@ export function ProductsProvider({ children }) {
   const value = useMemo(() => {
     // Semente primeiro, publicados depois — mantém a ordem dos carrosséis
     // da Home estável independente de quantos produtos novos existirem.
-    const products = [...seedProducts, ...state.customProducts]
+    // hydrateProduct troca as chaves de imagem guardadas no localStorage
+    // ('asset:placeholder'...) pelas URLs reais do build atual.
+    const products = [...seedProducts, ...state.customProducts.map(hydrateProduct)]
 
     return {
       products,
 
-      addProduct: (product) => dispatch({ type: 'ADD_PRODUCT', payload: product }),
+      // Devolve true se o produto foi publicado E gravado no localStorage;
+      // false se a gravação falhou (cota cheia — acontece com fotos). Neste
+      // caso o produto NÃO entra no catálogo, para nunca parecer publicado
+      // e sumir no próximo reload.
+      addProduct: (product) => {
+        const saved = saveToStorage(STORAGE_KEY, [product, ...state.customProducts])
+        if (!saved) return false
+        dispatch({ type: 'ADD_PRODUCT', payload: product })
+        return true
+      },
 
       getProductById: (id) => products.find((product) => product.id === id),
     }

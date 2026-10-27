@@ -47,7 +47,9 @@ function ProductPage() {
     addItem({
       id: product.id,
       name: product.name,
-      image: product.gallery[0].src,
+      // Miniatura (quando existe) em vez da foto grande: o carrinho e os
+      // pedidos só mostram a imagem pequena e o pedido a copia no localStorage.
+      image: product.cardSummary.thumb ?? product.gallery[0].src,
       unitPrice: parsePriceBRL(product.prices[0].price),
       unitLabel: product.prices[0].price,
     })

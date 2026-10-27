@@ -1,5 +1,4 @@
-import placeholderProduto from '../assets/images/placeholder-produto.svg'
-import fotoSatelite from '../assets/images/foto-satelite.png'
+import { ASSET_KEYS } from './productAssets'
 import { currentUser } from '../data/currentUser'
 
 // Sufixo de preço e rótulo plural por unidade — os <option value="..."> do
@@ -67,7 +66,13 @@ function formatNumberPtBR(rawValue, { decimals = 0 } = {}) {
 // valores neutros e honestos: 0 avaliações, foto placeholder, fornecedor
 // marcado como "Novo no Altterra" — nada é inventado como se já
 // existisse.
-export function buildProductFromRegisterValues(values) {
+
+// `photos` = { cover, extras }: cada foto é { src, thumb } em Base64.
+// Tudo é opcional. A galeria fica [capa, ...extras]; sem capa, a primeira
+// extra assume o papel de capa; sem nenhuma foto, usa o placeholder.
+// Imagens do projeto (placeholder, satélite) vão como CHAVE, não como URL,
+// porque a URL muda a cada build (ver productAssets.js).
+export function buildProductFromRegisterValues(values, photos = {}) {
   const unitSuffix = UNIT_PRICE_SUFFIX[values.unidade] || ''
   const unitLabel = UNIT_LABEL_PLURAL[values.unidade] || values.unidade
   // "Título do anúncio" é o campo pensado como nome de exibição (ex.:
@@ -77,6 +82,12 @@ export function buildProductFromRegisterValues(values) {
   // enquanto.
   const name = values.titulo
   const supplierLocation = `${values.cidade} - ${values.estado}`
+
+  const gallerySources = [photos.cover, ...(photos.extras || [])].filter(Boolean)
+  const hasPhotos = gallerySources.length > 0
+  const gallery = hasPhotos
+    ? gallerySources.map((photo, index) => ({ src: photo.src, alt: `Foto ${index + 1} de ${name}` }))
+    : [{ src: ASSET_KEYS.placeholder, alt: 'Foto do produto em breve' }]
 
   // Preços sempre com 2 casas ("4,50"); demais medidas sem casas
   // forçadas ("6,8", "90").
@@ -96,9 +107,7 @@ export function buildProductFromRegisterValues(values) {
       { label: values.categoria, href: '' },
     ],
 
-    // Sem upload de foto no formulário ainda — mesmo placeholder já usado
-    // pelo produto de demonstração do catálogo (Alface Crespa).
-    gallery: [{ src: placeholderProduto, alt: 'Foto do produto em breve' }],
+    gallery,
 
     description: values.descricao,
 
@@ -112,7 +121,7 @@ export function buildProductFromRegisterValues(values) {
     ],
 
     location: {
-      image: fotoSatelite,
+      image: ASSET_KEYS.satellite,
       address: `${values.endereco}, ${values.cidade} - ${values.estado}, CEP ${values.cep}`,
     },
 
@@ -127,7 +136,7 @@ export function buildProductFromRegisterValues(values) {
 
     supplier: {
       name: currentUser.nome,
-      logo: placeholderProduto,
+      logo: ASSET_KEYS.placeholder,
       rating: '0.0',
       reviewCount: 0,
       memberSince: new Date().getFullYear(),
@@ -175,7 +184,10 @@ export function buildProductFromRegisterValues(values) {
       available: `${values.disponivel} ${unitLabel}`,
       minimum: `${values.minimo} ${unitLabel}`,
       priceRangeLabel: `R$ ${priceMin} - R$ ${priceMax}${unitSuffix}`,
-      image: placeholderProduto,
+      image: gallery[0].src,
+      // Miniatura (160 px) usada pelo carrinho e pelos pedidos, para não
+      // copiar a foto grande em cada pedido salvo no localStorage.
+      thumb: hasPhotos ? gallerySources[0].thumb : null,
     },
   }
 }

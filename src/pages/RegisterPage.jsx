@@ -20,6 +20,8 @@ function RegisterPage() {
   // linkar direto pra ele ("Ver meu produto").
   const [publishedProductId, setPublishedProductId] = useState(null)
 
+  const [publishError, setPublishError] = useState('')
+
   const { addProduct } = useProducts()
 
   function handleNext() {
@@ -42,9 +44,23 @@ function RegisterPage() {
   // trocava a tela pra "sucesso", sem o produto ir a lugar nenhum. Agora
   // constrói um Product de verdade a partir dos valores e adiciona ao
   // catálogo global (ProductsContext), persistido em localStorage.
-  function handlePublish(values) {
-    const newProduct = buildProductFromRegisterValues(values)
-    addProduct(newProduct)
+
+  function handlePublish(values, photos) {
+    const newProduct = buildProductFromRegisterValues(values, photos)
+
+    // addProduct devolve false se não conseguiu gravar no localStorage
+    // (cota cheia — o risco real com fotos). Nesse caso o formulário
+    // continua aberto, com as fotos, para o usuário remover alguma e
+    // tentar de novo, em vez de "publicar" algo que sumiria no reload.
+    const saved = addProduct(newProduct)
+    if (!saved) {
+      setPublishError(
+        'Não foi possível salvar o produto: o armazenamento do navegador está cheio. Remova algumas fotos (ou produtos antigos) e tente publicar de novo.',
+      )
+      return
+    }
+
+    setPublishError('')
     setPublishedProductId(newProduct.id)
     setSubmitted(true)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -68,6 +84,7 @@ function RegisterPage() {
             onBack={handleBack}
             onStepChange={handleStepChange}
             onPublish={handlePublish}
+            publishError={publishError}
           />
         </>
       )}
