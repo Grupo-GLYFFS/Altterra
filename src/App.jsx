@@ -6,6 +6,7 @@ import ProductPage from './pages/ProductPage'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import OrdersPage from './pages/OrdersPage'
+import FavoritesPage from './pages/FavoritesPage'
 
 import MainLayout from './components/layout/MainLayout'
 import AuthLayout from './components/layout/AuthLayout'
@@ -21,6 +22,7 @@ function App() {
         <Route path="/product/:productId" element={<ProductPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/pedidos" element={<OrdersPage />} />
+        <Route path="/favoritos" element={<FavoritesPage />} />
       </Route>
 
       <Route element={<AuthLayout />}>

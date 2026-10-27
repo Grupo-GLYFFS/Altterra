@@ -135,6 +135,7 @@ function ProductPage() {
             <div className="right-side-container">
 
               <ProductHeader
+                productId={product.id}
                 name={product.name}
                 summary={product.summary}
               />

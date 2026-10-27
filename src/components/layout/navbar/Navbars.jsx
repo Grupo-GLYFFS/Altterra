@@ -6,9 +6,10 @@ import LocationPopup from "./LocationPopup";
 import MarketTypeTabs from "./MarketTypeTabs";
 import logo from "../../../assets/images/alterra-logo.svg";
 import { useCart } from "../../../context/useCart";
+import { useFavorites } from "../../../context/useFavorites";
 
 // Reescrito com base em renderNavbar() de js/components.js. A versão
-// anterior usava emojis (☰ ◉ 🌱 ♻️ 🔍 🛒) em vez dos SVGs originais e não
+// anterior usava emojis em vez dos SVGs originais e não
 // tinha nenhuma das interações do original: o hambúrguer não abria menu
 // nenhum (nem existia menu mobile no arquivo), o botão de localização não
 // abria popup nenhum (nem existia popup), e as abas de mercado não
@@ -18,6 +19,7 @@ function Navbar() {
   const [locationPopupOpen, setLocationPopupOpen] = useState(false)
   const [selectedCity, setSelectedCity] = useState('São Paulo - SP')
   const { totalItems, toggleCart } = useCart()
+  const { totalFavorites } = useFavorites()
 
   const openLocationPopup = () => setLocationPopupOpen(true)
   const closeLocationPopup = () => setLocationPopupOpen(false)
@@ -88,6 +90,14 @@ function Navbar() {
                   <li>
                     <Link className="button-nav" to="/pedidos">
                       Meus pedidos
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="button-nav" to="/favoritos">
+                      Favoritos
+                      {totalFavorites > 0 && (
+                        <span className="favorites-count">{totalFavorites}</span>
+                      )}
                     </Link>
                   </li>
                 </ul>
@@ -191,6 +201,10 @@ function Navbar() {
             <Link className="button-nav" to="/how-it-works">Como funciona</Link>
             <Link className="button-nav" to="/register">Anunciar produto</Link>
             <Link className="button-nav" to="/pedidos">Meus pedidos</Link>
+            <Link className="button-nav" to="/favoritos">
+              Favoritos
+              {totalFavorites > 0 && <span className="favorites-count">{totalFavorites}</span>}
+            </Link>
           </div>
 
           <div className="navbar-mobile-section">

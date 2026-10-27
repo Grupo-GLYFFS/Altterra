@@ -880,3 +880,10 @@ address {
     display: none;
   }
 }
+
+/* Favoritos: coração preenchido quando o produto está favoritado. O
+   preenchimento é um <path> extra desenhado por baixo do contorno do ícone
+   (ver ProductActions.jsx). */
+.button-product-action .favorite-fill {
+  fill: var(--color-alert);
+}
