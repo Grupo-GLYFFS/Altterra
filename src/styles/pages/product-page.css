@@ -281,11 +281,8 @@
 
 /* Galeria de Imagens */
 .image-gallery-container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: var(--space-16);
 }
 
@@ -294,19 +291,19 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* sempre quadrado, não importa o tamanho da foto enviada */
   border-radius: var(--radius-8);
-  height: 80%;
-  object-fit: cover;
   overflow: hidden;
 }
 
 .thumbnail-image {
-  border-radius: var(--radius-8);
-  cursor: pointer;
-  transition: opacity 150ms ease;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  border-radius: var(--radius-8);
+  cursor: pointer;
+  transition: opacity 150ms ease;
 }
 
 .thumbnail-image:hover {
@@ -320,15 +317,14 @@
 
 .thumbnails {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr); /* 5 vagas fixas: o tamanho não muda com 1, 3 ou 5 fotos */
   gap: var(--space-16);
-  height: 20%;
-  object-fit: cover;
 }
 
 .main-image {
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* preenche o quadrado cortando o excesso, sem distorcer */
 }
 
 .image-gallery-button {
