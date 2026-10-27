@@ -7,6 +7,7 @@ import MarketTypeTabs from "./MarketTypeTabs";
 import logo from "../../../assets/images/alterra-logo.svg";
 import { useCart } from "../../../context/useCart";
 import { useFavorites } from "../../../context/useFavorites";
+import { useFilters } from "../../../context/useFilters";
 
 // Reescrito com base em renderNavbar() de js/components.js. A versão
 // anterior usava emojis em vez dos SVGs originais e não
@@ -17,7 +18,10 @@ import { useFavorites } from "../../../context/useFavorites";
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [locationPopupOpen, setLocationPopupOpen] = useState(false)
-  const [selectedCity, setSelectedCity] = useState('São Paulo - SP')
+  // A região escolhida agora vive no FiltersContext (antes era um useState
+  // local, que só a navbar enxergava) — assim a Home e o painel de
+  // categorias também filtram por ela.
+  const { region, setRegion } = useFilters()
   const { totalItems, toggleCart } = useCart()
   const { totalFavorites } = useFavorites()
 
@@ -25,7 +29,7 @@ function Navbar() {
   const closeLocationPopup = () => setLocationPopupOpen(false)
 
   const handleSelectCity = (city) => {
-    setSelectedCity(city)
+    setRegion(city)
     closeLocationPopup()
   }
 
@@ -118,7 +122,7 @@ function Navbar() {
           {/* Search */}
           <div className="navbar-search">
 
-            <LocationTab selectedCity={selectedCity} onOpenPopup={openLocationPopup} />
+            <LocationTab selectedCity={region} onOpenPopup={openLocationPopup} />
 
             <MarketTypeTabs />
 
@@ -209,7 +213,7 @@ function Navbar() {
 
           <div className="navbar-mobile-section">
             <p className="navbar-mobile-section-label">Localização</p>
-            <LocationTab selectedCity={selectedCity} onOpenPopup={openLocationPopup} />
+            <LocationTab selectedCity={region} onOpenPopup={openLocationPopup} />
           </div>
 
           <div className="navbar-mobile-section">
@@ -221,7 +225,7 @@ function Navbar() {
 
       <LocationPopup
         open={locationPopupOpen}
-        selectedCity={selectedCity}
+        selectedCity={region}
         onSelectCity={handleSelectCity}
         onClose={closeLocationPopup}
       />

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { locationCities } from '../../../data/categories'
+import { ALL_REGIONS, locationCities } from '../../../data/categories'
 
 // Port de #location-popup em js/components.js. O original travava o scroll
 // do body via document.body.style.overflow = 'hidden' enquanto aberto —
@@ -41,7 +41,8 @@ function LocationPopup({ open, selectedCity, onSelectCity, onClose }) {
         <h2 className="title-xl location-popup-title">Escolha sua localização</h2>
 
         <ul className="location-list">
-          {locationCities.map((city) => (
+          {/* "Todas as regiões" vem primeiro: é o filtro desligado. */}
+          {[ALL_REGIONS, ...locationCities].map((city) => (
             <li key={city}>
               <button
                 className={`location-option${city === selectedCity ? ' active' : ''}`}
