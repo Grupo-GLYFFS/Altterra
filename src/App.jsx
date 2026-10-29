@@ -7,29 +7,36 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import OrdersPage from './pages/OrdersPage'
 import FavoritesPage from './pages/FavoritesPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 import MainLayout from './components/layout/MainLayout'
+import ScrollToTop from './components/layout/ScrollToTop'
 import AuthLayout from './components/layout/AuthLayout'
 
 function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
 
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/how-it-works" element={<HowItWorksPage />} />
-        <Route path="/product" element={<Navigate to="/product/tomate-carmem" replace />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/pedidos" element={<OrdersPage />} />
-        <Route path="/favoritos" element={<FavoritesPage />} />
-      </Route>
+      <Routes>
 
-      <Route element={<AuthLayout />}>
-        <Route path="/login" element={<LoginPage />} />
-      </Route>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/product" element={<Navigate to="/product/tomate-carmem" replace />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/pedidos" element={<OrdersPage />} />
+          <Route path="/favoritos" element={<FavoritesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
 
-    </Routes>
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
+
+      </Routes>
+    </>
   )
 }
 

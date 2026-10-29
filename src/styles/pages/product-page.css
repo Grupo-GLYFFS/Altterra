@@ -721,6 +721,7 @@ meter.progress-bar::-moz-meter-bar {
 
 .features-table-container {
   display: flex;
+  flex-wrap: wrap; /* correção, no celular as 3 tabelas estouravam a largura da tela */
   gap: var(--space-8);
 }
 

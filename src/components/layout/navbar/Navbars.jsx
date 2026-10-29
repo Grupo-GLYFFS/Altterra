@@ -174,7 +174,14 @@ function Navbar() {
           if (event.target === event.currentTarget) setMobileMenuOpen(false)
         }}
       >
-        <div className="navbar-mobile-menu">
+        {/* Clicar em qualquer link do menu fecha o menu: antes a página nova
+        abria por baixo do menu, que continuava aberto. */}
+        <div
+          className="navbar-mobile-menu"
+          onClick={(event) => {
+            if (event.target.closest('a')) setMobileMenuOpen(false)
+          }}
+        >
           <div className="navbar-mobile-menu-header">
             <button
               className="button-close"

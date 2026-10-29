@@ -80,12 +80,14 @@ const SupplierProfile = forwardRef(function SupplierProfile({ supplier }, ref) {
           {supplier.highlights.map((item) => (
             <table className="features-table" key={item.label}>
               <caption className="sr-only">{item.label}</caption>
-              <tr>
-                <th className="features-table-header">{item.label}</th>
-              </tr>
-              <tr>
-                <td className="features-table-data">{item.value}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <th className="features-table-header">{item.label}</th>
+                </tr>
+                <tr>
+                  <td className="features-table-data">{item.value}</td>
+                </tr>
+              </tbody>
             </table>
           ))}
         </div>

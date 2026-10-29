@@ -18,11 +18,11 @@ function EmailLogin() {
 
       <small className="text-xs text-muted">
         Ao continuar, você aceita os{' '}
-        <a className="button-link" href="">
+        <a className="button-link" href="#" onClick={(event) => event.preventDefault()}>
           Termos
         </a>{' '}
         e{' '}
-        <a className="button-link" href="">
+        <a className="button-link" href="#" onClick={(event) => event.preventDefault()}>
           Privacidade
         </a>{' '}
         da Altterra.

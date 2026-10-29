@@ -67,7 +67,7 @@ function RegisterPage() {
   }
 
   return (
-    <main className="register">
+    <div className="register">
 
       <RegisterHeader />
 
@@ -91,7 +91,7 @@ function RegisterPage() {
 
       {submitted && <RegisterSuccess productId={publishedProductId} />}
 
-    </main>
+    </div>
   )
 }
 

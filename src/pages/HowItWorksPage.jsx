@@ -12,7 +12,7 @@ function HowItWorksPage() {
   const [activeTab, setActiveTab] = useState('compradores')
 
   return (
-    <main className="how-it-works-container">
+    <div className="how-it-works-container">
 
       <div className="explorer">
 
@@ -39,7 +39,7 @@ function HowItWorksPage() {
 
       </div>
 
-    </main>
+    </div>
   )
 }
 

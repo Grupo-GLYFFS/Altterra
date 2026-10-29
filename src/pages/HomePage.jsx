@@ -22,26 +22,26 @@ function HomePage() {
 
   if (visibleProducts.length === 0) {
     return (
-      <main className="page-sections">
+      <div className="page-sections">
         <div className="orders-empty">
           <p className="text-muted">Nenhum produto cadastrado em {region}.</p>
           <button type="button" className="button-primary" onClick={() => setRegion(ALL_REGIONS)}>
             Ver todas as regiões
           </button>
         </div>
-      </main>
+      </div>
     )
   }
 
   const homeProducts = buildHomeProducts(visibleProducts)
 
   return (
-    <main className="page-sections">
+    <div className="page-sections">
       <HomeProductCarousel title="Produtos perto de você" products={homeProducts} />
       <HomeProductCarousel title="Produtores pequenos" products={homeProducts} />
       <HomeProductCarousel title="Produtores certificados" products={homeProducts} />
       <HomeProductCarousel title="Produtos para próxima safra" products={homeProducts} />
-    </main>
+    </div>
   )
 }
 

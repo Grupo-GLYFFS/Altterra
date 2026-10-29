@@ -5,7 +5,7 @@ import EmailLogin from '../components/login/EmailLogin'
 
 function LoginPage() {
   return (
-    <main className="login-page">
+    <div className="login-page">
       <div className="login-panel">
         <div className="login-container">
           <Link to="/">
@@ -31,7 +31,7 @@ function LoginPage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom'
+
+// Os itens do breadcrumb não têm destino próprio (href vazio): um <a href="">
+// recarregava a página atual. O primeiro ("Mercado padrão") leva à Home; a
+// categoria não tem página própria, então vira texto simples.
 function ProductBreadcrumb({ items, current }) {
   return (
     <nav className="breadcrumb" aria-label="Localização atual">
       <ol>
-        {items.map((item) => (
+        {items.map((item, index) => (
           <li key={item.label}>
             {item.label !== items[0].label && (
               <span className="icon icon-10" aria-hidden="true">
@@ -11,7 +16,13 @@ function ProductBreadcrumb({ items, current }) {
                 </svg>
               </span>
             )}
-            <a href={item.href}>{item.label}</a>
+            {item.href ? (
+              <a href={item.href}>{item.label}</a>
+            ) : index === 0 ? (
+              <Link to="/">{item.label}</Link>
+            ) : (
+              <span>{item.label}</span>
+            )}
           </li>
         ))}
         <li>

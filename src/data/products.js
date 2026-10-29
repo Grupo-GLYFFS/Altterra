@@ -130,12 +130,11 @@ export const products = [
 
   // Segundo produto do catálogo — usado para PROVAR que o template da
   // ProductPage funciona com dados diferentes, não só com o Tomate Carmem.
-  // As fotos ainda são um placeholder (ver placeholder-produto.svg): o
-  // projeto só tem fotografia real do tomate por enquanto. Tudo o mais
-  // (fornecedor, avaliações, localização) reaproveita ativos genéricos já
+  // Fornecedor, avaliações e localização reaproveitam ativos genéricos já
   // existentes, porque são plausivelmente os mesmos independente do
   // produto (a mesma cooperativa vende vários vegetais, o mesmo comprador
   // pode avaliar produtos diferentes).
+  
   {
     id: 'alface-crespa',
     name: 'Alface Crespa',

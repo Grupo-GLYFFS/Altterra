@@ -25,7 +25,8 @@ function ProductPage() {
   const { productId } = useParams()
   const { products, getProductById } = useProducts()
   const product = getProductById(productId)
-  const similarProducts = buildSimilarProducts(products)
+  // O próprio produto não entra em "Produtos similares".
+  const similarProducts = buildSimilarProducts(products.filter((item) => item.id !== productId))
 
   // useScrollSpyTabs precisa ser chamado incondicionalmente (regra dos
   // hooks do React), então roda antes do guard clause abaixo — mesmo que
@@ -86,7 +87,13 @@ function ProductPage() {
 
           <div className="left-side">
 
+                {/* key: a galeria guarda a foto atual em estado. Sem a key, ao ir de
+                um produto para outro (ex.: por "Produtos similares") o React
+                reaproveita a galeria, mantém o índice antigo (ex.: 4) e, se o
+                novo produto tem menos fotos, a página quebra. A key faz uma
+                galeria nova (índice 0) para cada produto. */}
             <ProductGallery
+              key={product.id}
               images={product.gallery}
             />
 
@@ -168,10 +175,12 @@ function ProductPage() {
 
       </div>
 
-      <SimilarProducts
-        title="Produtos similares"
-        products={similarProducts}
-      />
+      {similarProducts.length > 0 && (
+        <SimilarProducts
+          title="Produtos similares"
+          products={similarProducts}
+        />
+      )}
     </main>
   )
 }
