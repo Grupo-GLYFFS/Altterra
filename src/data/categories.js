@@ -13,6 +13,12 @@ export const categories = [
   { name: 'Sementes e mudas', items: ['S. Linhaça', 'S. Chia', 'S. Girassol', 'S. Abóbora', 'S. Gergelim', 'Muda Tomate', 'Muda Alface', 'Muda Pimenta'] },
 ]
 
+// Rótulos dos "filtros desligados". Moram aqui, junto das listas que
+// completam, para o painel de categorias, o popup de localização e a Home
+// usarem exatamente o mesmo texto.
+export const ALL_CATEGORIES = 'Todos os produtos'
+export const ALL_REGIONS = 'Todas as regiões'
+
 // Extraído de #location-popup em js/components.js.
 export const locationCities = [
   'São Paulo - SP',

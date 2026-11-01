@@ -6,9 +6,11 @@ import LocationPopup from "./LocationPopup";
 import MarketTypeTabs from "./MarketTypeTabs";
 import logo from "../../../assets/images/alterra-logo.svg";
 import { useCart } from "../../../context/useCart";
+import { useFavorites } from "../../../context/useFavorites";
+import { useFilters } from "../../../context/useFilters";
 
 // Reescrito com base em renderNavbar() de js/components.js. A versão
-// anterior usava emojis (☰ ◉ 🌱 ♻️ 🔍 🛒) em vez dos SVGs originais e não
+// anterior usava emojis em vez dos SVGs originais e não
 // tinha nenhuma das interações do original: o hambúrguer não abria menu
 // nenhum (nem existia menu mobile no arquivo), o botão de localização não
 // abria popup nenhum (nem existia popup), e as abas de mercado não
@@ -16,14 +18,18 @@ import { useCart } from "../../../context/useCart";
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [locationPopupOpen, setLocationPopupOpen] = useState(false)
-  const [selectedCity, setSelectedCity] = useState('São Paulo - SP')
+  // A região escolhida agora vive no FiltersContext (antes era um useState
+  // local, que só a navbar enxergava) — assim a Home e o painel de
+  // categorias também filtram por ela.
+  const { region, setRegion } = useFilters()
   const { totalItems, toggleCart } = useCart()
+  const { totalFavorites } = useFavorites()
 
   const openLocationPopup = () => setLocationPopupOpen(true)
   const closeLocationPopup = () => setLocationPopupOpen(false)
 
   const handleSelectCity = (city) => {
-    setSelectedCity(city)
+    setRegion(city)
     closeLocationPopup()
   }
 
@@ -90,6 +96,14 @@ function Navbar() {
                       Meus pedidos
                     </Link>
                   </li>
+                  <li>
+                    <Link className="button-nav" to="/favoritos">
+                      Favoritos
+                      {totalFavorites > 0 && (
+                        <span className="favorites-count">{totalFavorites}</span>
+                      )}
+                    </Link>
+                  </li>
                 </ul>
               </nav>
 
@@ -108,7 +122,7 @@ function Navbar() {
           {/* Search */}
           <div className="navbar-search">
 
-            <LocationTab selectedCity={selectedCity} onOpenPopup={openLocationPopup} />
+            <LocationTab selectedCity={region} onOpenPopup={openLocationPopup} />
 
             <MarketTypeTabs />
 
@@ -160,7 +174,14 @@ function Navbar() {
           if (event.target === event.currentTarget) setMobileMenuOpen(false)
         }}
       >
-        <div className="navbar-mobile-menu">
+        {/* Clicar em qualquer link do menu fecha o menu: antes a página nova
+        abria por baixo do menu, que continuava aberto. */}
+        <div
+          className="navbar-mobile-menu"
+          onClick={(event) => {
+            if (event.target.closest('a')) setMobileMenuOpen(false)
+          }}
+        >
           <div className="navbar-mobile-menu-header">
             <button
               className="button-close"
@@ -191,11 +212,15 @@ function Navbar() {
             <Link className="button-nav" to="/how-it-works">Como funciona</Link>
             <Link className="button-nav" to="/register">Anunciar produto</Link>
             <Link className="button-nav" to="/pedidos">Meus pedidos</Link>
+            <Link className="button-nav" to="/favoritos">
+              Favoritos
+              {totalFavorites > 0 && <span className="favorites-count">{totalFavorites}</span>}
+            </Link>
           </div>
 
           <div className="navbar-mobile-section">
             <p className="navbar-mobile-section-label">Localização</p>
-            <LocationTab selectedCity={selectedCity} onOpenPopup={openLocationPopup} />
+            <LocationTab selectedCity={region} onOpenPopup={openLocationPopup} />
           </div>
 
           <div className="navbar-mobile-section">
@@ -207,7 +232,7 @@ function Navbar() {
 
       <LocationPopup
         open={locationPopupOpen}
-        selectedCity={selectedCity}
+        selectedCity={region}
         onSelectCity={handleSelectCity}
         onClose={closeLocationPopup}
       />

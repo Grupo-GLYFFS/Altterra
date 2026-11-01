@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 import SocialLogin from '../components/login/SocialLogin'
 import EmailLogin from '../components/login/EmailLogin'
 
+import logo from '../assets/images/alterra-logo.svg'
+
 function LoginPage() {
   return (
-    <main className="login-page">
+    <div className="login-page">
       <div className="login-panel">
         <div className="login-container">
           <Link to="/">
             <img
-              src={`${import.meta.env.BASE_URL}images/alterra-logo.svg`}
+              src={logo}
               alt="Altterra"
               className="login-logo"
             />
@@ -31,7 +33,7 @@ function LoginPage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

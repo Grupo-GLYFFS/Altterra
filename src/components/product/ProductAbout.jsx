@@ -17,13 +17,15 @@ const ProductAbout = forwardRef(function ProductAbout({ description, cultivation
         <h3 className="title-xl">Dados do cultivo</h3>
 
         <table className="cultivation-table">
-          <caption className="sr-only">Dados do cultivo do Tomate Carmem</caption>
-          {cultivation.map((row) => (
-            <tr key={row.label}>
-              <th className="cultivation-table-header">{row.label}</th>
-              <td className="cultivation-table-data">{row.value}</td>
-            </tr>
-          ))}
+          <caption className="sr-only">Dados do cultivo</caption>
+          <tbody>
+            {cultivation.map((row) => (
+              <tr key={row.label}>
+                <th className="cultivation-table-header">{row.label}</th>
+                <td className="cultivation-table-data">{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

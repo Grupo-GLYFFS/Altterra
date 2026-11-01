@@ -1,15 +1,42 @@
-import { categories } from '../../../data/categories'
+import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ALL_CATEGORIES, ALL_REGIONS, categories } from '../../../data/categories'
+import { useProducts } from '../../../context/useProducts'
+import { useFilters } from '../../../context/useFilters'
+import { filterProductsByRegion, groupProductsByCategory } from '../../../utils/productFilters'
 
-// Reescrito: a versão anterior tinha só 1 dos 9 grupos (Frutas, e com
-// apenas 3 dos 17 itens), usava emojis (☰, ▼) em vez dos SVGs originais,
-// e a barra lateral de categorias só listava os títulos sem o conteúdo
-// correspondente. No HTML original as 9 seções aparecem todas de uma vez
-// dentro de .categories-content (a barra lateral é puramente decorativa —
-// sem onClick nenhum no JS original), então não foi adicionada nenhuma
-// lógica de clique/scroll que não existia antes.
+// Painel "Categorias" da navbar. O layout é o mesmo de antes (barra lateral
+// + grupos com quadradinhos), mas agora com dados reais:
+//   - cada quadradinho é um PRODUTO do catálogo (foto de capa + nome), que
+//     leva à página dele; os produtos entram no grupo da categoria
+//     escolhida ao anunciar;
+//   - os botões da barra lateral são o filtro: "Todos os produtos" mostra
+//     todas as categorias que têm produto; uma categoria mostra só ela;
+//   - a região escolhida na navbar também vale aqui.
 function CategoriesPanel() {
+  const [selected, setSelected] = useState(ALL_CATEGORIES)
+  const detailsRef = useRef(null)
+  const { products } = useProducts()
+  const { region, setRegion, isRegionFiltered } = useFilters()
+
+  const groups = groupProductsByCategory(filterProductsByRegion(products, region), categories)
+  // Em "Todos os produtos" categorias vazias são escondidas (senão sobrariam
+  // 7 blocos vazios); ao escolher uma categoria específica, ela aparece
+  // mesmo vazia, com uma mensagem.
+  const shownGroups =
+    selected === ALL_CATEGORIES
+      ? groups.filter((group) => group.products.length > 0)
+      : groups.filter((group) => group.name === selected)
+  const totalVisible = groups.reduce((sum, group) => sum + group.products.length, 0)
+
+  // O painel é um <details>: ao abrir um produto ele fecha, senão ficaria
+  // aberto por cima da página de destino.
+  function closePanel() {
+    if (detailsRef.current) detailsRef.current.open = false
+  }
+
   return (
-    <details className="categories-bar">
+    <details className="categories-bar" ref={detailsRef}>
       <summary className="categories-toggle">
         <span className="icon icon-20">
           <svg viewBox="0 0 16 16">
@@ -28,48 +55,80 @@ function CategoriesPanel() {
 
       <div className="categories-panel">
         <nav className="categories-sidebar">
-          {categories.map((category, index) => (
-            <button
-              key={category.name}
-              type="button"
-              className={`categories-nav-item${index === 0 ? ' active' : ''}`}
-            >
-              {category.name}
-            </button>
-          ))}
+          {[ALL_CATEGORIES, ...categories.map((category) => category.name)].map((name) => {
+            const count =
+              name === ALL_CATEGORIES
+                ? totalVisible
+                : groups.find((group) => group.name === name)?.products.length ?? 0
+            return (
+              <button
+                key={name}
+                type="button"
+                className={`categories-nav-item${name === selected ? ' active' : ''}`}
+                aria-pressed={name === selected}
+                onClick={() => setSelected(name)}
+              >
+                {name}
+                <span className="categories-nav-count">{count}</span>
+              </button>
+            )
+          })}
         </nav>
 
         <div className="categories-content">
-          {categories.map((category) => (
-            <section className="category-group" key={category.name}>
-              <h3 className="title-xl">{category.name}</h3>
+          {isRegionFiltered && (
+            <p className="categories-region-note">Mostrando produtos de {region}.</p>
+          )}
 
-              <div className="category-items">
-                {category.items.map((item) => (
-                  <a href="#" className="category-item" key={item}>
-                    <figure>
-                      <div className="category-item-img"></div>
-                      <figcaption>{item}</figcaption>
-                    </figure>
-                  </a>
-                ))}
+          {shownGroups.length === 0 ? (
+            <div className="categories-empty">
+              <p>
+                {isRegionFiltered
+                  ? `Nenhum produto cadastrado em ${region}.`
+                  : 'Ainda não há produtos cadastrados.'}
+              </p>
+              {isRegionFiltered ? (
+                <button type="button" className="categories-empty-link" onClick={() => setRegion(ALL_REGIONS)}>
+                  Ver todas as regiões
+                </button>
+              ) : (
+                <Link to="/register" className="categories-empty-link" onClick={closePanel}>
+                  Anunciar produto
+                </Link>
+              )}
+            </div>
+          ) : (
+            shownGroups.map((group) => (
+              <section className="category-group" key={group.name}>
+                <h3 className="title-xl">{group.name}</h3>
 
-                <a href="#" className="category-item category-item-more">
-                  <figure>
-                    <div className="category-item-img"></div>
-                    <figcaption>
-                      Ver mais{' '}
-                      <span className="icon icon-12">
-                        <svg viewBox="0 0 16 10">
-                          <path d="M8 10L0 1.75258L1.7 0L8 6.49485L14.3 0L16 1.75258L8 10Z" />
-                        </svg>
-                      </span>
-                    </figcaption>
-                  </figure>
-                </a>
-              </div>
-            </section>
-          ))}
+                {group.products.length === 0 ? (
+                  <p className="categories-empty-text">
+                    Ainda não há produtos nesta categoria{isRegionFiltered ? ' nesta região' : ''}.
+                  </p>
+                ) : (
+                  <div className="category-items">
+                    {group.products.map((product) => (
+                      <Link
+                        to={`/product/${product.id}`}
+                        className="category-item"
+                        key={product.id}
+                        title={product.name}
+                        onClick={closePanel}
+                      >
+                        <figure>
+                          <div className="category-item-img">
+                            <img src={product.cardSummary.image} alt="" />
+                          </div>
+                          <figcaption>{product.name}</figcaption>
+                        </figure>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </section>
+            ))
+          )}
         </div>
       </div>
     </details>

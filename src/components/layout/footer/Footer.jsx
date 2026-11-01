@@ -122,13 +122,13 @@ function Footer() {
 
             <span>•</span>
 
-            <a className="button-footnote" href="">
+            <a className="button-footnote" href="#" onClick={(event) => event.preventDefault()}>
               Privacidade
             </a>
 
             <span>•</span>
 
-            <a className="button-footnote" href="">
+            <a className="button-footnote" href="#" onClick={(event) => event.preventDefault()}>
               Termos
             </a>
           </div>

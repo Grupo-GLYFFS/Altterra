@@ -338,3 +338,67 @@
     width: 100%;
   }
 }
+
+/* Fotos do produto (etapa 1) e miniaturas na revisão */
+.photo-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.photo-grid,
+.review-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.photo-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 7.5rem;
+}
+
+.photo-preview img,
+.review-photos img {
+  width: 7.5rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-8);
+}
+
+.photo-preview-cover,
+.photo-preview-cover img {
+  width: 11.25rem;
+}
+
+.review-photos img {
+  width: 4.5rem;
+}
+
+.photo-remove {
+  align-self: flex-start;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-8);
+  color: var(--color-alert);
+  font-size: 0.875rem;
+  text-decoration: underline;
+}
+
+/* O <input type="file"> fica escondido; o <label> faz o papel do botão. */
+.photo-upload-button {
+  align-self: flex-start;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-full);
+  background-color: var(--color-green-200);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 150ms ease;
+}
+
+.photo-upload-button:hover { background-color: var(--color-green-300); }
+
+.photo-upload-button input {
+  display: none;
+}

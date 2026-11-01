@@ -1,0 +1,65 @@
+/* Categorias e filtro de região — usa as classes já existentes do painel
+   (.category-item, .category-item-img etc., em components.css); aqui só o
+   que é novo: foto real no quadradinho, contador na barra lateral e as
+   mensagens de "vazio". */
+
+/* Foto de capa do produto dentro do quadradinho .category-item-img */
+.category-item-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-4);
+}
+
+/* Botões da barra lateral: nome à esquerda, quantidade à direita */
+.categories-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.categories-nav-count {
+  min-width: 1.5rem;
+  padding: 0 var(--space-8);
+  border-radius: var(--radius-full);
+  background-color: hsl(116, 22%, 36%);
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.categories-region-note,
+.categories-empty-text {
+  margin: 0;
+  color: var(--color-white);
+  opacity: 0.8;
+}
+
+.categories-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+.categories-empty p {
+  margin: 0;
+}
+
+.categories-empty-link {
+  padding: var(--space-8) var(--space-16);
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: hsl(116, 22%, 30%);
+  color: var(--color-white);
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.categories-empty-link:hover {
+  background-color: hsl(116, 22%, 36%);
+}

@@ -1,3 +1,6 @@
+import cardCompradores from '../../assets/images/card-01-compradores.png'
+import mapaRastreio from '../../assets/images/altterra_rastreio_map_transparent.svg'
+
 // Arquivo estava vazio (0 linhas) e nem era importado em HowItWorksPage.jsx —
 // como 'compradores' é a aba ativa por padrão, a seção inteira ficava em
 // branco ao carregar a página. Reconstruído a partir de
@@ -25,7 +28,7 @@ function BuyerBenefits({ activeTab }) {
 
         <img
           className="bento-card-hero-img"
-          src={`${import.meta.env.BASE_URL}images/card-01-compradores.png`}
+          src={cardCompradores}
           alt="Comprador e produtor negociando diretamente"
         />
 
@@ -127,7 +130,7 @@ function BuyerBenefits({ activeTab }) {
 
           <img
             className="bento-card-04-img"
-            src={`${import.meta.env.BASE_URL}images/altterra_rastreio_map_transparent.svg`}
+            src={mapaRastreio}
             alt=""
           />
         </div>

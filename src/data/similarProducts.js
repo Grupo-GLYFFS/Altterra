@@ -1,6 +1,7 @@
 // Mesmo raciocínio de homeProducts.js: virou função pra recalcular sempre
 // que o catálogo ganhar produtos novos publicados pelo formulário.
 export function buildSimilarProducts(products) {
+  if (products.length === 0) return []
   return Array.from({ length: 12 }, (_, index) => {
     const product = products[index % products.length]
     return {
