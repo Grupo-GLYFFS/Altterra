@@ -1,3 +1,5 @@
+import cardOngs from '../../assets/images/card-01-ongs.png'
+
 // Reescrito: a versão anterior usava classes inventadas (bento-ngo-01/02/03,
 // que não existem nem no CSS nem no HTML original — a seção de ONGs usa
 // .bento-card genérico, sem sufixo numerado, diferente da seção de
@@ -27,7 +29,7 @@ function NgoBenefits({ activeTab }) {
 
         <img
           className="bento-img bento-ngo-img"
-          src={`${import.meta.env.BASE_URL}images/card-01-ongs.png`}
+          src={cardOngs}
           alt="Diagrama de conexão entre produtor e ONG"
         />
       </article>

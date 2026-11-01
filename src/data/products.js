@@ -25,7 +25,7 @@ export const products = [
     name: 'Tomate Carmem',
     breadcrumb: [
       { label: 'Mercado padrão', href: '' },
-      { label: 'Frutas', href: '' },
+      { label: 'Legumes', href: '' },
     ],
     gallery: [
       { src: tomateCarmem, alt: 'Vista 1 do Tomate Carmem' },

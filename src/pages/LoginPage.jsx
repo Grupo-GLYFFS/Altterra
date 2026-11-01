@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import SocialLogin from '../components/login/SocialLogin'
 import EmailLogin from '../components/login/EmailLogin'
 
+import logo from '../assets/images/alterra-logo.svg'
+
 function LoginPage() {
   return (
     <div className="login-page">
@@ -10,7 +12,7 @@ function LoginPage() {
         <div className="login-container">
           <Link to="/">
             <img
-              src={`${import.meta.env.BASE_URL}images/alterra-logo.svg`}
+              src={logo}
               alt="Altterra"
               className="login-logo"
             />

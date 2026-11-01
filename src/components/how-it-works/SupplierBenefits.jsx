@@ -1,3 +1,7 @@
+import cardFornecedores02 from '../../assets/images/card-02-fornecedores.png'
+import cardFornecedores03 from '../../assets/images/card-03-fornecedores.png'
+import cardFornecedores04 from '../../assets/images/card-04-fornecedores.png'
+
 function SupplierBenefits({ activeTab }) {
   if (activeTab !== 'fornecedores') {
     return null
@@ -73,7 +77,7 @@ function SupplierBenefits({ activeTab }) {
 
             <img
               className="bento-img"
-              src={`${import.meta.env.BASE_URL}images/card-02-fornecedores.png`}
+              src={cardFornecedores02}
               alt="Gráfico de redução de desperdício de safra"
             />
 
@@ -104,7 +108,7 @@ function SupplierBenefits({ activeTab }) {
 
         <img
           className="bento-img bento-supplier-03-img"
-          src={`${import.meta.env.BASE_URL}images/card-03-fornecedores.png`}
+          src={cardFornecedores03}
           alt="Mapa de distribuição nacional dos compradores"
         />
 
@@ -129,7 +133,7 @@ function SupplierBenefits({ activeTab }) {
 
         <img
           className="bento-card-hero-img"
-          src={`${import.meta.env.BASE_URL}images/card-04-fornecedores.png`}
+          src={cardFornecedores04}
           alt="Histórico de rastreabilidade do lote"
         />
 
