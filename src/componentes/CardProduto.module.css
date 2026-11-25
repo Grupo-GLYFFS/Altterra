@@ -36,11 +36,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.2s ease;
-}
-
-.card:hover .imagem {
-  transform: scale(1.03);
 }
 
 .esgotado .imagem {
@@ -78,6 +73,7 @@
   position: absolute;
   top: var(--espaco-2);
   right: var(--espaco-2);
+  z-index: 2;
 }
 
 .corpo {
@@ -112,6 +108,15 @@
   text-decoration: none;
 }
 
+.linkNome::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--raio-lg);
+}
+
+.card:hover .linkNome,
 .linkNome:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -119,9 +124,12 @@
 }
 
 .linkNome:focus-visible {
+  outline: none;
+}
+
+.linkNome:focus-visible::after {
   outline: 2px solid var(--cor-foco-claro);
   outline-offset: 2px;
-  border-radius: rem(4px);
 }
 
 .preco {

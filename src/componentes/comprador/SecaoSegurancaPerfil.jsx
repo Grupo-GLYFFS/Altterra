@@ -66,8 +66,23 @@ export function SecaoSegurancaPerfil({ aoAlterarSenha }) {
         aoFechar={() => setModalAberto(false)}
         titulo="Trocar senha"
         comFaixas
+        rodape={
+          <div className={estilos.acoesLinha}>
+            <Botao variante="secundario" tamanho="sm" onClick={() => setModalAberto(false)}>
+              Cancelar
+            </Botao>
+            <Botao tipo="submit" form="form-trocar-senha" tamanho="sm">
+              Salvar senha
+            </Botao>
+          </div>
+        }
       >
-        <form onSubmit={handleSubmit(enviar)} className={estilos.formulario} noValidate>
+        <form
+          id="form-trocar-senha"
+          onSubmit={handleSubmit(enviar)}
+          className={estilos.formulario}
+          noValidate
+        >
           <CampoTexto
             rotulo="Senha atual"
             type="password"
@@ -87,14 +102,6 @@ export function SecaoSegurancaPerfil({ aoAlterarSenha }) {
             erro={errors.confirmar?.message}
             {...register('confirmar')}
           />
-          <div className={estilos.acoesLinha}>
-            <Botao variante="secundario" tamanho="sm" onClick={() => setModalAberto(false)}>
-              Cancelar
-            </Botao>
-            <Botao tipo="submit" tamanho="sm">
-              Salvar senha
-            </Botao>
-          </div>
         </form>
       </ModalBase>
     </section>

@@ -12,6 +12,7 @@
 @media (min-width: $mantine-breakpoint-md) {
   .card {
     padding: var(--espaco-6);
+    scroll-margin-top: rem(208px);
   }
 }
 

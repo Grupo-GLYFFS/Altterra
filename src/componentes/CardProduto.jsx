@@ -107,7 +107,11 @@ export function CardProduto({
       <div className={estilos.corpo}>
         <div className={estilos.linhaNome}>
           <h3 className={estilos.nome}>
-            <Link to={`/produto/${produto.id}`} className={estilos.linkNome}>
+            <Link
+              to={`/produto/${produto.id}`}
+              className={estilos.linkNome}
+              aria-label={`Ver ${produto.nome}`}
+            >
               {produto.nome}
             </Link>
           </h3>

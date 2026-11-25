@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { RolarParaTopo } from './componentes/layout/RolarParaTopo.jsx';
 import { ProvedorToast } from './componentes/ProvedorToast.jsx';
 import { Anuncios } from './paginas/Anuncios.jsx';
 import { CadastroProduto } from './paginas/CadastroProduto.jsx';
@@ -22,6 +23,7 @@ import { VitrineComponentes } from './paginas/VitrineComponentes.jsx';
 export function App() {
   return (
     <ProvedorToast>
+      <RolarParaTopo />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/entrar" element={<Login />} />

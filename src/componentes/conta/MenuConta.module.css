@@ -92,7 +92,7 @@
 @media (min-width: $mantine-breakpoint-md) {
   .menu {
     position: sticky;
-    top: rem(168px);
+    top: rem(208px);
   }
 
   .lista {

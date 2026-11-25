@@ -1,6 +1,6 @@
 import { Collapse, Menu, Popover } from '@mantine/core';
-import { useWindowScroll } from '@mantine/hooks';
-import { useRef, useState } from 'react';
+import { useMediaQuery } from '@mantine/hooks';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAnuncios } from '../../contexto/useAnuncios.js';
 import { useCarrinho } from '../../contexto/useCarrinho.js';
@@ -32,7 +32,10 @@ export function Navbar({
   const { produtosAtivos } = useAnuncios();
   const usuario = usuarioProp === undefined ? usuarioSessao : usuarioProp;
   const itensCarrinho = itensProp ?? totalItens;
-  const [rolagem] = useWindowScroll();
+  const ehCelular = useMediaQuery('(max-width: 63.99em)', false, {
+    getInitialValueInEffect: false,
+  });
+  const [rolou, setRolou] = useState(false);
   const campoBuscaDesktop = useRef(null);
   const campoBuscaCelular = useRef(null);
 
@@ -47,7 +50,22 @@ export function Navbar({
   const [carrinhoAberto, setCarrinhoAberto] = useState(false);
   const [maisAberto, setMaisAberto] = useState(false);
 
-  const condensada = rolagem.y > 200;
+  // Atualiza sombra da navbar com histerese na rolagem, sem alterar altura.
+  useEffect(() => {
+    function aoRolar() {
+      const y = window.scrollY;
+      setRolou((atual) => {
+        if (!atual && y > 40) return true;
+        if (atual && y < 10) return false;
+        return atual;
+      });
+    }
+
+    aoRolar();
+    window.addEventListener('scroll', aoRolar, { passive: true });
+    return () => window.removeEventListener('scroll', aoRolar);
+  }, []);
+
   const categoriaSelecionada =
     CATEGORIAS.find((cat) => cat.id === categoriaAtiva) || CATEGORIAS[0];
 
@@ -192,11 +210,10 @@ export function Navbar({
   return (
     <>
       {/* Navbar do computador */}
-      <header className={`${estilos.navDesktop} ${condensada ? estilos.condensada : ''}`}>
+      <header className={`${estilos.navDesktop} ${rolou ? estilos.rolou : ''}`}>
         <div className={estilos.navPrincipal}>
           <div className={estilos.container}>
-            {!condensada && (
-              <div className={estilos.linhaTopo}>
+            <div className={estilos.linhaTopo}>
                 <Link to="/" className={estilos.logoLink} aria-label="Altterra, página inicial">
                   <LogoAltterra variante="claro" tamanho="md" />
                 </Link>
@@ -269,7 +286,6 @@ export function Navbar({
                   )}
                 </div>
               </div>
-            )}
 
             <div className={estilos.faixa}>
               <div className={estilos.grupoAninhado}>
@@ -287,7 +303,7 @@ export function Navbar({
 
               <div className={estilos.grupoAninhado}>
                 <Popover
-                  opened={regiaoAberta}
+                  opened={!ehCelular && regiaoAberta}
                   onChange={setRegiaoAberta}
                   position="bottom-start"
                   width={560}
@@ -374,7 +390,7 @@ export function Navbar({
               </div>
 
               <Popover
-                opened={carrinhoAberto}
+                opened={!ehCelular && carrinhoAberto}
                 onChange={setCarrinhoAberto}
                 position="bottom-end"
                 width={380}
@@ -425,7 +441,7 @@ export function Navbar({
           </div>
         </div>
 
-        <Collapse expanded={categoriasAbertas}>
+        <Collapse expanded={!ehCelular && categoriasAbertas}>
           <div className={estilos.painelCategorias}>
             <div className={`${estilos.container} ${estilos.categoriasGrade}`}>
               <div className={estilos.categoriasLado} role="tablist" aria-label="Categorias">
@@ -480,7 +496,7 @@ export function Navbar({
       </header>
 
       {/* Navbar do celular (topo + barra inferior + carrinho flutuante) */}
-      <header className={estilos.navCelular}>
+      <header className={`${estilos.navCelular} ${rolou ? estilos.rolou : ''}`}>
         <div className={estilos.faixaCelular}>
           <button
             type="button"
@@ -563,7 +579,8 @@ export function Navbar({
       </nav>
 
       {/* Gaveta "Mais" (escura, exclusiva da navbar celular) */}
-      <Gaveta aberto={maisAberto} aoFechar={() => setMaisAberto(false)} titulo="Mais" escura>
+      {ehCelular && (
+        <Gaveta aberto={maisAberto} aoFechar={() => setMaisAberto(false)} titulo="Mais" escura>
         {usuario ? (
           <Link to="/perfil" className={estilos.perfilLink} onClick={() => setMaisAberto(false)}>
             <Avatar nome={usuario.nome} tamanho={44} />
@@ -669,73 +686,76 @@ export function Navbar({
           </button>
         )}
       </Gaveta>
+      )}
 
-      {/* Gaveta de Categorias no celular */}
-      <div className={estilos.apenasCelular}>
-        <Gaveta
-          aberto={categoriasAbertas}
-          aoFechar={() => setCategoriasAbertas(false)}
-          titulo="Categorias"
-          escura
-          rodape={
-            <Link
-              to={`/busca?categoria=${categoriaSelecionada.id}`}
-              className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
-              onClick={() => setCategoriasAbertas(false)}
-            >
-              Ver todos em {categoriaSelecionada.nome.toLowerCase()}
-            </Link>
-          }
-        >
-          <div className={estilos.listaCidades}>
-            {CATEGORIAS.map((cat) => {
-              const ativa = cat.id === categoriaSelecionada.id;
-              return (
-                <button
-                  key={cat.id}
-                  type="button"
-                  className={`${estilos.chipCidade} ${ativa ? estilos.chipCidadeAtiva : ''}`}
-                  aria-pressed={ativa}
-                  onClick={() => setCategoriaAtiva(cat.id)}
-                >
-                  {cat.nome}
-                </button>
-              );
-            })}
-          </div>
-          <div className={estilos.subcategoriasCelular}>
-            {categoriaSelecionada.grupos[0]?.itens.map((sub) => (
+      {/* Gavetas de Categorias e Região no celular (montadas só abaixo do breakpoint md) */}
+      {ehCelular && (
+        <>
+          <Gaveta
+            aberto={categoriasAbertas}
+            aoFechar={() => setCategoriasAbertas(false)}
+            titulo="Categorias"
+            escura
+            rodape={
               <Link
-                key={sub}
-                to={`/busca?q=${encodeURIComponent(sub)}`}
-                className={estilos.subcategoriaTile}
+                to={`/busca?categoria=${categoriaSelecionada.id}`}
+                className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
                 onClick={() => setCategoriasAbertas(false)}
               >
-                {sub}
+                Ver todos em {categoriaSelecionada.nome.toLowerCase()}
               </Link>
-            ))}
-          </div>
-        </Gaveta>
+            }
+          >
+            <div className={estilos.listaCidades}>
+              {CATEGORIAS.map((cat) => {
+                const ativa = cat.id === categoriaSelecionada.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    className={`${estilos.chipCidade} ${ativa ? estilos.chipCidadeAtiva : ''}`}
+                    aria-pressed={ativa}
+                    onClick={() => setCategoriaAtiva(cat.id)}
+                  >
+                    {cat.nome}
+                  </button>
+                );
+              })}
+            </div>
+            <div className={estilos.subcategoriasCelular}>
+              {categoriaSelecionada.grupos[0]?.itens.map((sub) => (
+                <Link
+                  key={sub}
+                  to={`/busca?q=${encodeURIComponent(sub)}`}
+                  className={estilos.subcategoriaTile}
+                  onClick={() => setCategoriasAbertas(false)}
+                >
+                  {sub}
+                </Link>
+              ))}
+            </div>
+          </Gaveta>
 
-        <Gaveta
-          aberto={regiaoAberta}
-          aoFechar={() => setRegiaoAberta(false)}
-          titulo="Onde você recebe?"
-          subtitulo="Mostramos fornecedores e frete para essa região."
-          escura
-          rodape={
-            <button
-              type="button"
-              className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
-              onClick={() => setRegiaoAberta(false)}
-            >
-              Confirmar {regiao}
-            </button>
-          }
-        >
-          {conteudoRegiao}
-        </Gaveta>
-      </div>
+          <Gaveta
+            aberto={regiaoAberta}
+            aoFechar={() => setRegiaoAberta(false)}
+            titulo="Onde você recebe?"
+            subtitulo="Mostramos fornecedores e frete para essa região."
+            escura
+            rodape={
+              <button
+                type="button"
+                className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
+                onClick={() => setRegiaoAberta(false)}
+              >
+                Confirmar {regiao}
+              </button>
+            }
+          >
+            {conteudoRegiao}
+          </Gaveta>
+        </>
+      )}
     </>
   );
 }

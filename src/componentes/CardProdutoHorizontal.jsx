@@ -104,7 +104,11 @@ export function CardProdutoHorizontal({
 
         <div className={estilos.linhaNome}>
           <h3 className={estilos.nome}>
-            <Link to={`/produto/${produto.id}`} className={estilos.linkNome}>
+            <Link
+              to={`/produto/${produto.id}`}
+              className={estilos.linkNome}
+              aria-label={`Ver ${produto.nome}`}
+            >
               {produto.nome}
             </Link>
           </h3>
@@ -167,18 +171,20 @@ export function CardProdutoHorizontal({
         </div>
 
         {mostrarSeletor && (
-          <SeletorQuantidade
-            tamanho="sm"
-            valor={quantidade ?? produto.pedidoMinimo}
-            minimo={produto.pedidoMinimo}
-            maximo={produto.estoque || produto.pedidoMinimo}
-            passo={10}
-            unidade={produto.unidade}
-            permitirRemover={Boolean(aoRemover)}
-            aoRemover={() => aoRemover?.(produto.id)}
-            aoAlterar={aoAlterarQuantidade}
-            desabilitado={esgotado}
-          />
+          <div className={estilos.controleQtd}>
+            <SeletorQuantidade
+              tamanho="sm"
+              valor={quantidade ?? produto.pedidoMinimo}
+              minimo={produto.pedidoMinimo}
+              maximo={produto.estoque || produto.pedidoMinimo}
+              passo={10}
+              unidade={produto.unidade}
+              permitirRemover={Boolean(aoRemover)}
+              aoRemover={() => aoRemover?.(produto.id)}
+              aoAlterar={aoAlterarQuantidade}
+              desabilitado={esgotado}
+            />
+          </div>
         )}
       </div>
     </article>

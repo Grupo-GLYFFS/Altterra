@@ -269,7 +269,10 @@ export function Fornecedor() {
               </div>
               <div>
                 <dt>Prazo médio</dt>
-                <dd>{fornecedor.prazoDias || 2} dias úteis</dd>
+                <dd>
+                  {fornecedor.prazoDias || 2}{' '}
+                  {(fornecedor.prazoDias || 2) === 1 ? 'dia útil' : 'dias úteis'}
+                </dd>
               </div>
               <div>
                 <dt>Pagamento</dt>

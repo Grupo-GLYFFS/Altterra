@@ -18,7 +18,6 @@ import { useCarrinho } from '../contexto/useCarrinho.js';
 import { useDoacoes } from '../contexto/useDoacoes.js';
 import { useFavoritos } from '../contexto/useFavoritos.js';
 import { formatarReais } from '../logica/formatos.js';
-import { caminhoImagem } from '../logica/imagens.js';
 import { precoPorQuantidade } from '../logica/preco.js';
 import estilos from './Produto.module.css';
 
@@ -84,6 +83,9 @@ export function Produto() {
   );
   const precoAtual = precoPorQuantidade(produto, quantidadeSegura);
   const fornecedor = produto.fornecedor;
+  const cidadeMapa = fornecedor?.cidade || 'São Paulo - SP';
+  const urlMapa = `https://maps.google.com/maps?q=${encodeURIComponent(cidadeMapa)}&z=11&output=embed`;
+  const prazoDias = fornecedor?.prazoDias || 2;
   const kgDoados = fornecedor ? kgDoadosPor(fornecedor.id) || fornecedor.kgDoados || 0 : 0;
   const similares = produtosAtivos
     .filter((p) => p.id !== produto.id && p.categoriaId === produto.categoriaId)
@@ -219,20 +221,21 @@ export function Produto() {
                 Onde fica e até onde entrega
               </h2>
               <div className={estilos.mapaBox}>
-                <ImagemSegura
-                  src={caminhoImagem('tomate-carmem-4.webp')}
-                  alt=""
-                  className={estilos.mapaFoto}
-                  aria-hidden="true"
+                <iframe
+                  src={urlMapa}
+                  title={`Mapa de ${cidadeMapa}`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className={estilos.mapaIframe}
                 />
                 <div className={estilos.mapaSelo}>
                   <Icone nome="location_on" tamanho={20} />
-                  <span>{fornecedor?.cidade || 'São Paulo - SP'}</span>
+                  <span>{cidadeMapa}</span>
                 </div>
               </div>
               <p className={estilos.texto}>
-                Entrega na região de {fornecedor?.cidade || 'São Paulo - SP'} e cidades vizinhas em
-                até {fornecedor?.prazoDias || 2} dias úteis. Retirada direta na origem sem frete.
+                Entrega na região de {cidadeMapa} e cidades vizinhas em até {prazoDias}{' '}
+                {prazoDias === 1 ? 'dia útil' : 'dias úteis'}. Retirada direta na origem sem frete.
               </p>
             </section>
 
