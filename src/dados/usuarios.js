@@ -1,8 +1,11 @@
+import { caminhoImagem } from '../logica/imagens.js';
+
 // Usuários de exemplo: uma compradora e um fornecedor, ambos com senha "altterra123".
 export const USUARIOS_EXEMPLO = [
   {
     id: 'usuario-mariana',
     nome: 'Mariana Albuquerque',
+    foto: caminhoImagem('perfil-mariana.webp'),
     email: 'compras@mercadosaojorge.com.br',
     senha: 'altterra123',
     perfil: 'comprador',
@@ -40,6 +43,7 @@ export const USUARIOS_EXEMPLO = [
   {
     id: 'usuario-rafael',
     nome: 'Rafael Menezes',
+    foto: caminhoImagem('perfil-rafael-menezes.webp'),
     email: 'contato@valeverde.coop.br',
     senha: 'altterra123',
     perfil: 'fornecedor',

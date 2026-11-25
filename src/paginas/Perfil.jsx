@@ -182,7 +182,7 @@ function ConteudoPerfil() {
 
         <div className={estilos.conteudo}>
           <section className={estilos.cabecalhoCard}>
-            <Avatar src={usuario.fornecedor?.logo || ''} nome={usuario.nome} tamanho={56} />
+            <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={56} />
             <div className={estilos.cabecalhoTextos}>
               <h1 className={estilos.nome}>{usuario.nome}</h1>
               <p className={estilos.meta}>{usuario.empresa}</p>

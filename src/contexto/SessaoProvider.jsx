@@ -2,8 +2,19 @@ import { useCallback, useMemo } from 'react';
 import { FORNECEDORES } from '../dados/fornecedores.js';
 import { USUARIOS_EXEMPLO } from '../dados/usuarios.js';
 import { normalizarTexto } from '../logica/formatos.js';
+import { caminhoImagem } from '../logica/imagens.js';
 import { ContextoSessao } from './ContextoSessao.js';
 import { usePersistente } from './usePersistente.js';
+
+// Sincroniza fotos das contas de exemplo salvas no navegador sem alterar contas novas.
+function normalizarUsuarios(lista) {
+  if (!Array.isArray(lista)) return USUARIOS_EXEMPLO;
+  return lista.map((u) => {
+    const exemplo = USUARIOS_EXEMPLO.find((ex) => ex.id === u.id);
+    const foto = u.foto ? caminhoImagem(u.foto) : exemplo?.foto || '';
+    return foto ? { ...u, foto } : u;
+  });
+}
 
 // Cria o fornecedor ligado a uma conta nova de perfil fornecedor.
 function criarFornecedor(dados) {
@@ -29,7 +40,7 @@ function criarFornecedor(dados) {
 
 // Guarda a conta logada e as contas cadastradas (login local, sem verificação).
 export function SessaoProvider({ children }) {
-  const [usuarios, setUsuarios] = usePersistente('usuarios', USUARIOS_EXEMPLO);
+  const [usuarios, setUsuarios] = usePersistente('usuarios', USUARIOS_EXEMPLO, normalizarUsuarios);
   const [email, setEmail] = usePersistente('sessao', null);
 
   const atual = usuarios.find((u) => u.email === email) || null;

@@ -256,14 +256,14 @@ export function Navbar({
                     <Menu position="bottom-end" width={300} radius="lg" shadow="md">
                       <Menu.Target>
                         <button type="button" className={`${estilos.linkNav} ${estilos.contaBotao}`}>
-                          <Avatar nome={usuario.nome} tamanho={44} />
+                          <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={44} />
                           <span>Minha conta</span>
                           <Icone nome="expand_more" tamanho={20} />
                         </button>
                       </Menu.Target>
                       <Menu.Dropdown className={estilos.menuConta}>
                         <Link to="/perfil" className={estilos.perfilLink}>
-                          <Avatar nome={usuario.nome} tamanho={44} />
+                          <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={44} />
                           <span className={estilos.perfilTexto}>
                             <strong>{usuario.nome}</strong>
                             <span className={estilos.verPerfil}>
@@ -604,7 +604,7 @@ export function Navbar({
         <Gaveta aberto={maisAberto} aoFechar={() => setMaisAberto(false)} titulo="Mais" escura>
         {usuario ? (
           <Link to="/perfil" className={estilos.perfilLink} onClick={() => setMaisAberto(false)}>
-            <Avatar nome={usuario.nome} tamanho={44} />
+            <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={44} />
             <span className={estilos.perfilTexto}>
               <strong>{usuario.nome}</strong>
               <span className={estilos.verPerfil}>

@@ -12,16 +12,22 @@ const PROXIMO_STATUS = { em_separacao: 'a_caminho', a_caminho: 'entregue' };
 // Normaliza caminhos de imagem salvos nos itens dos pedidos e sincroniza fotos do catálogo atual.
 function normalizarPedidos(lista) {
   if (!Array.isArray(lista)) return PEDIDOS_EXEMPLO;
-  return lista.map((pedido) => ({
-    ...pedido,
-    itens: (pedido.itens || []).map((item) => {
-      const produtoAtual = PRODUTOS.find((p) => p.id === item.produtoId);
-      return {
-        ...item,
-        imagem: produtoAtual ? produtoAtual.imagem : caminhoImagem(item.imagem),
-      };
-    }),
-  }));
+  return lista.map((pedido) => {
+    const exemplo = PEDIDOS_EXEMPLO.find((ex) => ex.id === pedido.id);
+    return {
+      ...pedido,
+      compradorFoto: pedido.compradorFoto
+        ? caminhoImagem(pedido.compradorFoto)
+        : exemplo?.compradorFoto || '',
+      itens: (pedido.itens || []).map((item) => {
+        const produtoAtual = PRODUTOS.find((p) => p.id === item.produtoId);
+        return {
+          ...item,
+          imagem: produtoAtual ? produtoAtual.imagem : caminhoImagem(item.imagem),
+        };
+      }),
+    };
+  });
 }
 
 // Guarda os pedidos de exemplo e os novos, e as mudanças de status.
@@ -42,6 +48,7 @@ export function PedidosProvider({ children }) {
           compradorEmail: comprador.email,
           compradorNome: comprador.nome,
           compradorEmpresa: comprador.empresa,
+          compradorFoto: comprador.foto ? caminhoImagem(comprador.foto) : '',
           fornecedorId: grupo.fornecedor.id,
           itens: grupo.linhas.map((linha) => ({
             produtoId: linha.produto.id,

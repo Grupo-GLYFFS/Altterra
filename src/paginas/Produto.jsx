@@ -17,7 +17,8 @@ import { useAnuncios } from '../contexto/useAnuncios.js';
 import { useCarrinho } from '../contexto/useCarrinho.js';
 import { useDoacoes } from '../contexto/useDoacoes.js';
 import { useFavoritos } from '../contexto/useFavoritos.js';
-import { formatarReais } from '../logica/formatos.js';
+import { AVALIACOES_EXEMPLO } from '../dados/avaliacoes.js';
+import { formatarData, formatarReais } from '../logica/formatos.js';
 import { precoPorQuantidade } from '../logica/preco.js';
 import estilos from './Produto.module.css';
 
@@ -26,25 +27,6 @@ const SECOES_INDICE = [
   { id: 'localizacao', rotulo: 'Localização' },
   { id: 'avaliacoes', rotulo: 'Avaliações' },
   { id: 'fornecedor', rotulo: 'Fornecedor' },
-];
-
-const AVALIACOES_EXEMPLO = [
-  {
-    id: 'av-1',
-    autor: 'Mercearia Bom Preço',
-    meta: 'São Roque - SP · comprou 200 kg',
-    data: '18/11/2026',
-    nota: 5,
-    texto: 'Chegou firme, sem amassados na caixa. O calibre bateu com o anunciado e a nota fiscal veio junto.',
-  },
-  {
-    id: 'av-2',
-    autor: 'Restaurante Sabor da Serra',
-    meta: 'Cotia - SP · comprou 80 kg',
-    data: '12/11/2026',
-    nota: 5,
-    texto: 'Segundo pedido com o fornecedor. Maturação uniforme e entrega antes das 7h, como combinado.',
-  },
 ];
 
 // Página do produto (V01 no layout da Fase 4): 50% informações à esquerda e compra sticky à direita.
@@ -255,15 +237,17 @@ export function Produto() {
                     {AVALIACOES_EXEMPLO.map((av) => (
                       <article key={av.id} className={estilos.itemAvaliacao}>
                         <div className={estilos.avalTopo}>
-                          <Avatar nome={av.autor} tamanho={32} />
+                          <Avatar foto={av.foto} nome={av.autor} tamanho={32} />
                           <div>
                             <p className={estilos.avalAutor}>{av.autor}</p>
-                            <p className={estilos.avalMeta}>{av.meta}</p>
+                            <p className={estilos.avalMeta}>
+                              {av.local} · comprou {av.comprou}
+                            </p>
                           </div>
-                          <span className={estilos.avalData}>{av.data}</span>
+                          <span className={estilos.avalData}>{formatarData(av.data)}</span>
                         </div>
                         <Estrelas nota={av.nota} tamanho={16} mostrarNumero={false} />
-                        <p className={estilos.texto}>{av.texto}</p>
+                        <p className={estilos.texto}>{av.comentario}</p>
                       </article>
                     ))}
                   </div>

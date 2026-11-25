@@ -146,7 +146,7 @@ function ConteudoPedidosRecebidos() {
       titulo: 'Comprador',
       render: (pedido) => (
         <div className={estilos.celulaComprador}>
-          <Avatar nome={pedido.compradorEmpresa} tamanho={32} />
+          <Avatar foto={pedido.compradorFoto} nome={pedido.compradorEmpresa} tamanho={32} />
           <div className={estilos.compradorTextos}>
             <span className={estilos.negrito}>{pedido.compradorEmpresa}</span>
             <span className={estilos.meta}>

@@ -185,7 +185,7 @@ export function DetalhePedidoRecebido({
             <div className={estilos.blocoInfo}>
               <h2 className={estilos.rotuloSecao}>Comprador</h2>
               <div className={estilos.comprador}>
-                <Avatar nome={pedido.compradorEmpresa} tamanho={44} />
+                <Avatar foto={pedido.compradorFoto} nome={pedido.compradorEmpresa} tamanho={44} />
                 <div>
                   <p className={estilos.negrito}>{pedido.compradorEmpresa}</p>
                   <p className={estilos.meta}>{pedido.compradorNome}</p>
