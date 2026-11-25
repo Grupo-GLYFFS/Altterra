@@ -1,0 +1,98 @@
+.cartao {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .cartao {
+    padding: var(--espaco-6);
+  }
+}
+
+.titulo {
+  font-size: var(--texto-h4);
+  line-height: var(--entrelinha-h4);
+}
+
+.linhas {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espaco-4);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.linha dd {
+  margin: 0;
+  color: var(--cor-texto);
+  font-variant-numeric: tabular-nums;
+}
+
+.desconto {
+  color: var(--cor-sucesso) !important;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--espaco-4);
+  border-top: 1px solid var(--cor-borda);
+  font-weight: 600;
+}
+
+.total strong {
+  font-size: var(--texto-h3);
+  line-height: var(--entrelinha-h3);
+  font-variant-numeric: tabular-nums;
+}
+
+.aviso {
+  display: flex;
+  gap: var(--espaco-2);
+  align-items: flex-start;
+  padding: var(--espaco-3);
+  border-radius: var(--raio-sm);
+  background-color: var(--cor-aviso-fundo);
+  color: var(--cor-dourado-9);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+}
+
+.extra {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.esqueleto {
+  display: inline-block;
+  width: rem(72px);
+  height: rem(16px);
+  border-radius: var(--raio-pill);
+  background: linear-gradient(90deg, var(--cor-cinza-1) 25%, var(--cor-cinza-2) 50%, var(--cor-cinza-1) 75%);
+  background-size: 300% 100%;
+  animation: ondaCarregamento 1.4s linear infinite;
+}
+
+.esqueletoTotal {
+  width: rem(120px);
+  height: rem(28px);
+}

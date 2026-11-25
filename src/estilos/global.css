@@ -1,0 +1,251 @@
+/* Fontes oficiais Cal Sans UI e Cal Sans UI Text carregadas via public/fontes.css. */
+
+:root {
+  /* Escala verde (matiz 116) */
+  --cor-verde-0: #f3f7f3;
+  --cor-verde-1: #dbe7da;
+  --cor-verde-2: #b1cbaf;
+  --cor-verde-3: #7ca979;
+  --cor-verde-4: #62975e;
+  --cor-verde-5: #527d4f;
+  --cor-verde-6: #41643f;
+  --cor-verde-7: #334e31;
+  --cor-verde-8: #1d2c1b;
+  --cor-verde-9: #101910;
+
+  /* Escala dourado */
+  --cor-dourado-0: #fcf7e8;
+  --cor-dourado-1: #f9ecc8;
+  --cor-dourado-2: #f4dc9a;
+  --cor-dourado-3: #edcb6e;
+  --cor-dourado-4: #fac72e;
+  --cor-dourado-5: #e3b331;
+  --cor-dourado-6: #deac21;
+  --cor-dourado-7: #b68e20;
+  --cor-dourado-8: #876b1c;
+  --cor-dourado-9: #5b4815;
+  --cor-dourado-logo: #c4922a;
+
+  /* Escala cinza neutra */
+  --cor-cinza-0: #fafafa;
+  --cor-cinza-1: #f2f2f2;
+  --cor-cinza-2: #e6e6e6;
+  --cor-cinza-3: #d4d4d4;
+  --cor-cinza-4: #adadad;
+  --cor-cinza-5: #8a8a8a;
+  --cor-cinza-6: #6b6b6b;
+  --cor-cinza-7: #4f4f4f;
+  --cor-cinza-8: #333333;
+  --cor-cinza-9: #161816;
+
+  /* Superfícies, texto e bordas */
+  --cor-branco: #ffffff;
+  --cor-fundo: #fafafa;
+  --cor-card: #ffffff;
+  --cor-foto: #f2f2f2;
+  --cor-borda: #e6e6e6;
+  --cor-borda-hover: #d4d4d4;
+  --cor-borda-campo: #8a8a8a;
+  --cor-borda-campo-hover: #4f4f4f;
+  --cor-texto: #161816;
+  --cor-texto-secundario: #6b6b6b;
+
+  /* Semânticas */
+  --cor-sucesso: #357231;
+  --cor-sucesso-fundo: #f3f7f3;
+  --cor-aviso: #b68e20;
+  --cor-aviso-texto: #876b1c;
+  --cor-aviso-fundo: #fcf7e8;
+  --cor-erro: #d22605;
+  --cor-erro-hover: #a81f04;
+  --cor-erro-fundo: #fdf0ed;
+  --cor-info: #2b6cb0;
+  --cor-info-fundo: #eef4fa;
+
+  /* Foco */
+  --cor-foco-claro: #527d4f;
+  --cor-foco-escuro: #7ca979;
+
+  /* Camadas exclusivas da navbar e do rodapé escuros */
+  --cor-barra-fundo: #1d2c1b;
+  --cor-barra-faixa: #293e28;
+  --cor-barra-trilho: #233522;
+  --cor-barra-trilho-hover: #2f482e;
+  --cor-barra-ativa: #3e5d3c;
+  --cor-barra-ativa-hover: #4a7048;
+  --cor-barra-busca-hover: #395837;
+  --cor-barra-social: #2d442c;
+  --cor-barra-social-hover: #3a5738;
+  --cor-barra-texto: #dbe7da;
+  --cor-barra-nota: #b1cbaf;
+  --cor-barra-placeholder: #41643f;
+  --cor-barra-veu: rgba(16, 25, 16, 0.5);
+
+  /* Sombras (apenas elementos flutuantes) */
+  --sombra-flutuante: 0 8px 24px rgba(22, 24, 22, 0.12);
+  --sombra-flutuante-escura: 0 8px 24px rgba(16, 25, 16, 0.32);
+  --sombra-gaveta: 0 -8px 24px rgba(22, 24, 22, 0.12);
+  --sombra-gaveta-escura: 0 -8px 24px rgba(16, 25, 16, 0.28);
+
+  /* Espaçamento (base 4) */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 0.75rem;
+  --espaco-4: 1rem;
+  --espaco-6: 1.5rem;
+  --espaco-8: 2rem;
+  --espaco-12: 3rem;
+  --espaco-16: 4rem;
+
+  /* Raios (somente 3: 8, 16 e pill) */
+  --raio-sm: 0.5rem;
+  --raio-lg: 1rem;
+  --raio-pill: 9999px;
+
+  /* Alturas de controle */
+  --altura-sm: 2.75rem;
+  --altura-md: 3.5rem;
+  --altura-lg: 4rem;
+
+  /* Tipografia */
+  --fonte-texto: 'Cal Sans UI', system-ui, -apple-system, sans-serif;
+  --fonte-titulo: 'Cal Sans UI Text', 'Cal Sans UI', system-ui, sans-serif;
+
+  --texto-destaque: 3rem;
+  --entrelinha-destaque: 3.5rem;
+  --texto-h1: 2.25rem;
+  --entrelinha-h1: 2.75rem;
+  --texto-h2: 1.75rem;
+  --entrelinha-h2: 2.25rem;
+  --texto-h3: 1.375rem;
+  --entrelinha-h3: 1.75rem;
+  --texto-h4: 1.125rem;
+  --entrelinha-h4: 1.625rem;
+  --texto-lg: 1.125rem;
+  --entrelinha-lg: 1.75rem;
+  --texto-md: 1rem;
+  --entrelinha-md: 1.5rem;
+  --texto-sm: 0.875rem;
+  --entrelinha-sm: 1.25rem;
+  --texto-xs: 0.75rem;
+  --entrelinha-xs: 1rem;
+  --texto-preco: 1.25rem;
+  --entrelinha-preco: 1.75rem;
+
+  /* Layout */
+  --container-max: 75rem;
+  --altura-barra-celular: 4.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fonte-titulo);
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: var(--cor-texto);
+}
+
+h4 {
+  letter-spacing: -0.02em;
+}
+
+p,
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+}
+
+::selection {
+  background-color: var(--cor-verde-1);
+  color: var(--cor-texto);
+}
+
+/* Classe de leitor de tela (visualmente oculta) */
+.somenteLeitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Ícones Material Symbols Rounded */
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  flex: none;
+  user-select: none;
+}
+
+@keyframes ondaCarregamento {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+}
+
+@keyframes girarCarregamento {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

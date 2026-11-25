@@ -1,0 +1,48 @@
+/* Fontes oficiais Cal Sans UI e Cal Sans UI Text (caminhos relativos para subendereço). */
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('./fontes/CalSansUI-UIRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('./fontes/CalSansUI-UIMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('./fontes/CalSansUI-UISemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI';
+  src: url('./fontes/CalSansUI-UIBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI Text';
+  src: url('./fontes/CalSansUI-TextSemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cal Sans UI Text';
+  src: url('./fontes/CalSansUI-TextBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

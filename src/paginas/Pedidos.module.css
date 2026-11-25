@@ -1,0 +1,12 @@
+.coluna {
+  max-width: rem(880px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}

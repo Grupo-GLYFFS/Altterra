@@ -1,0 +1,25 @@
+/* A largura acompanha a altura pela proporção da marca (370 x 110) e nunca passa do contêiner. */
+.logo {
+  --altura-logo: rem(52px);
+
+  display: block;
+  height: auto;
+  width: calc(var(--altura-logo) * 3.364);
+  max-width: 100%;
+  aspect-ratio: 370 / 110;
+  object-fit: contain;
+  flex: none;
+}
+
+.sm {
+  --altura-logo: rem(36px);
+}
+
+.md {
+  --altura-logo: rem(52px);
+}
+
+.lg {
+  width: 100%;
+  max-width: rem(370px);
+}

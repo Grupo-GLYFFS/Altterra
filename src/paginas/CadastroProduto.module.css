@@ -1,0 +1,210 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  padding-bottom: rem(96px);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .pagina {
+    gap: var(--espaco-6);
+    padding-bottom: 0;
+  }
+}
+
+.topo {
+  display: grid;
+  grid-template-columns: rem(44px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+.tituloPagina {
+  font-size: var(--texto-h3);
+  line-height: var(--entrelinha-h3);
+  font-weight: 700;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .tituloPagina {
+    font-size: var(--texto-h1);
+    line-height: var(--entrelinha-h1);
+  }
+}
+
+.espacadorTopo {
+  width: rem(44px);
+}
+
+.metaTopo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--espaco-2);
+}
+
+.statusTopo {
+  display: none;
+  align-items: center;
+  gap: var(--espaco-1);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .statusTopo {
+    display: inline-flex;
+  }
+
+  .botaoSalvarCelular {
+    display: none;
+  }
+}
+
+.cabecalhoEtapa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.tituloEtapa {
+  font-size: var(--texto-h2);
+  line-height: var(--entrelinha-h2);
+  font-weight: 700;
+}
+
+.subtituloEtapa {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+/* Gatilho da prévia em gaveta (apenas celular) */
+.gatilhoPrevia {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  width: 100%;
+  min-height: var(--altura-md);
+  padding: 0 var(--espaco-4);
+  border-radius: var(--raio-lg);
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-card);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gatilhoPrevia:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+}
+
+.gatilhoPreviaEsquerda {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .gatilhoPrevia {
+    display: none;
+  }
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-6);
+  align-items: start;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .grade {
+    grid-template-columns: minmax(0, 1fr) rem(320px);
+    gap: var(--espaco-8);
+  }
+}
+
+.colunaFormulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+  min-width: 0;
+}
+
+.colunaPrevia {
+  display: none;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .colunaPrevia {
+    display: block;
+    position: sticky;
+    top: var(--espaco-6);
+  }
+}
+
+/* Navegação de etapas no computador */
+.navegacaoComputador {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+  padding-top: var(--espaco-4);
+  border-top: 1px solid var(--cor-borda);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .navegacaoComputador {
+    display: flex;
+  }
+}
+
+.acoesDireita {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+/* Barra fixa inferior no celular (no lugar da barra Início/Busca/Mais) */
+.barraCelular {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  padding: var(--espaco-3) var(--espaco-4);
+  background-color: var(--cor-card);
+  border-top: 1px solid var(--cor-borda);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .barraCelular {
+    display: none;
+  }
+}
+
+.textoModal {
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  color: var(--cor-texto);
+}
+
+.acoesModal {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espaco-2);
+}

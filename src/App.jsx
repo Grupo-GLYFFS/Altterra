@@ -1,43 +1,50 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom';
+import { ProvedorToast } from './componentes/ProvedorToast.jsx';
+import { Anuncios } from './paginas/Anuncios.jsx';
+import { CadastroProduto } from './paginas/CadastroProduto.jsx';
+import { NaoEncontrada } from './paginas/NaoEncontrada.jsx';
+import { PedidosRecebidos } from './paginas/PedidosRecebidos.jsx';
+import { SafraQueAlimenta } from './paginas/SafraQueAlimenta.jsx';
+import { Busca } from './paginas/Busca.jsx';
+import { Carrinho } from './paginas/Carrinho.jsx';
+import { ComoFunciona } from './paginas/ComoFunciona.jsx';
+import { Favoritos } from './paginas/Favoritos.jsx';
+import { Finalizacao } from './paginas/Finalizacao.jsx';
+import { Fornecedor } from './paginas/Fornecedor.jsx';
+import { Home } from './paginas/Home.jsx';
+import { Login } from './paginas/Login.jsx';
+import { Pedidos } from './paginas/Pedidos.jsx';
+import { Perfil } from './paginas/Perfil.jsx';
+import { Produto } from './paginas/Produto.jsx';
+import { VitrineComponentes } from './paginas/VitrineComponentes.jsx';
 
-import HomePage from './pages/HomePage'
-import HowItWorksPage from './pages/HowItWorksPage'
-import ProductPage from './pages/ProductPage'
-import RegisterPage from './pages/RegisterPage'
-import LoginPage from './pages/LoginPage'
-import OrdersPage from './pages/OrdersPage'
-import FavoritesPage from './pages/FavoritesPage'
-import NotFoundPage from './pages/NotFoundPage'
-
-import MainLayout from './components/layout/MainLayout'
-import ScrollToTop from './components/layout/ScrollToTop'
-import AuthLayout from './components/layout/AuthLayout'
-
-function App() {
+// Define todas as rotas previstas do marketplace Altterra com HashRouter.
+export function App() {
   return (
-    <>
-      <ScrollToTop />
-
+    <ProvedorToast>
       <Routes>
-
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/product" element={<Navigate to="/product/tomate-carmem" replace />} />
-          <Route path="/product/:productId" element={<ProductPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/pedidos" element={<OrdersPage />} />
-          <Route path="/favoritos" element={<FavoritesPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-
-        <Route element={<AuthLayout />}>
-          <Route path="/login" element={<LoginPage />} />
-        </Route>
-
+        <Route path="/" element={<Home />} />
+        <Route path="/entrar" element={<Login />} />
+        <Route path="/como-funciona" element={<ComoFunciona />} />
+        <Route path="/busca" element={<Busca />} />
+        <Route path="/produto/:id" element={<Produto />} />
+        <Route path="/fornecedor/:id" element={<Fornecedor />} />
+        <Route path="/carrinho" element={<Carrinho />} />
+        <Route path="/finalizar" element={<Finalizacao />} />
+        <Route path="/pedidos" element={<Pedidos />} />
+        <Route path="/pedidos/:id" element={<Pedidos />} />
+        <Route path="/favoritos" element={<Favoritos />} />
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/anuncios" element={<Anuncios />} />
+        <Route path="/pedidos-recebidos" element={<PedidosRecebidos />} />
+        <Route path="/anunciar" element={<CadastroProduto />} />
+        <Route path="/anunciar/:id" element={<CadastroProduto />} />
+        <Route path="/safra-que-alimenta" element={<SafraQueAlimenta />} />
+        <Route path="/componentes" element={<VitrineComponentes />} />
+        <Route path="*" element={<NaoEncontrada />} />
       </Routes>
-    </>
-  )
+    </ProvedorToast>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,75 @@
+.bloco {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .bloco {
+    padding: var(--espaco-6);
+  }
+}
+
+.bloqueado {
+  background-color: transparent;
+  border-style: dashed;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+.numero {
+  width: rem(32px);
+  height: rem(32px);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-verde-7);
+  color: var(--cor-branco);
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.bloqueado .numero {
+  background-color: var(--cor-cinza-2);
+  color: var(--cor-texto-secundario);
+}
+
+.concluido .numero {
+  background-color: var(--cor-sucesso);
+}
+
+.textos {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.titulo {
+  font-size: var(--texto-h4);
+  line-height: var(--entrelinha-h4);
+}
+
+.bloqueado .titulo {
+  color: var(--cor-texto-secundario);
+}
+
+.resumo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.corpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}

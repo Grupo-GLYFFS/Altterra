@@ -1,0 +1,79 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+.seletorPerfil {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.pergunta {
+  font-size: var(--texto-sm);
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.resumoPerfil {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.resumoTexto {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto);
+}
+
+.beneficios {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.beneficios li {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.beneficios li span:first-child {
+  color: var(--cor-sucesso);
+}
+
+.linhaEmail {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--espaco-2);
+}
+
+.campoEmail {
+  flex: 1 1 auto;
+}
+
+.rodape {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .rodape {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.nota {
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  color: var(--cor-texto-secundario);
+}
