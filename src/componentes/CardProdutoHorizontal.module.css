@@ -1,0 +1,264 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-3);
+  align-items: stretch;
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-2);
+  min-width: 0;
+  transition: border-color 0.15s ease;
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .card {
+    flex-wrap: nowrap;
+    gap: var(--espaco-4);
+  }
+}
+
+.card:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.foto {
+  position: relative;
+  width: rem(96px);
+  height: rem(96px);
+  border-radius: var(--raio-sm);
+  overflow: hidden;
+  background-color: var(--cor-foto);
+  flex: none;
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .foto {
+    width: rem(128px);
+    height: rem(128px);
+  }
+}
+
+.imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.esgotado .imagem {
+  opacity: 0.6;
+}
+
+.semFoto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-1);
+  color: var(--cor-cinza-5);
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  text-align: center;
+  padding: var(--espaco-2);
+}
+
+.meio {
+  flex: 1 1 rem(180px);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  padding: var(--espaco-1) 0;
+}
+
+.fornecedor {
+  display: flex;
+  align-items: center;
+  gap: rem(6px);
+  min-width: 0;
+}
+
+.fornecedorNome {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 600;
+  color: var(--cor-texto);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verificado {
+  color: var(--cor-verde-7);
+}
+
+.fornecedorCidade {
+  display: none;
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .fornecedorCidade {
+    display: inline;
+  }
+}
+
+.selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1);
+}
+
+.linhaNome {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espaco-2);
+  flex-wrap: wrap;
+}
+
+.nome {
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.linkNome {
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.linkNome:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.linkNome:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+  border-radius: rem(4px);
+}
+
+.meta {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.semEstoque {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 500;
+  color: var(--cor-erro);
+}
+
+.direita {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+  padding: 0 var(--espaco-1);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .direita {
+    width: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex: none;
+  }
+}
+
+.acoesTopo {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  order: 2;
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .acoesTopo {
+    order: 0;
+  }
+}
+
+.blocoPreco {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  order: 1;
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .blocoPreco {
+    text-align: right;
+  }
+}
+
+.preco {
+  font-size: var(--texto-lg);
+  line-height: var(--entrelinha-h4);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--cor-texto);
+  white-space: nowrap;
+}
+
+.unidade {
+  font-size: var(--texto-sm);
+  font-weight: 400;
+  color: var(--cor-texto-secundario);
+}
+
+.precoAntigo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+  font-variant-numeric: tabular-nums;
+}
+
+.esqueleto,
+.esqueletoLinha {
+  background: linear-gradient(
+    90deg,
+    var(--cor-cinza-2) 0%,
+    var(--cor-cinza-2) 35%,
+    var(--cor-fundo) 50%,
+    var(--cor-cinza-2) 65%,
+    var(--cor-cinza-2) 100%
+  );
+  background-size: 250% 100%;
+  animation: ondaCarregamento 1.6s ease-in-out infinite;
+}
+
+.esqueletoLinha {
+  display: block;
+  height: rem(14px);
+  border-radius: var(--raio-sm);
+  margin: rem(4px) 0;
+}
+
+.l80 {
+  width: 80%;
+}
+
+.l60 {
+  width: 60%;
+}
+
+.l40 {
+  width: 40%;
+}

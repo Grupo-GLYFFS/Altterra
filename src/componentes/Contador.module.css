@@ -1,0 +1,85 @@
+.flutuante {
+  position: absolute;
+  top: rem(-2px);
+  right: rem(-2px);
+  width: rem(24px);
+  height: rem(24px);
+  padding: 0;
+  border-radius: 50%;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  box-sizing: content-box;
+}
+
+.lg {
+  width: rem(28px);
+  height: rem(28px);
+  font-size: rem(13px);
+}
+
+.doisDigitos {
+  font-size: rem(11px);
+}
+
+.maisDe99 {
+  width: auto;
+  min-width: rem(24px);
+  padding: 0 rem(5px);
+  border-radius: var(--raio-pill);
+  font-size: rem(10px);
+}
+
+.claro {
+  background-color: var(--cor-verde-7);
+  color: var(--cor-branco);
+  border: 2px solid var(--cor-fundo);
+}
+
+.barra {
+  background-color: var(--cor-branco);
+  color: var(--cor-verde-8);
+  border: 2px solid var(--cor-barra-faixa);
+}
+
+.barra.lg {
+  border-color: var(--cor-fundo);
+}
+
+.emLinha {
+  min-width: rem(24px);
+  height: rem(24px);
+  padding: 0 var(--espaco-2);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-cinza-1);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.emLinha.barra {
+  background-color: var(--cor-branco);
+  color: var(--cor-verde-8);
+  border: 0;
+}
+
+.ponto {
+  width: rem(10px);
+  height: rem(10px);
+  border-radius: 50%;
+  background-color: var(--cor-verde-7);
+  display: inline-block;
+  flex: none;
+}

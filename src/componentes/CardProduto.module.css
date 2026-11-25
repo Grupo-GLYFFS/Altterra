@@ -1,0 +1,212 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-2);
+  min-width: 0;
+  transition: border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: rem(10px);
+  padding: var(--espaco-1) var(--espaco-1) 0;
+  min-width: 0;
+}
+
+.foto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-color: var(--cor-foto);
+  border-radius: var(--raio-sm);
+  overflow: hidden;
+}
+
+.imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .imagem {
+  transform: scale(1.03);
+}
+
+.esgotado .imagem {
+  opacity: 0.6;
+}
+
+.semFoto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: rem(6px);
+  color: var(--cor-cinza-5);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+}
+
+.semFoto span:last-child {
+  color: var(--cor-texto-secundario);
+}
+
+.selos {
+  position: absolute;
+  top: var(--espaco-2);
+  left: var(--espaco-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1);
+  max-width: calc(100% - rem(60px));
+}
+
+.favorito {
+  position: absolute;
+  top: var(--espaco-2);
+  right: var(--espaco-2);
+}
+
+.corpo {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+  padding: 0 var(--espaco-2) var(--espaco-2);
+  min-width: 0;
+}
+
+.linhaNome {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--espaco-2);
+}
+
+.nome {
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  font-weight: 600;
+  letter-spacing: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.linkNome {
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.linkNome:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.linkNome:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+  border-radius: rem(4px);
+}
+
+.preco {
+  font-size: var(--texto-preco);
+  line-height: var(--entrelinha-preco);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--cor-texto);
+  white-space: nowrap;
+}
+
+.unidade {
+  font-size: var(--texto-sm);
+  font-weight: 400;
+  color: var(--cor-texto-secundario);
+}
+
+.precoAntigo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+  font-variant-numeric: tabular-nums;
+}
+
+.meta {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.semEstoque {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 500;
+  color: var(--cor-erro);
+}
+
+/* Skeleton com onda */
+.esqueletoGrupo {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.esqueletoFoto,
+.esqueletoLinha {
+  background: linear-gradient(
+    90deg,
+    var(--cor-cinza-2) 0%,
+    var(--cor-cinza-2) 35%,
+    var(--cor-fundo) 50%,
+    var(--cor-cinza-2) 65%,
+    var(--cor-cinza-2) 100%
+  );
+  background-size: 250% 100%;
+  animation: ondaCarregamento 1.6s ease-in-out infinite;
+}
+
+.esqueletoLinha {
+  display: block;
+  height: rem(14px);
+  border-radius: var(--raio-sm);
+  margin: rem(3px) 0;
+}
+
+.esqueletoAlto {
+  height: rem(22px);
+}
+
+.l80 {
+  width: 80%;
+}
+
+.l60 {
+  width: 60%;
+}
+
+.l50 {
+  width: 50%;
+}
+
+.l40 {
+  width: 40%;
+}

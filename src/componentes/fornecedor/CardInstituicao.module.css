@@ -1,0 +1,117 @@
+.card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  height: 100%;
+}
+
+.topo {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-3);
+}
+
+.circulo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-verde-0);
+  color: var(--cor-verde-7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.cabecalhoTextos {
+  min-width: 0;
+  flex: 1;
+}
+
+.nome {
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  font-weight: 600;
+  color: var(--cor-texto);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  flex-wrap: wrap;
+}
+
+.verificado {
+  color: var(--cor-verde-7);
+}
+
+.cidade {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-secundario);
+  margin-top: 2px;
+}
+
+.blocoAceita {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.rotuloAceita {
+  font-size: var(--texto-xs);
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1);
+}
+
+.tag {
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  font-weight: 500;
+  padding: var(--espaco-1) var(--espaco-2);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-cinza-1);
+  color: var(--cor-texto);
+}
+
+.detalhes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  color: var(--cor-texto-secundario);
+  flex: 1;
+}
+
+.detalhes li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-2);
+}
+
+.rodape {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--espaco-3);
+  border-top: 1px solid var(--cor-borda);
+}
+
+@media (max-width: $mantine-breakpoint-sm) {
+  .card {
+    padding: var(--espaco-4);
+  }
+}

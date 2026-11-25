@@ -1,0 +1,35 @@
+.icone {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.preenchido {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.t16 {
+  font-size: rem(16px);
+}
+
+.t20 {
+  font-size: rem(20px);
+}
+
+.t24 {
+  font-size: rem(24px);
+}
+
+.t28 {
+  font-size: rem(28px);
+}
+
+.t32 {
+  font-size: rem(32px);
+}

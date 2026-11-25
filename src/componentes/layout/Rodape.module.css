@@ -1,0 +1,315 @@
+.wrapper {
+  background-color: var(--cor-barra-faixa);
+  border-radius: var(--raio-lg) var(--raio-lg) 0 0;
+  color: var(--cor-branco);
+  margin-top: var(--espaco-12);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .wrapper {
+    margin-top: var(--espaco-16);
+  }
+}
+
+.preRodape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-6);
+  padding: var(--espaco-12) var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .preRodape {
+    gap: rem(40px);
+    padding: rem(96px) var(--espaco-6);
+  }
+}
+
+.preTitulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h3);
+  line-height: var(--entrelinha-h3);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--cor-branco);
+  text-align: center;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .preTitulo {
+    font-size: var(--texto-h1);
+    line-height: var(--entrelinha-h1);
+  }
+}
+
+.busca {
+  width: 100%;
+  max-width: rem(600px);
+  height: var(--altura-md);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-verde-1);
+  border: 1px solid var(--cor-verde-5);
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  padding: 0 rem(4px) 0 var(--espaco-6);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .busca {
+    height: var(--altura-lg);
+    padding: 0 rem(3px) 0 var(--espaco-6);
+  }
+}
+
+.busca:focus-within {
+  outline: 2px solid var(--cor-foco-escuro);
+  outline-offset: 2px;
+}
+
+.buscaInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-md);
+  color: var(--cor-texto);
+  outline: none;
+}
+
+.buscaInput::placeholder {
+  color: var(--cor-barra-placeholder);
+  opacity: 1;
+}
+
+.buscaEnviar {
+  width: rem(48px);
+  height: rem(48px);
+  border-radius: var(--raio-pill);
+  border: 0;
+  background-color: var(--cor-barra-fundo);
+  color: var(--cor-branco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: none;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .buscaEnviar {
+    width: var(--altura-md);
+    height: var(--altura-md);
+  }
+}
+
+.buscaEnviar:hover {
+  background-color: var(--cor-barra-busca-hover);
+}
+
+.buscaEnviar:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+}
+
+.rodape {
+  background-color: var(--cor-barra-fundo);
+  border-radius: var(--raio-lg) var(--raio-lg) 0 0;
+  color: var(--cor-barra-texto);
+}
+
+.container {
+  max-width: calc(var(--container-max) + var(--espaco-12));
+  margin: 0 auto;
+  padding: var(--espaco-16) var(--espaco-4) calc(var(--espaco-16) + var(--altura-barra-celular));
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-16);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .container {
+    flex-direction: row;
+    padding: rem(72px) var(--espaco-6);
+    gap: var(--espaco-8);
+  }
+}
+
+.esquerda,
+.direita {
+  display: contents;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .esquerda {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-12);
+  }
+
+  .direita {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--espaco-12);
+  }
+}
+
+.botaoTopo {
+  order: 1;
+  align-self: flex-start;
+  height: var(--altura-md);
+  padding: 0 var(--espaco-6);
+  border-radius: var(--raio-pill);
+  border: 0;
+  background-color: var(--cor-barra-social);
+  color: var(--cor-branco);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-md);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  cursor: pointer;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .botaoTopo {
+    order: 0;
+    align-self: flex-end;
+  }
+}
+
+.botaoTopo:hover {
+  background-color: var(--cor-barra-social-hover);
+}
+
+.botaoTopo:focus-visible {
+  outline: 2px solid var(--cor-foco-escuro);
+  outline-offset: 2px;
+}
+
+.blocoNav {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.blocoSocial {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.logoRodape {
+  order: 4;
+  display: block;
+  width: 100%;
+  border-radius: var(--raio-sm);
+}
+
+.logoRodape:focus-visible {
+  outline: 2px solid var(--cor-foco-escuro);
+  outline-offset: 4px;
+}
+
+.notas {
+  order: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-3);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-barra-nota);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .blocoNav,
+  .blocoSocial,
+  .logoRodape,
+  .notas {
+    order: 0;
+  }
+}
+
+.tituloBloco {
+  font-weight: 600;
+  color: var(--cor-branco);
+}
+
+.listaLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.listaLinks a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--altura-sm);
+  color: var(--cor-barra-texto);
+  text-decoration: none;
+}
+
+.listaLinks a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--cor-branco);
+}
+
+.listaLinks a:focus-visible {
+  outline: 2px solid var(--cor-foco-escuro);
+  outline-offset: 2px;
+  border-radius: var(--raio-sm);
+}
+
+.listaSocial {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--espaco-2);
+}
+
+.botaoSocial {
+  width: var(--altura-md);
+  height: var(--altura-md);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-barra-social);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botaoSocial:hover {
+  background-color: var(--cor-barra-social-hover);
+}
+
+.botaoSocial:focus-visible {
+  outline: 2px solid var(--cor-foco-escuro);
+  outline-offset: 2px;
+}
+
+.botaoSocial svg {
+  width: rem(20px);
+  height: rem(20px);
+  fill: var(--cor-branco);
+}
+
+.notaItem {
+  min-height: var(--altura-sm);
+  display: inline-flex;
+  align-items: center;
+}

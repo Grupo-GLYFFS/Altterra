@@ -1,0 +1,85 @@
+.trilho {
+  --h: var(--altura-md);
+
+  display: inline-flex;
+  align-items: stretch;
+  height: var(--h);
+  padding: var(--espaco-1);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-cinza-1);
+  gap: rem(2px);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.trilho::-webkit-scrollbar {
+  display: none;
+}
+
+.sm {
+  --h: var(--altura-sm);
+}
+
+.larguraTotal {
+  display: flex;
+  width: 100%;
+}
+
+.desabilitado {
+  opacity: 0.45;
+}
+
+.opcao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  padding: 0 rem(20px);
+  border-radius: var(--raio-pill);
+  font-size: var(--texto-md);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  white-space: nowrap;
+  flex: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.larguraTotal .opcao {
+  flex: 1 1 0;
+}
+
+.sm .opcao {
+  padding: 0 rem(14px);
+  font-size: var(--texto-sm);
+  gap: rem(6px);
+}
+
+.desabilitado .opcao {
+  cursor: not-allowed;
+}
+
+.opcao:hover:not(.ativa) {
+  color: var(--cor-texto);
+  background-color: var(--cor-cinza-2);
+}
+
+.desabilitado .opcao:hover:not(.ativa) {
+  background-color: transparent;
+  color: var(--cor-texto-secundario);
+}
+
+.ativa {
+  background-color: var(--cor-verde-7);
+  color: var(--cor-branco);
+  font-weight: 600;
+}
+
+.opcao:has(input:focus-visible) {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: -2px;
+}

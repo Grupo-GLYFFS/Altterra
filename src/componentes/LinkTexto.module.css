@@ -1,0 +1,53 @@
+.texto {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  color: var(--cor-verde-7);
+  font-family: var(--fonte-texto);
+  font-size: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  border-radius: rem(4px);
+}
+
+.texto:hover {
+  color: var(--cor-verde-8);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.texto:focus-visible,
+.acao:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+}
+
+.acao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  min-height: var(--altura-sm);
+  padding: 0 var(--espaco-1);
+  color: var(--cor-verde-7);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: var(--raio-sm);
+}
+
+.acao:hover {
+  color: var(--cor-verde-8);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

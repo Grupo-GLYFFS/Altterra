@@ -1,0 +1,313 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-12);
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+  max-width: 720px;
+}
+
+.titulo {
+  font-size: var(--texto-h1);
+  line-height: var(--entrelinha-h1);
+}
+
+.descricao {
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  color: var(--cor-texto-secundario);
+}
+
+.painel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--espaco-4);
+}
+
+.blocoNumero {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--espaco-1);
+}
+
+.blocoDestaque {
+  background-color: var(--cor-dourado-0);
+  border-color: var(--cor-dourado-2);
+}
+
+.valorPainel {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h1);
+  line-height: var(--entrelinha-h1);
+  font-variant-numeric: tabular-nums;
+  color: var(--cor-texto);
+}
+
+.rotuloPainel {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+.secaoTopo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.secaoTopoLinha {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  flex-wrap: wrap;
+}
+
+.tituloSecao {
+  font-size: var(--texto-h2);
+  line-height: var(--entrelinha-h2);
+}
+
+.subtitulo,
+.meta {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.barraFiltros {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.campoBusca {
+  max-width: 440px;
+}
+
+.chips {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.negrito {
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.numero {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Cards de impacto com foto inteira, véu escuro e texto branco direto sobre a foto */
+.bentoCard {
+  position: relative;
+  min-height: 220px;
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--espaco-6);
+  background-color: var(--cor-verde-9);
+}
+
+.bentoFoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bentoVeu {
+  position: absolute;
+  inset: 0;
+  background-color: var(--cor-verde-9);
+  opacity: 0.72;
+}
+
+.bentoConteudo {
+  position: relative;
+  z-index: 1;
+  color: var(--cor-branco);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.bentoNumero {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h1);
+  line-height: var(--entrelinha-h1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.bentoRotulo {
+  font-size: var(--texto-md);
+  font-weight: 600;
+}
+
+.bentoMeta {
+  font-size: var(--texto-xs);
+  color: var(--cor-verde-1);
+}
+
+/* Vista visitante */
+.cardPerfil {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  height: 100%;
+}
+
+.cardPerfilDestaque {
+  border-color: var(--cor-verde-7);
+}
+
+.iconePerfil {
+  color: var(--cor-verde-7);
+}
+
+.tituloCard {
+  font-size: var(--texto-h4);
+  line-height: var(--entrelinha-h4);
+}
+
+.textoCard {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+  flex: 1;
+}
+
+.acaoCard {
+  padding-top: var(--espaco-2);
+}
+
+.passos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--espaco-6);
+}
+
+.passo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.passoNumero {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h2);
+  line-height: var(--entrelinha-h2);
+  font-weight: 700;
+  color: var(--cor-verde-7);
+}
+
+.passoTitulo {
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  font-weight: 600;
+}
+
+.faixaConvite {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-6);
+  flex-wrap: wrap;
+}
+
+.conviteEsquerda {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-4);
+  flex: 1 1 320px;
+}
+
+.circuloConvite {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-verde-0);
+  color: var(--cor-verde-7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+@media (max-width: $mantine-breakpoint-md) {
+  .passos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: $mantine-breakpoint-sm) {
+  .pagina {
+    gap: var(--espaco-8);
+  }
+
+  .titulo {
+    font-size: var(--texto-h2);
+    line-height: var(--entrelinha-h2);
+  }
+
+  .painel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blocoDestaque {
+    grid-column: 1 / -1;
+  }
+
+  .blocoNumero,
+  .cardPerfil,
+  .faixaConvite {
+    padding: var(--espaco-4);
+  }
+
+  .passos {
+    grid-template-columns: 1fr;
+    gap: var(--espaco-4);
+  }
+
+  .campoBusca {
+    max-width: 100%;
+  }
+}

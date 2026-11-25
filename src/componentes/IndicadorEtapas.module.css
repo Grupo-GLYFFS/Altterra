@@ -1,0 +1,133 @@
+.container {
+  width: 100%;
+}
+
+.trilho {
+  list-style: none;
+  padding: var(--espaco-2);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+  background-color: var(--cor-verde-0);
+  border-radius: var(--raio-pill);
+  overflow-x: auto;
+}
+
+.item {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+}
+
+.botao {
+  width: 100%;
+  min-height: var(--altura-md);
+  padding: var(--espaco-2) var(--espaco-3);
+  border: 0;
+  border-radius: var(--raio-pill);
+  background: transparent;
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .botao {
+    justify-content: flex-start;
+  }
+}
+
+.botao:disabled {
+  cursor: default;
+}
+
+.botao:hover:not(:disabled) {
+  background-color: var(--cor-verde-1);
+}
+
+.botao:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+}
+
+.circulo {
+  width: rem(28px);
+  height: rem(28px);
+  border-radius: 50%;
+  background-color: var(--cor-branco);
+  color: var(--cor-texto-secundario);
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.textos {
+  display: none;
+  flex-direction: column;
+  min-width: 0;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .textos {
+    display: flex;
+  }
+}
+
+.titulo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subtitulo {
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Estados */
+.atual .botao {
+  background-color: var(--cor-verde-7);
+  color: var(--cor-branco);
+}
+
+.atual .circulo {
+  background-color: var(--cor-branco);
+  color: var(--cor-verde-8);
+}
+
+.atual .subtitulo {
+  color: var(--cor-verde-1);
+}
+
+.concluida .circulo {
+  background-color: var(--cor-sucesso);
+  color: var(--cor-branco);
+}
+
+.erro .circulo {
+  background-color: var(--cor-erro);
+  color: var(--cor-branco);
+}
+
+.erro .subtitulo {
+  color: var(--cor-erro);
+  font-weight: 500;
+}

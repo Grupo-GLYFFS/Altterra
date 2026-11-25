@@ -1,0 +1,105 @@
+.dropzone {
+  border: 1px dashed var(--cor-borda-campo);
+  border-radius: var(--raio-sm);
+  background-color: var(--cor-fundo);
+  padding: var(--espaco-6) var(--espaco-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--espaco-3);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.dropzoneAtivo {
+  border-color: var(--cor-verde-7);
+  background-color: var(--cor-verde-0);
+}
+
+.iconeDropzone {
+  width: rem(56px);
+  height: rem(56px);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-verde-0);
+  color: var(--cor-verde-7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textosDropzone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.tituloDropzone {
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.dicaDropzone {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espaco-3);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .grade {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.item {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--raio-sm);
+  overflow: hidden;
+  background-color: var(--cor-foto);
+  border: 1px solid var(--cor-borda);
+}
+
+.capa {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.seloCapa {
+  position: absolute;
+  left: var(--espaco-2);
+  bottom: var(--espaco-2);
+}
+
+.acoesFoto {
+  position: absolute;
+  top: var(--espaco-2);
+  right: var(--espaco-2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--espaco-1);
+}
+
+.rodape {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}

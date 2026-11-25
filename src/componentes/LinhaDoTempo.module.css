@@ -1,0 +1,114 @@
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.etapa {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-3);
+  padding-bottom: var(--espaco-6);
+}
+
+.etapa:last-child {
+  padding-bottom: 0;
+}
+
+/* Linha entre as marcas, vertical no celular */
+.etapa::before {
+  content: '';
+  position: absolute;
+  left: rem(11px);
+  top: rem(24px);
+  bottom: 0;
+  width: rem(2px);
+  background-color: var(--cor-cinza-3);
+}
+
+.etapa:last-child::before {
+  display: none;
+}
+
+.feita::before {
+  background-color: var(--cor-verde-7);
+}
+
+.marca {
+  width: rem(24px);
+  height: rem(24px);
+  border-radius: var(--raio-pill);
+  border: 2px solid var(--cor-cinza-4);
+  background-color: var(--cor-card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-branco);
+  flex: none;
+  position: relative;
+  z-index: 1;
+}
+
+.feita .marca {
+  background-color: var(--cor-verde-7);
+  border-color: var(--cor-verde-7);
+}
+
+.atual .marca {
+  border-color: var(--cor-verde-7);
+  box-shadow: inset 0 0 0 rem(5px) var(--cor-card), inset 0 0 0 rem(12px) var(--cor-verde-7);
+}
+
+.cancelada .marca {
+  background-color: var(--cor-erro);
+  border-color: var(--cor-erro);
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rotulo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.pendente .rotulo {
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
+}
+
+.data {
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  color: var(--cor-texto-secundario);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .lista {
+    flex-direction: row;
+  }
+
+  .etapa {
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: var(--espaco-2);
+    padding-bottom: 0;
+  }
+
+  .etapa::before {
+    left: rem(28px);
+    right: rem(-4px);
+    top: rem(11px);
+    bottom: auto;
+    width: auto;
+    height: rem(2px);
+  }
+}

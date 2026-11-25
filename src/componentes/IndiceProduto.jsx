@@ -1,0 +1,52 @@
+import { Botao } from './Botao.jsx';
+import estilos from './IndiceProduto.module.css';
+
+// Índice fixo da página do produto (T4): barra pill sem sombra no computador com abas tonais,
+// preço e botão compacto "Adicionar ao carrinho". No celular, as abas rolam horizontalmente.
+export function IndiceProduto({
+  secoes = [],
+  ativa,
+  aoSelecionar,
+  preco = '',
+  unidade = 'kg',
+  aoAdicionar,
+  rotuloAcao = 'Adicionar ao carrinho',
+  className = '',
+}) {
+  return (
+    <div className={`${estilos.barra} ${className}`}>
+      <div className={estilos.rolagem}>
+        <div className={estilos.abas} role="tablist" aria-label="Seções do produto">
+          {secoes.map((secao) => {
+            const selecionada = secao.id === ativa;
+            return (
+              <button
+                key={secao.id}
+                type="button"
+                role="tab"
+                aria-selected={selecionada}
+                className={`${estilos.aba} ${selecionada ? estilos.ativa : ''}`}
+                onClick={() => aoSelecionar?.(secao.id)}
+              >
+                {secao.rotulo}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {preco && (
+        <div className={estilos.compra}>
+          <p className={estilos.preco}>
+            {preco} <span className={estilos.unidade}>/{unidade}</span>
+          </p>
+          {aoAdicionar && (
+            <Botao tamanho="sm" iconeEsquerda="shopping_cart" onClick={aoAdicionar}>
+              {rotuloAcao}
+            </Botao>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

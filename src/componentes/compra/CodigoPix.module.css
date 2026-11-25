@@ -1,0 +1,53 @@
+.caixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .caixa {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.qr {
+  width: rem(160px);
+  height: rem(160px);
+  flex: none;
+  padding: var(--espaco-2);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  background-color: var(--cor-card);
+  fill: var(--cor-texto);
+}
+
+.vazado {
+  fill: var(--cor-card);
+}
+
+.copia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espaco-2);
+  min-width: 0;
+  width: 100%;
+}
+
+.rotulo {
+  font-size: var(--texto-sm);
+  font-weight: 600;
+}
+
+.codigo {
+  width: 100%;
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  color: var(--cor-texto-secundario);
+  overflow-wrap: anywhere;
+  padding: var(--espaco-3);
+  border-radius: var(--raio-sm);
+  background-color: var(--cor-cinza-1);
+}

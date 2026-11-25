@@ -1,0 +1,86 @@
+.envoltorio {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+}
+
+.tabela th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+  padding: var(--espaco-3) var(--espaco-4);
+  background-color: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  white-space: nowrap;
+}
+
+.tabela td {
+  padding: var(--espaco-4);
+  border-bottom: 1px solid var(--cor-borda);
+  vertical-align: middle;
+}
+
+.tabela tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.direita {
+  text-align: right !important;
+}
+
+/* No celular, cada linha vira um cartão com o rótulo de cada coluna */
+@media (max-width: $mantine-breakpoint-md) {
+  .tabela,
+  .tabela tbody,
+  .tabela tr,
+  .tabela td {
+    display: block;
+  }
+
+  .tabela thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .tabela tr {
+    padding: var(--espaco-2) var(--espaco-4);
+    border-bottom: 1px solid var(--cor-borda);
+  }
+
+  .tabela tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .tabela td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espaco-4);
+    padding: var(--espaco-2) 0;
+    border-bottom: 0;
+    text-align: right;
+  }
+
+  .tabela td::before {
+    content: attr(data-rotulo);
+    color: var(--cor-texto-secundario);
+    text-align: left;
+    flex: none;
+  }
+
+  .tabela td[data-rotulo='']::before {
+    display: none;
+  }
+}

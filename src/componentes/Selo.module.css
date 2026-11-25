@@ -1,0 +1,61 @@
+.selo {
+  height: rem(28px);
+  padding: 0 rem(10px);
+  border-radius: var(--raio-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  flex: none;
+}
+
+.comIcone {
+  padding-left: var(--espaco-2);
+}
+
+.sm {
+  height: rem(24px);
+  padding: 0 var(--espaco-2);
+}
+
+.sm.comIcone {
+  padding-left: rem(6px);
+}
+
+.outlet {
+  background-color: var(--cor-dourado-4);
+  color: var(--cor-texto);
+}
+
+.organico,
+.verificado,
+.sucesso {
+  background-color: var(--cor-verde-0);
+  color: var(--cor-verde-8);
+}
+
+.novo,
+.info {
+  background-color: var(--cor-info-fundo);
+  color: var(--cor-info);
+}
+
+.doador,
+.aviso {
+  background-color: var(--cor-dourado-0);
+  color: var(--cor-dourado-9);
+}
+
+.erro {
+  background-color: var(--cor-erro-fundo);
+  color: var(--cor-erro);
+}
+
+.neutro {
+  background-color: var(--cor-cinza-1);
+  color: var(--cor-texto);
+}

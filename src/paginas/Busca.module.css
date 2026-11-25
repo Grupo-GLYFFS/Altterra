@@ -1,0 +1,123 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+.faixaFiltros {
+  position: sticky;
+  top: rem(80px);
+  z-index: 30;
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+}
+
+.trilhoEsquerda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.popoverLista {
+  padding: var(--espaco-2);
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+}
+
+.opcaoMenu {
+  width: 100%;
+  min-height: var(--altura-sm);
+  padding: 0 var(--espaco-3);
+  border: 0;
+  border-radius: var(--raio-sm);
+  background: transparent;
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-sm);
+  text-align: left;
+  cursor: pointer;
+}
+
+.opcaoMenu:hover {
+  background-color: var(--cor-cinza-1);
+}
+
+.opcaoAtiva {
+  background-color: var(--cor-verde-0);
+  color: var(--cor-verde-8);
+  font-weight: 600;
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h2);
+  line-height: var(--entrelinha-h2);
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.contagem {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+  margin-top: var(--espaco-1);
+}
+
+.ativos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.sentinela {
+  display: flex;
+  justify-content: center;
+  padding: var(--espaco-4) 0;
+}
+
+.fimLista {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4) var(--espaco-6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+}
+
+.fimTexto {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+.iconeFim {
+  color: var(--cor-sucesso);
+}
+
+.fimTitulo {
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.fimSub {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}

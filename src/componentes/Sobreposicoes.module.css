@@ -1,0 +1,291 @@
+.modalConteudo {
+  background-color: var(--cor-card);
+  border-radius: var(--raio-lg);
+  box-shadow: var(--sombra-flutuante);
+  overflow: hidden;
+}
+
+.modalCabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+  padding: var(--espaco-6) var(--espaco-4) var(--espaco-3) var(--espaco-6);
+}
+
+.comFaixaCabecalho {
+  border-bottom: 1px solid var(--cor-borda);
+  padding-bottom: var(--espaco-4);
+}
+
+.cabecalhoTextos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h3);
+  line-height: var(--entrelinha-h3);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--cor-texto);
+}
+
+.tituloEscuro {
+  color: var(--cor-branco);
+}
+
+.subtitulo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.subtituloEscuro {
+  color: var(--cor-barra-nota);
+}
+
+.modalCorpo {
+  padding: var(--espaco-4) var(--espaco-6) var(--espaco-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.modalRodape {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--espaco-2);
+  padding: 0 var(--espaco-6) var(--espaco-6);
+}
+
+.comFaixaRodape {
+  background-color: var(--cor-fundo);
+  border-top: 1px solid var(--cor-borda);
+  padding: var(--espaco-4) var(--espaco-6);
+}
+
+/* Gaveta de baixo */
+.gavetaConteudo {
+  background-color: var(--cor-card);
+  color: var(--cor-texto);
+  border-radius: var(--raio-lg) var(--raio-lg) 0 0;
+  box-shadow: var(--sombra-gaveta);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.gavetaEscura {
+  background-color: var(--cor-barra-fundo);
+  color: var(--cor-branco);
+  box-shadow: var(--sombra-gaveta-escura);
+}
+
+.gavetaBody {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  max-height: 88vh;
+}
+
+.alca {
+  display: block;
+  width: rem(40px);
+  height: rem(4px);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-cinza-5);
+  margin: var(--espaco-2) auto var(--espaco-1);
+  flex: none;
+}
+
+.alcaEscura {
+  background-color: var(--cor-barra-ativa);
+}
+
+.gavetaCabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  padding: var(--espaco-2) var(--espaco-4) var(--espaco-3);
+  flex: none;
+}
+
+.gavetaCorpo {
+  padding: var(--espaco-3) var(--espaco-4) var(--espaco-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+.gavetaRodape {
+  padding: var(--espaco-3) var(--espaco-4) calc(var(--espaco-4) + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  flex: none;
+}
+
+.rodapeEscuro {
+  border-top: 1px solid var(--cor-barra-trilho-hover);
+  background-color: var(--cor-barra-fundo);
+}
+
+.fecharEscuro {
+  width: var(--altura-sm);
+  height: var(--altura-sm);
+  border-radius: var(--raio-pill);
+  border: 0;
+  background-color: var(--cor-barra-trilho);
+  color: var(--cor-branco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: none;
+}
+
+.fecharEscuro:hover {
+  background-color: var(--cor-barra-trilho-hover);
+}
+
+.fecharEscuro:focus-visible {
+  outline: 2px solid var(--cor-foco-escuro);
+  outline-offset: 2px;
+}
+
+/* Tooltip e Popover */
+.tooltip {
+  background-color: var(--cor-card);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: var(--espaco-2) var(--espaco-3);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  box-shadow: var(--sombra-flutuante);
+}
+
+.popover {
+  background-color: var(--cor-card);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4);
+  box-shadow: var(--sombra-flutuante);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.popoverCabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+}
+
+.popoverTitulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h4);
+  line-height: var(--entrelinha-h4);
+  font-weight: 600;
+}
+
+/* Menu Ordenar (sempre pill) */
+.gatilhoOrdenar {
+  height: var(--altura-sm);
+  padding: 0 var(--espaco-4);
+  border-radius: var(--raio-pill);
+  border: 1px solid var(--cor-borda-campo);
+  background-color: var(--cor-card);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-sm);
+  color: var(--cor-texto);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s ease;
+}
+
+.gatilhoOrdenar:hover {
+  border-color: var(--cor-borda-campo-hover);
+}
+
+.gatilhoAberto {
+  border-color: var(--cor-foco-claro);
+}
+
+.gatilhoOrdenar:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+}
+
+.dropdownOrdenar {
+  padding: var(--espaco-2);
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  box-shadow: var(--sombra-flutuante);
+}
+
+.listaOrdenar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+}
+
+.opcaoOrdenar {
+  width: 100%;
+  min-height: var(--altura-sm);
+  padding: 0 var(--espaco-3);
+  border: 0;
+  border-radius: var(--raio-sm);
+  background: transparent;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  color: var(--cor-texto);
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  text-align: left;
+  cursor: pointer;
+}
+
+.opcaoOrdenar:hover {
+  background-color: var(--cor-cinza-1);
+}
+
+.opcaoOrdenar:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: -2px;
+}
+
+.opcaoAtiva {
+  font-weight: 600;
+}
+
+.radio {
+  width: rem(20px);
+  height: rem(20px);
+  border-radius: var(--raio-pill);
+  border: 1px solid var(--cor-borda-campo);
+  flex: none;
+}
+
+.radioMarcado {
+  border: rem(6px) solid var(--cor-verde-7);
+}

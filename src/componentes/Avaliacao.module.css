@@ -1,0 +1,196 @@
+.compacta {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(3px);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 500;
+  color: var(--cor-texto);
+  white-space: nowrap;
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.vazia {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.numero {
+  font-weight: 600;
+  color: var(--cor-texto);
+  font-variant-numeric: tabular-nums;
+}
+
+.contagem {
+  color: var(--cor-texto-secundario);
+}
+
+.estrelaCheia {
+  color: var(--cor-dourado-8);
+}
+
+.estrelaVazia {
+  color: var(--cor-cinza-5);
+}
+
+.estrelas {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.filaEstrelas {
+  display: inline-flex;
+  align-items: center;
+}
+
+.resumo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .resumo {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--espaco-8);
+  }
+}
+
+.resumoEsquerda {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  flex: none;
+}
+
+.notaGrande {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-destaque);
+  line-height: var(--entrelinha-destaque);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.totalTexto {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.barras {
+  display: flex;
+  flex-direction: column;
+  gap: rem(6px);
+  flex: 1 1 auto;
+  max-width: rem(360px);
+}
+
+.barraLinha {
+  display: grid;
+  grid-template-columns: rem(32px) minmax(0, 1fr) rem(28px);
+  gap: var(--espaco-2);
+  align-items: center;
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.barraRotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(2px);
+}
+
+.progresso {
+  width: 100%;
+  height: rem(8px);
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-cinza-1);
+  overflow: hidden;
+}
+
+.progresso::-webkit-progress-bar {
+  background-color: var(--cor-cinza-1);
+  border-radius: var(--raio-pill);
+}
+
+.progresso::-webkit-progress-value {
+  background-color: var(--cor-verde-7);
+  border-radius: var(--raio-pill);
+}
+
+.progresso::-moz-progress-bar {
+  background-color: var(--cor-verde-7);
+  border-radius: var(--raio-pill);
+}
+
+.barraQtd {
+  text-align: right;
+  color: var(--cor-texto-secundario);
+}
+
+.seletor {
+  display: flex;
+  flex-direction: column;
+  gap: rem(6px);
+}
+
+.seletorRotulo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+.seletorBotoes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.botaoEstrela {
+  width: var(--altura-sm);
+  height: var(--altura-sm);
+  border: 0;
+  border-radius: var(--raio-pill);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.botaoEstrela:hover {
+  background-color: var(--cor-cinza-1);
+}
+
+.botaoEstrela:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: -2px;
+}
+
+.legenda {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 600;
+  color: var(--cor-texto);
+  margin-left: var(--espaco-2);
+}
+
+.erro {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(6px);
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-erro);
+}

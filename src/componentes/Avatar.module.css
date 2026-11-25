@@ -1,0 +1,100 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--raio-pill);
+  flex: none;
+  font-family: var(--fonte-texto);
+  font-weight: 600;
+  background-color: var(--cor-cinza-1);
+  color: var(--cor-texto);
+  overflow: hidden;
+}
+
+.imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.s32 {
+  width: rem(32px);
+  height: rem(32px);
+  font-size: var(--texto-xs);
+}
+
+.s44 {
+  width: var(--altura-sm);
+  height: var(--altura-sm);
+  font-size: var(--texto-sm);
+}
+
+.s56 {
+  width: var(--altura-md);
+  height: var(--altura-md);
+  font-size: var(--texto-lg);
+}
+
+.s96 {
+  width: rem(96px);
+  height: rem(96px);
+  font-size: rem(30px);
+}
+
+.esqueleto {
+  background: linear-gradient(
+    90deg,
+    var(--cor-cinza-2) 0%,
+    var(--cor-cinza-2) 35%,
+    var(--cor-fundo) 50%,
+    var(--cor-cinza-2) 65%,
+    var(--cor-cinza-2) 100%
+  );
+  background-size: 250% 100%;
+  animation: ondaCarregamento 1.6s ease-in-out infinite;
+}
+
+.identidade {
+  display: flex;
+  align-items: center;
+  gap: rem(10px);
+  min-width: 0;
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nomeLinha {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  min-width: 0;
+}
+
+.nome {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  font-weight: 600;
+  color: var(--cor-texto);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verificado {
+  color: var(--cor-verde-7);
+}
+
+.subtitulo {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

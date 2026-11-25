@@ -1,0 +1,299 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: rem(80px);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .pagina {
+    gap: rem(140px);
+  }
+}
+
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+.secaoCentral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-8);
+}
+
+.topoSecao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .topoSecao {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cabecalhoCentro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--espaco-4);
+}
+
+.tituloSecao {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h2);
+  line-height: var(--entrelinha-h2);
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .tituloSecao {
+    font-size: var(--texto-h1);
+    line-height: var(--entrelinha-h1);
+  }
+}
+
+.subtituloSecao {
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  color: var(--cor-texto-secundario);
+  margin-top: var(--espaco-1);
+}
+
+/* Mosaico bento de 6 blocos */
+.bentoGrade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .bentoGrade {
+    grid-template-columns: 1.2fr 0.75fr 0.85fr 1.15fr;
+    grid-template-rows: rem(210px) rem(210px) rem(190px);
+    grid-template-areas:
+      'altoEsq topoMeio topoDir topoDir'
+      'altoEsq meioSolido meioSolido altoDir'
+      'baseLarga baseLarga baseLarga altoDir';
+  }
+
+  .areaAltoEsq {
+    grid-area: altoEsq;
+  }
+
+  .areaTopoMeio {
+    grid-area: topoMeio;
+  }
+
+  .areaTopoDir {
+    grid-area: topoDir;
+  }
+
+  .areaMeioSolido {
+    grid-area: meioSolido;
+  }
+
+  .areaAltoDir {
+    grid-area: altoDir;
+  }
+
+  .areaBaseLarga {
+    grid-area: baseLarga;
+  }
+}
+
+.bentoCard {
+  position: relative;
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  padding: var(--espaco-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: rem(200px);
+  color: var(--cor-branco);
+}
+
+.comFoto {
+  background-color: var(--cor-verde-9);
+}
+
+.solido9 {
+  background-color: var(--cor-verde-9);
+}
+
+.solido8 {
+  background-color: var(--cor-verde-8);
+}
+
+.bentoFoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bentoVeu {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(16, 25, 16, 0.25) 0%,
+    rgba(16, 25, 16, 0.72) 55%,
+    rgba(16, 25, 16, 0.9) 100%
+  );
+}
+
+.bentoTexto {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.bentoNumero {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-destaque);
+  line-height: var(--entrelinha-destaque);
+  font-weight: 700;
+  color: var(--cor-branco);
+  font-variant-numeric: tabular-nums;
+}
+
+.bentoTitulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h3);
+  line-height: var(--entrelinha-h3);
+  font-weight: 600;
+  color: var(--cor-branco);
+}
+
+.bentoDescricao {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-verde-1);
+}
+
+.cardImpacto {
+  min-height: rem(240px);
+}
+
+/* 4 passos numerados */
+.gradePassos {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-6);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .gradePassos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .gradePassos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--espaco-8);
+  }
+}
+
+.passo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.numeroPasso {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h1);
+  line-height: var(--entrelinha-h1);
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.tituloPasso {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h4);
+  line-height: var(--entrelinha-h4);
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.textoPasso {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.filtrosFaq {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espaco-2);
+}
+
+.colunaLeitura {
+  width: 100%;
+  max-width: rem(720px);
+}
+
+.cardContato {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .cardContato {
+    padding: var(--espaco-8);
+  }
+}
+
+.cabecalhoContato {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.tituloContato {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h3);
+  line-height: var(--entrelinha-h3);
+  font-weight: 600;
+}
+
+.formContato {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.rodapeContato {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-4);
+  margin-top: var(--espaco-2);
+}
+
+.prazoContato {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}

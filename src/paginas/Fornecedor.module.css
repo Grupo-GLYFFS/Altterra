@@ -1,0 +1,172 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-12);
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.capa {
+  width: 100%;
+  height: rem(180px);
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  background-color: var(--cor-verde-9);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .capa {
+    height: rem(220px);
+  }
+}
+
+.capaFoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.identidade {
+  margin-top: rem(-48px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--espaco-3);
+}
+
+.avatarWrap {
+  padding: var(--espaco-1);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-fundo);
+}
+
+.nome {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h2);
+  line-height: var(--entrelinha-h2);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.verificado {
+  color: var(--cor-verde-7);
+}
+
+.meta {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.metricasLinha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espaco-3);
+  margin-top: var(--espaco-1);
+}
+
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.tituloSecao {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h3);
+  line-height: var(--entrelinha-h3);
+  font-weight: 600;
+}
+
+.topoProdutos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .topoProdutos {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.buscaLoja {
+  width: 100%;
+  max-width: rem(340px);
+}
+
+.barraFiltros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+}
+
+.blocoAvaliacoes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.cardSobre {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+.descricao {
+  font-size: var(--texto-md);
+  line-height: var(--entrelinha-md);
+  color: var(--cor-texto);
+}
+
+.dadosEmpresa {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(180px), 1fr));
+  gap: var(--espaco-4);
+  padding-top: var(--espaco-4);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.dadosEmpresa dt {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-secundario);
+}
+
+.dadosEmpresa dd {
+  font-size: var(--texto-sm);
+  font-weight: 600;
+  color: var(--cor-texto);
+  margin-top: rem(2px);
+}

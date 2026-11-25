@@ -1,0 +1,117 @@
+.card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4);
+  display: grid;
+  grid-template-columns: rem(80px) 1fr;
+  gap: var(--espaco-4);
+  align-items: start;
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .card {
+    grid-template-columns: rem(96px) 1fr auto;
+    align-items: center;
+    padding: var(--espaco-6);
+  }
+}
+
+.fotoCaixa {
+  position: relative;
+  width: rem(80px);
+  height: rem(80px);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .fotoCaixa {
+    width: rem(96px);
+    height: rem(96px);
+  }
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--raio-sm);
+  object-fit: cover;
+  background-color: var(--cor-foto);
+}
+
+.badgeExtras {
+  position: absolute;
+  right: var(--espaco-1);
+  bottom: var(--espaco-1);
+  padding: rem(2px) var(--espaco-2);
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-branco);
+  color: var(--cor-texto);
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  font-weight: 600;
+  border: 1px solid var(--cor-borda);
+}
+
+.meio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espaco-1);
+  min-width: 0;
+}
+
+.nome {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h4);
+  line-height: var(--entrelinha-h4);
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.meta,
+.apoio {
+  font-size: var(--texto-xs);
+  line-height: var(--entrelinha-xs);
+  color: var(--cor-texto-secundario);
+}
+
+.apoio {
+  color: var(--cor-texto);
+  font-weight: 500;
+}
+
+.direita {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  padding-top: var(--espaco-3);
+  border-top: 1px solid var(--cor-borda);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .direita {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+
+.valor {
+  font-size: var(--texto-preco);
+  line-height: var(--entrelinha-preco);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--espaco-2);
+}

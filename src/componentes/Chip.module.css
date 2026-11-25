@@ -1,0 +1,84 @@
+.chip {
+  height: var(--altura-sm);
+  padding: 0 var(--espaco-4);
+  border-radius: var(--raio-pill);
+  border: 1px solid transparent;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-sm);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--cor-texto);
+  display: inline-flex;
+  align-items: center;
+  gap: rem(6px);
+  cursor: pointer;
+  white-space: nowrap;
+  flex: none;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+}
+
+.chip:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.comIconeEsquerda {
+  padding-left: var(--espaco-3);
+}
+
+.removivel {
+  padding-right: var(--espaco-3);
+}
+
+.tonal {
+  background-color: var(--cor-cinza-1);
+}
+
+.tonal:hover:not(:disabled) {
+  background-color: var(--cor-cinza-2);
+}
+
+.tonal.ativo {
+  background-color: var(--cor-verde-0);
+  color: var(--cor-verde-8);
+  font-weight: 600;
+}
+
+.comBorda {
+  background-color: var(--cor-branco);
+  border-color: var(--cor-borda-campo);
+}
+
+.comBorda:hover:not(:disabled) {
+  border-color: var(--cor-borda-campo-hover);
+  background-color: var(--cor-cinza-1);
+}
+
+.comBorda.ativo {
+  background-color: var(--cor-verde-0);
+  border-color: var(--cor-verde-7);
+  color: var(--cor-verde-8);
+  font-weight: 600;
+}
+
+.contagem {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-secundario);
+  font-variant-numeric: tabular-nums;
+}
+
+.ativo .contagem {
+  color: inherit;
+}
+
+.iconeRemover {
+  display: inline-flex;
+  align-items: center;
+}

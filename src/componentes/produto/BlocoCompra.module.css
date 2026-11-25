@@ -1,0 +1,194 @@
+.card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .card {
+    position: sticky;
+    top: rem(96px);
+    padding: var(--espaco-6);
+  }
+}
+
+.selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+}
+
+.topo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.nome {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h2);
+  line-height: var(--entrelinha-h2);
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.fornecedor {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-secundario);
+}
+
+.linkFornecedor {
+  color: var(--cor-verde-7);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.linkFornecedor:hover {
+  text-decoration: underline;
+}
+
+.blocoFaixas,
+.blocoQuantidade {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.faixasTopo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+}
+
+.rotuloSecao {
+  font-size: var(--texto-sm);
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.metaEstoque {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-secundario);
+}
+
+.gradeFaixas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(120px), 1fr));
+  gap: var(--espaco-2);
+}
+
+.faixa {
+  padding: var(--espaco-3);
+  border-radius: var(--raio-sm);
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+  cursor: pointer;
+  font-family: var(--fonte-texto);
+}
+
+.faixa:hover:not(:disabled) {
+  border-color: var(--cor-verde-5);
+}
+
+.faixaAtiva {
+  border-color: var(--cor-verde-7);
+  background-color: var(--cor-verde-0);
+}
+
+.faixaPreco {
+  font-size: var(--texto-md);
+  font-weight: 700;
+  color: var(--cor-texto);
+  font-variant-numeric: tabular-nums;
+}
+
+.faixaIntervalo {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-secundario);
+}
+
+.linhaQuantidade {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+}
+
+.subtotal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.subtotalRotulo {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-secundario);
+}
+
+.subtotalValor {
+  font-size: var(--texto-preco);
+  line-height: var(--entrelinha-preco);
+  font-weight: 700;
+  color: var(--cor-texto);
+  font-variant-numeric: tabular-nums;
+}
+
+.blocoFrete {
+  padding-top: var(--espaco-4);
+  border-top: 1px solid var(--cor-borda);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.freteLinha {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+.freteIcone {
+  color: var(--cor-verde-7);
+}
+
+.freteTextos {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fretePrincipal {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto);
+}
+
+.fretePrazo {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-secundario);
+}
+
+.formCep {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--espaco-2);
+}
+
+.campoCep {
+  flex: 1 1 auto;
+}
+
+.acoes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}

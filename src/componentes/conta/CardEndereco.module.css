@@ -1,0 +1,31 @@
+.card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-2);
+}
+
+.apelido {
+  font-size: var(--texto-h4);
+  line-height: var(--entrelinha-h4);
+}
+
+.mais {
+  margin-left: auto;
+}
+
+.linha {
+  font-size: var(--texto-sm);
+  line-height: var(--entrelinha-sm);
+  color: var(--cor-texto-secundario);
+}
