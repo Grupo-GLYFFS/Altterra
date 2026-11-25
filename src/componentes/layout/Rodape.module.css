@@ -216,6 +216,12 @@
   border-radius: var(--raio-sm);
 }
 
+.logoImagem {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
 .logoRodape:focus-visible {
   outline: 2px solid var(--cor-foco-escuro);
   outline-offset: 4px;
@@ -238,6 +244,10 @@
   .logoRodape,
   .notas {
     order: 0;
+  }
+
+  .notas {
+    margin-top: auto;
   }
 }
 

@@ -135,6 +135,13 @@
   /* Layout */
   --container-max: 75rem;
   --altura-barra-celular: 4.5rem;
+  --altura-navbar: 6rem;
+}
+
+@media (min-width: 64em) {
+  :root {
+    --altura-navbar: 12.5rem;
+  }
 }
 
 *,

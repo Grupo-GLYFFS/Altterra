@@ -147,7 +147,7 @@ export function SafraQueAlimenta() {
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
         <div className={estilos.bentoCard}>
           <ImagemSegura
-            src={caminhoImagem('tomate-carmem-5.webp')}
+            src={caminhoImagem('safra-kg-doados.webp')}
             alt=""
             className={estilos.bentoFoto}
             aria-hidden="true"
@@ -162,7 +162,7 @@ export function SafraQueAlimenta() {
 
         <div className={estilos.bentoCard}>
           <ImagemSegura
-            src={caminhoImagem('alface-crespa.webp')}
+            src={caminhoImagem('safra-fornecedores.webp')}
             alt=""
             className={estilos.bentoFoto}
             aria-hidden="true"
@@ -177,7 +177,7 @@ export function SafraQueAlimenta() {
 
         <div className={estilos.bentoCard}>
           <ImagemSegura
-            src={caminhoImagem('tomate-carmem-4.webp')}
+            src={caminhoImagem('safra-instituicoes.webp')}
             alt=""
             className={estilos.bentoFoto}
             aria-hidden="true"

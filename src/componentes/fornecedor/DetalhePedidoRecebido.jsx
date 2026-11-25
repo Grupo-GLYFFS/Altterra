@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Avatar } from '../Avatar.jsx';
 import { Botao } from '../Botao.jsx';
 import { Divisor } from '../Divisor.jsx';
@@ -127,7 +128,9 @@ export function DetalhePedidoRecebido({
                     />
                   </div>
                   <div className={estilos.itemTextos}>
-                    <p className={estilos.itemNome}>{item.nome}</p>
+                    <Link to={`/produto/${item.produtoId}`} className={estilos.itemNome}>
+                      {item.nome}
+                    </Link>
                     <p className={estilos.meta}>
                       {item.quantidade.toLocaleString('pt-BR')} {item.unidade} ×{' '}
                       {formatarReais(item.precoUnit)}/{item.unidade}

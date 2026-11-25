@@ -346,7 +346,11 @@ export function Produto() {
         </div>
 
         {similares.length > 0 && (
-          <Carrossel titulo="Produtos similares" textoAcao="Ver todos" paraAcao="/busca">
+          <Carrossel
+            titulo="Produtos similares"
+            textoAcao="Ver todos"
+            paraAcao={produto.categoriaId ? `/busca?categoria=${produto.categoriaId}` : '/busca'}
+          >
             {similares.map((item) => (
               <CardProduto
                 key={item.id}

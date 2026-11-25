@@ -109,6 +109,17 @@
 .itemNome {
   font-weight: 600;
   color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.itemNome:hover {
+  text-decoration: underline;
+}
+
+.itemNome:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+  border-radius: var(--raio-sm);
 }
 
 .valor {

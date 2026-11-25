@@ -5,24 +5,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--espaco-4);
-  background-color: var(--cor-card);
-  border: 1px solid var(--cor-borda);
-  border-radius: var(--raio-lg);
-  padding: var(--espaco-2);
-}
-
-@media (min-width: $mantine-breakpoint-md) {
-  .barra {
-    border-radius: var(--raio-pill);
-    padding: rem(5px);
-  }
+  gap: var(--espaco-3);
+  background-color: var(--cor-branco);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid var(--cor-borda);
+  border-radius: 0;
+  padding: var(--espaco-2) 0;
+  box-shadow: none;
 }
 
 .rolagem {
   overflow-x: auto;
+  overflow-y: hidden;
   scrollbar-width: none;
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -39,7 +37,7 @@
 
 .aba {
   height: var(--altura-sm);
-  padding: 0 var(--espaco-4);
+  padding: 0 var(--espaco-3);
   border: 0;
   border-radius: var(--raio-pill);
   background: transparent;
@@ -50,6 +48,7 @@
   color: var(--cor-texto-secundario);
   cursor: pointer;
   white-space: nowrap;
+  flex: none;
   transition:
     background-color 0.15s ease,
     color 0.15s ease;
@@ -75,8 +74,11 @@
 .compra {
   display: none;
   align-items: center;
-  gap: var(--espaco-4);
-  flex: none;
+  gap: var(--espaco-3);
+  padding-left: var(--espaco-3);
+  border-left: 1px solid var(--cor-borda);
+  background-color: var(--cor-branco);
+  flex: 0 0 auto;
 }
 
 @media (min-width: $mantine-breakpoint-md) {

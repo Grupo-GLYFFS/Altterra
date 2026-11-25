@@ -28,6 +28,13 @@
   min-width: 0;
 }
 
+@media (min-width: $mantine-breakpoint-md) {
+  .colunaDireita {
+    position: sticky;
+    top: calc(var(--altura-navbar) + var(--espaco-4));
+  }
+}
+
 .galeria {
   display: flex;
   flex-direction: column;
@@ -89,15 +96,16 @@
 
 .indiceSticky {
   position: sticky;
-  top: rem(80px);
-  z-index: 20;
+  top: var(--altura-navbar);
+  z-index: 40;
+  background-color: var(--cor-branco);
 }
 
 .secao {
   display: flex;
   flex-direction: column;
   gap: var(--espaco-4);
-  scroll-margin-top: rem(160px);
+  scroll-margin-top: calc(var(--altura-navbar) + rem(76px));
 }
 
 .tituloSecao {

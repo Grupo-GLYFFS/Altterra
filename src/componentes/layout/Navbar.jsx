@@ -36,6 +36,8 @@ export function Navbar({
     getInitialValueInEffect: false,
   });
   const [rolou, setRolou] = useState(false);
+  const barraDesktopRef = useRef(null);
+  const barraCelularRef = useRef(null);
   const campoBuscaDesktop = useRef(null);
   const campoBuscaCelular = useRef(null);
 
@@ -66,16 +68,35 @@ export function Navbar({
     return () => window.removeEventListener('scroll', aoRolar);
   }, []);
 
+  // Sincroniza --altura-navbar com a altura real da barra visível (computador ou celular).
+  useEffect(() => {
+    const alvo = ehCelular ? barraCelularRef.current : barraDesktopRef.current;
+    if (!alvo) return undefined;
+
+    function atualizarAltura() {
+      const altura = Math.round(alvo.getBoundingClientRect().height);
+      if (altura > 0) {
+        document.documentElement.style.setProperty('--altura-navbar', `${altura}px`);
+      }
+    }
+
+    atualizarAltura();
+    if (typeof ResizeObserver === 'undefined') return undefined;
+    const observador = new ResizeObserver(atualizarAltura);
+    observador.observe(alvo);
+    return () => observador.disconnect();
+  }, [ehCelular]);
+
   const categoriaSelecionada =
     CATEGORIAS.find((cat) => cat.id === categoriaAtiva) || CATEGORIAS[0];
 
   // Envia a busca para a página /busca com os parâmetros de texto e escopo Outlet.
-  function enviarBusca(evento) {
+  function enviarBusca(evento, forcarOutlet = false) {
     evento?.preventDefault();
     setSugestoesAbertas(false);
     const parametros = new URLSearchParams();
     if (termoBusca.trim()) parametros.set('q', termoBusca.trim());
-    if (soOutlet) parametros.set('outlet', '1');
+    if (soOutlet || forcarOutlet) parametros.set('outlet', '1');
     const query = parametros.toString();
     navegar(query ? `/busca?${query}` : '/busca');
   }
@@ -196,7 +217,7 @@ export function Navbar({
           className={`${estilos.sugestaoItem} ${estilos.sugestaoLinkOutlet}`}
           onClick={() => {
             setSoOutlet(true);
-            enviarBusca();
+            enviarBusca(null, true);
           }}
         >
           <Icone nome="sell" tamanho={20} />
@@ -211,7 +232,7 @@ export function Navbar({
     <>
       {/* Navbar do computador */}
       <header className={`${estilos.navDesktop} ${rolou ? estilos.rolou : ''}`}>
-        <div className={estilos.navPrincipal}>
+        <div ref={barraDesktopRef} className={estilos.navPrincipal}>
           <div className={estilos.container}>
             <div className={estilos.linhaTopo}>
                 <Link to="/" className={estilos.logoLink} aria-label="Altterra, página inicial">
@@ -424,7 +445,7 @@ export function Navbar({
                       onClick={() => setCarrinhoAberto(false)}
                     />
                   </div>
-                  <MiniCarrinho />
+                  <MiniCarrinho aoSelecionar={() => setCarrinhoAberto(false)} />
                   {itensCarrinho === 0 && <p className={estilos.painelTexto}>Seu carrinho está vazio.</p>}
                   <Botao
                     variante="principal"
@@ -496,7 +517,7 @@ export function Navbar({
       </header>
 
       {/* Navbar do celular (topo + barra inferior + carrinho flutuante) */}
-      <header className={`${estilos.navCelular} ${rolou ? estilos.rolou : ''}`}>
+      <header ref={barraCelularRef} className={`${estilos.navCelular} ${rolou ? estilos.rolou : ''}`}>
         <div className={estilos.faixaCelular}>
           <button
             type="button"
@@ -641,17 +662,15 @@ export function Navbar({
           <Icone nome="chevron_right" tamanho={20} className={estilos.empurraDireita} />
         </Link>
 
-        {(!usuario || usuario.perfil === 'fornecedor') && (
-          <Link
-            to="/safra-que-alimenta"
-            className={estilos.menuOpcao}
-            onClick={() => setMaisAberto(false)}
-          >
-            <Icone nome="volunteer_activism" tamanho={20} />
-            <span>Safra que Alimenta</span>
-            <Icone nome="chevron_right" tamanho={20} className={estilos.empurraDireita} />
-          </Link>
-        )}
+        <Link
+          to="/safra-que-alimenta"
+          className={estilos.menuOpcao}
+          onClick={() => setMaisAberto(false)}
+        >
+          <Icone nome="volunteer_activism" tamanho={20} />
+          <span>Safra que Alimenta</span>
+          <Icone nome="chevron_right" tamanho={20} className={estilos.empurraDireita} />
+        </Link>
 
         {usuario?.perfil === 'fornecedor' && (
           <>

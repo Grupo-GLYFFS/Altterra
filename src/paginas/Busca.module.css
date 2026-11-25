@@ -6,8 +6,8 @@
 
 .faixaFiltros {
   position: sticky;
-  top: rem(80px);
-  z-index: 30;
+  top: calc(var(--altura-navbar) + var(--espaco-2));
+  z-index: 40;
   background-color: var(--cor-card);
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-lg);

@@ -150,7 +150,7 @@
   .colunaPrevia {
     display: block;
     position: sticky;
-    top: var(--espaco-6);
+    top: calc(var(--altura-navbar) + var(--espaco-4));
   }
 }
 

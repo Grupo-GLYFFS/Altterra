@@ -39,9 +39,21 @@
   font-size: var(--texto-sm);
   line-height: var(--entrelinha-sm);
   font-weight: 600;
+  color: var(--cor-texto);
+  text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.nome:hover {
+  text-decoration: underline;
+}
+
+.nome:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+  border-radius: var(--raio-sm);
 }
 
 .detalhe {

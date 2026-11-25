@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSessao } from '../../contexto/useSessao.js';
 import { Icone } from '../Icone.jsx';
 import { LogoAltterra } from '../LogoAltterra.jsx';
 import estilos from './Rodape.module.css';
@@ -9,6 +10,7 @@ import estilos from './Rodape.module.css';
 export function Rodape() {
   const [termo, setTermo] = useState('');
   const navegar = useNavigate();
+  const { usuario } = useSessao();
 
   // Redireciona para a tela de busca com o termo digitado no pré-rodapé.
   function buscar(evento) {
@@ -51,13 +53,20 @@ export function Rodape() {
                   <Link to="/">Início</Link>
                 </li>
                 <li>
-                  <Link to="/entrar">Entrar</Link>
+                  {usuario ? (
+                    <Link to="/perfil">Minha conta</Link>
+                  ) : (
+                    <Link to="/entrar">Entrar</Link>
+                  )}
                 </li>
                 <li>
                   <Link to="/como-funciona">Como funciona</Link>
                 </li>
                 <li>
                   <Link to="/anunciar">Anunciar produto</Link>
+                </li>
+                <li>
+                  <Link to="/safra-que-alimenta">Safra que Alimenta</Link>
                 </li>
               </ul>
             </nav>
@@ -122,7 +131,7 @@ export function Rodape() {
             </button>
 
             <Link to="/" className={estilos.logoRodape} aria-label="Altterra, página inicial">
-              <LogoAltterra variante="claro" tamanho="lg" />
+              <LogoAltterra variante="claro" tamanho="lg" className={estilos.logoImagem} />
             </Link>
           </div>
         </div>
