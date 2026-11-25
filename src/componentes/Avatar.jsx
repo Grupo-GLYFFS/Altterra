@@ -25,14 +25,14 @@ export function Avatar({
   carregando = false,
   className = '',
 }) {
-  const [falhou, setFalhou] = useState(false);
+  const [srcFalhou, setSrcFalhou] = useState('');
   const classeTamanho = CLASSES_TAMANHO[tamanho] || estilos.s44;
 
   if (carregando) {
     return <span className={`${estilos.avatar} ${classeTamanho} ${estilos.esqueleto} ${className}`} aria-hidden="true" />;
   }
 
-  const mostrarImagem = Boolean(src) && !falhou;
+  const mostrarImagem = Boolean(src) && srcFalhou !== src;
 
   return (
     <span className={`${estilos.avatar} ${classeTamanho} ${className}`} aria-label={nome || undefined}>
@@ -41,7 +41,7 @@ export function Avatar({
           src={src}
           alt={nome}
           className={estilos.imagem}
-          onError={() => setFalhou(true)}
+          onError={() => setSrcFalhou(src)}
         />
       ) : (
         <span aria-hidden="true">{gerarIniciais(nome)}</span>

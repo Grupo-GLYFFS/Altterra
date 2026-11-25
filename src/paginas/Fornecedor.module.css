@@ -15,7 +15,7 @@
   height: rem(180px);
   border-radius: var(--raio-lg);
   overflow: hidden;
-  background-color: var(--cor-verde-9);
+  background-color: var(--cor-verde-8);
 }
 
 @media (min-width: $mantine-breakpoint-md) {

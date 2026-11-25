@@ -5,6 +5,7 @@ import { Avatar } from './Avatar.jsx';
 import { NotaCompacta } from './Avaliacao.jsx';
 import { Botao } from './Botao.jsx';
 import { Icone } from './Icone.jsx';
+import { ImagemSegura } from './ImagemSegura.jsx';
 import { SeletorQuantidade } from './SeletorQuantidade.jsx';
 import { Selo } from './Selo.jsx';
 import estilos from './CardProdutoHorizontal.module.css';
@@ -73,14 +74,18 @@ export function CardProdutoHorizontal({
   return (
     <article className={`${estilos.card} ${esgotado ? estilos.esgotado : ''} ${className}`}>
       <div className={estilos.foto}>
-        {produto.imagem ? (
-          <img src={produto.imagem} alt={produto.nome} className={estilos.imagem} decoding="async" />
-        ) : (
-          <div className={estilos.semFoto}>
-            <Icone nome="image" tamanho={24} />
-            <span>Foto em breve</span>
-          </div>
-        )}
+        <ImagemSegura
+          src={produto.imagem}
+          alt={produto.nome}
+          className={estilos.imagem}
+          decoding="async"
+          fallback={
+            <div className={estilos.semFoto}>
+              <Icone nome="image" tamanho={24} />
+              <span>Foto em breve</span>
+            </div>
+          }
+        />
       </div>
 
       <div className={estilos.meio}>

@@ -7,8 +7,10 @@ export function completarProduto(bruto, fornecedores = []) {
   const precos = faixas.map((faixa) => faixa.preco);
   const precoMin = precos.length ? Math.min(...precos) : 0;
   const precoMax = precos.length ? Math.max(...precos) : 0;
-  const fornecedorBruto =
-    bruto.fornecedor || fornecedores.find((item) => item.id === bruto.fornecedorId) || null;
+  const fornecedorAtual = fornecedores.find(
+    (item) => item.id === (bruto.fornecedorId || bruto.fornecedor?.id)
+  );
+  const fornecedorBruto = fornecedorAtual || bruto.fornecedor || null;
   const fornecedor = fornecedorBruto
     ? { ...fornecedorBruto, logo: caminhoImagem(fornecedorBruto.logo) }
     : null;

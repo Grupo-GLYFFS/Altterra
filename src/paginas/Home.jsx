@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Botao } from '../componentes/Botao.jsx';
 import { CardProduto } from '../componentes/CardProduto.jsx';
@@ -17,11 +18,20 @@ export function Home() {
   const { produtosAtivos } = useAnuncios();
   const { ehFavorito, alternar } = useFavoritos();
   const { totais } = useDoacoes();
+  const [bannerVideoFalhou, setBannerVideoFalhou] = useState(false);
+  const [bannerSafraFalhou, setBannerSafraFalhou] = useState(false);
 
-  const pertoDeVoce = ordenarProdutos(produtosAtivos, 'mais-perto', 'São Paulo - SP').slice(0, 8);
-  const ofertasOutlet = produtosAtivos.filter((p) => p.outlet);
-  const legumes = produtosAtivos.filter((p) => p.categoriaId === 'legumes');
-  const certificados = produtosAtivos.filter((p) => p.organico || p.fornecedor?.verificado);
+  const pertoDeVoce = ordenarProdutos(produtosAtivos, 'mais-perto', 'São Paulo - SP')
+    .filter((p) => p.estoque > 0)
+    .slice(0, 8);
+  const ofertasOutlet = produtosAtivos.filter((p) => p.outlet).slice(0, 8);
+  const legumes = produtosAtivos
+    .filter((p) => p.categoriaId === 'legumes' && p.estoque > 0)
+    .slice(0, 8);
+  const certificados = [...produtosAtivos]
+    .filter((p) => p.organico || p.fornecedor?.verificado)
+    .sort((a, b) => Number(Boolean(b.organico)) - Number(Boolean(a.organico)))
+    .slice(0, 8);
 
   // Monta os cards K4 ligados ao estado de favoritos.
   function renderizarCards(lista) {
@@ -40,13 +50,18 @@ export function Home() {
       <div className={estilos.pilha}>
         {/* Banner do vídeo de apresentação */}
         <section className={estilos.banner} aria-labelledby="titulo-video">
-          <img
-            src={caminhoImagem('tomate-carmem-5.webp')}
-            alt=""
-            className={estilos.bannerFoto}
-            aria-hidden="true"
-          />
-          <div className={estilos.bannerVeu} aria-hidden="true" />
+          {!bannerVideoFalhou && (
+            <>
+              <img
+                src={caminhoImagem('banner-video.webp')}
+                alt=""
+                className={estilos.bannerFoto}
+                aria-hidden="true"
+                onError={() => setBannerVideoFalhou(true)}
+              />
+              <div className={estilos.bannerVeu} aria-hidden="true" />
+            </>
+          )}
           <div className={estilos.bannerConteudo}>
             <div className={estilos.bannerTexto}>
               <h1 id="titulo-video" className={estilos.bannerTitulo}>
@@ -106,13 +121,18 @@ export function Home() {
 
         {/* Faixa escura do programa Safra que Alimenta */}
         <section className={estilos.banner} aria-labelledby="titulo-safra-home">
-          <img
-            src={caminhoImagem('tomate-carmem-2.webp')}
-            alt=""
-            className={estilos.bannerFoto}
-            aria-hidden="true"
-          />
-          <div className={estilos.bannerVeu} aria-hidden="true" />
+          {!bannerSafraFalhou && (
+            <>
+              <img
+                src={caminhoImagem('banner-safra.webp')}
+                alt=""
+                className={estilos.bannerFoto}
+                aria-hidden="true"
+                onError={() => setBannerSafraFalhou(true)}
+              />
+              <div className={estilos.bannerVeu} aria-hidden="true" />
+            </>
+          )}
           <div className={estilos.bannerConteudo}>
             <div className={estilos.bannerTexto}>
               <h2 id="titulo-safra-home" className={estilos.bannerTitulo}>

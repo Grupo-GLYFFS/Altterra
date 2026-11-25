@@ -4,6 +4,7 @@ import { Avatar, IdentidadeFornecedor } from './Avatar.jsx';
 import { NotaCompacta } from './Avaliacao.jsx';
 import { Botao } from './Botao.jsx';
 import { Icone } from './Icone.jsx';
+import { ImagemSegura } from './ImagemSegura.jsx';
 import { Selo } from './Selo.jsx';
 import estilos from './CardProduto.module.css';
 
@@ -62,14 +63,18 @@ export function CardProduto({
       )}
 
       <div className={estilos.foto}>
-        {produto.imagem ? (
-          <img src={produto.imagem} alt={produto.nome} className={estilos.imagem} decoding="async" />
-        ) : (
-          <div className={estilos.semFoto}>
-            <Icone nome="image" tamanho={32} />
-            <span>Foto em breve</span>
-          </div>
-        )}
+        <ImagemSegura
+          src={produto.imagem}
+          alt={produto.nome}
+          className={estilos.imagem}
+          decoding="async"
+          fallback={
+            <div className={estilos.semFoto}>
+              <Icone nome="image" tamanho={32} />
+              <span>Foto em breve</span>
+            </div>
+          }
+        />
 
         {(produto.outlet || produto.organico) && (
           <div className={estilos.selos}>

@@ -7,6 +7,7 @@ import { CardProduto } from '../componentes/CardProduto.jsx';
 import { Carrossel } from '../componentes/Carrossel.jsx';
 import { EstadoVazio } from '../componentes/Estados.jsx';
 import { Icone } from '../componentes/Icone.jsx';
+import { ImagemSegura } from '../componentes/ImagemSegura.jsx';
 import { IndiceProduto } from '../componentes/IndiceProduto.jsx';
 import { Pagina } from '../componentes/layout/Pagina.jsx';
 import { BlocoCompra } from '../componentes/produto/BlocoCompra.jsx';
@@ -127,14 +128,17 @@ export function Produto() {
           <div className={estilos.colunaEsquerda}>
             <section className={estilos.galeria} aria-label="Fotos do produto">
               <div className={estilos.fotoPrincipal}>
-                {fotos[fotoAtiva] ? (
-                  <img src={fotos[fotoAtiva]} alt={produto.nome} className={estilos.imagem} />
-                ) : (
-                  <div className={estilos.semFoto}>
-                    <Icone nome="image" tamanho={32} />
-                    <span>Foto em breve</span>
-                  </div>
-                )}
+                <ImagemSegura
+                  src={fotos[fotoAtiva] || ''}
+                  alt={produto.nome}
+                  className={estilos.imagem}
+                  fallback={
+                    <div className={estilos.semFoto}>
+                      <Icone nome="image" tamanho={32} />
+                      <span>Foto em breve</span>
+                    </div>
+                  }
+                />
                 <Botao
                   variante="icone"
                   tamanho="sm"
@@ -162,7 +166,16 @@ export function Produto() {
                       onClick={() => setFotoAtiva(indice)}
                       aria-label={`Ver foto ${indice + 1} de ${produto.nome}`}
                     >
-                      <img src={src} alt="" className={estilos.imagem} />
+                      <ImagemSegura
+                        src={src}
+                        alt=""
+                        className={estilos.imagem}
+                        fallback={
+                          <div className={estilos.semFoto}>
+                            <Icone nome="image" tamanho={20} />
+                          </div>
+                        }
+                      />
                     </button>
                   ))}
                 </div>
@@ -206,7 +219,7 @@ export function Produto() {
                 Onde fica e até onde entrega
               </h2>
               <div className={estilos.mapaBox}>
-                <img
+                <ImagemSegura
                   src={caminhoImagem('tomate-carmem-4.webp')}
                   alt=""
                   className={estilos.mapaFoto}

@@ -33,6 +33,7 @@ Todas as cores, espaçamentos e raios vêm de `src/tema.js` e `src/estilos/globa
 - **`CardProdutoHorizontal`** (K5): card em linha para listas, 404 e carrinho (`mostrarSeletor` habilita o `SeletorQuantidade` exclusivamente na linha do carrinho).
 - **`Selo`**: pill com ícone (`outlet`, `organico`, `novo`, `verificado`, `doador`, `sucesso`, `aviso`, `erro`, `info`, `neutro`).
 - **`Avatar`** e **`IdentidadeFornecedor`**: avatar redondo sem borda (32/44/56/96) com fallback para iniciais; `verified` preenchido após o nome.
+- **`ImagemSegura`**: `<img>` com `onError` automático que cai no `fallback` passado (ex.: "Foto em breve", ícone ou fundo do contêiner).
 - **`NotaCompacta`**, **`Estrelas`**, **`ResumoAvaliacoes`**, **`SeletorNota`**: estrelas em dourado 8 (`#876b1c`) com nota numérica sempre visível.
 - **`Contador`** e **`PontoIndicador`**: círculo 24 px (`md`) ou 28 px (`lg`) com `99+` em pill; variantes `claro` (verde 7) e `barra` (branco/verde 8).
 - **`Divisor`**, **`CabecalhoSecao`** e **`LinkTexto`**.

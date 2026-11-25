@@ -14,7 +14,7 @@
   position: relative;
   border-radius: var(--raio-lg);
   overflow: hidden;
-  background-color: var(--cor-verde-9);
+  background-color: var(--cor-verde-8);
   color: var(--cor-branco);
   min-height: rem(280px);
   display: flex;

@@ -8,6 +8,7 @@ import { EstadoVazio } from '../componentes/Estados.jsx';
 import { CardInstituicao } from '../componentes/fornecedor/CardInstituicao.jsx';
 import { ModalDoar } from '../componentes/fornecedor/ModalDoar.jsx';
 import { Icone } from '../componentes/Icone.jsx';
+import { ImagemSegura } from '../componentes/ImagemSegura.jsx';
 import { Pagina } from '../componentes/layout/Pagina.jsx';
 import { Selo } from '../componentes/Selo.jsx';
 import { Tabela } from '../componentes/Tabela.jsx';
@@ -145,7 +146,7 @@ export function SafraQueAlimenta() {
       </div>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
         <div className={estilos.bentoCard}>
-          <img
+          <ImagemSegura
             src={caminhoImagem('tomate-carmem-5.webp')}
             alt=""
             className={estilos.bentoFoto}
@@ -160,7 +161,7 @@ export function SafraQueAlimenta() {
         </div>
 
         <div className={estilos.bentoCard}>
-          <img
+          <ImagemSegura
             src={caminhoImagem('alface-crespa.webp')}
             alt=""
             className={estilos.bentoFoto}
@@ -175,7 +176,7 @@ export function SafraQueAlimenta() {
         </div>
 
         <div className={estilos.bentoCard}>
-          <img
+          <ImagemSegura
             src={caminhoImagem('tomate-carmem-4.webp')}
             alt=""
             className={estilos.bentoFoto}

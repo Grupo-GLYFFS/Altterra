@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { PEDIDOS_EXEMPLO } from '../dados/pedidosExemplo.js';
+import { PRODUTOS } from '../dados/produtos.js';
 import { somarDias } from '../logica/formatos.js';
 import { caminhoImagem } from '../logica/imagens.js';
 import { gerarNumeroPedido } from '../logica/pedidos.js';
@@ -8,15 +9,18 @@ import { usePersistente } from './usePersistente.js';
 
 const PROXIMO_STATUS = { em_separacao: 'a_caminho', a_caminho: 'entregue' };
 
-// Normaliza caminhos de imagem salvos nos itens dos pedidos no localStorage.
+// Normaliza caminhos de imagem salvos nos itens dos pedidos e sincroniza fotos do catálogo atual.
 function normalizarPedidos(lista) {
   if (!Array.isArray(lista)) return PEDIDOS_EXEMPLO;
   return lista.map((pedido) => ({
     ...pedido,
-    itens: (pedido.itens || []).map((item) => ({
-      ...item,
-      imagem: caminhoImagem(item.imagem),
-    })),
+    itens: (pedido.itens || []).map((item) => {
+      const produtoAtual = PRODUTOS.find((p) => p.id === item.produtoId);
+      return {
+        ...item,
+        imagem: produtoAtual ? produtoAtual.imagem : caminhoImagem(item.imagem),
+      };
+    }),
   }));
 }
 

@@ -1,3 +1,4 @@
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { useCarrinho } from '../../contexto/useCarrinho.js';
 import { useAnuncios } from '../../contexto/useAnuncios.js';
 import { formatarReais } from '../../logica/formatos.js';
@@ -20,11 +21,12 @@ export function MiniCarrinho() {
       <ul className={estilos.lista}>
         {linhas.slice(0, 3).map((linha) => (
           <li key={linha.produto.id} className={estilos.item}>
-            {linha.produto.imagem ? (
-              <img src={linha.produto.imagem} alt="" className={estilos.miniatura} />
-            ) : (
-              <span className={estilos.miniatura} aria-hidden="true" />
-            )}
+            <ImagemSegura
+              src={linha.produto.imagem}
+              alt=""
+              className={estilos.miniatura}
+              fallback={<span className={estilos.miniatura} aria-hidden="true" />}
+            />
             <span className={estilos.texto}>
               <span className={estilos.nome}>{linha.produto.nome}</span>
               <span className={estilos.detalhe}>

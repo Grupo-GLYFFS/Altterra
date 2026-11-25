@@ -2,6 +2,7 @@ import { Avatar } from '../Avatar.jsx';
 import { Botao } from '../Botao.jsx';
 import { Divisor } from '../Divisor.jsx';
 import { Icone } from '../Icone.jsx';
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { LinhaDoTempo } from '../LinhaDoTempo.jsx';
 import { Selo } from '../Selo.jsx';
 import { formatarData, formatarReais } from '../../logica/formatos.js';
@@ -118,11 +119,12 @@ export function DetalhePedidoRecebido({
               {pedido.itens.map((item) => (
                 <li key={item.produtoId} className={estilos.itemLinha}>
                   <div className={estilos.miniatura}>
-                    {item.imagem ? (
-                      <img src={item.imagem} alt="" className={estilos.imagem} />
-                    ) : (
-                      <Icone nome="image" tamanho={20} />
-                    )}
+                    <ImagemSegura
+                      src={item.imagem}
+                      alt=""
+                      className={estilos.imagem}
+                      fallback={<Icone nome="image" tamanho={20} />}
+                    />
                   </div>
                   <div className={estilos.itemTextos}>
                     <p className={estilos.itemNome}>{item.nome}</p>

@@ -8,6 +8,7 @@ import { EstadoVazio } from '../componentes/Estados.jsx';
 import { MenuAcoesAnuncio } from '../componentes/fornecedor/MenuAcoesAnuncio.jsx';
 import { ModalExcluirAnuncio } from '../componentes/fornecedor/ModalExcluirAnuncio.jsx';
 import { Icone } from '../componentes/Icone.jsx';
+import { ImagemSegura } from '../componentes/ImagemSegura.jsx';
 import { Pagina } from '../componentes/layout/Pagina.jsx';
 import { RotaProtegida } from '../componentes/layout/RotaProtegida.jsx';
 import { Selo } from '../componentes/Selo.jsx';
@@ -118,11 +119,12 @@ function ConteudoAnuncios() {
       render: (produto) => (
         <div className={estilos.celulaProduto}>
           <div className={estilos.miniatura}>
-            {produto.imagem ? (
-              <img src={produto.imagem} alt="" className={estilos.imagem} />
-            ) : (
-              <Icone nome="image" tamanho={20} />
-            )}
+            <ImagemSegura
+              src={produto.imagem}
+              alt=""
+              className={estilos.imagem}
+              fallback={<Icone nome="image" tamanho={20} />}
+            />
           </div>
           <div className={estilos.infoProduto}>
             <Link to={`/produto/${produto.id}`} className={estilos.nomeProduto}>
