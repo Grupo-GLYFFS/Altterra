@@ -1,38 +1,56 @@
+![Altterra](docs/capa.jpg)
+
 # Altterra
 
-Marketplace B2B de alimentos direto do produtor para mercados, restaurantes, cozinhas industriais e distribuidores. O projeto se organiza em três pilares alinhados ao ODS 2 (Fome Zero e Agricultura Sustentável):
+O Altterra é um marketplace B2B que liga quem produz alimentos a quem compra em volume: mercados, restaurantes, cozinhas industriais e distribuidores. O produtor vende sem intermediário, o comprador sabe de onde vem cada lote, e o que sobra da colheita ganha destino em vez de ir para o lixo.
 
-- **Marketplace Direto:** compra em atacado direto de produtores, cooperativas e distribuidores, com faixas de preço por volume.
-- **Outlet Sustentável:** lotes fora do padrão visual (tamanho ou cor) vendidos com desconto para evitar descarte.
-- **Safra que Alimenta:** doação de excedentes da colheita para instituições cadastradas, com acompanhamento no perfil do fornecedor.
+O projeto foi desenvolvido pelo Grupo GLYFFS ao longo do 1º ano de Engenharia de Software da FIAP e está ligado ao ODS 2 (Fome Zero e Agricultura Sustentável).
 
 ## Links
 
-- Site: https://grupo-glyffs.github.io/Altterra/
-- Vídeo de apresentação: `[LINK DO VÍDEO]`
+- **Site:** https://grupo-glyffs.github.io/Altterra/
+- **Vídeo da Fase 7:** `[LINK DO VÍDEO]`
 
-## Como rodar localmente
+## Os três pilares
 
-```bash
-npm install
-npm run dev
-```
+- **Marketplace Direto:** compra em atacado direto de produtores, cooperativas e distribuidores, com preço por faixa de volume e pedido mínimo definidos por cada fornecedor.
+- **Outlet Sustentável:** lotes fora do padrão de tamanho ou de aparência, com a mesma qualidade e preço menor. No site, o Outlet é um filtro da busca e um selo dourado nos produtos.
+- **Safra que Alimenta:** o fornecedor doa o excedente da colheita para bancos de alimentos, cozinhas comunitárias e abrigos cadastrados. As doações aparecem no perfil e na loja de quem doou.
 
-### Contas de teste
+## O que dá para fazer no site
 
-O login é local (sem backend):
+**Como comprador**
+- Buscar produtos por nome, categoria e região, ordenar os resultados e filtrar só o Outlet.
+- Ver a página do produto com as faixas de preço por volume, o frete, a localização no mapa e as avaliações.
+- Montar o carrinho, que separa os itens por fornecedor, cada um com o seu frete.
+- Finalizar o pedido numa página só: endereço (com o CEP preenchido pela API ViaCEP), entrega, pagamento por Pix ou boleto e revisão.
+- Acompanhar os pedidos, avaliar o fornecedor quando o pedido chega e guardar produtos e fornecedores nos favoritos.
 
-- **Compradora:** já vem preenchida na tela de entrar (`compras@mercadosaojorge.com.br` / `altterra123`).
-- **Fornecedor:** `contato@valeverde.coop.br` / `altterra123`.
+**Como fornecedor**
+- Cadastrar um produto em etapas, com fotos, faixas de preço, estoque e a opção de Outlet, vendo a prévia do anúncio ao vivo.
+- Editar, pausar e excluir anúncios.
+- Receber pedidos e avançar o status de cada um.
+- Doar o excedente pelo Safra que Alimenta.
 
-## Stack
+## Como abrir o app
 
-- React + Vite
-- React Router (`HashRouter`)
-- Mantine
-- React Hook Form + yup
-- ViaCEP (preenchimento automático de endereço por CEP)
-- `localStorage` (persistência local de sessão, anúncios, carrinho, favoritos, pedidos e doações)
+1. **Pelo link:** https://grupo-glyffs.github.io/Altterra/
+2. **Pelo arquivo:** na pasta do site (a pasta `dist`, que vai no zip da entrega), abra o `index.html` com dois cliques. Ele funciona direto no navegador, sem instalar nada.
+3. **Pelo código-fonte:** com o Node.js instalado, rode `npm install` e depois `npm run dev`.
+
+**Contas de teste:** o login fica salvo no próprio navegador, sem servidor.
+- **Compradora:** já vem preenchida na tela de entrar. É só clicar em Entrar (`compras@mercadosaojorge.com.br`, senha `altterra123`).
+- **Fornecedor:** `contato@valeverde.coop.br`, senha `altterra123`.
+
+## Como foi feito
+
+- **Design system próprio:** paleta em verde e dourado, tipografia Cal Sans UI, ícones Material Symbols e componentes desenhados uma vez e usados igual em todo o site (botões, campos, cards de produto, abas, selos e janelas).
+- **React + Vite**, com as rotas do **React Router** (`HashRouter`, para funcionar no GitHub Pages e abrindo o `index.html` direto).
+- **Mantine** como base dos componentes, com o tema do Altterra.
+- **React Hook Form + yup** nos formulários, com os erros mostrados no próprio campo.
+- **fetch + API ViaCEP** para preencher o endereço pelo CEP.
+- **localStorage** para guardar a conta, o carrinho, os favoritos, os pedidos, os anúncios e as doações.
+- **GitHub Actions** para publicar o site no GitHub Pages a cada atualização.
 
 ## Grupo GLYFFS
 
@@ -44,4 +62,4 @@ O login é local (sem backend):
 
 ## Uso de IA
 
-Usamos IA (Claude, Gemini e ElevenLabs) como apoio no design, no código e na voz do vídeo.
+Usamos IA como apoio: Claude e Gemini no design e no código, ChatGPT nas imagens e ElevenLabs na voz do vídeo.
