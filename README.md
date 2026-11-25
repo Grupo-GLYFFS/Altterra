@@ -9,7 +9,7 @@ O projeto foi desenvolvido pelo Grupo GLYFFS ao longo do 1º ano de Engenharia d
 ## Links
 
 - **Site:** https://grupo-glyffs.github.io/Altterra/
-- **Vídeo da Fase 7:** `[LINK DO VÍDEO]`
+- **Vídeo da Fase 7:** https://vimeo.com/1249883412
 
 ## Os três pilares
 
