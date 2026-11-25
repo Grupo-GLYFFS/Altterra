@@ -1,13 +1,7 @@
 .pagina {
   display: flex;
   flex-direction: column;
-  gap: rem(80px);
-}
-
-@media (min-width: $mantine-breakpoint-md) {
-  .pagina {
-    gap: rem(140px);
-  }
+  gap: var(--espaco-secao);
 }
 
 .secao {
@@ -20,7 +14,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--espaco-8);
+  gap: var(--espaco-6);
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .secao,
+  .secaoCentral {
+    gap: var(--espaco-8);
+  }
 }
 
 .topoSecao {

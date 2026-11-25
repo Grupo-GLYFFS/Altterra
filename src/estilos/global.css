@@ -96,6 +96,7 @@
   --espaco-8: 2rem;
   --espaco-12: 3rem;
   --espaco-16: 4rem;
+  --espaco-secao: 3.5rem;
 
   /* Raios (somente 3: 8, 16 e pill) */
   --raio-sm: 0.5rem;
@@ -141,6 +142,7 @@
 @media (min-width: 64em) {
   :root {
     --altura-navbar: 12.5rem;
+    --espaco-secao: 6rem;
   }
 }
 

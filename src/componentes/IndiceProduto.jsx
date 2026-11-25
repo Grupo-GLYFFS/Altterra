@@ -1,8 +1,8 @@
 import { Botao } from './Botao.jsx';
 import estilos from './IndiceProduto.module.css';
 
-// Índice fixo da página do produto (T4): barra pill sem sombra no computador com abas tonais,
-// preço e botão compacto "Adicionar ao carrinho". No celular, as abas rolam horizontalmente.
+// Índice fixo da página do produto (T4): no computador mostra só as abas na coluna esquerda
+// (o bloco de compra fica preso à direita); no celular inclui preço e botão compacto.
 export function IndiceProduto({
   secoes = [],
   ativa,
