@@ -4,6 +4,7 @@ import { formatarReais, lerNumero } from '../../logica/formatos.js';
 import { rotuloFaixa } from '../../logica/preco.js';
 import { Botao } from '../Botao.jsx';
 import { Divisor } from '../Divisor.jsx';
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { Selo } from '../Selo.jsx';
 import estilos from './EtapaRevisao.module.css';
 
@@ -158,11 +159,17 @@ export function EtapaRevisao({
           <div className={estilos.blocoFotos}>
             <div className={estilos.miniaturas}>
               {dados.fotos.map((src, indice) => (
-                <img
+                <ImagemSegura
                   key={`${indice}-${src.slice(0, 20)}`}
                   src={src}
                   alt={indice === 0 ? 'Capa do anúncio' : `Foto ${indice + 1}`}
                   className={`${estilos.miniatura} ${indice === 0 ? estilos.miniaturaCapa : ''}`}
+                  fallback={
+                    <span
+                      className={`${estilos.miniatura} ${indice === 0 ? estilos.miniaturaCapa : ''}`}
+                      aria-hidden="true"
+                    />
+                  }
                 />
               ))}
             </div>

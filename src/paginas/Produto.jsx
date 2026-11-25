@@ -7,6 +7,7 @@ import { CardProduto } from '../componentes/CardProduto.jsx';
 import { Carrossel } from '../componentes/Carrossel.jsx';
 import { EstadoVazio } from '../componentes/Estados.jsx';
 import { Icone } from '../componentes/Icone.jsx';
+import { ImagemSegura } from '../componentes/ImagemSegura.jsx';
 import { IndiceProduto } from '../componentes/IndiceProduto.jsx';
 import { Pagina } from '../componentes/layout/Pagina.jsx';
 import { BlocoCompra } from '../componentes/produto/BlocoCompra.jsx';
@@ -16,8 +17,8 @@ import { useAnuncios } from '../contexto/useAnuncios.js';
 import { useCarrinho } from '../contexto/useCarrinho.js';
 import { useDoacoes } from '../contexto/useDoacoes.js';
 import { useFavoritos } from '../contexto/useFavoritos.js';
-import { formatarReais } from '../logica/formatos.js';
-import { caminhoImagem } from '../logica/imagens.js';
+import { AVALIACOES_EXEMPLO } from '../dados/avaliacoes.js';
+import { formatarData, formatarReais } from '../logica/formatos.js';
 import { precoPorQuantidade } from '../logica/preco.js';
 import estilos from './Produto.module.css';
 
@@ -26,25 +27,6 @@ const SECOES_INDICE = [
   { id: 'localizacao', rotulo: 'Localização' },
   { id: 'avaliacoes', rotulo: 'Avaliações' },
   { id: 'fornecedor', rotulo: 'Fornecedor' },
-];
-
-const AVALIACOES_EXEMPLO = [
-  {
-    id: 'av-1',
-    autor: 'Mercearia Bom Preço',
-    meta: 'São Roque - SP · comprou 200 kg',
-    data: '18/11/2026',
-    nota: 5,
-    texto: 'Chegou firme, sem amassados na caixa. O calibre bateu com o anunciado e a nota fiscal veio junto.',
-  },
-  {
-    id: 'av-2',
-    autor: 'Restaurante Sabor da Serra',
-    meta: 'Cotia - SP · comprou 80 kg',
-    data: '12/11/2026',
-    nota: 5,
-    texto: 'Segundo pedido com o fornecedor. Maturação uniforme e entrega antes das 7h, como combinado.',
-  },
 ];
 
 // Página do produto (V01 no layout da Fase 4): 50% informações à esquerda e compra sticky à direita.
@@ -83,6 +65,9 @@ export function Produto() {
   );
   const precoAtual = precoPorQuantidade(produto, quantidadeSegura);
   const fornecedor = produto.fornecedor;
+  const cidadeMapa = fornecedor?.cidade || 'São Paulo - SP';
+  const urlMapa = `https://maps.google.com/maps?q=${encodeURIComponent(cidadeMapa)}&z=11&output=embed`;
+  const prazoDias = fornecedor?.prazoDias || 2;
   const kgDoados = fornecedor ? kgDoadosPor(fornecedor.id) || fornecedor.kgDoados || 0 : 0;
   const similares = produtosAtivos
     .filter((p) => p.id !== produto.id && p.categoriaId === produto.categoriaId)
@@ -127,14 +112,17 @@ export function Produto() {
           <div className={estilos.colunaEsquerda}>
             <section className={estilos.galeria} aria-label="Fotos do produto">
               <div className={estilos.fotoPrincipal}>
-                {fotos[fotoAtiva] ? (
-                  <img src={fotos[fotoAtiva]} alt={produto.nome} className={estilos.imagem} />
-                ) : (
-                  <div className={estilos.semFoto}>
-                    <Icone nome="image" tamanho={32} />
-                    <span>Foto em breve</span>
-                  </div>
-                )}
+                <ImagemSegura
+                  src={fotos[fotoAtiva] || ''}
+                  alt={produto.nome}
+                  className={estilos.imagem}
+                  fallback={
+                    <div className={estilos.semFoto}>
+                      <Icone nome="image" tamanho={32} />
+                      <span>Foto em breve</span>
+                    </div>
+                  }
+                />
                 <Botao
                   variante="icone"
                   tamanho="sm"
@@ -162,7 +150,16 @@ export function Produto() {
                       onClick={() => setFotoAtiva(indice)}
                       aria-label={`Ver foto ${indice + 1} de ${produto.nome}`}
                     >
-                      <img src={src} alt="" className={estilos.imagem} />
+                      <ImagemSegura
+                        src={src}
+                        alt=""
+                        className={estilos.imagem}
+                        fallback={
+                          <div className={estilos.semFoto}>
+                            <Icone nome="image" tamanho={20} />
+                          </div>
+                        }
+                      />
                     </button>
                   ))}
                 </div>
@@ -206,20 +203,21 @@ export function Produto() {
                 Onde fica e até onde entrega
               </h2>
               <div className={estilos.mapaBox}>
-                <img
-                  src={caminhoImagem('tomate-carmem-4.webp')}
-                  alt=""
-                  className={estilos.mapaFoto}
-                  aria-hidden="true"
+                <iframe
+                  src={urlMapa}
+                  title={`Mapa de ${cidadeMapa}`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className={estilos.mapaIframe}
                 />
                 <div className={estilos.mapaSelo}>
                   <Icone nome="location_on" tamanho={20} />
-                  <span>{fornecedor?.cidade || 'São Paulo - SP'}</span>
+                  <span>{cidadeMapa}</span>
                 </div>
               </div>
               <p className={estilos.texto}>
-                Entrega na região de {fornecedor?.cidade || 'São Paulo - SP'} e cidades vizinhas em
-                até {fornecedor?.prazoDias || 2} dias úteis. Retirada direta na origem sem frete.
+                Entrega na região de {cidadeMapa} e cidades vizinhas em até {prazoDias}{' '}
+                {prazoDias === 1 ? 'dia útil' : 'dias úteis'}. Retirada direta na origem sem frete.
               </p>
             </section>
 
@@ -239,15 +237,17 @@ export function Produto() {
                     {AVALIACOES_EXEMPLO.map((av) => (
                       <article key={av.id} className={estilos.itemAvaliacao}>
                         <div className={estilos.avalTopo}>
-                          <Avatar nome={av.autor} tamanho={32} />
+                          <Avatar foto={av.foto} nome={av.autor} tamanho={32} />
                           <div>
                             <p className={estilos.avalAutor}>{av.autor}</p>
-                            <p className={estilos.avalMeta}>{av.meta}</p>
+                            <p className={estilos.avalMeta}>
+                              {av.local} · comprou {av.comprou}
+                            </p>
                           </div>
-                          <span className={estilos.avalData}>{av.data}</span>
+                          <span className={estilos.avalData}>{formatarData(av.data)}</span>
                         </div>
                         <Estrelas nota={av.nota} tamanho={16} mostrarNumero={false} />
-                        <p className={estilos.texto}>{av.texto}</p>
+                        <p className={estilos.texto}>{av.comentario}</p>
                       </article>
                     ))}
                   </div>
@@ -330,7 +330,11 @@ export function Produto() {
         </div>
 
         {similares.length > 0 && (
-          <Carrossel titulo="Produtos similares" textoAcao="Ver todos" paraAcao="/busca">
+          <Carrossel
+            titulo="Produtos similares"
+            textoAcao="Ver todos"
+            paraAcao={produto.categoriaId ? `/busca?categoria=${produto.categoriaId}` : '/busca'}
+          >
             {similares.map((item) => (
               <CardProduto
                 key={item.id}

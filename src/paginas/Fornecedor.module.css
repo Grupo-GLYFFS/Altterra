@@ -15,7 +15,7 @@
   height: rem(180px);
   border-radius: var(--raio-lg);
   overflow: hidden;
-  background-color: var(--cor-verde-9);
+  background-color: var(--cor-verde-8);
 }
 
 @media (min-width: $mantine-breakpoint-md) {
@@ -153,10 +153,20 @@
 
 .dadosEmpresa {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(rem(180px), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--espaco-4);
   padding-top: var(--espaco-4);
   border-top: 1px solid var(--cor-borda);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+  .dadosEmpresa {
+    grid-template-columns: repeat(auto-fit, minmax(rem(180px), 1fr));
+  }
+}
+
+.dadosEmpresa > div {
+  min-width: 0;
 }
 
 .dadosEmpresa dt {
@@ -169,4 +179,5 @@
   font-weight: 600;
   color: var(--cor-texto);
   margin-top: rem(2px);
+  overflow-wrap: anywhere;
 }

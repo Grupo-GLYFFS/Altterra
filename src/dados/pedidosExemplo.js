@@ -1,3 +1,4 @@
+import { caminhoImagem } from '../logica/imagens.js';
 import { precoPorQuantidade, subtotalLinha } from '../logica/preco.js';
 import { PRODUTOS } from './produtos.js';
 
@@ -15,6 +16,7 @@ function pedidoExemplo({ id, data, status, comprador, produtoId, quantidade, fre
     compradorEmail: comprador.email,
     compradorNome: comprador.nome,
     compradorEmpresa: comprador.empresa,
+    compradorFoto: comprador.foto || '',
     fornecedorId: produto.fornecedor.id,
     itens: [
       {
@@ -49,6 +51,7 @@ const MARIANA = {
   email: 'compras@mercadosaojorge.com.br',
   nome: 'Mariana Albuquerque',
   empresa: 'Mercado São Jorge',
+  foto: caminhoImagem('perfil-mariana.webp'),
 };
 
 // Pedidos de exemplo: três da compradora Mariana e três recebidos pela Cooperativa Vale Verde.
@@ -71,7 +74,12 @@ export const PEDIDOS_EXEMPLO = [
     id: 'ALT-2611-0512',
     data: '2026-11-23T08:15:00',
     status: 'em_separacao',
-    comprador: { email: 'compras@saborserra.com.br', nome: 'Paulo Nogueira', empresa: 'Restaurante Sabor da Serra' },
+    comprador: {
+      email: 'compras@saborserra.com.br',
+      nome: 'Paulo Nogueira',
+      empresa: 'Restaurante Sabor da Serra',
+      foto: caminhoImagem('perfil-paulo-nogueira.webp'),
+    },
     produtoId: 'tomate-carmem',
     quantidade: 300,
     frete: 48,
@@ -80,7 +88,12 @@ export const PEDIDOS_EXEMPLO = [
     id: 'ALT-2611-0507',
     data: '2026-11-22T13:50:00',
     status: 'aguardando_pagamento',
-    comprador: { email: 'pedidos@cantinanona.com.br', nome: 'Rafael Moreira', empresa: 'Cantina da Nona Ltda' },
+    comprador: {
+      email: 'pedidos@cantinanona.com.br',
+      nome: 'Rafael Moreira',
+      empresa: 'Cantina da Nona Ltda',
+      foto: caminhoImagem('perfil-rafael-moreira.webp'),
+    },
     produtoId: 'tomate-italiano',
     quantidade: 150,
     frete: 48,
@@ -89,7 +102,12 @@ export const PEDIDOS_EXEMPLO = [
     id: 'ALT-2611-0489',
     data: '2026-11-05T09:00:00',
     status: 'entregue',
-    comprador: { email: 'compras@mercearia.com.br', nome: 'Helena Braga', empresa: 'Mercearia Bom Preço' },
+    comprador: {
+      email: 'compras@mercearia.com.br',
+      nome: 'Helena Braga',
+      empresa: 'Mercearia Bom Preço',
+      foto: caminhoImagem('perfil-helena-braga.webp'),
+    },
     produtoId: 'tomate-carmem',
     quantidade: 100,
     frete: 48,

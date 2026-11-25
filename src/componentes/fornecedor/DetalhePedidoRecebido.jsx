@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Avatar } from '../Avatar.jsx';
 import { Botao } from '../Botao.jsx';
 import { Divisor } from '../Divisor.jsx';
 import { Icone } from '../Icone.jsx';
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { LinhaDoTempo } from '../LinhaDoTempo.jsx';
 import { Selo } from '../Selo.jsx';
 import { formatarData, formatarReais } from '../../logica/formatos.js';
@@ -118,14 +120,17 @@ export function DetalhePedidoRecebido({
               {pedido.itens.map((item) => (
                 <li key={item.produtoId} className={estilos.itemLinha}>
                   <div className={estilos.miniatura}>
-                    {item.imagem ? (
-                      <img src={item.imagem} alt="" className={estilos.imagem} />
-                    ) : (
-                      <Icone nome="image" tamanho={20} />
-                    )}
+                    <ImagemSegura
+                      src={item.imagem}
+                      alt=""
+                      className={estilos.imagem}
+                      fallback={<Icone nome="image" tamanho={20} />}
+                    />
                   </div>
                   <div className={estilos.itemTextos}>
-                    <p className={estilos.itemNome}>{item.nome}</p>
+                    <Link to={`/produto/${item.produtoId}`} className={estilos.itemNome}>
+                      {item.nome}
+                    </Link>
                     <p className={estilos.meta}>
                       {item.quantidade.toLocaleString('pt-BR')} {item.unidade} ×{' '}
                       {formatarReais(item.precoUnit)}/{item.unidade}
@@ -180,7 +185,7 @@ export function DetalhePedidoRecebido({
             <div className={estilos.blocoInfo}>
               <h2 className={estilos.rotuloSecao}>Comprador</h2>
               <div className={estilos.comprador}>
-                <Avatar nome={pedido.compradorEmpresa} tamanho={44} />
+                <Avatar foto={pedido.compradorFoto} nome={pedido.compradorEmpresa} tamanho={44} />
                 <div>
                   <p className={estilos.negrito}>{pedido.compradorEmpresa}</p>
                   <p className={estilos.meta}>{pedido.compradorNome}</p>

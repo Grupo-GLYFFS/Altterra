@@ -356,8 +356,19 @@ function ConteudoFinalizacao() {
           titulo="Novo endereço"
           comFaixas
           tamanho={560}
+          rodape={
+            <div className={estilos.acoesModal}>
+              <Botao variante="secundario" tamanho="sm" onClick={() => setModalEndereco(false)}>
+                Cancelar
+              </Botao>
+              <Botao tipo="submit" form="form-endereco-finalizacao" tamanho="sm">
+                Salvar endereço
+              </Botao>
+            </div>
+          }
         >
           <form
+            id="form-endereco-finalizacao"
             onSubmit={formEndereco.handleSubmit(criarNovoEndereco)}
             className={estilos.formModal}
             noValidate
@@ -368,14 +379,6 @@ function ConteudoFinalizacao() {
               setValue={formEndereco.setValue}
               errors={formEndereco.formState.errors}
             />
-            <div className={estilos.acoesModal}>
-              <Botao variante="secundario" tamanho="sm" onClick={() => setModalEndereco(false)}>
-                Cancelar
-              </Botao>
-              <Botao tipo="submit" tamanho="sm">
-                Salvar endereço
-              </Botao>
-            </div>
           </form>
         </ModalBase>
       </div>

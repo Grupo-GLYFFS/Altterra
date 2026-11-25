@@ -82,7 +82,7 @@
 @media (min-width: $mantine-breakpoint-md) {
   .colunaResumo {
     position: sticky;
-    top: rem(96px);
+    top: calc(var(--altura-navbar) + var(--espaco-4));
   }
 }
 

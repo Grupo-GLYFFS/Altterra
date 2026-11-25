@@ -109,6 +109,17 @@
 .itemNome {
   font-weight: 600;
   color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.itemNome:hover {
+  text-decoration: underline;
+}
+
+.itemNome:focus-visible {
+  outline: 2px solid var(--cor-foco-claro);
+  outline-offset: 2px;
+  border-radius: var(--raio-sm);
 }
 
 .valor {
@@ -147,6 +158,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--espaco-2);
+  min-width: 0;
 }
 
 .rotuloSecao {
@@ -159,11 +171,17 @@
   display: flex;
   align-items: center;
   gap: var(--espaco-3);
+  min-width: 0;
+}
+
+.comprador > div {
+  min-width: 0;
 }
 
 .negrito {
   font-weight: 600;
   color: var(--cor-texto);
+  overflow-wrap: anywhere;
 }
 
 .linhaIcone {
@@ -173,6 +191,12 @@
   font-size: var(--texto-sm);
   line-height: var(--entrelinha-sm);
   color: var(--cor-texto);
+  min-width: 0;
+}
+
+.linhaIcone span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: $mantine-breakpoint-md) {

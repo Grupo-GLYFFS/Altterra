@@ -10,7 +10,7 @@ export function MenuConta({ usuario, secoes, ativa, aoSelecionar, atalhos = [], 
   return (
     <aside className={estilos.menu} aria-label="Menu da conta">
       <div className={estilos.cabecalho}>
-        <Avatar nome={usuario.nome} tamanho={56} />
+        <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={56} />
         <div className={estilos.textos}>
           <p className={estilos.nome}>{usuario.nome}</p>
           <p className={estilos.empresa}>{usuario.empresa}</p>

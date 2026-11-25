@@ -4,6 +4,7 @@ import { Botao } from '../Botao.jsx';
 import { AvaliacaoPedido } from '../comprador/AvaliacaoPedido.jsx';
 import { AcoesPedido, ResumoLateralPedido } from '../comprador/ResumoLateralPedido.jsx';
 import { Divisor } from '../Divisor.jsx';
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { LinhaDoTempo } from '../LinhaDoTempo.jsx';
 import { Selo } from '../Selo.jsx';
 import { ModalBase } from '../Sobreposicoes.jsx';
@@ -90,11 +91,12 @@ export function DetalhePedido({
             <ul className={estilos.listaItens}>
               {pedido.itens.map((item) => (
                 <li key={item.produtoId} className={estilos.itemLinha}>
-                  {item.imagem ? (
-                    <img src={item.imagem} alt="" className={estilos.miniatura} />
-                  ) : (
-                    <span className={estilos.miniatura} aria-hidden="true" />
-                  )}
+                  <ImagemSegura
+                    src={item.imagem}
+                    alt=""
+                    className={estilos.miniatura}
+                    fallback={<span className={estilos.miniatura} aria-hidden="true" />}
+                  />
                   <div className={estilos.itemTextos}>
                     <Link to={`/produto/${item.produtoId}`} className={estilos.itemNome}>
                       {item.nome}
@@ -179,11 +181,12 @@ export function DetalhePedido({
           </p>
           {primeiro && (
             <div className={estilos.resumoCancelar}>
-              {primeiro.imagem ? (
-                <img src={primeiro.imagem} alt="" className={estilos.miniatura} />
-              ) : (
-                <span className={estilos.miniatura} aria-hidden="true" />
-              )}
+              <ImagemSegura
+                src={primeiro.imagem}
+                alt=""
+                className={estilos.miniatura}
+                fallback={<span className={estilos.miniatura} aria-hidden="true" />}
+              />
               <div className={estilos.itemTextos}>
                 <strong className={estilos.itemNome}>{primeiro.nome}</strong>
                 <p className={estilos.meta}>

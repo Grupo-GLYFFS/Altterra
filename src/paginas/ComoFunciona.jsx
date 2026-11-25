@@ -9,6 +9,7 @@ import { Botao } from '../componentes/Botao.jsx';
 import { CampoArea, CampoSelect, CampoTexto } from '../componentes/Campo.jsx';
 import { Chip } from '../componentes/Chip.jsx';
 import { ControleSegmentado } from '../componentes/ControleSegmentado.jsx';
+import { ImagemSegura } from '../componentes/ImagemSegura.jsx';
 import { Pagina } from '../componentes/layout/Pagina.jsx';
 import { useDoacoes } from '../contexto/useDoacoes.js';
 import {
@@ -57,7 +58,7 @@ function PecaBento({ peca, classeArea }) {
     <article className={`${estilos.bentoCard} ${classeTipo} ${classeArea}`}>
       {peca.imagem && (
         <>
-          <img src={peca.imagem} alt="" className={estilos.bentoFoto} aria-hidden="true" />
+          <ImagemSegura src={peca.imagem} alt="" className={estilos.bentoFoto} aria-hidden="true" />
           <div className={estilos.bentoVeu} aria-hidden="true" />
         </>
       )}
@@ -168,7 +169,7 @@ export function ComoFunciona() {
 
           <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="md">
             <article className={`${estilos.bentoCard} ${estilos.comFoto} ${estilos.cardImpacto}`}>
-              <img src={caminhoImagem('tomate-carmem-5.webp')} alt="" className={estilos.bentoFoto} aria-hidden="true" />
+              <ImagemSegura src={caminhoImagem('safra-kg-doados.webp')} alt="" className={estilos.bentoFoto} aria-hidden="true" />
               <div className={estilos.bentoVeu} aria-hidden="true" />
               <div className={estilos.bentoTexto}>
                 <p className={estilos.bentoNumero}>{totais.kg.toLocaleString('pt-BR')} kg</p>
@@ -178,7 +179,7 @@ export function ComoFunciona() {
             </article>
 
             <article className={`${estilos.bentoCard} ${estilos.comFoto} ${estilos.cardImpacto}`}>
-              <img src={caminhoImagem('alface-crespa.webp')} alt="" className={estilos.bentoFoto} aria-hidden="true" />
+              <ImagemSegura src={caminhoImagem('safra-fornecedores.webp')} alt="" className={estilos.bentoFoto} aria-hidden="true" />
               <div className={estilos.bentoVeu} aria-hidden="true" />
               <div className={estilos.bentoTexto}>
                 <p className={estilos.bentoNumero}>{totais.doacoes}</p>
@@ -188,7 +189,7 @@ export function ComoFunciona() {
             </article>
 
             <article className={`${estilos.bentoCard} ${estilos.comFoto} ${estilos.cardImpacto}`}>
-              <img src={caminhoImagem('tomate-carmem-2.webp')} alt="" className={estilos.bentoFoto} aria-hidden="true" />
+              <ImagemSegura src={caminhoImagem('safra-instituicoes.webp')} alt="" className={estilos.bentoFoto} aria-hidden="true" />
               <div className={estilos.bentoVeu} aria-hidden="true" />
               <div className={estilos.bentoTexto}>
                 <p className={estilos.bentoNumero}>{totais.instituicoes}</p>

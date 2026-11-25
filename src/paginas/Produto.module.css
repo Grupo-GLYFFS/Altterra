@@ -28,6 +28,13 @@
   min-width: 0;
 }
 
+@media (min-width: $mantine-breakpoint-md) {
+  .colunaDireita {
+    position: sticky;
+    top: calc(var(--altura-navbar) + var(--espaco-4));
+  }
+}
+
 .galeria {
   display: flex;
   flex-direction: column;
@@ -89,15 +96,22 @@
 
 .indiceSticky {
   position: sticky;
-  top: rem(80px);
-  z-index: 20;
+  top: var(--altura-navbar);
+  z-index: 40;
+  background-color: var(--cor-branco);
 }
 
 .secao {
   display: flex;
   flex-direction: column;
   gap: var(--espaco-4);
-  scroll-margin-top: rem(160px);
+  scroll-margin-top: calc(var(--altura-navbar) + rem(132px));
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .secao {
+    scroll-margin-top: calc(var(--altura-navbar) + rem(76px));
+  }
 }
 
 .tituloSecao {
@@ -130,7 +144,7 @@
 
 .linhaEspec {
   display: grid;
-  grid-template-columns: rem(140px) 1fr;
+  grid-template-columns: rem(140px) minmax(0, 1fr);
   gap: var(--espaco-4);
   padding: var(--espaco-3) var(--espaco-4);
   border-bottom: 1px solid var(--cor-borda);
@@ -144,27 +158,31 @@
 .linhaEspec dt {
   color: var(--cor-texto-secundario);
   font-weight: 500;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .linhaEspec dd {
   color: var(--cor-texto);
   font-weight: 500;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .mapaBox {
   position: relative;
-  height: rem(220px);
+  height: rem(240px);
   border-radius: var(--raio-lg);
   overflow: hidden;
   border: 1px solid var(--cor-borda);
-  background-color: var(--cor-verde-9);
+  background-color: var(--cor-foto);
 }
 
-.mapaFoto {
+.mapaIframe {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0.75;
+  border: 0;
+  display: block;
 }
 
 .mapaSelo {
@@ -180,6 +198,8 @@
   display: inline-flex;
   align-items: center;
   gap: var(--espaco-2);
+  box-shadow: var(--sombra-flutuante);
+  pointer-events: none;
 }
 
 .listaAvaliacoes {
@@ -247,7 +267,7 @@
 .metricasFornecedor {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--espaco-2);
   padding: var(--espaco-3) 0;
   border-top: 1px solid var(--cor-borda);
@@ -258,4 +278,6 @@
   display: flex;
   flex-direction: column;
   gap: rem(2px);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }

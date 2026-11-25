@@ -12,6 +12,8 @@ export const CATEGORIAS = [
           'Banana',
           'Maçã',
           'Mamão',
+          'Manga',
+          'Morango',
           'Melancia',
           'Uva',
           'Limão',
@@ -49,6 +51,7 @@ export const CATEGORIAS = [
         titulo: 'Legumes',
         itens: [
           'Tomate',
+          'Cebola',
           'Abobrinha',
           'Berinjela',
           'Chuchu',
@@ -56,6 +59,7 @@ export const CATEGORIAS = [
           'Pimentão',
           'Quiabo',
           'Abóbora',
+          'Milho verde',
         ],
       },
       {
@@ -93,7 +97,7 @@ export const CATEGORIAS = [
     grupos: [
       {
         titulo: 'Grãos e cereais',
-        itens: ['Feijão', 'Arroz', 'Milho', 'Soja', 'Aveia', 'Trigo'],
+        itens: ['Feijão', 'Café', 'Arroz', 'Milho', 'Soja', 'Aveia', 'Trigo'],
       },
     ],
   },

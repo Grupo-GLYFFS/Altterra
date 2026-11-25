@@ -13,7 +13,9 @@ import estilos from './NaoEncontrada.module.css';
 // Página 404 (Feedback V05): aviso centralizado com "Voltar ao início" e "Mais procurados esta semana".
 // Mostra cards K5 em lista no computador e carrossel K4 no celular.
 export function NaoEncontrada() {
-  const ehCelular = useMediaQuery('(max-width: 47.99em)');
+  const ehCelular = useMediaQuery('(max-width: 63.99em)', false, {
+    getInitialValueInEffect: false,
+  });
   const { produtosAtivos } = useAnuncios();
   const { ehFavorito, alternar } = useFavoritos();
 

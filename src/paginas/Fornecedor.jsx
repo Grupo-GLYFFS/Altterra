@@ -9,6 +9,7 @@ import { CardProduto } from '../componentes/CardProduto.jsx';
 import { Chip } from '../componentes/Chip.jsx';
 import { EstadoVazio } from '../componentes/Estados.jsx';
 import { Icone } from '../componentes/Icone.jsx';
+import { ImagemSegura } from '../componentes/ImagemSegura.jsx';
 import { Pagina } from '../componentes/layout/Pagina.jsx';
 import { Selo } from '../componentes/Selo.jsx';
 import { MenuOrdenar } from '../componentes/Sobreposicoes.jsx';
@@ -70,7 +71,7 @@ export function Fornecedor() {
         {/* Cabeçalho com capa e identidade centralizada */}
         <section className={estilos.cabecalho} aria-label="Dados do fornecedor">
           <div className={estilos.capa}>
-            <img
+            <ImagemSegura
               src={caminhoImagem('tomate-carmem-4.webp')}
               alt=""
               className={estilos.capaFoto}
@@ -268,7 +269,10 @@ export function Fornecedor() {
               </div>
               <div>
                 <dt>Prazo médio</dt>
-                <dd>{fornecedor.prazoDias || 2} dias úteis</dd>
+                <dd>
+                  {fornecedor.prazoDias || 2}{' '}
+                  {(fornecedor.prazoDias || 2) === 1 ? 'dia útil' : 'dias úteis'}
+                </dd>
               </div>
               <div>
                 <dt>Pagamento</dt>

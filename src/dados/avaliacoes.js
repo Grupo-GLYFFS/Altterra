@@ -1,8 +1,11 @@
+import { caminhoImagem } from '../logica/imagens.js';
+
 // Avaliações de exemplo exibidas na página do produto.
 export const AVALIACOES_EXEMPLO = [
   {
     id: 'av-1',
     autor: 'Mercearia Bom Preço',
+    foto: caminhoImagem('perfil-helena-braga.webp'),
     local: 'São Roque - SP',
     nota: 5,
     data: '2026-11-19T12:00:00',
@@ -13,6 +16,7 @@ export const AVALIACOES_EXEMPLO = [
   {
     id: 'av-2',
     autor: 'Restaurante Sabor da Serra',
+    foto: caminhoImagem('perfil-paulo-nogueira.webp'),
     local: 'Cotia - SP',
     nota: 5,
     data: '2026-11-12T12:00:00',
@@ -23,6 +27,7 @@ export const AVALIACOES_EXEMPLO = [
   {
     id: 'av-3',
     autor: 'Hortifruti Avenida',
+    foto: caminhoImagem('perfil-hortifruti-avenida.webp'),
     local: 'Sorocaba - SP',
     nota: 4,
     data: '2026-11-04T12:00:00',

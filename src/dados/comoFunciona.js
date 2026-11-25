@@ -12,19 +12,19 @@ export const BENTO_POR_PUBLICO = {
   compradores: {
     altoEsquerda: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-4.webp'),
+      imagem: caminhoImagem('cf-comprador-direto.webp'),
       titulo: 'Compre direto de quem planta',
       texto: 'Preço por kg combinado com o produtor, sem atravessador no meio.',
     },
     topoMeio: {
       tipo: 'foto',
-      imagem: caminhoImagem('alface-crespa.webp'),
+      imagem: caminhoImagem('cf-comprador-rede.webp'),
       numero: '380',
       texto: 'fornecedores em 9 estados',
     },
     topoDireita: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-5.webp'),
+      imagem: caminhoImagem('cf-comprador-origem.webp'),
       titulo: 'Origem em cada lote',
       texto: 'Fazenda, data da colheita e transporte ficam no anúncio.',
     },
@@ -35,7 +35,7 @@ export const BENTO_POR_PUBLICO = {
     },
     altoDireita: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-2.webp'),
+      imagem: caminhoImagem('cf-comprador-outlet.webp'),
       titulo: 'Outlet Sustentável',
       texto: 'Excedente e fora do padrão de tamanho, com a mesma qualidade e preço menor.',
     },
@@ -48,19 +48,19 @@ export const BENTO_POR_PUBLICO = {
   fornecedores: {
     altoEsquerda: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-2.webp'),
+      imagem: caminhoImagem('cf-fornecedor-venda.webp'),
       titulo: 'Venda sua colheita sem intermediários',
       texto: 'Defina faixas de preço por volume e receba pedidos de mercados e restaurantes.',
     },
     topoMeio: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-4.webp'),
+      imagem: caminhoImagem('cf-fornecedor-galpao.webp'),
       numero: '94%',
       texto: 'dos pedidos confirmados no mesmo dia',
     },
     topoDireita: {
       tipo: 'foto',
-      imagem: caminhoImagem('alface-crespa.webp'),
+      imagem: caminhoImagem('cf-fornecedor-excedente.webp'),
       titulo: 'Escoe excedentes no Outlet',
       texto: 'Lotes fora do calibre vendem mais rápido com selo de desconto.',
     },
@@ -71,7 +71,7 @@ export const BENTO_POR_PUBLICO = {
     },
     altoDireita: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-5.webp'),
+      imagem: caminhoImagem('cf-fornecedor-safra.webp'),
       titulo: 'Safra que Alimenta',
       texto: 'Doe o que sobrar para instituições cadastradas e mostre o selo na sua loja.',
     },
@@ -84,19 +84,19 @@ export const BENTO_POR_PUBLICO = {
   instituicoes: {
     altoEsquerda: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-5.webp'),
+      imagem: caminhoImagem('cf-instituicao-doacao.webp'),
       titulo: 'Alimento doado por quem produz',
       texto: 'Fornecedores da sua região doam frutas, verduras e legumes que não foram vendidos.',
     },
     topoMeio: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-2.webp'),
+      imagem: caminhoImagem('cf-instituicao-cozinha.webp'),
       numero: '38 t',
       texto: 'doadas desde março de 2026',
     },
     topoDireita: {
       tipo: 'foto',
-      imagem: caminhoImagem('alface-crespa.webp'),
+      imagem: caminhoImagem('cf-instituicao-retirada.webp'),
       titulo: 'Retirada combinada',
       texto: 'Dia e horário acertados com o fornecedor pela plataforma.',
     },
@@ -107,7 +107,7 @@ export const BENTO_POR_PUBLICO = {
     },
     altoDireita: {
       tipo: 'foto',
-      imagem: caminhoImagem('tomate-carmem-4.webp'),
+      imagem: caminhoImagem('cf-instituicao-alimentos.webp'),
       titulo: 'Frutas, verduras e legumes',
       texto: 'O que chega depende da safra de cada região.',
     },

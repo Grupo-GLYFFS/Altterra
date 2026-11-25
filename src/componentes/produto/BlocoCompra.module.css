@@ -5,14 +5,15 @@
   padding: var(--espaco-4);
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-6);
+  gap: var(--espaco-4);
 }
 
 @media (min-width: $mantine-breakpoint-md) {
   .card {
-    position: sticky;
-    top: rem(96px);
-    padding: var(--espaco-6);
+    padding: var(--espaco-4) var(--espaco-6);
+    gap: var(--espaco-4);
+    max-height: calc(100dvh - var(--altura-navbar) - var(--espaco-8));
+    overflow-y: auto;
   }
 }
 
@@ -55,7 +56,7 @@
 .blocoQuantidade {
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-3);
+  gap: var(--espaco-2);
 }
 
 .faixasTopo {
@@ -145,11 +146,11 @@
 }
 
 .blocoFrete {
-  padding-top: var(--espaco-4);
+  padding-top: var(--espaco-3);
   border-top: 1px solid var(--cor-borda);
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-3);
+  gap: var(--espaco-2);
 }
 
 .freteLinha {
@@ -190,5 +191,5 @@
 .acoes {
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-3);
+  gap: var(--espaco-2);
 }

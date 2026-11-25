@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Avatar } from '../componentes/Avatar.jsx';
 import { Botao } from '../componentes/Botao.jsx';
 import { ResumoVendasFornecedor } from '../componentes/comprador/ResumoVendasFornecedor.jsx';
@@ -106,6 +106,61 @@ function ConteudoPerfil() {
       : []),
   ];
 
+  // Atualiza o item ativo do menu lateral conforme a seção visível no topo da tela.
+  useEffect(() => {
+    const ids = SECOES_MENU.map((s) => s.id);
+    const elementos = ids
+      .map((id) => ({ id, el: document.getElementById(`perfil-${id}`) }))
+      .filter((item) => Boolean(item.el));
+
+    if (elementos.length === 0) return undefined;
+
+    const visiveis = new Set();
+
+    function atualizarAtiva() {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 24) {
+        setSecaoAtiva(ids[ids.length - 1]);
+        return;
+      }
+
+      const primeiraVisivel = ids.find((id) => visiveis.has(id));
+      if (primeiraVisivel) {
+        setSecaoAtiva(primeiraVisivel);
+        return;
+      }
+
+      // Fallback pela posição do topo quando nenhuma seção cruza a faixa observada.
+      const referencia = 240;
+      let candidata = ids[0];
+      for (const item of elementos) {
+        if (item.el.getBoundingClientRect().top <= referencia) {
+          candidata = item.id;
+        }
+      }
+      setSecaoAtiva(candidata);
+    }
+
+    const observador = new IntersectionObserver(
+      (entradas) => {
+        entradas.forEach((entrada) => {
+          const id = entrada.target.id.replace('perfil-', '');
+          if (entrada.isIntersecting) visiveis.add(id);
+          else visiveis.delete(id);
+        });
+        atualizarAtiva();
+      },
+      { rootMargin: '-180px 0px -55% 0px', threshold: 0 }
+    );
+
+    elementos.forEach((item) => observador.observe(item.el));
+    window.addEventListener('scroll', atualizarAtiva, { passive: true });
+
+    return () => {
+      observador.disconnect();
+      window.removeEventListener('scroll', atualizarAtiva);
+    };
+  }, []);
+
   // Rola até a seção clicada no menu da conta.
   function selecionarSecao(id) {
     setSecaoAtiva(id);
@@ -127,7 +182,7 @@ function ConteudoPerfil() {
 
         <div className={estilos.conteudo}>
           <section className={estilos.cabecalhoCard}>
-            <Avatar src={usuario.fornecedor?.logo || ''} nome={usuario.nome} tamanho={56} />
+            <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={56} />
             <div className={estilos.cabecalhoTextos}>
               <h1 className={estilos.nome}>{usuario.nome}</h1>
               <p className={estilos.meta}>{usuario.empresa}</p>

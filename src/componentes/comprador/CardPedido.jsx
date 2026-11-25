@@ -1,4 +1,5 @@
 import { Botao } from '../Botao.jsx';
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { Selo } from '../Selo.jsx';
 import { formatarData, formatarDataCurta, formatarReais } from '../../logica/formatos.js';
 import { STATUS_PEDIDO } from '../../logica/pedidos.js';
@@ -30,11 +31,12 @@ export function CardPedido({ pedido, fornecedor, aoAbrir, aoComprarDeNovo }) {
   return (
     <article className={estilos.card}>
       <div className={estilos.fotoCaixa}>
-        {primeiro?.imagem ? (
-          <img src={primeiro.imagem} alt="" className={estilos.foto} />
-        ) : (
-          <span className={estilos.foto} aria-hidden="true" />
-        )}
+        <ImagemSegura
+          src={primeiro?.imagem}
+          alt=""
+          className={estilos.foto}
+          fallback={<span className={estilos.foto} aria-hidden="true" />}
+        />
         {extras > 0 && (
           <span className={estilos.badgeExtras} aria-label={`Mais ${extras} itens`}>
             +{extras}

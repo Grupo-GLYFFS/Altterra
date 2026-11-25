@@ -5,6 +5,7 @@ import { Aviso } from '../Aviso.jsx';
 import { Botao } from '../Botao.jsx';
 import { BlocoFormulario } from '../Campo.jsx';
 import { Icone } from '../Icone.jsx';
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { Selo } from '../Selo.jsx';
 import estilos from './EtapaFotos.module.css';
 
@@ -143,10 +144,11 @@ export function EtapaFotos({ fotos = [], aoAlterarFotos }) {
               key={`${indice}-${src.slice(0, 24)}`}
               className={`${estilos.item} ${indice === 0 ? estilos.capa : ''}`}
             >
-              <img
+              <ImagemSegura
                 src={src}
                 alt={indice === 0 ? 'Foto de capa do anúncio' : `Foto ${indice + 1} do anúncio`}
                 className={estilos.imagem}
+                fallback={<Icone nome="image" tamanho={28} />}
               />
 
               {indice === 0 && (

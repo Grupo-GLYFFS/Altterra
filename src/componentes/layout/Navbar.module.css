@@ -20,8 +20,8 @@
   padding: var(--espaco-4) 0 var(--espaco-6);
 }
 
-.condensada .navPrincipal {
-  padding: rem(10px) 0;
+.rolou {
+  box-shadow: var(--sombra-flutuante-escura);
 }
 
 .container {

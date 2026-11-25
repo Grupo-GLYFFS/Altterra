@@ -1,5 +1,6 @@
 import { Botao } from './Botao.jsx';
 import { Icone } from './Icone.jsx';
+import { ImagemSegura } from './ImagemSegura.jsx';
 import estilos from './Toast.module.css';
 
 // Card de toast "Adicionado ao carrinho" (Feedback V02).
@@ -37,9 +38,7 @@ export function ToastCarrinho({
 
       {produto && (
         <div className={estilos.produto}>
-          {produto.imagem && (
-            <img src={produto.imagem} alt={produto.nome} className={estilos.miniatura} />
-          )}
+          <ImagemSegura src={produto.imagem} alt={produto.nome} className={estilos.miniatura} />
           <div className={estilos.produtoTexto}>
             <p className={estilos.nome}>{produto.nome}</p>
             {detalhe && <p className={estilos.detalhe}>{detalhe}</p>}

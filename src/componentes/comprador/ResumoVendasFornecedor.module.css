@@ -51,6 +51,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--espaco-1);
+  min-width: 0;
 }
 
 .metrica dt {
@@ -66,4 +67,5 @@
   font-weight: 700;
   color: var(--cor-texto);
   font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
 }

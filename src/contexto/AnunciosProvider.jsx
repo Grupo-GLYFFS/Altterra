@@ -1,13 +1,28 @@
 import { useCallback, useMemo } from 'react';
+import { lerArmazenamento, salvarArmazenamento } from '../armazenamento.js';
 import { FORNECEDORES } from '../dados/fornecedores.js';
 import { PRODUTOS } from '../dados/produtos.js';
 import { completarProduto } from '../logica/catalogo.js';
 import { ContextoAnuncios } from './ContextoAnuncios.js';
 import { usePersistente } from './usePersistente.js';
 
-// Normaliza caminhos de imagem vindos do localStorage para funcionar em qualquer subendereço.
+const VERSAO_CATALOGO = 2;
+const CHAVE_VERSAO = 'anuncios-versao';
+
+// Normaliza caminhos de imagem e atualiza os anúncios iniciais quando a versão do catálogo sobe.
 function normalizarListaAnuncios(lista) {
-  return Array.isArray(lista) ? lista.map((item) => completarProduto(item, FORNECEDORES)) : PRODUTOS;
+  const versaoSalva = lerArmazenamento(CHAVE_VERSAO, 0);
+  if (!Array.isArray(lista) || versaoSalva < VERSAO_CATALOGO) {
+    salvarArmazenamento(CHAVE_VERSAO, VERSAO_CATALOGO);
+    const idsSemeados = new Set(PRODUTOS.map((item) => item.id));
+    const personalizados = Array.isArray(lista)
+      ? lista
+          .filter((item) => item?.id && !idsSemeados.has(item.id))
+          .map((item) => completarProduto(item, FORNECEDORES))
+      : [];
+    return [...personalizados, ...PRODUTOS];
+  }
+  return lista.map((item) => completarProduto(item, FORNECEDORES));
 }
 
 // Guarda todos os anúncios: os de exemplo e os que os fornecedores criam, editam ou pausam.

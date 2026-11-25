@@ -1,6 +1,6 @@
 import { Collapse, Menu, Popover } from '@mantine/core';
-import { useWindowScroll } from '@mantine/hooks';
-import { useRef, useState } from 'react';
+import { useMediaQuery } from '@mantine/hooks';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAnuncios } from '../../contexto/useAnuncios.js';
 import { useCarrinho } from '../../contexto/useCarrinho.js';
@@ -32,7 +32,12 @@ export function Navbar({
   const { produtosAtivos } = useAnuncios();
   const usuario = usuarioProp === undefined ? usuarioSessao : usuarioProp;
   const itensCarrinho = itensProp ?? totalItens;
-  const [rolagem] = useWindowScroll();
+  const ehCelular = useMediaQuery('(max-width: 63.99em)', false, {
+    getInitialValueInEffect: false,
+  });
+  const [rolou, setRolou] = useState(false);
+  const barraDesktopRef = useRef(null);
+  const barraCelularRef = useRef(null);
   const campoBuscaDesktop = useRef(null);
   const campoBuscaCelular = useRef(null);
 
@@ -47,17 +52,51 @@ export function Navbar({
   const [carrinhoAberto, setCarrinhoAberto] = useState(false);
   const [maisAberto, setMaisAberto] = useState(false);
 
-  const condensada = rolagem.y > 200;
+  // Atualiza sombra da navbar com histerese na rolagem, sem alterar altura.
+  useEffect(() => {
+    function aoRolar() {
+      const y = window.scrollY;
+      setRolou((atual) => {
+        if (!atual && y > 40) return true;
+        if (atual && y < 10) return false;
+        return atual;
+      });
+    }
+
+    aoRolar();
+    window.addEventListener('scroll', aoRolar, { passive: true });
+    return () => window.removeEventListener('scroll', aoRolar);
+  }, []);
+
+  // Sincroniza --altura-navbar com a altura real da barra visível (computador ou celular).
+  useEffect(() => {
+    const alvo = ehCelular ? barraCelularRef.current : barraDesktopRef.current;
+    if (!alvo) return undefined;
+
+    function atualizarAltura() {
+      const altura = Math.round(alvo.getBoundingClientRect().height);
+      if (altura > 0) {
+        document.documentElement.style.setProperty('--altura-navbar', `${altura}px`);
+      }
+    }
+
+    atualizarAltura();
+    if (typeof ResizeObserver === 'undefined') return undefined;
+    const observador = new ResizeObserver(atualizarAltura);
+    observador.observe(alvo);
+    return () => observador.disconnect();
+  }, [ehCelular]);
+
   const categoriaSelecionada =
     CATEGORIAS.find((cat) => cat.id === categoriaAtiva) || CATEGORIAS[0];
 
   // Envia a busca para a página /busca com os parâmetros de texto e escopo Outlet.
-  function enviarBusca(evento) {
+  function enviarBusca(evento, forcarOutlet = false) {
     evento?.preventDefault();
     setSugestoesAbertas(false);
     const parametros = new URLSearchParams();
     if (termoBusca.trim()) parametros.set('q', termoBusca.trim());
-    if (soOutlet) parametros.set('outlet', '1');
+    if (soOutlet || forcarOutlet) parametros.set('outlet', '1');
     const query = parametros.toString();
     navegar(query ? `/busca?${query}` : '/busca');
   }
@@ -178,7 +217,7 @@ export function Navbar({
           className={`${estilos.sugestaoItem} ${estilos.sugestaoLinkOutlet}`}
           onClick={() => {
             setSoOutlet(true);
-            enviarBusca();
+            enviarBusca(null, true);
           }}
         >
           <Icone nome="sell" tamanho={20} />
@@ -192,11 +231,10 @@ export function Navbar({
   return (
     <>
       {/* Navbar do computador */}
-      <header className={`${estilos.navDesktop} ${condensada ? estilos.condensada : ''}`}>
-        <div className={estilos.navPrincipal}>
+      <header className={`${estilos.navDesktop} ${rolou ? estilos.rolou : ''}`}>
+        <div ref={barraDesktopRef} className={estilos.navPrincipal}>
           <div className={estilos.container}>
-            {!condensada && (
-              <div className={estilos.linhaTopo}>
+            <div className={estilos.linhaTopo}>
                 <Link to="/" className={estilos.logoLink} aria-label="Altterra, página inicial">
                   <LogoAltterra variante="claro" tamanho="md" />
                 </Link>
@@ -218,14 +256,14 @@ export function Navbar({
                     <Menu position="bottom-end" width={300} radius="lg" shadow="md">
                       <Menu.Target>
                         <button type="button" className={`${estilos.linkNav} ${estilos.contaBotao}`}>
-                          <Avatar nome={usuario.nome} tamanho={44} />
+                          <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={44} />
                           <span>Minha conta</span>
                           <Icone nome="expand_more" tamanho={20} />
                         </button>
                       </Menu.Target>
                       <Menu.Dropdown className={estilos.menuConta}>
                         <Link to="/perfil" className={estilos.perfilLink}>
-                          <Avatar nome={usuario.nome} tamanho={44} />
+                          <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={44} />
                           <span className={estilos.perfilTexto}>
                             <strong>{usuario.nome}</strong>
                             <span className={estilos.verPerfil}>
@@ -269,7 +307,6 @@ export function Navbar({
                   )}
                 </div>
               </div>
-            )}
 
             <div className={estilos.faixa}>
               <div className={estilos.grupoAninhado}>
@@ -287,7 +324,7 @@ export function Navbar({
 
               <div className={estilos.grupoAninhado}>
                 <Popover
-                  opened={regiaoAberta}
+                  opened={!ehCelular && regiaoAberta}
                   onChange={setRegiaoAberta}
                   position="bottom-start"
                   width={560}
@@ -374,7 +411,7 @@ export function Navbar({
               </div>
 
               <Popover
-                opened={carrinhoAberto}
+                opened={!ehCelular && carrinhoAberto}
                 onChange={setCarrinhoAberto}
                 position="bottom-end"
                 width={380}
@@ -408,7 +445,7 @@ export function Navbar({
                       onClick={() => setCarrinhoAberto(false)}
                     />
                   </div>
-                  <MiniCarrinho />
+                  <MiniCarrinho aoSelecionar={() => setCarrinhoAberto(false)} />
                   {itensCarrinho === 0 && <p className={estilos.painelTexto}>Seu carrinho está vazio.</p>}
                   <Botao
                     variante="principal"
@@ -425,7 +462,7 @@ export function Navbar({
           </div>
         </div>
 
-        <Collapse expanded={categoriasAbertas}>
+        <Collapse expanded={!ehCelular && categoriasAbertas}>
           <div className={estilos.painelCategorias}>
             <div className={`${estilos.container} ${estilos.categoriasGrade}`}>
               <div className={estilos.categoriasLado} role="tablist" aria-label="Categorias">
@@ -480,7 +517,7 @@ export function Navbar({
       </header>
 
       {/* Navbar do celular (topo + barra inferior + carrinho flutuante) */}
-      <header className={estilos.navCelular}>
+      <header ref={barraCelularRef} className={`${estilos.navCelular} ${rolou ? estilos.rolou : ''}`}>
         <div className={estilos.faixaCelular}>
           <button
             type="button"
@@ -563,10 +600,11 @@ export function Navbar({
       </nav>
 
       {/* Gaveta "Mais" (escura, exclusiva da navbar celular) */}
-      <Gaveta aberto={maisAberto} aoFechar={() => setMaisAberto(false)} titulo="Mais" escura>
+      {ehCelular && (
+        <Gaveta aberto={maisAberto} aoFechar={() => setMaisAberto(false)} titulo="Mais" escura>
         {usuario ? (
           <Link to="/perfil" className={estilos.perfilLink} onClick={() => setMaisAberto(false)}>
-            <Avatar nome={usuario.nome} tamanho={44} />
+            <Avatar foto={usuario.foto} nome={usuario.nome} tamanho={44} />
             <span className={estilos.perfilTexto}>
               <strong>{usuario.nome}</strong>
               <span className={estilos.verPerfil}>
@@ -624,17 +662,15 @@ export function Navbar({
           <Icone nome="chevron_right" tamanho={20} className={estilos.empurraDireita} />
         </Link>
 
-        {(!usuario || usuario.perfil === 'fornecedor') && (
-          <Link
-            to="/safra-que-alimenta"
-            className={estilos.menuOpcao}
-            onClick={() => setMaisAberto(false)}
-          >
-            <Icone nome="volunteer_activism" tamanho={20} />
-            <span>Safra que Alimenta</span>
-            <Icone nome="chevron_right" tamanho={20} className={estilos.empurraDireita} />
-          </Link>
-        )}
+        <Link
+          to="/safra-que-alimenta"
+          className={estilos.menuOpcao}
+          onClick={() => setMaisAberto(false)}
+        >
+          <Icone nome="volunteer_activism" tamanho={20} />
+          <span>Safra que Alimenta</span>
+          <Icone nome="chevron_right" tamanho={20} className={estilos.empurraDireita} />
+        </Link>
 
         {usuario?.perfil === 'fornecedor' && (
           <>
@@ -669,73 +705,76 @@ export function Navbar({
           </button>
         )}
       </Gaveta>
+      )}
 
-      {/* Gaveta de Categorias no celular */}
-      <div className={estilos.apenasCelular}>
-        <Gaveta
-          aberto={categoriasAbertas}
-          aoFechar={() => setCategoriasAbertas(false)}
-          titulo="Categorias"
-          escura
-          rodape={
-            <Link
-              to={`/busca?categoria=${categoriaSelecionada.id}`}
-              className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
-              onClick={() => setCategoriasAbertas(false)}
-            >
-              Ver todos em {categoriaSelecionada.nome.toLowerCase()}
-            </Link>
-          }
-        >
-          <div className={estilos.listaCidades}>
-            {CATEGORIAS.map((cat) => {
-              const ativa = cat.id === categoriaSelecionada.id;
-              return (
-                <button
-                  key={cat.id}
-                  type="button"
-                  className={`${estilos.chipCidade} ${ativa ? estilos.chipCidadeAtiva : ''}`}
-                  aria-pressed={ativa}
-                  onClick={() => setCategoriaAtiva(cat.id)}
-                >
-                  {cat.nome}
-                </button>
-              );
-            })}
-          </div>
-          <div className={estilos.subcategoriasCelular}>
-            {categoriaSelecionada.grupos[0]?.itens.map((sub) => (
+      {/* Gavetas de Categorias e Região no celular (montadas só abaixo do breakpoint md) */}
+      {ehCelular && (
+        <>
+          <Gaveta
+            aberto={categoriasAbertas}
+            aoFechar={() => setCategoriasAbertas(false)}
+            titulo="Categorias"
+            escura
+            rodape={
               <Link
-                key={sub}
-                to={`/busca?q=${encodeURIComponent(sub)}`}
-                className={estilos.subcategoriaTile}
+                to={`/busca?categoria=${categoriaSelecionada.id}`}
+                className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
                 onClick={() => setCategoriasAbertas(false)}
               >
-                {sub}
+                Ver todos em {categoriaSelecionada.nome.toLowerCase()}
               </Link>
-            ))}
-          </div>
-        </Gaveta>
+            }
+          >
+            <div className={estilos.listaCidades}>
+              {CATEGORIAS.map((cat) => {
+                const ativa = cat.id === categoriaSelecionada.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    className={`${estilos.chipCidade} ${ativa ? estilos.chipCidadeAtiva : ''}`}
+                    aria-pressed={ativa}
+                    onClick={() => setCategoriaAtiva(cat.id)}
+                  >
+                    {cat.nome}
+                  </button>
+                );
+              })}
+            </div>
+            <div className={estilos.subcategoriasCelular}>
+              {categoriaSelecionada.grupos[0]?.itens.map((sub) => (
+                <Link
+                  key={sub}
+                  to={`/busca?q=${encodeURIComponent(sub)}`}
+                  className={estilos.subcategoriaTile}
+                  onClick={() => setCategoriasAbertas(false)}
+                >
+                  {sub}
+                </Link>
+              ))}
+            </div>
+          </Gaveta>
 
-        <Gaveta
-          aberto={regiaoAberta}
-          aoFechar={() => setRegiaoAberta(false)}
-          titulo="Onde você recebe?"
-          subtitulo="Mostramos fornecedores e frete para essa região."
-          escura
-          rodape={
-            <button
-              type="button"
-              className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
-              onClick={() => setRegiaoAberta(false)}
-            >
-              Confirmar {regiao}
-            </button>
-          }
-        >
-          {conteudoRegiao}
-        </Gaveta>
-      </div>
+          <Gaveta
+            aberto={regiaoAberta}
+            aoFechar={() => setRegiaoAberta(false)}
+            titulo="Onde você recebe?"
+            subtitulo="Mostramos fornecedores e frete para essa região."
+            escura
+            rodape={
+              <button
+                type="button"
+                className={`${estilos.botaoEntrar} ${estilos.entrarFull}`}
+                onClick={() => setRegiaoAberta(false)}
+              >
+                Confirmar {regiao}
+              </button>
+            }
+          >
+            {conteudoRegiao}
+          </Gaveta>
+        </>
+      )}
     </>
   );
 }

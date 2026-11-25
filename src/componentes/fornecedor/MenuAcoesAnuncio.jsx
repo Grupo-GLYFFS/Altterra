@@ -18,7 +18,9 @@ export function MenuAcoesAnuncio({
   aoPedirExclusao,
 }) {
   const [aberto, setAberto] = useState(false);
-  const ehCelular = useMediaQuery('(max-width: 47.99em)');
+  const ehCelular = useMediaQuery('(max-width: 63.99em)', false, {
+    getInitialValueInEffect: false,
+  });
   const pausado = produto.status === 'pausado';
   const esgotado = produto.estoque <= 0;
 

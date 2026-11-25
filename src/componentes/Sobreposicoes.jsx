@@ -18,7 +18,9 @@ export function ModalBase({
   travarFechamento = false,
   children,
 }) {
-  const ehCelular = useMediaQuery('(max-width: 47.99em)');
+  const ehCelular = useMediaQuery('(max-width: 63.99em)', false, {
+    getInitialValueInEffect: false,
+  });
 
   if (ehCelular) {
     return (
@@ -47,7 +49,7 @@ export function ModalBase({
       padding={0}
       radius="lg"
       centered
-      classNames={{ content: estilos.modalConteudo }}
+      classNames={{ content: estilos.modalConteudo, body: estilos.modalBody }}
     >
       <div className={`${estilos.modalCabecalho} ${comFaixas ? estilos.comFaixaCabecalho : ''}`}>
         <div className={estilos.cabecalhoTextos}>
@@ -216,7 +218,9 @@ export function MenuOrdenar({
   className = '',
 }) {
   const [aberto, setAberto] = useState(false);
-  const ehCelular = useMediaQuery('(max-width: 47.99em)');
+  const ehCelular = useMediaQuery('(max-width: 63.99em)', false, {
+    getInitialValueInEffect: false,
+  });
   const selecionada = opcoes.find((o) => o.valor === valor) || opcoes[0];
 
   // Aplica a opção escolhida e fecha o menu ou gaveta.

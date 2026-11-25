@@ -5,6 +5,7 @@ import { Avatar } from './Avatar.jsx';
 import { NotaCompacta } from './Avaliacao.jsx';
 import { Botao } from './Botao.jsx';
 import { Icone } from './Icone.jsx';
+import { ImagemSegura } from './ImagemSegura.jsx';
 import { SeletorQuantidade } from './SeletorQuantidade.jsx';
 import { Selo } from './Selo.jsx';
 import estilos from './CardProdutoHorizontal.module.css';
@@ -73,14 +74,18 @@ export function CardProdutoHorizontal({
   return (
     <article className={`${estilos.card} ${esgotado ? estilos.esgotado : ''} ${className}`}>
       <div className={estilos.foto}>
-        {produto.imagem ? (
-          <img src={produto.imagem} alt={produto.nome} className={estilos.imagem} decoding="async" />
-        ) : (
-          <div className={estilos.semFoto}>
-            <Icone nome="image" tamanho={24} />
-            <span>Foto em breve</span>
-          </div>
-        )}
+        <ImagemSegura
+          src={produto.imagem}
+          alt={produto.nome}
+          className={estilos.imagem}
+          decoding="async"
+          fallback={
+            <div className={estilos.semFoto}>
+              <Icone nome="image" tamanho={24} />
+              <span>Foto em breve</span>
+            </div>
+          }
+        />
       </div>
 
       <div className={estilos.meio}>
@@ -99,7 +104,11 @@ export function CardProdutoHorizontal({
 
         <div className={estilos.linhaNome}>
           <h3 className={estilos.nome}>
-            <Link to={`/produto/${produto.id}`} className={estilos.linkNome}>
+            <Link
+              to={`/produto/${produto.id}`}
+              className={estilos.linkNome}
+              aria-label={`Ver ${produto.nome}`}
+            >
               {produto.nome}
             </Link>
           </h3>
@@ -162,18 +171,20 @@ export function CardProdutoHorizontal({
         </div>
 
         {mostrarSeletor && (
-          <SeletorQuantidade
-            tamanho="sm"
-            valor={quantidade ?? produto.pedidoMinimo}
-            minimo={produto.pedidoMinimo}
-            maximo={produto.estoque || produto.pedidoMinimo}
-            passo={10}
-            unidade={produto.unidade}
-            permitirRemover={Boolean(aoRemover)}
-            aoRemover={() => aoRemover?.(produto.id)}
-            aoAlterar={aoAlterarQuantidade}
-            desabilitado={esgotado}
-          />
+          <div className={estilos.controleQtd}>
+            <SeletorQuantidade
+              tamanho="sm"
+              valor={quantidade ?? produto.pedidoMinimo}
+              minimo={produto.pedidoMinimo}
+              maximo={produto.estoque || produto.pedidoMinimo}
+              passo={10}
+              unidade={produto.unidade}
+              permitirRemover={Boolean(aoRemover)}
+              aoRemover={() => aoRemover?.(produto.id)}
+              aoAlterar={aoAlterarQuantidade}
+              desabilitado={esgotado}
+            />
+          </div>
         )}
       </div>
     </article>

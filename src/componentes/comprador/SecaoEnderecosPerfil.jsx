@@ -145,17 +145,24 @@ export function SecaoEnderecosPerfil({
         titulo={editando ? 'Editar endereço' : 'Novo endereço'}
         comFaixas
         tamanho={560}
-      >
-        <form onSubmit={handleSubmit(enviar)} className={estilos.formulario} noValidate>
-          <CamposEndereco comApelido register={register} setValue={setValue} errors={errors} />
+        rodape={
           <div className={estilos.acoesLinha}>
             <Botao variante="secundario" tamanho="sm" onClick={() => setModalAberto(false)}>
               Cancelar
             </Botao>
-            <Botao tipo="submit" tamanho="sm">
+            <Botao tipo="submit" form="form-endereco-perfil" tamanho="sm">
               Salvar endereço
             </Botao>
           </div>
+        }
+      >
+        <form
+          id="form-endereco-perfil"
+          onSubmit={handleSubmit(enviar)}
+          className={estilos.formulario}
+          noValidate
+        >
+          <CamposEndereco comApelido register={register} setValue={setValue} errors={errors} />
         </form>
       </ModalBase>
     </section>

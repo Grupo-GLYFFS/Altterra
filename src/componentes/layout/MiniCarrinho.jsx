@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { ImagemSegura } from '../ImagemSegura.jsx';
 import { useCarrinho } from '../../contexto/useCarrinho.js';
 import { useAnuncios } from '../../contexto/useAnuncios.js';
 import { formatarReais } from '../../logica/formatos.js';
@@ -5,7 +7,7 @@ import { agruparPorFornecedor, calcularTotais, montarLinhas } from '../../logica
 import estilos from './MiniCarrinho.module.css';
 
 // Lista resumida dos itens do carrinho dentro do painel da navbar (computador).
-export function MiniCarrinho() {
+export function MiniCarrinho({ aoSelecionar }) {
   const { itens, modosEntrega } = useCarrinho();
   const { produtos } = useAnuncios();
 
@@ -20,13 +22,20 @@ export function MiniCarrinho() {
       <ul className={estilos.lista}>
         {linhas.slice(0, 3).map((linha) => (
           <li key={linha.produto.id} className={estilos.item}>
-            {linha.produto.imagem ? (
-              <img src={linha.produto.imagem} alt="" className={estilos.miniatura} />
-            ) : (
-              <span className={estilos.miniatura} aria-hidden="true" />
-            )}
+            <ImagemSegura
+              src={linha.produto.imagem}
+              alt=""
+              className={estilos.miniatura}
+              fallback={<span className={estilos.miniatura} aria-hidden="true" />}
+            />
             <span className={estilos.texto}>
-              <span className={estilos.nome}>{linha.produto.nome}</span>
+              <Link
+                to={`/produto/${linha.produto.id}`}
+                className={estilos.nome}
+                onClick={aoSelecionar}
+              >
+                {linha.produto.nome}
+              </Link>
               <span className={estilos.detalhe}>
                 {linha.quantidade.toLocaleString('pt-BR')} {linha.produto.unidade}
               </span>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { caminhoImagem } from '../logica/imagens.js';
 import { Icone } from './Icone.jsx';
 import estilos from './Avatar.module.css';
 
@@ -17,31 +18,33 @@ function gerarIniciais(nome = '') {
   return `${partes[0][0]}${partes[partes.length - 1][0]}`.toUpperCase();
 }
 
-// Avatar redondo sem borda (Miúdos V05). Usa iniciais neutras se não houver foto ou em erro de carga.
+// Avatar redondo sem borda (Miúdos V05). Aceita foto (via caminhoImagem) ou src, caindo nas iniciais se faltar ou falhar.
 export function Avatar({
   src = '',
+  foto = '',
   nome = '',
   tamanho = 44,
   carregando = false,
   className = '',
 }) {
-  const [falhou, setFalhou] = useState(false);
+  const [srcFalhou, setSrcFalhou] = useState('');
   const classeTamanho = CLASSES_TAMANHO[tamanho] || estilos.s44;
 
   if (carregando) {
     return <span className={`${estilos.avatar} ${classeTamanho} ${estilos.esqueleto} ${className}`} aria-hidden="true" />;
   }
 
-  const mostrarImagem = Boolean(src) && !falhou;
+  const origem = foto ? caminhoImagem(foto) : src ? caminhoImagem(src) : '';
+  const mostrarImagem = Boolean(origem) && srcFalhou !== origem;
 
   return (
     <span className={`${estilos.avatar} ${classeTamanho} ${className}`} aria-label={nome || undefined}>
       {mostrarImagem ? (
         <img
-          src={src}
+          src={origem}
           alt={nome}
           className={estilos.imagem}
-          onError={() => setFalhou(true)}
+          onError={() => setSrcFalhou(origem)}
         />
       ) : (
         <span aria-hidden="true">{gerarIniciais(nome)}</span>
